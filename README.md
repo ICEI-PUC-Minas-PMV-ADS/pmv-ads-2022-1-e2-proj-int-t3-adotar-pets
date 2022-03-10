@@ -4,10 +4,9 @@
 
 `Projeto: Desenvolvimento de uma Aplicação Interativa`
 
-`SEMESTRE`
+`02/2022`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
-
+Esse projeto tem como objetivo central a criação de um site em que seja possível divulgar e otimizar o processo de adoção de animais feito por ONGs e protetores.
 ## Integrantes
 
 * Arthur Alves Rocha de Souza
