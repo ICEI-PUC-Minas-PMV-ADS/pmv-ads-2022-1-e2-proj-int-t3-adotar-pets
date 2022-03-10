@@ -4,7 +4,7 @@
 
 `Projeto: Desenvolvimento de uma Aplicação Interativa`
 
-`01/2022`
+`Eixo 2`
 
 Esse projeto tem como objetivo central a criação de um site em que seja possível divulgar e otimizar o processo de adoção de animais feito por ONGs e protetores.
 ## Integrantes
