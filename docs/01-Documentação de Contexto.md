@@ -28,8 +28,11 @@ Como objetivos específicos, podemos ressaltar:
 Oferecer funcionalidades que permitam que as ONGs possam divulgar informações essenciais sobre os animais disponíveis para o processo de adoção.
 
  :paw_prints: Permitir que as pessoas que procuram animais para adoção possam buscar animais de acordo com seus interesses.
+ 
  :paw_prints: Fornecer às ONGs a possibilidade de analisar a pontuação de formulários respondidos para filtrar melhores adotantes para cada animal.
+ 
  :paw_prints: Fornecer aos adotantes informações fundamentais sobre o processo de adoção e cuidados com os animais.
+ 
  :paw_prints: Oferecer uma funcionalidade que permita doações diretas para as ONGs.
 
 ## Justificativa
