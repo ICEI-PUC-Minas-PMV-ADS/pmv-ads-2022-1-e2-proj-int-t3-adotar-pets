@@ -16,44 +16,26 @@ Para tanto, este projeto visa disponibilizar uma plataforma que permita a inser�
 
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
 
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
-
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+A partir desse contexto, buscamos desenvolver uma solução web que torne mais eficiente, ágil e seguro o processo de adoção de animais realizado por ONGs e protetores.
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
+O objetivo geral deste projeto é a criação de um site em que seja possível divulgar e otimizar o processo de adoção de animais feito por ONGs e protetores.
 
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+Como objetivos específicos, podemos ressaltar:
+
+Oferecer funcionalidades que permitam que as ONGs possam divulgar informações essenciais sobre os animais disponíveis para o processo de adoção.
+
+ :paw_prints: Permitir que as pessoas que procuram animais para adoção possam buscar animais de acordo com seus interesses.
+ :paw_prints: Fornecer às ONGs a possibilidade de analisar a pontuação de formulários respondidos para filtrar melhores adotantes para cada animal.
+ :paw_prints: Fornecer aos adotantes informações fundamentais sobre o processo de adoção e cuidados com os animais.
+ :paw_prints: Oferecer uma funcionalidade que permita doações diretas para as ONGs.
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
-
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+Segundo o diretor da ONG Cão Sem Dono, Vicente Define Neto, as ONGs têm enfrentado dificuldades financeiras devido ao aumento dos números de animais resgatados ou abandonados em suas portas e à redução das doações, tanto em dinheiro como em produtos. Outro problema sofrido pelas ONGs foi a suspensão das feiras de adoção, que reduziu a capacidade de divulgação, ficando limitados às redes sociais. Outras complicações são os donos que querem encontrar novos lares para os seus animais, mas que têm vergonha de divulgar nas próprias redes e as pessoas que adotam por impulso, sem considerar todas as responsabilidades envolvidas na adoção. Assim, fica a cargo das organizações não governamentais e protetores (pessoas físicas que fazem o resgate) a função de divulgar e gerenciar todo processo de adoção desses animais.
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
-hierárquicas, etc.
-
-Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
-
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+Estabeleceu-se como público alvo, tanto as ONGs e protetores que realizam o processo de adoção de animais, quanto as pessoas adotantes que buscam adotar animais de forma prática e segura.
