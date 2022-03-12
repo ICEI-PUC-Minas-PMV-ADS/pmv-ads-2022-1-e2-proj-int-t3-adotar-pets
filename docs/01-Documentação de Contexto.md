@@ -8,7 +8,7 @@ As principais causas para o abandono, apontadas pelas organizações não govern
 
 Em 2020, entrou em vigor a Lei Federal nº 14.064/20, que aumentou a pena de detenção de até um ano para até cinco anos, para quem cometer este crime. Além da questão legal, o abandono de animais gera um problema de saúde pública. Segundo a médica veterinária Kellen Oliveira, presidente da Comissão Nacional de Bem Estar Animal do CFMV e professora da Universidade Federal de Goiás: 
  
->O abandono acarreta em prejuízos para a saúde pública, já que pode ocorrer um aumento nos casos de zoonoses, como a raiva, a leishmaniose, esporotricose, verminoses, entre outras. (...) Ainda pode aumentar a população de rua, já que muitos não são castrados e se reproduzem livremente. Além, é claro, de acidentes automobilísticos, brigas entre os animais e mordidas em humanos. (OLIVEIRA,2020)
+>"O abandono acarreta em prejuízos para a saúde pública, já que pode ocorrer um aumento nos casos de zoonoses, como a raiva, a leishmaniose, esporotricose, verminoses, entre outras. (...) Ainda pode aumentar a população de rua, já que muitos não são castrados e se reproduzem livremente. Além, é claro, de acidentes automobilísticos, brigas entre os animais e mordidas em humanos." (OLIVEIRA,2020)
 
 Com o aumento dos animais abandonados e, consequentemente, resgatados, as ONGs têm vivido problemas econômicos e, com isso, dificuldades em divulgar e garantir a melhor adoção possível para os animais. Dessa forma, torna-se fundamental que este processo receba novas maneiras de promoção e gestão, com eficiência e maior taxa de êxito, a fim de dar uma vida mais digna a esses animais.
 
