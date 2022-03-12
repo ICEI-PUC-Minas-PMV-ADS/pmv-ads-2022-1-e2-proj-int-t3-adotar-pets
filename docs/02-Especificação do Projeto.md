@@ -46,10 +46,24 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos Funcionais
 
-|ID    | Descrição do Requisito  | Prioridade |
-|------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|ID     | Descrição do Requisito  |Prioridade |
+|-------|-------------------------|----|
+|RF-001| O site deverá possuir uma landing page, com campos de busca, log in, cadastro de novos usuários, cartões informativos e outras ferramentas básicas para a sua navegação na  plataforma | ALTA | 
+|RF-002| O botão de cadastro deverá redirecionar o usuário a uma nova página a qual será permitido o cadastro de novos usuários na plataforma   | MÉDIA |
+|RF-003| O site deverá apresentar uma forma dos usuários redefinir sua senha em caso de esquecimento pelo usuário | ALTA |
+|RF-004| O site deverá apresentar no menu principal um link para uma página secundária com informações sobre o serviço prestado pelo site | ALTA |
+|RF-005| O site deverá apresentar no menu principal um link para os perfis dos pets cadastrados pelas ONG´s para adoção | ALTA |
+|RF-006| O site deverá permitir, por parte das ONG 's, o cadastro de animais para adoção, tendo esse novo animal uma página de perfil gerada para a visualização dos usuários da plataforma | ALTA |
+|RF-007| O site deverá apresentar no menu principal um link para uma página secundária com as informações dos animais que já foram adotados (descrição e foto) | ALTA |
+|RF-008| A página de perfil do animal a ser adotado deverá possuir um botão que redireciona o usuário a uma nova página com um formulário de solicitação de adoção | ALTA |
+|RF-009| O formulário deverá ser criado com perguntas objetivas, sobre as pretensões do usuário, perfil doméstico e físico da casa, tendo essas respostas apenas abertas ao usuário e a ONG | ALTA |
+|RF-010| O site deverá apresentar no formulário de solicitação de adoção um método de envio dos dados cadastrados para a ONG que cadastrou o animal com um “score” do adotante conforme conjunto de respostas (pontuação) | ALTA |
+|RF-011| O site deverá apresentar na página dos perfis dos pets uma marcação de adotado, para que não seja permitido o envio de novas propostas de adoção | ALTA |
+|RF-012| O site deverá apresentar na página de adotados a desmarcação de adotado caso o animal adotado seja devolvido e irá retornar para a lista de animais para adoção na página de perfis de pets | ALTA |
+|RF-013| O site deverá apresentar na página dos perfis dos pets um score para cada animal cadastrado com a quantidade de interessados que preencheram o formulário para adoção | ALTA |
+|RF-014| O site deverá apresentar no corpo de sua página principal card com link para redirecionamento para a página secundária de perfis dos pets já filtrado por gatos e cachorros | ALTA |
+|RF-015| O site deverá apresentar no rodapé um link de contato para redirecionamento para página secundária com formulário para envio de e-mail | ALTA |
+|RF-016| O site deverá apresentar no rodapé um link de contato para redirecionamento para página secundária com a Política de Privacidade e Termos de Uso | ALTA |
 
 ### Requisitos não Funcionais
 
