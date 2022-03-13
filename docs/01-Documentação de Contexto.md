@@ -41,4 +41,4 @@ Segundo o diretor da ONG Cão Sem Dono, Vicente Define Neto, as ONGs têm enfren
 
 ## Público-Alvo
 
-Estabeleceu-se como público alvo, tanto as ONGs e protetores que realizam o processo de adoção de animais, quanto as pessoas adotantes que buscam adotar animais de forma prática e segura.
+Estabeleceu-se como público alvo, tanto as ONGs e protetores que realizam o processo de adoção de animais; quanto as pessoas adotantes que buscam adotar animais de forma prática e segura.
