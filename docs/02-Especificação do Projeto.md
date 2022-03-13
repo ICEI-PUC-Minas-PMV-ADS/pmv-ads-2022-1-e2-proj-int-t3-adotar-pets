@@ -8,18 +8,16 @@ A definição exata do problema e os pontos mais relevantes a serem tratados nes
 
 As personas levantadas durante o processo de entendimento do problema são apresentadas na Figuras que se seguem.
 
-![Iza Bazzoni](img/Iza.png)
+![Iza Bazzoni](img/Persona-Iza.png)
 
-![Sulamita Monteiro](img/Sulamita.png)
+![Sulamita Monteiro](img/Persona-Sulamita.png)
 
 ## Histórias de Usuários
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
 
-| EU COMO... | PRECISO...                                                                      | PARA...                                                                                                                 |
-|:----------:|:--------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------|
-|  Adotante  | Preciso de uma plataforma que auxilie na escolha de um novo animal de estimação | Para ter mais informações sobre como é adotar um novo animal, responsabilidades e ter mais condições de escolhas.       |
-|    ONG     | Preciso de uma plataforma que não exija muito conhecimento técnico              | Para gerir os animais que estão disponíveis para adoção e conseguir alcançar novos adotantes de maneira fácil e segura. |
+![Histórias de Usuários](img/Historia-de-usuario)
+
 
 ## Requisitos
 
