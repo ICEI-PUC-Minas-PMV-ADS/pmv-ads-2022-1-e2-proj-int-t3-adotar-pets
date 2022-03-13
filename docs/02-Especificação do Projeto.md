@@ -116,7 +116,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 ## Diagrama de Casos de Uso
 
 <p align = "center">
-  <img src = "pmv-ads-2022-1-e2-proj-int-t3-adotar-pets/docs/img/Diagrama Caso.jpg">
+  <img src = "pmv-ads-2022-1-e2-proj-int-t3-adotar-pets/docs/img/DCaso.jpeg">
 </p>
 
 >O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
