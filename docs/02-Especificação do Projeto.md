@@ -16,7 +16,7 @@ As personas levantadas durante o processo de entendimento do problema são apres
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
 
-![Histórias de Usuários](img/Historia-de-usuario)
+![Histórias de Usuários](img/Historia-de-usuario.png)
 
 
 ## Requisitos
