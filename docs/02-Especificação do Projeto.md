@@ -9,15 +9,17 @@ A definição exata do problema e os pontos mais relevantes a serem tratados nes
 As personas levantadas durante o processo de entendimento do problema são apresentadas na Figuras que se seguem.
 
 
-  ![Persona01](img\Persona-Iza.png)
-  ![Persona02](img\Persona-Sulamita.png)
+  ![Persona-Iza](https://user-images.githubusercontent.com/91227939/158077823-fa7e5bdf-223b-4952-b6c9-907368a2d093.png)
+  ![Persona-Sulamita](https://user-images.githubusercontent.com/91227939/158077918-1f4632bd-3616-4dd9-8a34-338852ff72b8.png)
+
   
 
 ## Histórias de Usuários
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
 
-![Historia-de-usuários](img\Historia-de-usuario.png)
+![Historia-de-usuario](https://user-images.githubusercontent.com/91227939/158077944-c13f5e33-fca5-476e-9799-3977fc80b440.png)
+
 
 <table class="tg">
 <thead>
