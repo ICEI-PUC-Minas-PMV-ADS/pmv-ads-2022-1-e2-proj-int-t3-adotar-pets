@@ -8,16 +8,16 @@ A definição exata do problema e os pontos mais relevantes a serem tratados nes
 
 As personas levantadas durante o processo de entendimento do problema são apresentadas na Figuras que se seguem.
 
-<p align = "center">
-  <img src = "pmv-ads-2022-1-e2-proj-int-t3-adotar-pets/docs/img/Iza.png">
-</p>
-<p align = "center">
-  <img src = "pmv-ads-2022-1-e2-proj-int-t3-adotar-pets/docs/img/Sulamita.png">
-</p>
+
+  ![Persona01](img\Persona-Iza.png)
+  ![Persona02](img\Persona-Sulamita.png)
+  
 
 ## Histórias de Usuários
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
+
+![Historia-de-usuários](img\Historia-de-usuario.png)
 
 <table class="tg">
 <thead>
