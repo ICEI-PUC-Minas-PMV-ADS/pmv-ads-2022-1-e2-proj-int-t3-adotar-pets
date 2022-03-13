@@ -21,30 +21,6 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 ![Historia-de-usuario](https://user-images.githubusercontent.com/91227939/158077944-c13f5e33-fca5-476e-9799-3977fc80b440.png)
 
 
-<table class="tg">
-<thead>
-  <tr>
-    <th class="tg-8ua6">EU COMO...</th>
-    <th class="tg-8ua6">PRECISO...</th>
-    <th class="tg-8ua6">PARA...</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-0lax">Adotante</td>
-    <td class="tg-0lax">Uma plataforma que auxilie a escolha de um novo animal de estimação</td>
-    <td class="tg-0lax">Ter mais informações sobre como é adotar um novo animal, responsabilidades e ter mais condições de escolhas </td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">ONG</td>
-    <td class="tg-0lax">Preciso de uma plataforma que não exija muito conhecimento técnico </td>
-    <td class="tg-0lax">Para gerir os animais que estão disponíveis para adoção e auxiliar os novos adotantes deste de maneira fácil e segura</td>
-  </tr>
-</tbody>
-</table>
-
->Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
 > **Links Úteis**:
 > - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
 > - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
