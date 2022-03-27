@@ -12,7 +12,7 @@ A metodologia contempla as definições de ferramental utilizado pela equipe tan
 | Repositório de código fonte | GitHub | https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-adotar-pets.git |
 | Documentos do projeto | | |
 | Projetos de Interface e Wireframes | Figma | |
-| Gerenciamento do Projeto | Projects GitHub | https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/6 |
+| Gerenciamento do Projeto | Projects GitHub | https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects |
 
 ## Controle de Versão
 
