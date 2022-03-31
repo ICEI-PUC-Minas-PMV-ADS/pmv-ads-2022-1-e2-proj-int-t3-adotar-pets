@@ -47,6 +47,8 @@ Discuta como a configuração do projeto foi feita na ferramenta de versionament
 
 ## Gerenciamento de Projeto
 
+### Divisão de Papéis
+
 A equipe utiliza metodologias ágeis, tendo escolhido o Scrum como base para definição do processo de desenvolvimento.
 
 A equipe está organizada da seguinte maneira:
@@ -62,10 +64,6 @@ A equipe está organizada da seguinte maneira:
 - Equipe de Design
   - Brunna Alves Lage Silva
   - Pedro Thiago Rodrigues Santos
-
-### Divisão de Papéis
-
-
 
 ### Processo
 
