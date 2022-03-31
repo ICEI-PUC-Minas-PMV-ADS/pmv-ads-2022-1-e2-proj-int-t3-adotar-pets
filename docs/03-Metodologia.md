@@ -47,14 +47,25 @@ Discuta como a configuração do projeto foi feita na ferramenta de versionament
 
 ## Gerenciamento de Projeto
 
+A equipe utiliza metodologias ágeis, tendo escolhido o Scrum como base para definição do processo de desenvolvimento.
+
+A equipe está organizada da seguinte maneira:
+- Scrum Master: Mateus Cunha Melo 
+- Product Owner: Daniele Eloi da Costa
+- Equipe de Desenvolvimento
+  - Arthur Alves Rocha de Souza
+  - Brunna Alves Lage Silva
+  - Daniele Eloi da Costa
+  - Davison Cavalcante Barros
+  - Mateus Cunha Melo
+  - Pedro Thiago Rodrigues Santos
+- Equipe de Design
+  - Brunna Alves Lage Silva
+  - Pedro Thiago Rodrigues Santos
+
 ### Divisão de Papéis
 
-Apresente a divisão de papéis entre os membros do grupo.
 
-> **Links Úteis**:
-> - [11 Passos Essenciais para Implantar Scrum no seu 
-> Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
 
 ### Processo
 
