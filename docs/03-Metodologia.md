@@ -7,12 +7,13 @@ A metodologia contempla as definições de ferramental utilizado pela equipe tan
 
 ## Relação de Ambientes de Trabalho
 
+Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a relação dos ambientes com seu respectivo propósito é apresentada na tabela que se segue.
+
 | Ambiente    | Plataforma | Link de Acesso |
 | ----------- | ---------- | -------------- |
 | Repositório de código fonte | GitHub | https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-adotar-pets.git |
-| Documentos do projeto | | |
-| Projetos de Interface e Wireframes | Figma | |
-| Gerenciamento do Projeto | Projects GitHub | https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects |
+| Projetos de Interface e Wireframes | Figma | https://www.figma.com/files/team/1075950900085778658/Grupo-4---Turma-3-PUC?fuid=946933657358064638 |
+| Gerenciamento do Projeto | Projects GitHub | https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-adotar-pets/projects |
 
 ## Controle de Versão
 
