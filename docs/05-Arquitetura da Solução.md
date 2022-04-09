@@ -49,9 +49,6 @@ IDEs de desenvolvimento:
 
 Bibliotecas:
 - MySQL
-
-APIs:
-
 ## Hospedagem
 
 A equipe, a princípio optou pela plataforma do GitHub Pages para hospedagem do Front-end e para Back-end optamos pelo Azure. 
