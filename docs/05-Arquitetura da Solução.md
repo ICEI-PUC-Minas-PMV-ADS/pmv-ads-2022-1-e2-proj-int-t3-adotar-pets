@@ -41,11 +41,14 @@ Linguagem de marcação:
 
 Frameworks:
 - Bootstrap
+- .NET
+- Entity
 
 IDEs de desenvolvimento:
 - Visual Studio Code
 
 Bibliotecas:
+- MySQL
 
 APIs:
 
