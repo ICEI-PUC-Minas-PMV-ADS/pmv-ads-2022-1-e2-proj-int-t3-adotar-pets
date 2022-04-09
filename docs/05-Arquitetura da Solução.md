@@ -37,4 +37,4 @@ Apresente também uma figura explicando como as tecnologias estão relacionadas 
 
 ## Hospedagem
 
-A equipe, a princípio optou pela plataforma do GitHub Pages para Hospedagem do Front-end e para Back-end optamos pelo Azure. 
+A equipe, a princípio optou pela plataforma do GitHub Pages para hospedagem do Front-end e para Back-end optamos pelo Azure. 
