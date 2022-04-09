@@ -63,13 +63,16 @@ A equipe está organizada da seguinte maneira:
 
 ### Processo
 
-Coloque  informações sobre detalhes da implementação do Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
- 
-> **Links Úteis**:
-> - [Project management, made simple](https://github.com/features/project-management/)
-> - [Sobre quadros de projeto](https://docs.github.com/pt/github/managing-your-work-on-github/about-project-boards)
-> - [Como criar Backlogs no Github](https://www.youtube.com/watch?v=RXEy6CFu9Hk)
-> - [Tutorial Slack](https://slack.com/intl/en-br/)
+Para organização e distribuição das tarefas do projeto, a equipe está utilizando o Projects do Github estruturado com as seguintes listas:
+
+- **Backlog Project**: recebe todas as tarefas a serem trabalhadas. Todas as atividades identificadas no decorrer do projeto também devem ser incorporadas a esta lista.
+- **Backlog Sprint**: recebe as tarefas da sprint atual.
+- **To do**: tarefas da sprint atual que não foram iniciadas.
+- **Doing**: quando uma tarefa tiver sido iniciada será movida para esta lista.
+- **To Verify**: checagem de qualidade. Tarefas concluídas que devem ser testadas e/ou verificadas.
+- **Locked**: quando há algum impedimento para a conclusão da tarefa ela é movida para esta lista juntamente com um comentário sobre o que está travando a tarefa.
+- **Done**: lista de tarefas concluídas de uma sprint.
+- **Finished Sprints**: todas as tarefas já realizadas nas sprints anterios do projeto.
 
 ### Ferramentas
 
