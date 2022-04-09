@@ -74,6 +74,10 @@ Para organização e distribuição das tarefas do projeto, a equipe está utili
 - **Done**: lista de tarefas concluídas de uma sprint.
 - **Finished Sprints**: todas as tarefas já realizadas nas sprints anterios do projeto.
 
+![image](https://user-images.githubusercontent.com/73003721/162588885-9049b566-0bac-4500-8fa2-27d92c395658.png)
+
+![image](https://user-images.githubusercontent.com/73003721/162588902-6868c3a2-73aa-4582-87ab-2b096eac7b22.png)
+
 ### Ferramentas
 
 As ferramentas empregadas no projeto são:
