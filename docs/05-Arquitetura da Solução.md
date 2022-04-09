@@ -42,7 +42,7 @@ Linguagem de marcação:
 Frameworks:
 - Bootstrap
 - .NET
-- Entity
+- Entity Framework Core
 
 IDEs de desenvolvimento:
 - Visual Studio Code
