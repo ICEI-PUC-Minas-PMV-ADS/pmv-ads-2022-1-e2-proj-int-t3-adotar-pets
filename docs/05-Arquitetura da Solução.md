@@ -35,6 +35,7 @@ Descreva aqui qual(is) tecnologias você vai usar para resolver o seu problema, 
 
 Linguagens de progamação:
 - C#
+- Javascript
 
 Linguagem de marcação:
 - HTML
