@@ -36,20 +36,16 @@ etiquetas:
 - `enhancement`: uma funcionalidade precisa ser melhorada
 - `feature`: uma nova funcionalidade precisa ser introduzida
 
-Discuta como a configuração do projeto foi feita na ferramenta de versionamento escolhida. Exponha como a gerência de tags, merges, commits e branchs é realizada. Discuta como a gerência de issues foi realizada.
+Gitflow
 
-> **Links Úteis**:
-> - [Tutorial GitHub](https://guides.github.com/activities/hello-world/)
-> - [Git e Github](https://www.youtube.com/playlist?list=PLHz_AreHm4dm7ZULPAmadvNhH6vk9oNZA)
->  - [Comparando fluxos de trabalho](https://www.atlassian.com/br/git/tutorials/comparing-workflows)
-> - [Understanding the GitHub flow](https://guides.github.com/introduction/flow/)
-> - [The gitflow workflow - in less than 5 mins](https://www.youtube.com/watch?v=1SXpE08hvGs)
+![image](https://user-images.githubusercontent.com/73003721/162587683-b88fc17e-bdf7-4c39-8862-09beeeff48db.png)
+
 
 ## Gerenciamento de Projeto
 
-### Divisão de Papéis
-
 A equipe utiliza metodologias ágeis, tendo escolhido o Scrum como base para definição do processo de desenvolvimento.
+
+### Divisão de Papéis
 
 A equipe está organizada da seguinte maneira:
 - Scrum Master: Mateus Cunha Melo 
@@ -67,13 +63,20 @@ A equipe está organizada da seguinte maneira:
 
 ### Processo
 
-Coloque  informações sobre detalhes da implementação do Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
- 
-> **Links Úteis**:
-> - [Project management, made simple](https://github.com/features/project-management/)
-> - [Sobre quadros de projeto](https://docs.github.com/pt/github/managing-your-work-on-github/about-project-boards)
-> - [Como criar Backlogs no Github](https://www.youtube.com/watch?v=RXEy6CFu9Hk)
-> - [Tutorial Slack](https://slack.com/intl/en-br/)
+Para organização e distribuição das tarefas do projeto, a equipe está utilizando o Projects do Github estruturado com as seguintes listas:
+
+- **Backlog Project**: recebe todas as tarefas a serem trabalhadas. Todas as atividades identificadas no decorrer do projeto também devem ser incorporadas a esta lista.
+- **Backlog Sprint**: recebe as tarefas da sprint atual.
+- **To do**: tarefas da sprint atual que não foram iniciadas.
+- **Doing**: quando uma tarefa tiver sido iniciada será movida para esta lista.
+- **To Verify**: checagem de qualidade. Tarefas concluídas que devem ser testadas e/ou verificadas.
+- **Locked**: quando há algum impedimento para a conclusão da tarefa ela é movida para esta lista juntamente com um comentário sobre o que está travando a tarefa.
+- **Done**: lista de tarefas concluídas de uma sprint.
+- **Finished Sprints**: todas as tarefas já realizadas nas sprints anterios do projeto.
+
+![image](https://user-images.githubusercontent.com/73003721/162588885-9049b566-0bac-4500-8fa2-27d92c395658.png)
+
+![image](https://user-images.githubusercontent.com/73003721/162588902-6868c3a2-73aa-4582-87ab-2b096eac7b22.png)
 
 ### Ferramentas
 
@@ -89,8 +92,5 @@ integração semelhante e por isso foram selecionadas. Por fim, para criar
 diagramas utilizamos essa ferramenta por melhor captar as
 necessidades da nossa solução.
 
-Liste quais ferramentas foram empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível.
- 
-> **Possíveis Ferramentas que auxiliarão no gerenciamento**: 
-> - [Slack](https://slack.com/)
-> - [Github](https://github.com/)
+- [Github](https://github.com/)
+- [Figma](https://figma.com/) - wireframing
