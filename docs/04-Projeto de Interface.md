@@ -9,7 +9,25 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 
 ## Diagrama de Fluxo
 
-![Legenda](img/Diagrama de fluxo - Legenda.PNG)
+![Legenda](img/Diagrama%20de%20fluxo%20-%20Legenda.PNG)
+
+![Fluxo de Adoção](img/Diagrama%20de%20fluxo%20-%20Fluxo%20de%20Adoção.PNG)
+
+![Perfil Pet](img/Diagrama%20de%20fluxo%20-%20Perfil%20Pet.PNG)
+
+![Edição de dados](img/Diagrama%20de%20fluxo%20-%20Edição%20de%20dados.PNG)
+
+![Fluxo Geral](img/Diagrama%20de%20fluxo%20-%20Fluxo%20Geral.PNG)
+
+![Validação de Formulários](img/Diagrama%20de%20fluxo%20-%20Validação%20de%20Formulários.PNG)
+
+![Redefinição de senha](img/Diagrama%20de%20fluxo%20-%20Redefinição%20de%20senha.PNG)
+
+![Cadastro Pet](img/Diagrama%20de%20fluxo%20-%20Cadastro%20de%20pessoas.PNG)
+
+![Gerenciar Pet](img/Diagrama%20de%20fluxo%20-%20Gerenciar%20Pet.PNG)
+
+![Fluxo de Autenticação](img/Diagrama%20de%20fluxo%20-%20Fluxo%20de%20Atenção.PNG)
 
 ## Wireframes
 
