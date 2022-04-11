@@ -9,7 +9,25 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 
 ## Diagrama de Fluxo
 
-![Legenda](img/Diagrama de fluxo - Legenda.PNG)
+![Legenda](img/Diagrama%20de%20fluxo%20-%20Legenda.PNG)
+
+![Fluxo de Adoção](img/Diagrama%20de%20fluxo%20-%20Fluxo%20de%20Adoção.PNG)
+
+![Perfil Pet](img/Diagrama%20de%20fluxo%20-%20Perfil%20Pet.PNG)
+
+![Edição de dados](img/Diagrama%20de%20fluxo%20-%20Edição%20de%20dados.PNG)
+
+![Fluxo Geral](img/Diagrama%20de%20fluxo%20-%20Fluxo%20Geral.PNG)
+
+![Validação de Formulários](img/Diagrama%20de%20fluxo%20-%20Validação%20de%20Formulários.PNG)
+
+![Redefinição de senha](img/Diagrama%20de%20fluxo%20-%20Redefinição%20de%20senha.PNG)
+
+![Cadastro Pet](img/Diagrama%20de%20fluxo%20-%20Cadastro%20de%20pessoas.PNG)
+
+![Gerenciar Pet](img/Diagrama%20de%20fluxo%20-%20Gerenciar%20Pet.PNG)
+
+![Fluxo de Autenticação](img/Diagrama%20de%20fluxo%20-%20Fluxo%20de%20Atenção.PNG)
 
 ## Wireframes
 
@@ -75,6 +93,7 @@ Na tela de formulário de adoção, estará disponível, para o adotante, pergun
 A tela de gerenciamento de pets só estará disponível para o usuário protetor (pessoa jurídica), quando estiver logado no sistema. Nessa página o protetor pode monitorar quantos e quais animais estão disponíveis para adoção no sistema e alterar suas informações e status e verificar se há formulários preenchidos por potenciais adotantes.
 
 ![RF-010-Tela-gerenciamento-pets](img/RF-009-010%20-Gerenciamento%20ong.png)
+![RF-009-010 -Gerenciamento ong](img/RF-009-010%20-Gerenciamento%20ong%20-2.png)
 
 ### RF-011- Tela de Perfil do Protetor
 
