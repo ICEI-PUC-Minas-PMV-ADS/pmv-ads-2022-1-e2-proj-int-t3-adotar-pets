@@ -9,7 +9,7 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 
 ## Diagrama de Fluxo
 
-![Legenda](img/Diagramadefluxo-Legenda.PNG)
+![Legenda](img/Diagrama de fluxo - Legenda.PNG)
 
 ## Wireframes
 
