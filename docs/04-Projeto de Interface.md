@@ -8,16 +8,17 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
  Apresente as principais interfaces da plataforma. Discuta como ela foi elaborada de forma a atender os requisitos funcionais, não funcionais e histórias de usuário abordados nas <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a>.
 
 ## Diagrama de Fluxo
+O diagrama que define o fluxo do nosso sistema é representado a seguir:
 
 ![Legenda](img/Diagrama%20de%20fluxo%20-%20Legenda.PNG)
 
 ![Fluxo de Adoção](img/Diagrama%20de%20fluxo%20-%20Fluxo%20de%20Adoção.PNG)
 
+![Fluxo de Autenticação](img/Diagrama%20de%20fluxo%20-%20Fluxo%20de%20Atenticação.PNG)
+
 ![Perfil Pet](img/Diagrama%20de%20fluxo%20-%20Perfil%20Pet.PNG)
 
 ![Edição de dados](img/Diagrama%20de%20fluxo%20-%20Edição%20de%20dados.PNG)
-
-![Fluxo Geral](img/Diagrama%20de%20fluxo%20-%20Fluxo%20Geral.PNG)
 
 ![Validação de Formulários](img/Diagrama%20de%20fluxo%20-%20Validação%20de%20Formulários.PNG)
 
@@ -27,7 +28,7 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 
 ![Gerenciar Pet](img/Diagrama%20de%20fluxo%20-%20Gerenciar%20Pet.PNG)
 
-![Fluxo de Autenticação](img/Diagrama%20de%20fluxo%20-%20Fluxo%20de%20Atenticação.PNG)
+![Fluxo Geral](img/Diagrama%20de%20fluxo%20-%20Fluxo%20Geral.PNG)
 
 ## Wireframes
 
