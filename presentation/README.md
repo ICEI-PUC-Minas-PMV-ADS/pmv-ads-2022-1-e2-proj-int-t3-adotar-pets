@@ -1,3 +1,5 @@
 # Apresentação da Solução
 
-Faça uma apresentação de um resumo de todos o processo de desenvolvimento e no final apresente a solução desenvolvida, usando um pequeno vídeo.
+## Etapa 1
+
+https://user-images.githubusercontent.com/30584910/158092919-dd665ae1-a16d-453c-b4b3-1fca3c8cd6f5.mp4

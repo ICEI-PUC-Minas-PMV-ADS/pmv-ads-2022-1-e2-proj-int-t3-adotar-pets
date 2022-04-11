@@ -37,8 +37,11 @@ Oferecer funcionalidades que permitam que as ONGs possam divulgar informações 
 
 ## Justificativa
 
-Segundo o diretor da ONG Cão Sem Dono, Vicente Define Neto, as ONGs têm enfrentado dificuldades financeiras devido ao aumento dos números de animais resgatados ou abandonados em suas portas e à redução das doações, tanto em dinheiro como em produtos. Outro problema sofrido pelas ONGs foi a suspensão das feiras de adoção, que reduziu a capacidade de divulgação, ficando limitados às redes sociais. Outras complicações são os donos que querem encontrar novos lares para os seus animais, mas que têm vergonha de divulgar nas próprias redes e as pessoas que adotam por impulso, sem considerar todas as responsabilidades envolvidas na adoção. Assim, fica a cargo das organizações não governamentais e protetores (pessoas físicas que fazem o resgate) a função de divulgar e gerenciar todo processo de adoção desses animais.
+Segundo o diretor da ONG Cão Sem Dono, Vicente Define Neto, as ONGs têm enfrentado dificuldades financeiras devido ao aumento dos números de animais resgatados ou abandonados em suas portas e à redução das doações, tanto em dinheiro como em produtos. Outro problema sofrido pelas ONGs foi a suspensão das feiras de adoção, que reduziu a sua capacidade de divulgação.
+
+Dessa forma, a criação de uma plataforma que proporcione uma infraestrutura de divulgação e gerenciamento de animais para adoção se faz necessária. Além disso, a proposta do site deve ser de apresentar processos intuitivos, tanto para quem vai cadastrar um pet, quanto para quem irá adotá-lo posteriormente, tendo em vista a inclusão digital de todas as partes envolvidas.
+
 
 ## Público-Alvo
 
-Estabeleceu-se como público alvo, tanto as ONGs e protetores que realizam o processo de adoção de animais, quanto as pessoas adotantes que buscam adotar animais de forma prática e segura.
+Estabeleceu-se como público alvo, tanto as ONGs e protetores que realizam o processo de adoção de animais; quanto as pessoas adotantes que buscam adotar animais de forma prática e segura.
