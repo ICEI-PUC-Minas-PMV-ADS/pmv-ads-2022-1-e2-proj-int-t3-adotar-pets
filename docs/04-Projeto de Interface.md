@@ -27,7 +27,7 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 
 ![Gerenciar Pet](img/Diagrama%20de%20fluxo%20-%20Gerenciar%20Pet.PNG)
 
-![Fluxo de Autenticação](img/Diagrama%20de%20fluxo%20-%20Fluxo%20de%20Atenção.PNG)
+![Fluxo de Autenticação](img/Diagrama%20de%20fluxo%20-%20Fluxo%20de%20Atenticação.PNG)
 
 ## Wireframes
 
