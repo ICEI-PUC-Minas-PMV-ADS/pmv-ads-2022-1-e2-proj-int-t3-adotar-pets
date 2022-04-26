@@ -44,4 +44,4 @@ Dessa forma, a criação de uma plataforma que proporcione uma infraestrutura de
 
 ## Público-Alvo
 
-Estabeleceu-se como público alvo, tanto as ONGs e protetores que realizam o processo de adoção de animais; quanto as pessoas adotantes que buscam adotar animais de forma prática e segura.
+Estabeleceu-se como público alvo, tanto as ONGs e protetores que realizam o processo de adoção de animais; quanto as pessoas adotantes que buscam adotar animais de forma prática e segura..
