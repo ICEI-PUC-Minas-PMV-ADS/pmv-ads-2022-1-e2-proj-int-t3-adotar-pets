@@ -1,0 +1,49 @@
+html{
+    font-family: Quicksand, sans-serif;
+    font-variant: normal, medium, bold,;
+}
+
+.fs-52{
+    font-size:52px ;
+    font-weight: 400;
+}
+.fs-40{
+    font-size:40px ;
+    font-weight: 500;
+}
+.fs-32{
+    font-size:32px ;
+    font-weight: 600;
+}
+.fs-26{
+    font-size:26px ;
+    font-weight: 600;
+}
+.fs-20-B{
+    font-size:20px ;
+    font-weight: bold;
+}
+.fs-20{
+    font-size:20px ;
+    font-weight: 400;
+}
+.fs-16{
+    font-size: 16px;
+    font-weight: 400;
+}
+.fs-16-b{
+    font-size: 16px;
+    font-weight: bold;
+}
+.fs-14{
+    font-size: 14px;
+    font-weight: 400;
+}
+.fs-14-b{
+    font-size: 14px;
+    font-weight: bold;
+}
+.fs-12{
+    font-size: 12px;
+    font-weight: 400;
+}
