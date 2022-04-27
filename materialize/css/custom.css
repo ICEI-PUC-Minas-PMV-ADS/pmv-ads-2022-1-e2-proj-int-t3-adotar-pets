@@ -1,3 +1,5 @@
+/* Modificações diferentes das obtidas pelo materialize */
+/* Fontes */
 html{
     font-family: Quicksand, sans-serif;
     font-variant: normal, medium, bold,;
@@ -46,4 +48,20 @@ html{
 .fs-12{
     font-size: 12px;
     font-weight: 400;
+}
+
+/* Aplicação de cores */
+
+.navbar-color{
+    background-color: var(--primary);
+}
+/* Modificação de elementos */
+.btnLogin {
+    background-color: white;
+    background-image: url(../img/loginVetor.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+.btnLogin:hover {
+    background-color: var(--tertiary);
 }
