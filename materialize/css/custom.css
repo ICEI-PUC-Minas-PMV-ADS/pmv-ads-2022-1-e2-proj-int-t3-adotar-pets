@@ -21,7 +21,11 @@ html{
     font-size:26px ;
     font-weight: 600;
 }
-.fs-20-B{
+.fs-btn{
+    font-size:24px ;
+    font-weight: bold;
+}
+.fs-20-b{
     font-size:20px ;
     font-weight: bold;
 }
@@ -50,11 +54,31 @@ html{
     font-weight: 400;
 }
 
-/* Aplicação de cores */
-
+/* Aplicação de cores bg */
+.color-primary{
+    background-color: var(--primary);
+}
+.color-secondary{
+    background-color: var(--secondary);
+}
+.color-tertiary{
+    background-color: var(--tertiary);
+}
 .navbar-color{
     background-color: var(--primary);
 }
+
+/* Aplicação de cores text */
+.textcolor-primary{
+    color: var(--primary);
+}
+.textcolor-secondary{
+    color: var(--secondary);
+}
+.textcolor-tertiary{
+    color: var(--tertiary);
+}
+
 /* Modificação de elementos */
 .btnLogin {
     background-color: white;
@@ -63,5 +87,52 @@ html{
     background-position: center center;
   }
 .btnLogin:hover {
-    background-color: var(--tertiary);
+    background-color: var(--primary);
 }
+
+.border-top{
+    border-top: 1px solid rgb(206, 206, 206);
+    
+}
+.logo-navbar{
+    margin: 8px 12px;
+    max-width: 168px;   
+}
+.copyright-footer{
+    padding: 5px 0px;
+}
+.card-pet{
+    background-color: #efeaee ;
+    border-radius: 16px;
+    width: 448.47px;
+    height: 208px;
+    left: 499px;
+    top: 598px;
+}
+.icone-card{
+    max-width: 24px;
+}
+
+/* Responsividade */
+
+@media(max-width: 1280px){
+    
+        #logoFooter{
+            display: none;
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
