@@ -116,16 +116,38 @@ html{
 .titulo-cadastro{
     font-weight: 600;
     color: var(--secondary);
-    margin-bottom: 5.4rem;
+    margin-bottom: 3rem;
 }
 
 .label-cadastro{
-    margin-bottom: 2.9rem;
+    margin-bottom: 2rem;
+}
+
+.label-cadastro small{
+    visibility:hidden;
+}
+
+/* modificações de labels no formulário de cadastro */
+.label-cadastro.error input{
+    border-bottom: 2px solid var(--alert);
+    box-shadow: 0 1px 0 var(--alert);
+}
+.label-cadastro.error small{
+    font-weight: bold;
+    color: var(--alert);
+    visibility: visible;
+}
+.label-cadastro.sucesso input{
+    border-bottom: 2px solid var(--tertiary);
+    box-shadow: 0 1px 0 var(--tertiary);
+}
+.label-cadastro.sucesso small{
+    visibility: hidden;
 }
 /* Botões */
 
 .btn-cadastro{
-    margin-top: 2.9rem;
+    margin-top: 2rem;
     margin-bottom: 7rem;
     display: flex;
     flex-direction: column;
@@ -149,6 +171,15 @@ html{
         #logoFooter{
             display: none;
         }
+}
+
+@media (max-width: 1440px){
+    .banner-cadastro{
+        display: none;
+    }
+    .cadastro{
+        margin-left: 25%!important;
+    }
 }
 
 
