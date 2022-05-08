@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../materialize/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar um pet</title>
+</head>
+
+<body>
+   
+    <!-- Navbar -->
+    <div data-partial="navbar"></div>
+    <!-- //Navbar -->
+
+
+
+            <div class="bg-busca valign-wrapper">
+
+                <div class="container" >
+
+                    <div class="col 12 center hide-on-small-only">
+                        <span class="fs-52 white-text">Encontre um amiguinho</span>
+                    </div>
+                    
+                    <div class="row ">
+                        
+                        <form class="col s12 m12 l3 fs-12">
+                            <div class="input-field col s12 input-select">
+                                <select>
+                                    <option value="" disabled selected>Tipo</option>
+                                    <option value="cachorro">Cachorro</option>
+                                    <option value="gato">Gato</option>
+                                </select>
+                            </div>
+                        </form>
+
+                        <form class="col s12 m12 l3 fs-12">
+                        <div class="input-field col s12 input-select">
+                            <select>
+                                <option value="" disabled selected>Estado</option>
+                                <option value="1">Estado 1</option>
+                                <option value="2">Estado 2</option>
+                                <option value="3">Estado 3</option>
+                                
+                            </select>
+                        </div>
+                    </form>
+
+                    <form class="col s12 m12 l3 fs-12">
+                        <div class="input-field col s12 input-select">
+                            <select>
+                                <option value="" disabled selected>Cidade</option>
+                                <option value="1">Cidade 1</option>
+                                <option value="2">Cidade 2</option>
+                                <option value="3">Cidade 3</option>
+                            </select>
+                        </div>
+                    </form>
+                    <a class="waves-effect amber darken-0 btn-large fs-btn col s12 m12 l3 botao-busca">Buscar</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <div></div>
+                </div>
+            </div>
+        
+    
+    
+    <!-- Footer -->
+    <div data-partial="footer"></div>
+    <!-- //Footer -->
+
+
+    <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
+    <script type="text/javascript" src="../materialize/js/layout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });
+    </script>
+    
+</body>
+
+</html>

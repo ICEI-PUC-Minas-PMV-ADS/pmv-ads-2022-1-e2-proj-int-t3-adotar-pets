@@ -1,4 +1,46 @@
 /* Modificações diferentes das obtidas pelo materialize */
+
+.flex-col{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+
+.start-center{
+    justify-content: start;  
+    align-items: center;
+}
+
+.center-start{
+    justify-content: center;  
+    align-items: start;
+}
+
+.center-center{
+    justify-content: center;  
+    align-items: center;
+}
+
+.end-center{
+    justify-content: end;  
+    align-items: center;
+}
+
+.center-end{
+    justify-content: center;  
+    align-items: end;
+}
+
+
+
+
 /* Fontes */
 html{
     font-family: Quicksand, sans-serif;
@@ -112,6 +154,33 @@ html{
 .icone-card{
     max-width: 24px;
 }
+
+.bg-busca{
+    /*padding: 72px 72px 96px ;*/
+    height: 350px;
+    background-image: url(../img/padraoPatas.svg);
+    background-color: var(--secondary);
+}
+
+.input-select{
+    height: 54px;
+    border-radius: 4px;
+    background-color: white; 
+}
+
+.botao-busca{
+    border-radius: 8px;
+}
+
+.margin{
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
 
 /* Responsividade */
 
