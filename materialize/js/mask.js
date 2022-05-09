@@ -32,3 +32,4 @@ document.querySelectorAll('input').forEach(($input) => {
         e.target.value = masks[field](e.target.value)
     },false)
 })
+
