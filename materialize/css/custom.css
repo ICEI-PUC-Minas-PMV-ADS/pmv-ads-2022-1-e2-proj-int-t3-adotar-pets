@@ -194,7 +194,9 @@ ul{
 .label-cadastro small{
     visibility:hidden;
 }
-
+.logologin{
+    margin-bottom: 48px;
+}
 /* modificações de labels no formulário de cadastro */
 .label-cadastro.error input{
     border-bottom: 2px solid var(--alert);
