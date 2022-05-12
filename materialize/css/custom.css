@@ -125,8 +125,9 @@ ul{
 
 /* Modificação de elementos */
 .btnLogin {
-    background-color: white;
-    background-image: url(../img/loginVetor.png);
+    background-color: #fff;
+    color: var(--secondary) !important; 
+
     background-repeat: no-repeat;
     background-position: center center;
   }
