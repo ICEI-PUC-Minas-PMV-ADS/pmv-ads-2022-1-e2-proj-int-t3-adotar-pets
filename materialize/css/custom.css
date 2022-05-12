@@ -197,6 +197,9 @@ ul{
 .logologin{
     margin-bottom: 48px;
 }
+
+
+
 /* modificações de labels no formulário de cadastro */
 .label-cadastro.error input{
     border-bottom: 2px solid var(--alert);
@@ -278,7 +281,14 @@ ul{
 
 }
 .bg-cadastro{
-    height: 1024px;
+    background: url(../img/cadastro_imagem.png) no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.bg-login{
+    background: url(../img/imgLogin.png) no-repeat;
+    background-size: cover;
+    height: 100vh;
 }
 
 

@@ -1,5 +1,4 @@
 const handleLayout = async () => {
-
     
     const partials = document.querySelectorAll('[data-partial]');
     let urls = [];
@@ -10,13 +9,27 @@ const handleLayout = async () => {
             node: partial,
         })
     }) 
+   
     await Promise.all(urls.map(async ({url, node}) => {
         const res = await fetch(url);
         const contents = await res.text();
         const template = document.createElement('template');
         template.innerHTML = contents;
         const child = template.content.firstChild;
-        node.replaceWith(child);        
+        node.replaceWith(child);
+        const scripts = child.querySelectorAll('script');
+        
+        scripts.forEach( (script) => {
+            console.log(script)
+            const injectedScript = document.createElement("script");
+            Array.from(script.attributes).map(attr => {
+                injectedScript.setAttribute(attr.name, attr.value);
+                console.log(attr)
+            })
+            injectedScript.appendChild(document.createTextNode(script.innerHTML));
+            console.log(injectedScript)
+            child.replaceChild(injectedScript, script);
+        });
     }));
 }
 
@@ -24,3 +37,4 @@ const handleLayout = async () => {
 document.addEventListener('DOMContentLoaded', () => {
     handleLayout();
 });
+
