@@ -1,4 +1,4 @@
-const button = document.getElementById('btn-cadastrar')
+const button = document.getElementById('btn-cadastrar');
 button.addEventListener('click', (event) => {
     event.preventDefault()
     const nome = document.getElementById('nome');
