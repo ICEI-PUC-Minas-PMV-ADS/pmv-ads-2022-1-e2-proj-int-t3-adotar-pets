@@ -3,7 +3,7 @@ button.addEventListener('click', (event) => {
     event.preventDefault()
     const nome = document.getElementById('nome');
     const documento = document.getElementById('documento');
-    const celular = document.getElementById('telefone');
+    const cep = document.getElementById('cep');
     const email = document.getElementById('email');
     const senha = document.getElementById('senha');
     const confirmacao = document.getElementById('confirme');
@@ -62,11 +62,11 @@ button.addEventListener('click', (event) => {
     else{
         successValidation(nome);
     }
-    if(celular.value === ""){
-        errorValidation(celular,"Campos não preenchidos");
+    if(cep.value === ""){
+        errorValidation(cep,"Campos não preenchidos");
     }
     else{
-        successValidation(celular);
+        successValidation(cep);
     }
 
 
