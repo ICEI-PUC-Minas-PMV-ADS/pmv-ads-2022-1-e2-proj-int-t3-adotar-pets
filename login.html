@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="materialize/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="row flex-row center-center barra">
+
+        <div class="hide-on-med-and-down col l8 bg-login">
+           
+        </div>
+
+        <div class="col s12 m12 l4">
+            <div class="col-s8 center logologin">
+                <img src="./materialize/img/logoSecundaria.png " alt="Logo">
+            </div>
+            <h4 class="entre-para-continuar center">Entre para Continuar</h4>
+
+            <form class="col l12" id="form">
+
+                <div class="input-field col s12 ">
+                    <input id="email" type="email" class="autenticação">
+                    <label class="active" id="email">E-mail</label>
+                    <span class="helper-text" data-error="" data-success=""></span>
+                </div>
+
+                <div class="input-field col s12 ">
+                    <input id="senha" type="password" class="autenticação">
+                    <label class="active" id="senha">Senha</label>
+                </div>
+
+                <div class="row flex-row center-center">
+                    <div class="col s6">
+                        <label> <input type="checkbox" class="filled-in" checked="checked" /> <span>Lembre-se de
+                                mim</span> </label>
+                    </div>
+                    <div class="col s6">
+                        <ul class="esqueceu a senha">
+                            <li><a href="recuperação-de-senha.hmtl">Esqueceu a senha</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col s12 m12 l12">
+                    <button class="col s12 waves-effect amber darken-0 btn fs-btn" onclick='entrar()' id="btn-entrar">Entrar</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <script type="text/javascript" src="materialize/js/layout.js"></script>
+    <script type="text/javascript" src="materialize/js/login.js"></script>
+
+</body>
+
+</html>

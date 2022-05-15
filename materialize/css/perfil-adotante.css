@@ -1,0 +1,28 @@
+.imghover{
+    position: absolute;
+    opacity: 0;
+    width: 128px;
+    height: 128px;
+}
+
+.imghover:hover{
+    background: rgb(255, 255, 255, 0.4);
+    opacity: 1;
+    transition: opacity 0.2s ease-out;
+    cursor: pointer;
+}
+
+.resizeImg{
+    padding: 0% !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    
+}
+.resizeImg img{
+    height: 128px;
+    width: 128px;
+    background-position: center;
+    background-size: cover; 
+}
+

@@ -1,3 +1,47 @@
+/* Modificações diferentes das obtidas pelo materialize */
+
+.flex-col{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+
+.start-center{
+    justify-content: start;  
+    align-items: center;
+}
+
+.center-start{
+    justify-content: center;  
+    align-items: start;
+}
+
+.center-center{
+    justify-content: center;  
+    align-items: center;
+}
+
+.end-center{
+    justify-content: end;  
+    align-items: center;
+}
+
+.center-end{
+    justify-content: center;  
+    align-items: end;
+}
+
+
+
+
+/* Fontes */
 html{
     font-family: Quicksand, sans-serif;
     font-variant: normal, medium, bold,;
@@ -19,7 +63,11 @@ html{
     font-size:26px ;
     font-weight: 600;
 }
-.fs-20-B{
+.fs-btn{
+    font-size:24px ;
+    font-weight: bold;
+}
+.fs-20-b{
     font-size:20px ;
     font-weight: bold;
 }
@@ -47,3 +95,236 @@ html{
     font-size: 12px;
     font-weight: 400;
 }
+ul{
+    text-align: right;
+}
+/* Aplicação de cores bg */
+.color-primary{
+    background-color: var(--primary);
+}
+.color-secondary{
+    background-color: var(--secondary);
+}
+.color-tertiary{
+    background-color: var(--tertiary);
+}
+.navbar-color{
+    background-color: var(--primary);
+}
+
+/* Aplicação de cores text */
+.textcolor-primary{
+    color: var(--primary);
+}
+.textcolor-secondary{
+    color: var(--secondary);
+}
+.textcolor-tertiary{
+    color: var(--tertiary);
+}
+
+/* Modificação de elementos */
+.btnLogin {
+    background-color: #fff;
+    color: var(--secondary) !important; 
+
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+.btnLogin:hover {
+    background-color: var(--primary);
+}
+
+.border-top{
+    border-top: 1px solid rgb(206, 206, 206);
+    
+}
+.logo-navbar{
+    margin: 8px 12px;
+    max-width: 168px;   
+}
+.copyright-footer{
+    padding: 5px 0px;
+}
+.card-pet{
+    background-color: #efeaee ;
+    border-radius: 16px;
+    width: 448.47px;
+    height: 208px;
+    left: 499px;
+    top: 598px;
+}
+
+.card-petlogin{
+    max-width: 100%;
+    height: 100px;
+    right: 100%;
+}
+.card-petlogin2{
+    max-width: 100%;
+    height: 100px;
+    left: 100%;
+}
+
+.barra{
+    overflow: auto;
+}
+
+
+.icone-card{
+    max-width: 24px;
+}
+
+.titulo-cadastro{
+    font-weight: 600;
+    color: var(--secondary);
+    margin-bottom: 3rem;
+}
+
+.entre-para-continuar{
+    text-align: center;
+    font-weight: 600;
+    color: var(--secondary);
+    margin-bottom: 3.4rem;
+}
+
+.label-cadastro{
+    margin-bottom: 2rem;
+}
+
+.label-cadastro small{
+    visibility:hidden;
+}
+.logologin{
+    margin-bottom: 48px;
+}
+.breadcrumbz{
+    padding: 8px;
+}
+
+
+
+/* modificações de labels no formulário de cadastro */
+.label-cadastro.error input{
+    border-bottom: 2px solid var(--alert)!important;
+    box-shadow: 0 1px 0 var(--alert)!important;
+}
+.label-cadastro.error small{
+    font-weight: bold;
+    color: var(--alert);
+    visibility: visible;
+}
+.label-cadastro.sucesso input{
+    border-bottom: 2px solid var(--tertiary);
+    box-shadow: 0 1px 0 var(--tertiary);
+}
+.label-cadastro.sucesso small{
+    visibility: hidden;
+}
+/* Botões */
+
+.btn-cadastro{
+    margin-top: 2rem;
+    margin-bottom: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
+    border-radius: 8px;
+    width: 100%;
+    background-color: var(--primary);
+}
+.btn-cadastro:hover{
+    width: 100%;
+    background-color: var(--secondary);
+}
+
+.btn-entrar{
+    margin-top: 2.9rem;
+    margin-bottom: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
+    border-radius: 8px;
+    width: 100%;
+    background-color: var(--primary);
+}
+.btn-entrar:hover{
+    width: 100%;
+    background-color: var(--secondary);
+}
+
+.bg-busca{
+    /*padding: 72px 72px 96px ;*/
+    height: 350px;
+    background-image: url(../img/padraoPatas.svg);
+    background-color: var(--secondary);
+}
+
+.input-select{
+    height: 54px;
+    border-radius: 4px;
+    background-color: white; 
+}
+
+.botao-busca{
+    border-radius: 8px;
+}
+
+.margin{
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+.bg-cadastro{
+    background: url(../img/cadastro_imagem.png) no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.bg-login{
+    background: url(../img/imgLogin.png) no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+
+/* Responsividade */
+
+@media(max-width: 1280px){
+    
+        #logoFooter{
+            display: none;
+        }
+}
+
+@media (max-width: 1440px){
+    .banner-cadastro{
+        display: none;
+    }
+    .cadastro{
+        margin-left: 25%!important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

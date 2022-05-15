@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="materialize/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+
+        <div class="row flex-row start-center barra">
+            
+            <div class="col s12 m12 l4">
+
+                <h4 class="fs-26 center textcolor-secondary">Cadastre-se em nosso site</h4>
+                
+                <form class="col l12">
+                    <div class="input-field col s12 label-cadastro">
+                        <input required id="nome" type="text" class="validate">
+                        <label class="active" for="nome">Seu nome</label>
+                        <br>
+                        <small>Error message</small>
+                    </div>
+                    <div class="input-field col s12 label-cadastro">
+                        <input required id="documento" type="text" data-js="documento" class="validate">
+                        <label class="active" for="documento">CPF/CNPJ</label>
+                        <br>
+                        <small>Error message</small>
+                    </div>
+                    <div class="input-field col s12 label-cadastro">
+                        <input required id="cep" type="text" data-js="cep" class="validate" size="9" maxlength="9">
+                        <label class="active" for="cep">CEP</label>
+                        <br>
+                        <small>Error message</small>
+                    </div>
+                    <div class="input-field col s12 label-cadastro">
+                        <input required id="email" type="text" class="validate">
+                        <label class="active" for="email">E-mail</label>
+                        <br>
+                        <small>Error message</small>
+                    </div>
+                    <div class="input-field col s12 label-cadastro">
+                        <input required id="senha" type="password" class="validate" size="8" maxlength="14">
+                        <label class="active" for="senha">Senha</label>
+                        <br>
+                        <small>Error message</small>
+                    </div>
+                    <div class="input-field col s12 label-cadastro">
+                        <input required id="confirme" type="password" class="validate" size="8" maxlength="14">
+                        <label class="active" for="confirme">Confirme sua senha</label>
+                        <br>
+                        <small>Error message</small>
+                    </div>
+                    
+                </form>
+                <div class="col s12 m12 l12">
+                    <a id="btn-cadastrar" class="col s12 m12 l12 waves-effect amber darken-0 btn-large fs-btn">Cadastrar</a>
+                </div>
+            </div>
+            
+            <div class="col s12 l8 hide-on-med-and-down bg-cadastro">
+                
+            </div>
+        </div>
+    
+    
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <script type="text/javascript" src="materialize/js/layout.js"></script>
+    <script type="text/javascript" src="materialize/js/mask.js"></script>
+    <script type="text/javascript" src="materialize/js/validade.js"></script>
+</body>
+
+</html>
