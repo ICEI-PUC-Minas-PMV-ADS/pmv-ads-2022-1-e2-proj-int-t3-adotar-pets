@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../materialize/css/main.css">
-    <link rel="stylesheet" href="./perfil-adotante.css">
+    <link rel="stylesheet" href="materialize/css/main.css">
+    <link rel="stylesheet" href="materialize/css/perfil-adotante.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil Adotante</title>
+    <title>Perfil Ong</title>
 </head>
 
 <body>
@@ -18,30 +18,41 @@
     <div data-partial="navbarLog"></div>
     <!-- //Navbar -->
 
+    <!-- Breadcrumbs-->
+    <div class="row breadcrumbz">
+        <div class="col s12">
+            <a href="landingpage.html" class="fs-16 textcolor-secondary">Página inicial</a>
+            <a href="#!" class="fs-16 black-text">/ Perfil Ong</a>
+        </div>
+        <div class="col s12">
+            <span class="fs-32 textcolor-secondary">Perfil Ong</span>
+        </div>
+    </div>
+    <!-- //Breadcrumbs-->
+
     <div class="container">
-       
+
         <div class="row" style="height: 128px;">
 
-            <div class="col s12 m3 l2 flex-row start-center resizeImg ">
-                <img id="output_image" width="128" height="128">    
-
+            <div class="col s12 m3 l2 resizeImg ">
+                <img id="output_image" width="128" height="128">
                 <div class="imghover flex-row center-center">
                     <a class="right btn-floating btn-large waves-effect waves amber darken-0" onclick="inserirImagem()"><i class="large material-icons">add</i></a>
                 </div>
             </div>
             <div>
-                <input class="hide" id="image-input" type="file" accept="image/png , image/jpeg" ></input>
+                <input class="hide" id="image-input" type="file" accept="image/png , image/jpeg"></input>
             </div>
 
-            <div class="col s12 m4 l3 flex-col center-start" >
-                <span class="fs-20-b textcolor-secondary">Definir foto de perfil</span> 
+            <div class="col s12 m4 l3 flex-col center-start">
+                <span class="fs-20-b textcolor-secondary">Definir foto de perfil</span>
                 <span class="fs-14">JPG e PNG somente</span>
             </div>
 
 
         </div>
 
-       
+
 
         <div class="row">
 
@@ -59,8 +70,8 @@
                             <label class="active" for="nome">Nome</label>
                         </div>
                         <div class=" input-field col s12 m6 l6">
-                          <input value="" id="documento" type="text" data-js="documento" class="validate">
-                          <label class="active" for="documento">CPF</label>
+                            <input value="" id="documento" type="text" data-js="documento" class="validate">
+                            <label class="active" for="documento">CPF</label>
                         </div>
                     </div>
 
@@ -70,17 +81,24 @@
                             <label class="active" for="telefone">Telefone</label>
                         </div>
                         <div class="input-field col s12 m6 l6">
-                          <input value="" id="email" type="text" class="validate">
-                          <label class="active" for="email">E-mail</label>
+                            <input value="" id="email" type="text" class="validate">
+                            <label class="active" for="email">E-mail</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input value="" id="endereco" type="text" class="validate">
+                            <label class="active" for="endereco">Endereço</label>
                         </div>
                     </div>
 
                 </div>
-                
+
             </form>
             <a class="waves-effect amber darken-0 0 btn fs-btn right">salvar</a>
         </div>
-       
+
         <div class="row">
             <div>
                 <span class="fs-32 textcolor-secondary">Alterar senha</span>
@@ -89,23 +107,25 @@
                 <div class="row">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input value="" id="senha" type="password" class="validate" size="8" maxlength="8"> 
+                            <input value="" id="senha" type="password" class="validate" size="8" maxlength="8">
                             <label class="active" for="senha">Senha atual</label>
-                          </div>
-                        <div class="input-field col s12">
-                          <input value="" id="nova-senha" type="password" class="validate" size="8" maxlength="8">
-                          <label class="active" for="nova-senha">Nova senha</label>
                         </div>
                         <div class="input-field col s12">
-                            <input value="" id="confirmar-senha" type="password" class="validate" size="8" maxlength="8">
+                            <input value="" id="nova-senha" type="password" class="validate" size="8" maxlength="8">
+                            <label class="active" for="nova-senha">Nova senha</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input value="" id="confirmar-senha" type="password" class="validate" size="8"
+                                maxlength="8">
                             <label class="active" for="confirmar-senha">Confirmar nova senha</label>
-                          </div>
-                    </div>
+                        </div>
                     </div>
                 </div>
-            </form>
-            <a class="waves-effect amber darken-0 0 btn fs-btn right">alterar</a>
+                <a class="waves-effect amber darken-0 0 btn fs-btn right">alterar</a>
         </div>
+        </form>
+
+    </div>
 
     </div>
 
@@ -113,11 +133,11 @@
     <!-- Footer -->
     <div data-partial="footer"></div>
     <!-- //Footer -->
-    <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
-    <script type="text/javascript" src="../materialize/js/layout.js"></script>
-    <script type="text/javascript" src="./perfil-adotante.js"></script>
-    <script type="text/javascript" src="../materialize/js/mask.js"></script>
-    <script type="text/javascript" src="../materialize/js/validate.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <script type="text/javascript" src="materialize/js/layout.js"></script>
+    <script type="text/javascript" src="materialize/js/perfil-adotante.js"></script>
+    <script type="text/javascript" src="materialize/js/mask.js"></script>
+    <script type="text/javascript" src="materialize/js/validate.js"></script>
 </body>
 
 </html>

@@ -13,10 +13,10 @@
 }
 
 .resizeImg{
-   
+    padding: 0% !important;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     
 }
 .resizeImg img{
