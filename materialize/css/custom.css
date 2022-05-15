@@ -167,7 +167,7 @@ ul{
 }
 
 .barra{
-    overflow: auto;
+    margin-bottom: 0px !important;
 }
 
 
@@ -201,7 +201,9 @@ ul{
 .breadcrumbz{
     padding: 8px;
 }
-
+.mg-8{
+    margin-top: 8px;
+}
 
 
 /* modificações de labels no formulário de cadastro */
@@ -293,6 +295,14 @@ ul{
     background: url(../img/imgLogin.png) no-repeat;
     background-size: cover;
     height: 100vh;
+}
+
+.w-full{
+    width: 100%;
+}
+
+.h-full{
+    height: 100%;
 }
 
 
