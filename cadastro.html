@@ -13,20 +13,15 @@
 </head>
 
 <body>
-    
+
 
         <div class="row flex-row start-center barra">
-            
+
             <div class="col s12 m12 l4">
-                
-                
-                <div class="col s12">
-                    <a href="landingpage.html" class=" btnVoltar btn-small left"><i class="large material-icons left">chevron_left</i>voltar</a> 
-                </div>
-                 
+
                 <div class="fs-26 center textcolor-secondary">Cadastre-se em nosso site</div>
-               
-                
+
+
                 <form class="col l12">
                     <div class="input-field col s12 label-cadastro">
                         <input required id="nome" type="text" class="validate">
@@ -37,6 +32,12 @@
                     <div class="input-field col s12 label-cadastro">
                         <input required id="documento" type="text" data-js="documento" class="validate">
                         <label class="active" for="documento">CPF/CNPJ</label>
+                        <br>
+                        <small>Error message</small>
+                    </div>
+                    <div class="input-field col s12 label-cadastro">
+                        <input required id="nascimento" type="date" data-js="nascimento" class="validate">
+                        <label class="active" for="nascimento">Data de Nascimento/Criação</label>
                         <br>
                         <small>Error message</small>
                     </div>
@@ -64,19 +65,19 @@
                         <br>
                         <small>Error message</small>
                     </div>
-                    
+
                 </form>
                 <div class="col s12 m12 l12">
                     <a id="btn-cadastrar" class="col s12 m12 l12 waves-effect amber darken-0 btn-large fs-btn">Cadastrar</a>
                 </div>
             </div>
-            
+
             <div class="col s12 l8 hide-on-med-and-down bg-cadastro">
-                
+
             </div>
         </div>
-    
-    
+
+
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <script type="text/javascript" src="materialize/js/layout.js"></script>
     <script type="text/javascript" src="materialize/js/mask.js"></script>

@@ -1,8 +1,8 @@
 const button = document.getElementById('btn-cadastrar');
-button.addEventListener('click', event => {
+button.addEventListener('click', async event => {
     event.preventDefault();
     const fields = document.querySelectorAll("[required]");
-    let validacao = [0,0,0,0,0];
+    let validacao = [0,0,0,0,0,0];
     let valAuxiliar = 0;
     let documentType;
 
@@ -29,18 +29,26 @@ button.addEventListener('click', event => {
                 if(valAuxiliar === false){
                     validacao[1] = 1;
                 }
-            }            
+            }
+        }
+        else if(element.id === "nascimento"){
+            if(element.value === ""){
+                errorValidation(element,"Campo não preenchido");
+                validacao[2] = 1;
+            } else {
+                successValidation(element);
+            }
         }
         else if(element.id === "cep"){
             valAuxiliar = validationEmpty(element);
             if(valAuxiliar === false){
-                validacao[2] = 1;
+                validacao[3] = 1;
             }
         }
         else if(element.id === "email"){
             if(element.value === ""){
                 errorValidation(element,"Campo não preenchido");
-                validacao[3] = 1;
+                validacao[4] = 1;
             }
             else{
                 if(element.value.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
@@ -48,7 +56,7 @@ button.addEventListener('click', event => {
                 }
                 else{
                     errorValidation(element,"Esse campo deve ser preenchido por um email");
-                    validacao[3] = 1;
+                    validacao[4] = 1;
                 }
             }
         }
@@ -60,58 +68,38 @@ button.addEventListener('click', event => {
             else{
                 if(element.value.length < 8){
                     errorValidation(element,"A senha deve possuir um número de caracteres maior que 8");
-                    validacao[4] = 1;
+                    validacao[5] = 1;
                 }
                 else{
                     errorValidation(element,"As senhas estão diferentes");
                     errorValidation(confirmacao,"As senhas estão diferentes");
-                    validacao[4] = 1;
+                    validacao[5] = 1;
                 }
             }
         }
     });
-    
+
     if(sumValidation(validacao) === 0){
-        let body = 0
-        if (documentType === 0){
-            body = {
-                "name": document.getElementById("nome").value,
-                "email": document.getElementById("email").value,
-                "password": document.getElementById("senha").value, //falta a encriptação
-                "type": 0,
-                "document":{
-                    "type": 0,
-                    "number": document.getElementById("documento").value.replace(/[^\d]+/g,'')
-                },
-                "address":{
-                    "name":"",
-                    "zipCode": document.getElementById("cep").value.replace(/[^\d]+/g,''),
-                    "complement": ""
-                }
+        let body = {
+            user: {
+                name: document.getElementById("nome").value,
+                email: document.getElementById("email").value,
+                password: document.getElementById("senha").value,
+                birthDate: document.getElementById("nascimento").value,
+                type: documentType === 0 ? 0 : 1,
+            },
+            document: {
+                type: documentType === 0 ? 0 : 1,
+                number: document.getElementById("documento").value.replace(/[^\d]+/g,'')
+            },
+            address: {
+                zipCode: document.getElementById("cep").value.replace(/[^\d]+/g,''),
             }
-        }
-        else{
-            body = {
-                "name": document.getElementById("nome").value,
-                "email": document.getElementById("email").value,
-                "password": document.getElementById("senha").value, //Falta a encriptação
-                "type": "1",
-                "document":{
-                    "type": "1",
-                    "number": document.getElementById("documento").value.replace(/[^\d]+/g,'')
-                },
-                "address":{
-                    "name":"",
-                    "zipCode": document.getElementById("cep").value.replace(/[^\d]+/g,''),
-                    "complement": ""
-                }
-            }
-        }
-        
-        singInUser(body);
+        };
+        await signUpUser(body);
     }
 });
-    
+
 
 function validationEmpty(input){
     let inputValue = input.value;
@@ -123,7 +111,7 @@ function validationEmpty(input){
         errorValidation(input,"Este campo deve ser preenchido");
         return false
     }
-}  
+}
 
 function errorValidation(input,message){
     const formControl = input.parentElement;
@@ -153,7 +141,7 @@ function documentValidation(input){
         }
         validation1 = (aux1*10)%11;
         validation2 = (aux2*10)%11;
-        
+
         if(validation1 === parseInt(input[9]) & validation2 === parseInt(input[10])){
             if(input === "00000000000"||input === "11111111111"||input === "22222222222"||input === "33333333333"||input === "44444444444"||
             input === "55555555555"||input === "66666666666"||input === "77777777777"||input === "88888888888"||input === "99999999999"){
@@ -164,13 +152,13 @@ function documentValidation(input){
                 successValidation(documento);
                 return true,0
             }
-            
+
         }
         else{
             errorValidation(documento,'CPF inválido');
             return false
         }
-        
+
     }
     else{
      let array = [6,5,4,3,2,9,8,7,6,5,4,3,2];
@@ -186,7 +174,7 @@ function documentValidation(input){
      }
      validation1 = (aux1*10)%11;
      validation2 = (aux2*10)%11;
- 
+
      if(validation1 === parseInt(input[12]) & validation2 === parseInt(input[13])){
       successValidation(documento);
       return true,1
@@ -206,14 +194,24 @@ function sumValidation(input){
     return auxiliar;
 }
 
-function singInUser(body){
-    let url = "https://adoptapi.azurewebsites.net/api/auth/register" //api
-    let request = new XMLHttpRequest();
-    request.open("POST", url, true);
-    request.setRequestHeader("Content-type", "aplication/json")
-    request.send(JSON.stringify(body));
-    request.onload = function() {
-        //console.log(this.responseText)
+async function signUpUser(body) {
+    const apiUrl = 'https://adoptapi.azurewebsites.net/api/auth/register';
+    const settings = {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8'
+        },
+        body: JSON.stringify(body),
+    };
+    try {
+        const response = await fetch(apiUrl, settings);
+        if (!response.ok) {
+            throw response;
+        }
+        const data = await response.json();
+        location.href = 'login.html';
+    } catch (err) {
+        const error = await err.json();
+        alert("Ocorreu um erro ao registrar.");
     }
-    return request.responseText
 }
