@@ -207,13 +207,13 @@ function sumValidation(input){
 }
 
 function singInUser(body){
-    let url = "https://eo70hl9i08fnc50.m.pipedream.net" //api
+    let url = "https://adoptapi.azurewebsites.net/api/auth/register" //api
     let request = new XMLHttpRequest();
     request.open("POST", url, true);
     request.setRequestHeader("Content-type", "aplication/json")
     request.send(JSON.stringify(body));
     request.onload = function() {
-        console.log(this.responseText)
+        //console.log(this.responseText)
     }
     return request.responseText
 }
