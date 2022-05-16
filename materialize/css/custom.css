@@ -127,12 +127,24 @@ ul{
 .btnLogin {
     background-color: #fff;
     color: var(--secondary) !important; 
-
+    box-shadow: none !important;
     background-repeat: no-repeat;
     background-position: center center;
   }
 .btnLogin:hover {
     background-color: var(--primary);
+}
+
+.btnVoltar {
+    background-color: #fff;
+    color: var(--secondary) !important; 
+    box-shadow: none !important;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+.btnVoltar:hover {
+    background-color: #ffffff;
+   
 }
 
 .border-top{
