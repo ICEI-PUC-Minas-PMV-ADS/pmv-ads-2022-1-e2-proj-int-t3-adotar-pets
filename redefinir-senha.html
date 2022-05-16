@@ -30,13 +30,31 @@
         </div>
     </div>
     <!-- //Breadcrumbs-->
-    <div class="row flex-col center-center">
-        <div class="">
-            <h1 class="fs-40 center">Esqueci minha senha</h1>
-            <h2 class="fs-16 center"> Para redefinir sua senha, informe o usuário ou e-mail cadastrado
-            na sua conta e lhe enviaremos um link com as instruções.</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s8 push-s2">
+                <h1 class="fs-52 center">Esqueci minha senha</h1>
+                <h2 class="fs-20 center"> Para redefinir sua senha, informe o usuário ou e-mail cadastrado
+                    na sua conta e lhe enviaremos um link com as instruções.</h2>
+            </div>
+
+            <div class="input-field col s8 push-s2">
+                <input id="email" type="email" class="autenticação">
+                <label class="active" id="email">E-mail</label>
+                <span class="helper-text" data-error="" data-success=""></span>
+            </div>
+
+            <div class="col s8 push-s2">
+                <button class="col s12 waves-effect amber darken-0 btn fs-btn">Enviar</button>
+            </div>
+            
+            <div class="col s6 m4 l12 center">
+                <a class="fs-16" href="index.html">Cancelar</a>
+            </div>
         </div>
     </div>
+
     <!-- Footer -->
     <div data-partial="footer"></div>
     <!-- //Footer -->
