@@ -1,0 +1,71 @@
+.bg-landing{
+    height:616px;
+}
+
+.card-landing{
+    padding: 4px;
+    height: 260px;
+    background-color: #e7e7e7;
+    border-radius: 16px;
+    cursor: pointer;
+}
+.card-landing:hover{
+    border: 1px solid rgb(196, 196, 196);
+} 
+
+.bg-cards{
+    height: 512px;    
+}
+
+.fs-land-title{
+    font-size:52px ;
+    font-weight: 400;
+}
+.pt-40{
+    padding-top: 40px;
+}
+.pt-24{
+    padding-top: 24px;
+}
+
+@media(min-width: 992px){
+    
+    .bg-landing{
+        background: url(../img/img-landing.svg) no-repeat;
+        background-size: cover;
+    }
+}
+
+@media(max-width: 992px){
+    
+    .bg-cards{
+        height: 700px;
+    }
+
+    .bg-landing{
+        background: url(../img/padraoPatas.svg) no-repeat;
+        background-color: var(--secondary);
+        background-size: cover;
+    }
+}
+
+@media(max-width: 600px){
+    
+    .bg-cards{
+        height: 900px;
+    }
+
+    .fs-land-title{
+        font-size:36px ;
+        font-weight: 400;
+    }
+
+    .bg-landing{
+        height: 420px;
+    }
+}
+
+
+.div-cards{
+    height: 60%;
+}

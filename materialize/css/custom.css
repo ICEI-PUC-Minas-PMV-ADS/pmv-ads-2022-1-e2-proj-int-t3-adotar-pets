@@ -127,12 +127,24 @@ ul{
 .btnLogin {
     background-color: #fff;
     color: var(--secondary) !important; 
-
+    box-shadow: none !important;
     background-repeat: no-repeat;
     background-position: center center;
   }
 .btnLogin:hover {
     background-color: var(--primary);
+}
+
+.btnVoltar {
+    background-color: #fff;
+    color: var(--secondary) !important; 
+    box-shadow: none !important;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+.btnVoltar:hover {
+    background-color: #ffffff;
+   
 }
 
 .border-top{
@@ -167,7 +179,7 @@ ul{
 }
 
 .barra{
-    overflow: auto;
+    margin-bottom: 0px !important;
 }
 
 
@@ -201,7 +213,9 @@ ul{
 .breadcrumbz{
     padding: 8px;
 }
-
+.mg-8{
+    margin-top: 8px;
+}
 
 
 /* modificações de labels no formulário de cadastro */
@@ -293,6 +307,14 @@ ul{
     background: url(../img/imgLogin.png) no-repeat;
     background-size: cover;
     height: 100vh;
+}
+
+.w-full{
+    width: 100%;
+}
+
+.h-full{
+    height: 100%;
 }
 
 
