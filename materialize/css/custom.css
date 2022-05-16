@@ -199,7 +199,9 @@ ul{
     color: var(--secondary);
     margin-bottom: 3.4rem;
 }
-
+.esqueci-minha-senha{
+    color: white;
+}
 .label-cadastro{
     margin-bottom: 2rem;
 }
