@@ -1,8 +1,60 @@
 # Template Padrão da Aplicação
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="4-Metodologia.md"> Metodologia</a>
+Para o Layout padrão da aplicação  foi desenvolvido um Design System, cuja aplicação deve ser feita em todas as páginas do sistema, respeitando a identidade visual. Os elementos do Design System: 
 
-Layout padrão da aplicação que será utilizado em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
+## Design System
+
+### Cores 
+![DesignSystem-Cores](/docs/img/DesignSystem-Cores.png)
+
+### Botões
+![DesignSystem-Botões](/docs/img/DesignSystem-Botoes.png)
+
+### Cards
+![DesignSystem-Cards](/docs/img/DesignSystem-Cards.png)
+
+### Espaçamentos
+![DesignSystem-Espaçamentos](/docs/img/DesignSystem-Espacamentos.png)
+
+### Ícones
+![DesignSystem-Ícones](/docs/img/DesignSystem-icones.png)
+
+### Ilustrações
+![DesignSystem-Ilustraçoes](/docs/img/DesignSystem-Ilustracoes.png)
+
+### Imagens
+![DesignSystem-Imagens](/docs/img/DesignSystem-Imagens.png)
+
+### Inputs
+![DesignSystem-Inputs](/docs/img/DesignSystem-Inputs.png)
+
+### Logos
+![DesignSystem-Logos](/docs/img/DesignSystem-Logos.png)
+
+### Navegação
+![DesignSystem-Navegacao](/docs/img/DesignSystem-Navegacao.png)
+
+### Padrões
+![DesignSystem-Padroes](/docs/img/DesignSystem-Padroes.png)
+
+### Sombras
+![DesignSystem-Sombras](/docs/img/DesignSystem-Sombras.png)]
+
+### Tipografia
+![DesignSystem-Tipografia](/docs/img/DesignSystem-Tipografia.png)
+
+## Template padrão
+
+A seguir as telas do sistema com a identidade visual aplicada a partir do Design System:
+
+### RF001 - LandingPage
+![Tela-LandingPage](/docs/img/Tela-RF001-LandingPage.jpeg)
+
+### RF002 - Cadastro
+![Tela-Cadastro](/docs/img/Tela-RF002-Cadastro.jpeg)
+
+### RF003 - Login 
+![Tela-Login](/docs/img/Tela-RF003-Login.jpeg)
 
 > **Links Úteis**:
 >
