@@ -20,7 +20,6 @@ const handleLayout = async () => {
             const injectedScript = document.createElement("script");
             Array.from(script.attributes).map(attr => {
                 injectedScript.setAttribute(attr.name, attr.value);
-                console.log(attr)
             })
             injectedScript.appendChild(document.createTextNode(script.innerHTML));
             child.replaceChild(injectedScript, script);
