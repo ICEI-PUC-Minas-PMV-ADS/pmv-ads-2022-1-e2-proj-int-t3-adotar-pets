@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/materialize/css/main.css">
+    <link rel="stylesheet" href="/materialize/css/busca.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -14,56 +15,71 @@
 </head>
 
 <body>
-   
+
     <!-- Navbar -->
     <div data-partial="navbar"></div>
     <!-- //Navbar -->
+    <!-- Breadcrumbs-->
+    <div class="row breadcrumbz">
+        <div class="col s12">
+            <a href="landingpage.html" class="fs-16 textcolor-secondary">Página inicial</a>
+            <a href="#!" class="fs-16 black-text">/ Busca</a>
+        </div>
+        <div class="col s12">
+            <span class="fs-32 textcolor-secondary">Busca</span>
+        </div>
+    </div>
+    <!-- //Breadcrumbs-->
+
+
+    <div class="bg-busca">
+
+        <div class="container flex-col center-center">
+
+            <div >
+                <div class="col 12 center ">
+                    <span class="fs-52 white-text">Encontre um amiguinho</span>
+                </div>
+
+                <div class="row">
 
 
 
-            <div class="bg-busca valign-wrapper">
+                    <form class="col s12 m12 l3 fs-12 mb-16">
+                        <div class="input-field col s12 input-select input-busca">
+                            <select>
+                                <option value="" disabled selected>Tipo</option>
+                                <option value="cachorro">Cachorro</option>
+                                <option value="gato">Gato</option>
+                            </select>
+                        </div>
+                    </form>
 
-                <div class="container" >
+                    <form class="col s12 m12 l3 fs-12 mb-16">
+                        <div class="input-field col s12 input-select input-busca">
+                            <select>
+                                <option value="" disabled selected>Porte</option>
+                                <option value="Grande">Grande</option>
+                                <option value="Médio">Médio</option>
+                                <option value="Pequeno">Pequeno</option>
+                            </select>
+                        </div>
+                    </form>
 
-                    <div class="col 12 center hide-on-small-only">
-                        <span class="fs-52 white-text">Encontre um amiguinho</span>
-                    </div>
-                    
-                    <div class="row ">
-                        
-                        <form class="col s12 m12 l3 fs-12">
-                            <div class="input-field col s12 input-select">
-                                <select>
-                                    <option value="" disabled selected>Tipo</option>
-                                    <option value="cachorro">Cachorro</option>
-                                    <option value="gato">Gato</option>
-                                </select>
-                            </div>
-                        </form>
-                        <form class="col s12 m12 l3 fs-12">
-                            <div class="input-field col s12 input-select">
-                                <select>
-                                    <option value="" disabled selected>Porte</option>
-                                    <option value="Grande">Grande</option>
-                                    <option value="Médio">Médio</option>
-                                    <option value="Pequeno">Pequeno</option>
-                                </select>
-                            </div>
-                        </form>
-                        <form class="col s12 m12 l3 fs-12">
-                        <div class="input-field col s12 input-select">
+                    <form class="col s12 m12 l2 fs-12 mb-16">
+                        <div class="input-field col s12 input-select input-busca">
                             <select>
                                 <option value="" disabled selected>Estado</option>
                                 <option value="1">Estado 1</option>
                                 <option value="2">Estado 2</option>
                                 <option value="3">Estado 3</option>
-                                
+
                             </select>
                         </div>
                     </form>
 
-                    <form class="col s12 m12 l3 fs-12">
-                        <div class="input-field col s12 input-select">
+                    <form class="col s12 m12 l2 fs-12 mb-16">
+                        <div class="input-field col s12 input-select input-busca">
                             <select>
                                 <option value="" disabled selected>Cidade</option>
                                 <option value="1">Cidade 1</option>
@@ -72,20 +88,92 @@
                             </select>
                         </div>
                     </form>
-                    <div class="col s12 m12 l12">
-                        <a class="waves-effect amber darken-0 btn-large fs-btn botao-busca">Buscar</a>
+
+                    <div class="col s12 m12 l2">
+                        <a class="col s12 m12 l12 waves-effect amber darken-0 btn-large fs-btn">Buscar</a>
                     </div>
-                    
-                    </div>
-                </div>
-                
-                <div>
-                    <div></div>
+
+
                 </div>
             </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="row mt-16">
+
+            <div class=" col s12 m4 l4">
+                <div class="card-pet">
+                    <div class="col s6" style="background-color: black; height: 100%;">
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class=" col s12 m4 l4">
+                <div class="card-pet">
+
+                </div>
+            </div>
+
+            <div class=" col s12 m4 l4">
+                <div class="card-pet">
+
+                </div>
+            </div>
+            <div class=" col s12 m4 l4">
+                <div class="card-pet">
+
+                </div>
+            </div>
+
+            <div class=" col s12 m4 l4">
+                <div class="card-pet">
+
+                </div>
+            </div>
+
+            <div class=" col s12 m4 l4">
+                <div class="card-pet">
+
+                </div>
+            </div>
+            <div class=" col s12 m4 l4">
+                <div class="card-pet">
+
+                </div>
+            </div>
+
+            <div class=" col s12 m4 l4">
+                <div class="card-pet">
+
+                </div>
+            </div>
+
+            <div class=" col s12 m4 l4">
+                <div class="card-pet">
+
+                </div>
+            </div>
+            
+            
+           
+            
+        </div>
+           
+            
+    </div>
         
-    
-    
+
+
+
+    </div>
+
+
+
     <!-- Footer -->
     <div data-partial="footer"></div>
     <!-- //Footer -->
@@ -94,7 +182,7 @@
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <script type="text/javascript" src="materialize/js/layout.js"></script>
     <script type="text/javascript" src="materialize/js/busca.js"></script>
-    
+
 </body>
 
 </html>

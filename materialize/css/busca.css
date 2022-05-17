@@ -1,0 +1,57 @@
+.input-busca{
+    margin: 0px !important;
+}
+
+.mb-16{
+    margin-bottom: 16px;
+}
+.mt-16{
+    margin-top: 16px;
+}
+
+.card-pet{
+    background-color: #a5a5a5 ;
+    border-radius: 16px;
+    height: 148px;
+    margin-bottom: 16px;
+    
+    
+}
+
+.card-petlogin{
+    max-width: 100%;
+    height: 100px;
+    right: 100%;
+}
+.card-petlogin2{
+    max-width: 100%;
+    height: 100px;
+    left: 100%;
+}
+
+
+@media(max-width:992px){
+    .bg-busca{
+        height: 432px;
+    }
+    .fs-52{
+        font-size: 40px;
+    }
+
+}
+@media(max-width: 600px){
+    
+    .fs-52{
+        font-size: 24px;
+    }
+
+    .bg-busca{
+        height: 400px;
+    }
+    .mt-16{
+        margin-top: 16px;
+    }
+    .mb-16{
+        margin-bottom: 16px;
+    }
+}
