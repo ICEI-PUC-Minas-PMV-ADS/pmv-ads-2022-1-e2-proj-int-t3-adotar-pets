@@ -199,9 +199,10 @@ ul{
     color: var(--secondary);
     margin-bottom: 3.4rem;
 }
-.esqueci-minha-senha{
+.redefirnir-senha{
     color: white;
 }
+
 .label-cadastro{
     margin-bottom: 2rem;
 }
@@ -278,6 +279,16 @@ ul{
 .bg-busca{
     /*padding: 72px 72px 96px ;*/
     height: 350px;
+    background-image: url(../img/padraoPatas.svg);
+    background-color: var(--secondary);
+}
+
+.bg-redefinir{
+    /*padding: 72px 72px 96px ;*/
+    margin-top: -20px;
+    align-items: center;
+    height: 420px;
+    width: 100%;
     background-image: url(../img/padraoPatas.svg);
     background-color: var(--secondary);
 }
