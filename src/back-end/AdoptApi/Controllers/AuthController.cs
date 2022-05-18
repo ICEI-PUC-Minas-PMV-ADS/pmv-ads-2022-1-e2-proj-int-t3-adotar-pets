@@ -1,3 +1,4 @@
+using AdoptApi.Attributes;
 using AdoptApi.Models;
 using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
@@ -13,6 +14,7 @@ namespace AdoptApi.Controllers;
 
 [ApiController]
 [EnableCors]
+[ValidateRequest]
 [Route("api/auth")]
 public class AuthController : ControllerBase
 {
@@ -26,28 +28,16 @@ public class AuthController : ControllerBase
     [HttpPost]
     [Route("login")]
     [AllowAnonymous]
-    public async Task<ActionResult<TokenDto>> Login([FromBody] UserLoginRequest request, [FromServices] TokenService tokenService)
+    public async Task<ActionResult<TokenDto?>> Login([FromBody] UserLoginRequest request, [FromServices] TokenService tokenService)
     {
-        var user = await _userService.Login(request, tokenService);
-        if (user == null)
-        {
-            return BadRequest(ModelState);
-        }
-
-        return user;
+        return await _userService.Login(request, tokenService);
     }
 
     [HttpPost]
     [Route("register")]
     [AllowAnonymous]
-    public async Task<ActionResult<UserDto>> Register([FromBody] CreateUserRequest request)
+    public async Task<ActionResult<UserDto?>> Register([FromBody] CreateUserRequest request)
     {
-        var user = await _userService.Register(request);
-        if (user == null)
-        {
-            return BadRequest(ModelState);
-        }
-
-        return user;
+        return await _userService.Register(request);
     }
 }
