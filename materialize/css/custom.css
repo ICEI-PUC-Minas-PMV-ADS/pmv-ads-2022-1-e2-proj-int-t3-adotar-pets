@@ -259,6 +259,10 @@ ul{
     background-color: var(--secondary);
 }
 
+.btn-borda{
+    border-radius: 8px;
+}
+
 .bg-busca{
     /*padding: 72px 72px 96px ;*/
     height: 350px;
