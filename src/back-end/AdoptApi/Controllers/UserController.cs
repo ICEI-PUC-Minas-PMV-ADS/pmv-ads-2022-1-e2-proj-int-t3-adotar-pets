@@ -2,6 +2,7 @@ using AdoptApi.Attributes;
 using AdoptApi.Attributes.Extensions;
 using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
+using AdoptApi.Requests;
 using AdoptApi.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -25,15 +26,23 @@ public class UserController : ControllerBase
     }
 
     [HttpGet]
-    [Route("")]
+    [Route("profile")]
     public async Task<ActionResult<UserDto>> GetInfo()
     {
-        var user = await _userService.GetInfo(User.Identity.GetUserId());
-        if (user == null)
-        {
-            return Unauthorized(new {User = "Usuário não encontrado."});
-        }
-
-        return user;
+        return await _userService.GetInfo(User.Identity.GetUserId());
     }
+
+    //@TODO: chamar método de service
+    // [HttpPut]
+    // [Route("profile")]
+    // public async Task<ActionResult<UserDto>> UpdateProfile([FromBody] UpdateProfileRequest)
+    // {
+    // }
+    
+    // @TODO criar request e chamar service
+    // [HttpPut]
+    // [Route("password")]
+    // public async Task<ActionResult<UserDto>> UpdatePassword([FromBody] UpdateProfileRequest)
+    // {
+    // }
 }

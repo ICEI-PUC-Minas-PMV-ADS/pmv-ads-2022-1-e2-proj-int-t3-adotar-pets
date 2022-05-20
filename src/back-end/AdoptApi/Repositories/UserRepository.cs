@@ -39,4 +39,9 @@ public class UserRepository
         await _context.SaveChangesAsync();
         return user;
     }
+
+    // @TODO: implementar camada de dados para atualizar user (chamar função
+    // public async Task<User> UpdateUser(User user)
+    // {
+    // }
 }
