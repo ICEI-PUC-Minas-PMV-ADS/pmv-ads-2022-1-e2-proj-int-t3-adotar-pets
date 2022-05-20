@@ -35,14 +35,14 @@ public class UserController : ControllerBase
     //@TODO: chamar método de service
     // [HttpPut]
     // [Route("profile")]
-    // public async Task<ActionResult<UserDto>> UpdateProfile([FromBody] UpdateProfileRequest)
+    // public async Task<ActionResult<UserDto>> UpdateProfile([FromBody] UpdateProfileRequest request)
     // {
     // }
     
     // @TODO criar request e chamar service
     // [HttpPut]
     // [Route("password")]
-    // public async Task<ActionResult<UserDto>> UpdatePassword([FromBody] UpdateProfileRequest)
+    // public async Task<ActionResult<UserDto>> UpdatePassword([FromBody] UpdateProfileRequest request)
     // {
     // }
 }
