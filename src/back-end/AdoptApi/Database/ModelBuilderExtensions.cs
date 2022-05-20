@@ -4,6 +4,7 @@ Licensed under the MIT license - https://github.com/haacked/CodeHaacks/blob/main
 */
 using System.Linq.Expressions;
 using System.Reflection;
+using AdoptApi.Database.Seeders;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Query;
@@ -72,5 +73,10 @@ public static class ModelBuilderExtensions
 
         var lambdaExpression = Expression.Lambda(expressionFilter, parameterType);
         entityTypeBuilder.HasQueryFilter(lambdaExpression);
+    }
+
+    public static void Seed(this ModelBuilder modelBuilder)
+    {
+        DatabaseSeeder.Seed(modelBuilder);
     }
 }
