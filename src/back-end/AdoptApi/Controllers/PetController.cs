@@ -1,7 +1,11 @@
+using System.ComponentModel.DataAnnotations;
 using AdoptApi.Attributes;
 using AdoptApi.Enums;
+using AdoptApi.Models;
 using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
+using AdoptApi.Requests;
+using AdoptApi.Requests.Dtos;
 using AdoptApi.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -17,13 +21,24 @@ namespace AdoptApi.Controllers;
 [Authorize]
 public class PetController
 {
-    private PetService _petService;
+    private PetService _petService;   
 
     public PetController(PetRepository petRepository, IActionContextAccessor actionContextAccessor)
     {
         _petService = new PetService(actionContextAccessor, petRepository);
     }
     
+    [HttpPost]
+    [Route("registerPet")]
+    [Authorize(Roles = nameof(UserType.Protector))]
+    public async Task<ActionResult<PetDto>> AddPet([FromBody] CreatePetRequest request)
+    {
+        return await _petService.PetRegister(request);
+
+
+    }
+
+
     // @TODO listar necessidades do banco
     // [HttpGet]
     // [Route("needs")]
@@ -33,15 +48,9 @@ public class PetController
     //     
     // }
 
-    // @TODO cadastrar um pet
-    // [HttpPost]
-    // [Route("")]
-    // [Authorize(Roles = nameof(UserType.Protector))]
-    // public async Task<ActionResult<List<PetDto>>> AddPet()
-    // {
-    //     
-    // }
-    
+
+
+
     // @TODO editar um pet
     // [HttpPut]
     // [Route("")]
