@@ -1,5 +1,6 @@
 using AdoptApi.Database;
 using AdoptApi.Models;
+using AdoptApi.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
 
 namespace AdoptApi.Repositories;
@@ -40,8 +41,11 @@ public class UserRepository
         return user;
     }
 
-    // @TODO: implementar camada de dados para atualizar user (chamar função
-    // public async Task<User> UpdateUser(User user)
-    // {
-    // }
+    //@TODO: implementar camada de dados para atualizar user (chamar função
+    public async Task<User> UpdateUser(User user)
+    {
+        _context.Update(user);
+        await _context.SaveChangesAsync();
+        return user;
+    }
 }

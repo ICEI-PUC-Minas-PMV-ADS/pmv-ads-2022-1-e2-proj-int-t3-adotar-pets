@@ -155,8 +155,9 @@ public class UserService
         {
             Id = userId,
             Name = request.Name,
-            Email = request.Email //verifica a validação
+            //Email = request.Email, //verifica a validação
         };
+        
     }
 
 }
