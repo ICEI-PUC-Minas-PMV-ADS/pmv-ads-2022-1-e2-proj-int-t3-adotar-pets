@@ -12,4 +12,5 @@ public class PetDto
     public PetSize Size { get; set; }
     public int MinScore { get; set; }
     public ICollection<Need> Needs { get; set; }
+    public string Description { get; set; }
 }

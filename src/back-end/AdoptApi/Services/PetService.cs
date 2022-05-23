@@ -30,7 +30,8 @@ public class PetService
             BirthDate = pet.BirthDate,
             Size = pet.Size,
             MinScore = pet.MinScore,
-            Needs = pet.Needs
+            Needs = pet.Needs,
+            Description = pet.Description
         };
     }
 
@@ -50,7 +51,7 @@ public class PetService
     public async Task<PetDto?> PetRegister(CreatePetRequest request)
     {
         var petDto = request.Pet;
-        var pet = new Pet { Name = petDto.Name, Type = petDto.Type, Gender = petDto.Gender, BirthDate = DateOnly.ParseExact(petDto.BirthDate, "yyyy-MM-dd"), Size = petDto.Size, MinScore = petDto.MinScore};
+        var pet = new Pet { Name = petDto.Name, Description = petDto.Description, Type = petDto.Type, Gender = petDto.Gender, BirthDate = DateOnly.ParseExact(petDto.BirthDate, "yyyy-MM-dd"), Size = petDto.Size, MinScore = petDto.MinScore};
     
         var createdPet = await _petRepository.CreatePet(pet);
         return GetPetDto(createdPet);

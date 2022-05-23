@@ -15,5 +15,20 @@ public class PetRequestDto
     [Required(ErrorMessage ="O porte do animal é obrigatório")]
     public PetSize Size { get; set; }
     public int MinScore { get; set; }
+    public string Description { get; set; }
     //public ICollection<Need> Needs { get; set; }
+
+    public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+    {
+        DateOnly birthDate;
+        try
+        {
+            birthDate = DateOnly.ParseExact(BirthDate, "yyyy-MM-dd");
+        }
+        catch (FormatException)
+        {
+            birthDate = DateOnly.FromDateTime(DateTime.Now);
+        }
+        BirthDate = birthDate.ToString("yyyy-MM-dd");
+    }
 }
