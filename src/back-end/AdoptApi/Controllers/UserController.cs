@@ -33,11 +33,12 @@ public class UserController : ControllerBase
     }
 
     //@TODO: chamar método de service
-    // [HttpPut]
-    // [Route("profile")]
-    // public async Task<ActionResult<UserDto>> UpdateProfile([FromBody] UpdateProfileRequest request)
-    // {
-    // }
+    [HttpPut]
+    [Route("profile")]
+    public async Task<ActionResult<UserDto>> UpdateProfile([FromBody] UpdateProfileRequest request)
+    {
+        return await _userService.UpdateInfo(User.Identity.GetUserId(), request);
+    }
     
     // @TODO criar request e chamar service
     // [HttpPut]
