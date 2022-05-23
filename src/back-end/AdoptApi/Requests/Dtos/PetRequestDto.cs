@@ -3,7 +3,7 @@ using AdoptApi.Enums;
 
 namespace AdoptApi.Requests.Dtos;
 
-public class PetRequestDto 
+public class PetRequestDto : IValidatableObject
 {
     public string Name { get; set; }
     [Required(ErrorMessage ="O tipo do animal é obrigatório.")]
@@ -20,15 +20,26 @@ public class PetRequestDto
 
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
     {
-        DateOnly birthDate;
+        DateOnly? birthDate;
         try
         {
             birthDate = DateOnly.ParseExact(BirthDate, "yyyy-MM-dd");
         }
         catch (FormatException)
         {
-            birthDate = DateOnly.FromDateTime(DateTime.Now);
+            birthDate = null;
         }
-        BirthDate = birthDate.ToString("yyyy-MM-dd");
+
+        if (birthDate == null)
+        {
+            yield return new ValidationResult("O pet deve ter uma idade válida.",
+                new List<string> {nameof(BirthDate)});
+        }
+        
+        if (DateOnly.FromDateTime(DateTime.Now).CompareTo(birthDate) < 0)
+        {
+            yield return new ValidationResult("O pet deve ter mais de 0 anos.",
+                new List<string> {nameof(BirthDate)});
+        }
     }
 }
