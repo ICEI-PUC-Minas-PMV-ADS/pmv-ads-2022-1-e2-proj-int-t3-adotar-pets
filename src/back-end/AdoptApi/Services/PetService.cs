@@ -20,7 +20,6 @@ public class PetService
         _petRepository = repository;
     }
 
-
     private static PetDto GetPetDto(Pet pet)
     {
         return new PetDto
@@ -34,6 +33,7 @@ public class PetService
             Needs = pet.Needs
         };
     }
+
     public async Task<PetDto?> GetPetInfo(int petId)
     {
         try
@@ -47,14 +47,12 @@ public class PetService
         }
     }
 
-
-public async Task<PetDto?> PetRegister(CreatePetRequest request)
-{
-    var petDto = request.Pet;
-    var pet = new Pet { Name = petDto.Name, Type = petDto.Type, Gender = petDto.Gender, BirthDate = DateOnly.ParseExact(petDto.BirthDate, "yyyy-MM-dd"), Size = petDto.Size, MinScore = petDto.MinScore};
+    public async Task<PetDto?> PetRegister(CreatePetRequest request)
+    {
+        var petDto = request.Pet;
+        var pet = new Pet { Name = petDto.Name, Type = petDto.Type, Gender = petDto.Gender, BirthDate = DateOnly.ParseExact(petDto.BirthDate, "yyyy-MM-dd"), Size = petDto.Size, MinScore = petDto.MinScore};
     
-   var createdPet = await _petRepository.CreatePet(pet);
-    return GetPetDto(createdPet);
-}
-
+        var createdPet = await _petRepository.CreatePet(pet);
+        return GetPetDto(createdPet);
+    }    
 }

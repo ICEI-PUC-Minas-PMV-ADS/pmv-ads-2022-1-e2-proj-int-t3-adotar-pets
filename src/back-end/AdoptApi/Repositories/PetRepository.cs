@@ -15,15 +15,13 @@ public class PetRepository
 
     public async Task<Pet> GetPetById(int id)
     {
-        return await _context.Pets.Include(nameof(User.Id)).Include(nameof(id)).SingleAsync(u => u.Id == id);
+        return await _context.Pets.Include(nameof(User.Id)).SingleAsync(u => u.Id == id);
     }
 
-
-public async Task<Pet> CreatePet(Pet pet)
-{
-    await _context.Pets.AddAsync(pet);
-    await _context.SaveChangesAsync();
-    return pet;
-}
-
+    public async Task<Pet> CreatePet(Pet pet)
+    {
+        await _context.Pets.AddAsync(pet);
+        await _context.SaveChangesAsync();
+        return pet;
+    }
 }

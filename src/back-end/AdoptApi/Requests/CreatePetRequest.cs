@@ -7,7 +7,5 @@ namespace AdoptApi.Requests;
 
 public class CreatePetRequest 
 {
-    public PetRequestDto Pet { get; set; }    
-    
+    public PetRequestDto Pet { get; set; }        
 }
-

@@ -34,8 +34,6 @@ public class PetController
     public async Task<ActionResult<PetDto>> AddPet([FromBody] CreatePetRequest request)
     {
         return await _petService.PetRegister(request);
-
-
     }
 
 
