@@ -64,11 +64,23 @@ export class Api {
     }
     
     async login(credentials) {
-        return this.#post('auth/login', credentials);
+        try {
+            const user = await this.#post('auth/login', credentials);
+            Auth.setToken(user.token);
+            return user;
+        } catch (e) {
+            throw e;
+        }
     }
     
     async info() {
-        return this.#get('user', true);
+        try {
+            const user = await this.#get('user/profile', true);
+            user.role = user.document.type === 0 ? 'adopter' : 'protector';
+            return user;
+        } catch (e) {
+            throw e;
+        }
     }
     
 }

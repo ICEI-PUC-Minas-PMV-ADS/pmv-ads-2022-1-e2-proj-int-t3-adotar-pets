@@ -1,8 +1,6 @@
 import { setFieldError, Validate } from "./validation.js";
 import {mergeDeep} from "../utils.js";
-import {Api} from "../api/index.js";
-
-const api = new Api('https://adoptapi.azurewebsites.net/api');
+import {api} from '../api/client.js';
 
 const registerForm = document.querySelector('[data-register]');
 

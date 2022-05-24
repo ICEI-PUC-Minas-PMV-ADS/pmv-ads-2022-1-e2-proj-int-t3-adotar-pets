@@ -177,11 +177,11 @@ ul {
     color: white;
 }
 
-.label-cadastro {
+.label-form {
   margin-bottom: 2rem;
 }
 
-.label-cadastro small {
+.label-form small {
   visibility: hidden;
 }
 .logologin {
@@ -196,20 +196,20 @@ ul {
 }
 
 /* modificações de labels no formulário de cadastro */
-.label-cadastro.error input {
+.label-form.error input {
   border-bottom: 2px solid var(--alert) !important;
   box-shadow: 0 1px 0 var(--alert) !important;
 }
-.label-cadastro.error small {
+.label-form.error small {
   font-weight: bold;
   color: var(--alert);
   visibility: visible;
 }
-.label-cadastro.sucesso input {
+.label-form.sucesso input {
   border-bottom: 2px solid var(--tertiary);
   box-shadow: 0 1px 0 var(--tertiary);
 }
-.label-cadastro.sucesso small {
+.label-form.sucesso small {
   visibility: hidden;
 }
 /* Botões */

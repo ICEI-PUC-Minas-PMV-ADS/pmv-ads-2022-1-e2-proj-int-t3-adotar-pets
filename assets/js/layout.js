@@ -1,8 +1,24 @@
+import {api} from './api/client.js';
+
 const handleLayout = async () => {
+    let loggedUser;
+    try {
+        loggedUser = await api.info();
+    } catch (e) {
+        loggedUser = false;
+    }
     const partials = document.querySelectorAll('[data-partial]');
     let urls = [];
     partials.forEach((partial) => {
         let partialName = partial.getAttribute('data-partial');
+        if (loggedUser && 'role' in loggedUser) {
+            switch (loggedUser.role) {
+                case 'adopter':
+                case 'protector':
+                    partialName = partial.getAttribute(`data-${loggedUser.role}`) ?? partialName;
+                    break;
+            }
+        }
         urls.push({
             url:`./components/${partialName}.html`,
             node: partial,
