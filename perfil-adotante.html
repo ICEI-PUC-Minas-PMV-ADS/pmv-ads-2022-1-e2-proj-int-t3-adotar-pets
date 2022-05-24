@@ -14,7 +14,7 @@
     <title>Perfil Adotante</title>
 </head>
 
-<body onload="carregarPerfilAdotante()">
+<body>
     <!-- Navbar -->
     <div data-partial="navbarLog"></div>
     <!-- //Navbar -->
@@ -61,47 +61,23 @@
                 <span class="fs-32 textcolor-secondary">Dados pessoais</span>
             </div>
 
-            <form class="col s12">
+            <form data-profile class="col s12">
 
                 <div class="row">
 
                     <div class="row">
-                        <div class=" input-field col s12 m6 l6">
-                            <input enable value="ativo" id="nome" type="text" class="validate">
+                        <div class="input-field col s12 m6 l6 label-form">
+                            <input name="user.name" id="nome" type="text" class="validate">
                             <label for="nome">Nome</label>
                             </br>
                             <small>error message</small>
                         </div>
-                        <div class=" input-field col s12 m6 l6">
-                          <input disabled value="document" id="document" type="text" data-js="documento">
-                          <label for="document">CPF</label>
+                        <div class="input-field col s12 m6 l6 label-form">
+                            <input name="user.email" id="email" type="text" class="validate">
+                            <label for="email">E-mail</label>
+                            </br>
+                            <small>error message</small>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s12 m6 l6">
-                            <input disabled value="birth-date" id="birth-date" type="text" data-js="nascimento">
-                            <label for="birth-date">Data de Nascimento</label>
-                        </div>
-                        <div class="input-field col s12 m6 l6">
-                          <input  enable value="ativo" id="email" type="text" class="validate">
-                          <label for="email">E-mail</label>
-                        </br>
-                        <small>error message</small>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 m6 l6">
-                            <input disabled value="ativo" id="phone" type="text" data-js="celular" class="validate">
-                            <label for="phone">Telefone</label>
-                      
-                        </div>
-                        <div class="input-field col s12 m6 l6">
-                            <input disabled value="ativo"required id="cep" type="text" data-js="cep" class="validate" size="9" maxlength="9">
-                            <label for="cep">CEP</label>
-                           
-                        </div>
-
                     </div>
                 </div>
                 
@@ -119,7 +95,7 @@
                         <div class="input-field col s12">
                             <input value="" id="senha" type="password" class="validate" size="8" maxlength="8"> 
                             <label  for="senha">Senha atual</label>
-                          </div>
+                      </div>
                         <div class="input-field col s12">
                           <input value="" id="nova-senha" type="password" class="validate" size="8" maxlength="8">
                           <label for="nova-senha">Nova senha</label>
@@ -127,8 +103,7 @@
                         <div class="input-field col s12">
                             <input value="" id="confirmar-senha" type="password" class="validate" size="8" maxlength="8">
                             <label for="confirmar-senha">Confirmar nova senha</label>
-                          </div>
-                    </div>
+                      </div>
                     </div>
                     <a class="waves-effect amber darken-0 0 btn fs-btn right">alterar</a>
                 </div>
@@ -144,10 +119,8 @@
 
     
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-    <script type="text/javascript" src="materialize/js/layout.js"></script>
-    <script type="text/javascript" src="materialize/js/perfil-adotante.js"></script>
-    <script type="text/javascript" src="materialize/js/mask.js"></script>
-    <script type="text/javascript" src="materialize/js/validade.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.2/imask.min.js" integrity="sha512-l0grYOI8XZga5TajPOiqLrQVCKrdh+k0QSEtS+cpJlNeI8Nu9GOhsVaFyFQuPQfYp02GnhsyHqkPR7P7BTKYAQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="assets/js/layout.js"></script>
     <script type="module" src="assets/js/pages/profile.js"></script>
 </body>
 

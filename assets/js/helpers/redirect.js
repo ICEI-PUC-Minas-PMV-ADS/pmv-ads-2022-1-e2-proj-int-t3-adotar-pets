@@ -8,31 +8,37 @@ export const redirectIfLogged = async (path = './index.html') => {
     try {
         await api.info();
         redirectTo(path);
-    } catch (e) {
-        return;
-    }
+    } catch (e) {}
 }
 
 export const redirectIfNotLogged = async (path = './index.html') => {
     try {
-        await api.info();
+        return await api.info();
     } catch (e) {
         redirectTo(path);
     }
 }
 
 export const redirectIfRoleIs = async (role, path = './index.html') => {
-    const user = await auth.getUser();
-    if (user && user.role !== role) {
-        return;
+    try {
+        const user = await api.info();
+        if (user && user.role !== role) {
+            return user;
+        }
+        redirectTo(path);
+    } catch (e) {
+        redirectTo(path);
     }
-    redirectTo(path);
 }
 
 export const redirectIfRoleIsNot = async (role, path = './index.html') => {
-    const user = await auth.getUser();
-    if (user && user.role === role) {
-        return;
+    try {
+        const user = await api.info();
+        if (user && user.role === role) {
+            return user;
+        }
+        redirectTo(path);
+    } catch (e) {
+        redirectTo(path);
     }
-    redirectTo(path);
 }
