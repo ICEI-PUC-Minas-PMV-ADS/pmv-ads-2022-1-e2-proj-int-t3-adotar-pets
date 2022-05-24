@@ -7,6 +7,7 @@ using AdoptApi.Repositories;
 using AdoptApi.Requests;
 using AdoptApi.Requests.Dtos;
 using AdoptApi.Services;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -23,9 +24,9 @@ public class PetController
 {
     private PetService _petService;   
 
-    public PetController(PetRepository petRepository, IActionContextAccessor actionContextAccessor)
+    public PetController(PetRepository petRepository, IActionContextAccessor actionContextAccessor, IMapper mapper)
     {
-        _petService = new PetService(actionContextAccessor, petRepository);
+        _petService = new PetService(actionContextAccessor, petRepository, mapper);
     }
     
     [HttpPost]
@@ -35,19 +36,13 @@ public class PetController
     {
         return await _petService.PetRegister(request);
     }
-
-
-    // @TODO listar necessidades do banco
-    // [HttpGet]
-    // [Route("needs")]
-    // [Authorize(Roles = nameof(UserType.Protector))]
-    // public async Task<ActionResult<List<NeedDto>>> ListNeeds()
-    // {
-    //     
-    // }
-
-
-
+    
+    [HttpGet]
+    [Route("needs")]
+    public async Task<ActionResult<List<NeedDto>>> ListNeeds()
+    {
+        return await _petService.ListNeeds();
+    }
 
     // @TODO editar um pet
     // [HttpPut]

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using AdoptApi.Repositories;
 using AdoptApi.Requests.Dtos;
 using AdoptApi.Requests;
+using AutoMapper;
 
 namespace AdoptApi.Services;
 
@@ -13,11 +14,13 @@ public class PetService
 {
     private readonly ModelStateDictionary _modelState;
     private PetRepository _petRepository;
+    private readonly IMapper _mapper;
 
-    public PetService(IActionContextAccessor actionContextAccessor, PetRepository repository)
+    public PetService(IActionContextAccessor actionContextAccessor, PetRepository repository, IMapper mapper)
     {
         _modelState = actionContextAccessor.ActionContext.ModelState;
         _petRepository = repository;
+        _mapper = mapper;
     }
 
     private static PetDto GetPetDto(Pet pet)
@@ -51,9 +54,20 @@ public class PetService
     public async Task<PetDto?> PetRegister(CreatePetRequest request)
     {
         var petDto = request.Pet;
-        var pet = new Pet { Name = petDto.Name, Description = petDto.Description, Type = petDto.Type, Gender = petDto.Gender, BirthDate = DateOnly.ParseExact(petDto.BirthDate, "yyyy-MM-dd"), Size = petDto.Size, MinScore = petDto.MinScore};
-    
+        var pet = new Pet
+        {
+            Name = petDto.Name, Description = petDto.Description, Type = petDto.Type, Gender = petDto.Gender,
+            BirthDate = DateOnly.ParseExact(petDto.BirthDate, "yyyy-MM-dd"), Size = petDto.Size,
+            MinScore = petDto.MinScore
+        };
+
         var createdPet = await _petRepository.CreatePet(pet);
         return GetPetDto(createdPet);
-    }    
+    }
+
+    public async Task<List<NeedDto>> ListNeeds()
+    {
+        var needs = await _petRepository.GetAvailableNeeds();
+        return _mapper.Map<List<Need>, List<NeedDto>>(needs);
+    }
 }

@@ -2,5 +2,6 @@ namespace AdoptApi.Models.Dtos;
 
 public class NeedDto
 {
-    // @TODO implementar resposta
+    public int Id { get; set; }
+    public string Name { get; set; }
 }

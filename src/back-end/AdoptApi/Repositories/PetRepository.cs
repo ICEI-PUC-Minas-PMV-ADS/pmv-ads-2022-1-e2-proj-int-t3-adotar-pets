@@ -24,4 +24,9 @@ public class PetRepository
         await _context.SaveChangesAsync();
         return pet;
     }
+
+    public async Task<List<Need>> GetAvailableNeeds()
+    {
+        return await _context.Needs.Where(n => n.IsActive == true).ToListAsync();
+    }
 }

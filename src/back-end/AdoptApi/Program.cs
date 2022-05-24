@@ -44,6 +44,8 @@ builder.Services.AddDbContext<Context>(optionsBuilder =>
     optionsBuilder.AddInterceptors(new SoftDeletableEntityInterceptor());
 });
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 var key = Encoding.ASCII.GetBytes(builder.Configuration["Auth:Key"]);
 builder.Services.AddAuthentication(options =>
 {
