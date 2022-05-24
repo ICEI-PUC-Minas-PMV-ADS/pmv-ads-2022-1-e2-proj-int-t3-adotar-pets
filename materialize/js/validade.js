@@ -115,14 +115,14 @@ function validationEmpty(input){
 
 function errorValidation(input,message){
     const formControl = input.parentElement;
-    formControl.className = 'label-cadastro error';
+    formControl.className += ' label-cadastro error';
     const small = formControl.querySelector('small');
     small.innerText = message;
 }
 
 function successValidation(input){
     const formControl = input.parentElement;
-    formControl.className = 'label-cadastro sucesso';
+    formControl.className += ' label-cadastro sucesso';
 }
 
 function documentValidation(input){
