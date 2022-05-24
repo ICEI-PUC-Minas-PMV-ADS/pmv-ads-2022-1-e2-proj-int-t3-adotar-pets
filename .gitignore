@@ -4,3 +4,4 @@
 /.vscode/
 /src/back-end/.idea/
 /src/back-end/.vscode/
+.DS_Store
