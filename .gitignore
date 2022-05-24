@@ -7,3 +7,5 @@
 /src/back-end/.vs/
 /src/back-end/.vscode/
 /Folder.DotSettings.user
+.DS_Store
+/src/back-end/.DS_Store
