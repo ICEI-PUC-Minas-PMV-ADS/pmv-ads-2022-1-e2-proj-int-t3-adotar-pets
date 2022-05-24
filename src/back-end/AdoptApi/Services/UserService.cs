@@ -148,4 +148,10 @@ public class UserService
         }
     }
 
+    // @TODO: implementar regra de negócio chamando o método UpdateUser no UserRepository
+    // public async Task<UserDto?> UpdateInfo(UpdateProfileRequest request)
+    // {
+    //     
+    // }
+
 }

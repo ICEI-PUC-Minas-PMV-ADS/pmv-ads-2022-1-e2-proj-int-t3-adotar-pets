@@ -44,6 +44,8 @@ builder.Services.AddDbContext<Context>(optionsBuilder =>
     optionsBuilder.AddInterceptors(new SoftDeletableEntityInterceptor());
 });
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 var key = Encoding.ASCII.GetBytes(builder.Configuration["Auth:Key"]);
 builder.Services.AddAuthentication(options =>
 {
@@ -65,6 +67,7 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 builder.Services.AddTransient<TokenService>();
 builder.Services.AddTransient<UserRepository>();
+builder.Services.AddTransient<PetRepository>();
 builder.Services.AddControllers().ConfigureApiBehaviorOptions(options =>
 {
     options.InvalidModelStateResponseFactory = context =>
