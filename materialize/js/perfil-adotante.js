@@ -28,15 +28,6 @@ function inserirImagem(){
 
 function carregarPerfilAdotante(){
 
-//     var token = localStorage.getItem('token');
-//     const apiUrl = 'https://adoptapi.azurewebsites.net/api/user';
-//     const settings = {
-//     method: 'GET',
-//     headers: {
-//       'Content-type': 'application/json'
-//     },
-//     body: JSON.stringify(body),
-//   };
 
   var usuarioResponse = {
     "id": 10,
@@ -84,14 +75,14 @@ buttonSalvarPerfil.addEventListener('click', async event => {
     
     event.preventDefault();
 
-    var inputPhone = document.getElementById("phone");
-    var inputCep = document.getElementById("cep");
+    var inputNome = document.getElementById("nome");
+    var inputEmail = document.getElementById("email");
     var erros = 0;
 
-    if (!validationEmpty(inputCep)){
+    if (!validationEmpty(inputEmail)){
         erros++
     }
-    if (!validationEmpty(inputPhone)){
+    if (!validationEmpty(inputNome)){
         erros++
     }
     
@@ -99,10 +90,10 @@ buttonSalvarPerfil.addEventListener('click', async event => {
 
         var body = {
             user: {
-                name: this.usuario.name,
-                email: this.usuario.email,
+                name: document.getElementById("nome"),
+                email: document.getElementById("email"),
                 birthDate: this.usuario.birthDate,
-                phone: document.getElementById("phone").value,
+                phone: this.usuario.phone,
                 imagem: this.imgUsuario === "" ? this.usuario.imagem : this.imgUsuario 
             },
             document: {
@@ -110,7 +101,7 @@ buttonSalvarPerfil.addEventListener('click', async event => {
                 number: this.usuario.document.number,
             },
             address: {
-                zipCode: document.getElementById("cep").value.replace(/[^\d]+/g,''),
+                zipCode: this.usuario.zipCode,
             },
 
             
