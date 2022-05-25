@@ -13,19 +13,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="materialize/img/favIcon.svg" type="image/x-icon" />
     <link rel="stylesheet" href="materialize/css/perfil-adotante.css">
+    <link rel="stylesheet" href="materialize/css/config.css">
     <title>Cadastro Animais</title>
 </head>
 
 <body>
 
     <!-- Navbar -->
-    <div data-partial="navbarLog"></div>
+    <div data-partial="navbarLogOng"></div>
     <!-- //Navbar -->
 
     <!-- Breadcrumbs-->
     <div class="row breadcrumbz">
         <div class="col s12">
-            <a href="landingpage.html" class="fs-16 textcolor-secondary">Página inicial</a>
+            <a href="index.html" class="fs-16 textcolor-secondary">Página inicial</a>
             <a href="#!" class="fs-16 black-text">/ Cadastro de Animais</a>
         </div>
         <div class="col s12">
@@ -97,10 +98,11 @@
                         </div>
 
                         <div class=" input-field col s12 m6 l6">
-                            <input value="" id="pontuacao" type="text" class="validate">
-                            <label class="active" for="pontuacao">Pontuação Mínima</label>
+                            <input value="" id="idade" type="text" class="validate">
+                            <label class="active" for="pontuacao">Idade</label>
                         </div>
                     </div>
+
 
 
 
@@ -111,9 +113,6 @@
                             <option value="2">Gato</option>
                         </select>
                     </div>
-
-
-
                     <div class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-right">
                         <select>
                             <option value="" disabled selected>Gênero</option>
@@ -122,27 +121,38 @@
                         </select>
                     </div>
 
+
+
+                    <div class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-left left">
+                        <select>
+                            <option value="" disabled selected>Porte</option>
+                            <option value="1">Pequeno</option>
+                            <option value="2">Médio</option>
+                            <option value="3">Grande</option>
+                        </select>
+                    </div>
+
+                    <div class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-right">
+                        <select>
+                            <option value="" disabled selected>Condições Especiais</option>
+                            <option value="1">Número 1</option>
+                            <option value="2">Número 2</option>
+                            <option value="1">Número 4</option>
+                            <option value="2">Número 5</option>
+                            <option value="2">Não Posssui</option>
+                        </select>
+                    </div>
+
+
                     <div class="row">
-                        <div class=" input-field col s12 m6 l6">
-                            <input value="" id="idade" type="text" class="validate">
-                            <label class="active" for="idade">Idade</label>
-                        </div>
-                        <div class=" input-field col s12 m6 l6">
-                            <input value="" id="porte" type="text" class="validate">
-                            <label class="active" for="porte">Porte</label>
+                        <div class="input-field col s12">
+                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                            <label for="textarea1">Descrição</label>
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <form class="col s12">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                <label for="textarea1">Descrição</label>
-                            </div>
-                        </div>
-                    </form>
+                    <a class="waves-effect amber darken-0 0 btn fs-btn right">Salvar</a>
+
                 </div>
 
 
@@ -150,25 +160,27 @@
 
         </div>
 
-        <a class="waves-effect amber darken-0 0 btn fs-btn right">Salvar</a>
+
+
+        <!-- Footer -->
+        <div data-partial="footer"></div>
+        <!-- //Footer -->
 
     </div>
 
 
 
-    <!-- Footer -->
-    <div data-partial="footer"></div>
-    <!-- //Footer -->
 
 
 
 
     <script type="text/javascript" src="materialize/js/cadastropet.js"></script>
-    <script type="text/javascript" src="materialize/js/busca.js"></script>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-    <script type="text/javascript" src="materialize/js/layout.js"></script>
-    <script type="text/javascript" src="materialize/js/mask.js"></script>
-    <script type="text/javascript" src="materialize/js/validate.js"></script>
+    <script type="module" src="assets/js/layout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.2/imask.min.js"
+        integrity="sha512-l0grYOI8XZga5TajPOiqLrQVCKrdh+k0QSEtS+cpJlNeI8Nu9GOhsVaFyFQuPQfYp02GnhsyHqkPR7P7BTKYAQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--<script type="module" src="assets/js/pages/profile.js"></script>-->
 
 </body>
 

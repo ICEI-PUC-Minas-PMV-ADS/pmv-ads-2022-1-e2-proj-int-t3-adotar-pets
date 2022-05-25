@@ -173,8 +173,8 @@ ul {
   color: var(--secondary);
   margin-bottom: 3.4rem;
 }
-.redefirnir-senha{
-    color: white;
+.redefirnir-senha {
+  color: white;
 }
 
 .label-form {
@@ -187,9 +187,9 @@ ul {
 .logologin {
   margin-bottom: 48px;
 }
-.breadcrumbz{
-    padding: 8px;
-    margin: 0px !important;
+.breadcrumbz {
+  padding: 8px;
+  margin: 0px !important;
 }
 .mg-8 {
   margin-top: 8px;
@@ -250,31 +250,31 @@ ul {
   background-color: var(--secondary);
 }
 
-.btn-borda{
-    border-radius: 8px;
+.btn-borda {
+  border-radius: 8px;
 }
 
-.bg-busca{
-    /*padding: 72px 72px 96px ;*/
-    height: 350px;
-    background-image: url(../img/padraoPatas.svg);
-    background-color: var(--secondary);
+.bg-busca {
+  /*padding: 72px 72px 96px ;*/
+  height: 350px;
+  background-image: url(../img/padraoPatas.svg);
+  background-color: var(--secondary);
 }
 
-.bg-redefinir{
-    /*padding: 72px 72px 96px ;*/
-    margin-top: -20px;
-    align-items: center;
-    height: 420px;
-    width: 100%;
-    background-image: url(../img/padraoPatas.svg);
-    background-color: var(--secondary);
+.bg-redefinir {
+  /*padding: 72px 72px 96px ;*/
+  margin-top: -20px;
+  align-items: center;
+  height: 420px;
+  width: 100%;
+  background-image: url(../img/padraoPatas.svg);
+  background-color: var(--secondary);
 }
 
-.input-select{
-    height: 54px;
-    border-radius: 4px;
-    background-color: white; 
+.input-select {
+  height: 54px;
+  border-radius: 4px;
+  background-color: white;
 }
 
 .botao-busca {
@@ -316,6 +316,10 @@ ul {
   padding: 0rem !important;
   padding-right: 0.75rem !important;
   width: 100%;
+}
+
+.hiddendiv {
+  width: 100% !important;
 }
 
 /* Responsividade */

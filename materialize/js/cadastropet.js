@@ -57,3 +57,8 @@ function inserirImagem3() {
     reader.readAsDataURL(this.files[0]);
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.querySelectorAll("select");
+  var instances = M.FormSelect.init(elems);
+});
