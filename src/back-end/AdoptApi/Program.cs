@@ -1,4 +1,6 @@
+using System.Net.Mime;
 using System.Text;
+using AdoptApi.Attributes.Results;
 using AdoptApi.Converters;
 using AdoptApi.Database;
 using AdoptApi.Models.Interceptors;
@@ -63,7 +65,15 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 builder.Services.AddTransient<TokenService>();
 builder.Services.AddTransient<UserRepository>();
-builder.Services.AddControllers();
+builder.Services.AddControllers().ConfigureApiBehaviorOptions(options =>
+{
+    options.InvalidModelStateResponseFactory = context =>
+    {
+        var result = new ValidationFailedResult(context.ModelState);
+        result.ContentTypes.Add(MediaTypeNames.Application.Json);
+        return result;
+    };
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>

@@ -1,5 +1,7 @@
 .input-busca{
     margin: 0px !important;
+    background-color: #fff;
+    border-radius: 4px;
 }
 .mb-8{
     margin-bottom: 8px;
@@ -17,6 +19,12 @@
     height: 148px;
     margin-bottom: 16px;
     box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.1);
+}
+.bg-busca{
+    /*padding: 72px 72px 96px ;*/
+    height: 350px;
+    background-image: url(../img/padraoPatas.svg);
+    background-color: var(--secondary);
 }
 
 

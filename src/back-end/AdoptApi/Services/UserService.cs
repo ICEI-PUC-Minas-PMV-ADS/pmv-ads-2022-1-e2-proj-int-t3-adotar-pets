@@ -5,7 +5,6 @@ using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
 using AdoptApi.Requests;
 using AdoptApi.Services.Dtos;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Newtonsoft.Json;
@@ -55,11 +54,11 @@ public class UserService
         }
         catch (JsonSerializationException)
         {
-            _modelState.AddModelError(nameof(Address.ZipCode), "Não foi possível extrair dados do CEP fornecido.");
+            _modelState.AddModelError("Address.ZipCode", "Não foi possível extrair dados do CEP fornecido.");
         }
         catch (Exception e)
         {
-            _modelState.AddModelError(nameof(address.ZipCode), e.Message);
+            _modelState.AddModelError("Address.ZipCode", e.Message);
         }
         return _modelState.IsValid;
     }
@@ -69,13 +68,13 @@ public class UserService
         var userExists = await _userRepository.UserEmailExists(user.Email);
         if (userExists)
         {
-            _modelState.AddModelError(nameof(User.Email), "Já existe um usuário cadastrado com este e-mail.");
+            _modelState.AddModelError("User.Email", "Já existe um usuário cadastrado com este e-mail.");
         }
 
         var documentExists = await _userRepository.UserDocumentExists(user.Document.Number);
         if (documentExists)
         {
-            _modelState.AddModelError(nameof(User.Document.Number), "Já existe um usuário cadastrado com este documento.");
+            _modelState.AddModelError("Document.Number", "Já existe um usuário cadastrado com este documento.");
         }
         return _modelState.IsValid;
     }
@@ -109,7 +108,7 @@ public class UserService
         }
         catch (InvalidOperationException)
         {
-            _modelState.AddModelError(nameof(User.Email), "E-mail ou senha não coincidem.");
+            _modelState.AddModelError("User.Email", "E-mail ou senha não coincidem.");
             return null;
         }
     }

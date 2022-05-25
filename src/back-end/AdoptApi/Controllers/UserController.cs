@@ -1,3 +1,4 @@
+using AdoptApi.Attributes;
 using AdoptApi.Attributes.Extensions;
 using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
@@ -11,6 +12,7 @@ namespace AdoptApi.Controllers;
 
 [ApiController]
 [EnableCors]
+[ValidateRequest]
 [Route("api/user")]
 [Authorize]
 public class UserController : ControllerBase
