@@ -30,7 +30,7 @@ public class PetController
     }
     
     [HttpPost]
-    [Route("registerPet")]
+    [Route("create")]
     [Authorize(Roles = nameof(UserType.Protector))]
     public async Task<ActionResult<PetDto>> AddPet([FromBody] CreatePetRequest request)
     {
@@ -43,12 +43,20 @@ public class PetController
     {
         return await _petService.ListNeeds();
     }
+    
+    // @TODO ver perfil do pet e checar se está ativo
+    // [HttpGet]
+    // [Route("profile/{petId}")]
+    // public async Task<ActionResult<PetDto>> GetPetProfile(int petId)
+    // {
+    //     return await _petService.ListNeeds();
+    // }
 
     // @TODO editar um pet
     // [HttpPut]
-    // [Route("")]
+    // [Route("edit/{petId}")]
     // [Authorize(Roles = nameof(UserType.Protector))]
-    // public async Task<ActionResult<List<PetDto>>> EditPet()
+    // public async Task<ActionResult<PetDto>> EditPet(int petId)
     // {
     //     
     // }
