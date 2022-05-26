@@ -118,7 +118,7 @@ public class UserService
     {
         try
         {
-            var user = await _userRepository.GetUserEmailAndByPassword(request.Email, EncryptPassword(request.Password));
+            var user = await _userRepository.GetUserEmailAndByPassword(request.User.Email, EncryptPassword(request.User.Password));
             return new TokenDto {User = GetUserDto(user), Token = tokenService.GenerateToken(user)};
         }
         catch (InvalidOperationException)
