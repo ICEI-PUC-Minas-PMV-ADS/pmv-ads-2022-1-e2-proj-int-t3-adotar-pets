@@ -4,6 +4,7 @@ using AdoptApi.Models;
 using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
 using AdoptApi.Requests;
+using AdoptApi.Requests.Dtos;
 using AdoptApi.Services.Dtos;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -79,7 +80,7 @@ public class UserService
         return _modelState.IsValid;
     }
     
-    private async Task<bool> ValidateCurrentUser(User user, UpdateProfileRequest request)
+    private async Task<bool> ValidateCurrentUser(User user, UserEditRequestDto request)
     {
         if (request.Email == user.Email)
         {
@@ -169,13 +170,14 @@ public class UserService
         try
         {
             var user = await _userRepository.GetUserById(userId);
-            var userValidated = await ValidateCurrentUser(user, request);
+            var userEditDto = request.User;
+            var userValidated = await ValidateCurrentUser(user, userEditDto);
             if (!userValidated)
             {
                 return null;
             }
-            user.Name = request.Name;
-            user.Email = request.Email;
+            user.Name = userEditDto.Name;
+            user.Email = userEditDto.Email;
             user = await _userRepository.UpdateUser(user);
             return GetUserDto(user);
         }
