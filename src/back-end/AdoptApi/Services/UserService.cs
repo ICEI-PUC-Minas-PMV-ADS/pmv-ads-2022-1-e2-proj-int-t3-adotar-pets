@@ -176,7 +176,7 @@ public class UserService
             }
             user.Name = request.Name;
             user.Email = request.Email;
-            await _userRepository.UpdateUser(user);
+            user = await _userRepository.UpdateUser(user);
             return GetUserDto(user);
         }
         catch (InvalidOperationException)

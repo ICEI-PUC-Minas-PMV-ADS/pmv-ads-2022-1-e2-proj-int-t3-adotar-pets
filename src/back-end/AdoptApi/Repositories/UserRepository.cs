@@ -1,7 +1,5 @@
 using AdoptApi.Database;
 using AdoptApi.Models;
-using AdoptApi.Models.Dtos;
-using AdoptApi.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace AdoptApi.Repositories;
