@@ -78,7 +78,22 @@ public class UserService
         }
         return _modelState.IsValid;
     }
-
+    
+    private async Task<bool> ValidateCurrentUser(User user, UpdateProfileRequest request)
+    {
+        if (request.Email == user.Email)
+        {
+            return true;
+        }
+        
+        var userExists = await _userRepository.UserEmailExists(request.Email);
+        if (userExists)
+        {
+            _modelState.AddModelError("User.Email", "Já existe um usuário cadastrado com este e-mail.");
+        }
+        
+        return _modelState.IsValid;
+    }
     private static UserDto GetUserDto(User user)
     {
         return new UserDto
@@ -151,13 +166,24 @@ public class UserService
     
     public async Task<UserDto?> UpdateInfo(int userId, UpdateProfileRequest request)
     {
-        return new UserDto
+        try
         {
-            Id = userId,
-            Name = request.Name,
-            //Email = request.Email, //verifica a validação
-        };
-        
+            var user = await _userRepository.GetUserById(userId);
+            var userValidated = await ValidateCurrentUser(user, request);
+            if (!userValidated)
+            {
+                return null;
+            }
+            user.Name = request.Name;
+            user.Email = request.Email;
+            await _userRepository.UpdateUser(user);
+            return GetUserDto(user);
+        }
+        catch (InvalidOperationException)
+        {
+            return null;
+        }
+
     }
 
 }
