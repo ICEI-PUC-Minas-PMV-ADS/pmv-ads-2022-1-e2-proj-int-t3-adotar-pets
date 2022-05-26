@@ -183,7 +183,24 @@ public class UserService
         {
             return null;
         }
-
     }
 
+    public async Task<UserDto?> UpdatePassword(int userId, UpdatePassword request)
+    {
+        try
+        {
+            var password = await _userRepository.GetUserById(userId);
+            if (password.Password == EncryptPassword(request.NewPassword))
+            {
+                return null;
+            }
+            password.Password = EncryptPassword(request.NewPassword);
+            await _userRepository.UpdateUser(password);
+            return GetUserDto(password); 
+        }
+        catch (InvalidOperationException)
+        {
+            return null;
+        }
+    }
 }

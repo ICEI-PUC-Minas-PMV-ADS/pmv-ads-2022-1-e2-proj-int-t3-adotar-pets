@@ -1,5 +1,6 @@
 using AdoptApi.Attributes;
 using AdoptApi.Attributes.Extensions;
+using AdoptApi.Models;
 using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
 using AdoptApi.Requests;
@@ -40,9 +41,10 @@ public class UserController : ControllerBase
     }
     
     // @TODO criar request e chamar service
-    // [HttpPut]
-    // [Route("password")]
-    // public async Task<ActionResult<UserDto>> UpdatePassword([FromBody] UpdateProfileRequest request)
-    // {
-    // }
+    [HttpPut]
+    [Route("profile/password")]
+    public async Task<ActionResult<UserDto>> UpdatePassword([FromBody] UpdatePassword request)
+    {
+        return await _userService.UpdatePassword(User.Identity.GetUserId(), request);
+    }
 }
