@@ -78,7 +78,22 @@ public class UserService
         }
         return _modelState.IsValid;
     }
-
+    
+    private async Task<bool> ValidateCurrentUser(User user, UpdateProfileRequest request)
+    {
+        if (request.Email == user.Email)
+        {
+            return true;
+        }
+        
+        var userExists = await _userRepository.UserEmailExists(request.Email);
+        if (userExists)
+        {
+            _modelState.AddModelError("User.Email", "Já existe um usuário cadastrado com este e-mail.");
+        }
+        
+        return _modelState.IsValid;
+    }
     private static UserDto GetUserDto(User user)
     {
         return new UserDto
@@ -103,7 +118,7 @@ public class UserService
     {
         try
         {
-            var user = await _userRepository.GetUserEmailAndByPassword(request.Email, EncryptPassword(request.Password));
+            var user = await _userRepository.GetUserEmailAndByPassword(request.User.Email, EncryptPassword(request.User.Password));
             return new TokenDto {User = GetUserDto(user), Token = tokenService.GenerateToken(user)};
         }
         catch (InvalidOperationException)
@@ -148,10 +163,27 @@ public class UserService
         }
     }
 
-    // @TODO: implementar regra de negócio chamando o método UpdateUser no UserRepository
-    // public async Task<UserDto?> UpdateInfo(UpdateProfileRequest request)
-    // {
-    //     
-    // }
+    
+    public async Task<UserDto?> UpdateInfo(int userId, UpdateProfileRequest request)
+    {
+        try
+        {
+            var user = await _userRepository.GetUserById(userId);
+            var userValidated = await ValidateCurrentUser(user, request);
+            if (!userValidated)
+            {
+                return null;
+            }
+            user.Name = request.Name;
+            user.Email = request.Email;
+            user = await _userRepository.UpdateUser(user);
+            return GetUserDto(user);
+        }
+        catch (InvalidOperationException)
+        {
+            return null;
+        }
+
+    }
 
 }
