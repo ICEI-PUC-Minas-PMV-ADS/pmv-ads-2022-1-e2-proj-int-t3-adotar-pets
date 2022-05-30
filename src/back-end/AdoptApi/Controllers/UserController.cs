@@ -40,7 +40,6 @@ public class UserController : ControllerBase
         return await _userService.UpdateInfo(User.Identity.GetUserId(), request);
     }
     
-    // @TODO criar request e chamar service
     [HttpPut]
     [Route("profile/password")]
     public async Task<ActionResult<UserDto>> UpdatePassword([FromBody] UpdatePassword request)

@@ -189,14 +189,16 @@ public class UserService
     {
         try
         {
-            var password = await _userRepository.GetUserById(userId);
-            if (password.Password == EncryptPassword(request.NewPassword))
+            var user = await _userRepository.GetUserById(userId);
+            
+            if (EncryptPassword(request.CurrentPassord) != user.Password)
             {
+                _modelState.AddModelError("User.Password", "A senha não corresponde a senha atual");
                 return null;
             }
-            password.Password = EncryptPassword(request.NewPassword);
-            await _userRepository.UpdateUser(password);
-            return GetUserDto(password); 
+            user.Password = EncryptPassword(request.NewPassword);
+            await _userRepository.UpdateUser(user);
+            return GetUserDto(user);
         }
         catch (InvalidOperationException)
         {
