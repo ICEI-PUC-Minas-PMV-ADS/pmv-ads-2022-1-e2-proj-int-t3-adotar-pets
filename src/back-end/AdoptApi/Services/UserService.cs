@@ -193,7 +193,7 @@ public class UserService
             
             if (EncryptPassword(request.CurrentPassord) != user.Password)
             {
-                _modelState.AddModelError("User.Password", "A senha não corresponde a senha atual");
+                _modelState.AddModelError("User.Password", "A senha não corresponde a senha atual.");
                 return null;
             }
             user.Password = EncryptPassword(request.NewPassword);
