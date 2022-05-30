@@ -191,7 +191,7 @@ public class UserService
         {
             var user = await _userRepository.GetUserById(userId);
             
-            if (EncryptPassword(request.CurrentPassord) != user.Password)
+            if (EncryptPassword(request.CurrentPassword) != user.Password)
             {
                 _modelState.AddModelError("User.Password", "A senha não corresponde a senha atual.");
                 return null;
