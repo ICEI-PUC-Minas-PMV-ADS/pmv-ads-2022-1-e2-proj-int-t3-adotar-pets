@@ -1,0 +1,20 @@
+.select-edit-right {
+    padding: 0rem !important;
+    padding-left: 0.75rem !important;
+    width: 100%;
+  }
+  
+  .select-edit-left {
+    padding: 0rem !important;
+    padding-right: 0.75rem !important;
+    width: 100%;
+  }
+
+  @media(max-width: 600px){
+      .select-edit-right{
+          padding-left: 0rem !important;
+      }
+      .select-edit-left{
+          padding-right: 0rem !important;
+      }
+  }
