@@ -4,5 +4,5 @@ namespace AdoptApi.Requests;
 
 public class UpdateProfileRequest
 {
-    public UserProfileRequestDto User { get; set; }
+    public UserEditRequestDto User { get; set; }
 }
