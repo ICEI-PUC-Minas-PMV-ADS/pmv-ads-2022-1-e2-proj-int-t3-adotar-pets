@@ -1,5 +1,7 @@
 import { setFieldError, Validate } from '../../assets/js/forms/validation.js';
-import {api} from '../api/client.js';
+import {api} from '../../assets/js/api/client.js';
+
+const profileForm = document.querySelector('[data-profile]');
 
 var file = document.getElementById("image-input");
 var imgUsuario ="";
@@ -69,20 +71,31 @@ function inserirImagem(){
 
 
 
+  
+// profileForm.addEventListener("submit", async (event) => {
 const buttonSalvarPerfil = document.getElementById('btn-salvar-perfil');
 buttonSalvarPerfil.addEventListener('click', async event => {
-    
+  
     event.preventDefault();
+    
+    var erros = false;
 
-    // var inputNome = document.getElementById("nome");
-    // var inputEmail = document.getElementById("email");
-    // var erros = false;
-    let inputs = registerForm.querySelectorAll('input[name]');
+    var inputNome = document.getElementById("nome");
+    var inputEmail = document.getElementById("email");
 
+    let inputs = profileForm.querySelectorAll('input[name]');
+ 
     inputs.forEach((input)=>{
         try {
-          let validatedInputNome = new Validate(input).required(); 
-          let validatedInputEmail = new Validate(input).required().email(); 
+
+          if(input.id == "nome"){
+                let inputNome = new Validate(input).required(); 
+          }
+
+          if(input.id == "email"){
+              let inputEmail = new Validate(input).required().email();
+          }
+          
         } catch (e) {
           erros = true;
         }
@@ -91,8 +104,8 @@ buttonSalvarPerfil.addEventListener('click', async event => {
       if (!erros){
         var body = {
             User: {
-                Name: inputNome,
-                Email: inputEmail      
+                Name: inputNome.value,
+                Email: inputEmail.value      
             }
          };
 
@@ -102,36 +115,6 @@ buttonSalvarPerfil.addEventListener('click', async event => {
     
 
 });
-//     if (!validationEmpty(inputEmail)){
-
-//     }
-//     if (!validationEmpty(inputNome)){
-//         erros++
-//     }
-    
-//     if (erros === 0){
-
-//         var body = {
-//             user: {
-//                 name: document.getElementById("nome"),
-//                 email: document.getElementById("email"),
-//                 // birthDate: this.usuario.birthDate,
-//                 // phone: this.usuario.phone,
-//                 // imagem: this.imgUsuario === "" ? this.usuario.imagem : this.imgUsuario 
-//             },
-//             // document: {
-//             //     type: this.usuario.document.type,
-//             //     number: this.usuario.document.number,
-//             // },
-//             // address: {
-//             //     zipCode: this.usuario.zipCode,
-//             // },
-
-            
-//         }
-//     }   
-// });
-
 
 async function salvar(body){
 
@@ -139,17 +122,17 @@ async function salvar(body){
 
     try {
 
-        const response = api.post('user/profile', body, true);
+        const response = await api.put('user/profile', body, true);
         
-        if (!response.ok) {
+        if (!response) {
             throw response;
         }
 
-        const data = await response.json();
+        alert("Seus dados foram alterados com sucesso!")
 
     } catch (err) {
         //caso falhe, execute isso
-        const error = await err.json();
+        const error = err;
         alert("Ocorreu um erro ao salvar.");
     }
 

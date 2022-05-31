@@ -58,6 +58,12 @@ export class Api {
         const request = Api.#buildRequest(this.#getEndpoint(endpoint), 'POST', withToken, data);
         return await Api.#getJsonResponse(request);
     }
+
+    async put(endpoint, data = {}, withToken = true) {
+        const request = Api.#buildRequest(this.#getEndpoint(endpoint), 'PUT', withToken, data);
+        return await Api.#getJsonResponse(request);
+    }
+    
     
     async register(userInfo) {
         return this.#post('auth/register', userInfo);
