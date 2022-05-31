@@ -1,5 +1,6 @@
 using AdoptApi.Database;
 using AdoptApi.Models;
+using AdoptApi.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
 
 namespace AdoptApi.Repositories;
@@ -28,5 +29,10 @@ public class PetRepository
     public async Task<List<Need>> GetAvailableNeeds()
     {
         return await _context.Needs.Where(n => n.IsActive == true).ToListAsync();
+    }
+
+    public async Task<Pet> GetAvailablePet(int petId)
+    {
+        return await _context.Pets.Where(p => p.IsActive == true && p.Id == petId).SingleAsync();
     }
 }

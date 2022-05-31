@@ -26,7 +26,7 @@ public class PetService
     private static PetDto GetPetDto(Pet pet)
     {
         return new PetDto
-        {
+        {            
             Name = pet.Name,
             Type = pet.Type,
             Gender = pet.Gender,
@@ -51,14 +51,15 @@ public class PetService
         }
     }
 
-    public async Task<PetDto?> PetRegister(CreatePetRequest request)
+    public async Task<PetDto?> PetRegister(int userId, CreatePetRequest request)
     {
         var petDto = request.Pet;
         var pet = new Pet
         {
+            UserId = userId,
             Name = petDto.Name, Description = petDto.Description, Type = petDto.Type, Gender = petDto.Gender,
             BirthDate = DateOnly.ParseExact(petDto.BirthDate, "yyyy-MM-dd"), Size = petDto.Size,
-            MinScore = petDto.MinScore
+            MinScore = petDto.MinScore, IsActive = true
         };
 
         var createdPet = await _petRepository.CreatePet(pet);
@@ -69,5 +70,18 @@ public class PetService
     {
         var needs = await _petRepository.GetAvailableNeeds();
         return _mapper.Map<List<Need>, List<NeedDto>>(needs);
+    }
+
+    public async Task<PetDto?> GetPetProfile(int petId)
+    {
+        try
+        {
+            var petProfile = await _petRepository.GetAvailablePet(petId);
+            return GetPetDto(petProfile);
+        } catch (InvalidOperationException)
+        {
+            _modelState.AddModelError("Pet", "Pet não existe ou não esá ativo.");
+            return null;
+        }
     }
 }
