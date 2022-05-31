@@ -1,8 +1,13 @@
 /src/back-end/AdoptApi/obj/
 /src/back-end/AdoptApi/bin/
 /.idea/
+/.vs/
 /.vscode/
 /src/back-end/.idea/
+/src/back-end/.vs/
 /src/back-end/.vscode/
+.DS_Store
+/src/back-end/.DS_Store
+/Folder.DotSettings.user
 .DS_Store
 /src/back-end/.DS_Store
