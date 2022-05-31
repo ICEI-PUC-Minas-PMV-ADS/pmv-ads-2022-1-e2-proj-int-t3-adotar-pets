@@ -95,6 +95,22 @@ public class UserService
         
         return _modelState.IsValid;
     }
+    
+    private bool ValidateUserPassword(User user, UpdatePassword request)
+    {
+        if (EncryptPassword(request.CurrentPassword) != user.Password)
+        {
+            _modelState.AddModelError(nameof(request.CurrentPassword), "A senha não corresponde à senha atual.");
+        }
+        
+        if (EncryptPassword(request.NewPassword) == user.Password)
+        {
+            _modelState.AddModelError(nameof(request.NewPassword), "Sua nova senha não pode ser igual à senha atual.");
+        }
+        
+        return _modelState.IsValid;
+    }
+    
     private static UserDto GetUserDto(User user)
     {
         return new UserDto
@@ -185,7 +201,27 @@ public class UserService
         {
             return null;
         }
-
     }
 
+    public async Task<UserDto?> UpdatePassword(int userId, UpdatePassword request)
+    {
+        try
+        {
+            var user = await _userRepository.GetUserById(userId);
+            var validatedPassword = ValidateUserPassword(user, request);
+            
+            if (!validatedPassword)
+            {
+                return null;
+            }
+            
+            user.Password = EncryptPassword(request.NewPassword);
+            await _userRepository.UpdateUser(user);
+            return GetUserDto(user);
+        }
+        catch (InvalidOperationException)
+        {
+            return null;
+        }
+    }
 }
