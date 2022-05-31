@@ -43,13 +43,12 @@ public class PetController : ControllerBase
         return await _petService.ListNeeds();
     }
     
-    // @TODO ver perfil do pet e checar se está ativo
-   [HttpGet]
-   [Route("profile/{petId}")]
-   public async Task<ActionResult<PetDto>> GetPetProfile(int petId)
-   {
-      return await _petService.GetPetProfile(petId);
-   }
+    [HttpGet]
+    [Route("profile/{petId}")]
+    public async Task<ActionResult<PetDto>> GetPetProfile(int petId)
+    {
+        return await _petService.GetPetProfile(petId);
+    }
 
     // @TODO editar um pet
     // [HttpPut]

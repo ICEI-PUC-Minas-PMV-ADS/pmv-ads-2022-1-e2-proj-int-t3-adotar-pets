@@ -72,9 +72,16 @@ public class PetService
         return _mapper.Map<List<Need>, List<NeedDto>>(needs);
     }
 
-    public async Task<PetDto> GetPetProfile(int petId)
+    public async Task<PetDto?> GetPetProfile(int petId)
     {
-        var petProfile = await _petRepository.GetAvailablePet(petId);
-        return GetPetDto(petProfile);
+        try
+        {
+            var petProfile = await _petRepository.GetAvailablePet(petId);
+            return GetPetDto(petProfile);
+        } catch (InvalidOperationException)
+        {
+            _modelState.AddModelError("Pet", "Pet não existe ou não esá ativo.");
+            return null;
+        }
     }
 }
