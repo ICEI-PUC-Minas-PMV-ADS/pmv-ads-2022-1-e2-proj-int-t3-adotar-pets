@@ -1,6 +1,8 @@
+using AdoptApi.Requests.Dtos;
+
 namespace AdoptApi.Requests;
 
 public class UpdateProfileRequest
 {
-    //@TODO: implementar payload
+    public UserEditRequestDto User { get; set; }
 }
