@@ -80,7 +80,7 @@ public class PetService
             return GetPetDto(petProfile);
         } catch (InvalidOperationException)
         {
-            _modelState.AddModelError("Pet", "Pet não existe ou não esá ativo.");
+            _modelState.AddModelError("Pet", "Pet não existe ou não está ativo.");
             return null;
         }
     }
