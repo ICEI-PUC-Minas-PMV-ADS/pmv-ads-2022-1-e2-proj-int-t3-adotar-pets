@@ -95,7 +95,16 @@ public class UserService
         
         return _modelState.IsValid;
     }
-    
+
+    private string ChangeIfEmptyField(string selectedField, string dbField)
+    {
+        if (String.IsNullOrEmpty(selectedField))
+        {
+            return dbField;
+        }
+
+        return selectedField;
+    }
     private bool ValidateUserPassword(User user, UpdatePassword request)
     {
         if (EncryptPassword(request.CurrentPassword) != user.Password)
@@ -110,7 +119,6 @@ public class UserService
         
         return _modelState.IsValid;
     }
-    
     private static UserDto GetUserDto(User user)
     {
         return new UserDto
@@ -192,8 +200,8 @@ public class UserService
             {
                 return null;
             }
-            user.Name = userEditDto.Name;
-            user.Email = userEditDto.Email;
+            user.Name = ChangeIfEmptyField(userEditDto.Name,user.Name);
+            user.Email = ChangeIfEmptyField(userEditDto.Email,user.Email);
             user = await _userRepository.UpdateUser(user);
             return GetUserDto(user);
         }
@@ -224,4 +232,4 @@ public class UserService
             return null;
         }
     }
-}
+}//CreateUserRequest verificar essa classe para fazer as verificações de ong;
