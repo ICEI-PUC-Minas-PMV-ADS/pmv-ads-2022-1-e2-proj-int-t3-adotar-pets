@@ -1,7 +1,6 @@
-using System.ComponentModel.DataAnnotations;
 using AdoptApi.Attributes;
+using AdoptApi.Attributes.Extensions;
 using AdoptApi.Enums;
-using AdoptApi.Models;
 using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
 using AdoptApi.Requests;
@@ -20,7 +19,7 @@ namespace AdoptApi.Controllers;
 [ValidateRequest]
 [Route("api/pet")]
 [Authorize]
-public class PetController
+public class PetController : ControllerBase
 {
     private PetService _petService;   
 
@@ -34,7 +33,7 @@ public class PetController
     [Authorize(Roles = nameof(UserType.Protector))]
     public async Task<ActionResult<PetDto>> AddPet([FromBody] CreatePetRequest request)
     {
-        return await _petService.PetRegister(request);
+        return await _petService.PetRegister(User.Identity.GetUserId(), request);
     }
     
     [HttpGet]
@@ -45,12 +44,12 @@ public class PetController
     }
     
     // @TODO ver perfil do pet e checar se está ativo
-    // [HttpGet]
-    // [Route("profile/{petId}")]
-    // public async Task<ActionResult<PetDto>> GetPetProfile(int petId)
-    // {
-    //     return await _petService.ListNeeds();
-    // }
+   [HttpGet]
+   [Route("profile/{petId}")]
+   public async Task<ActionResult<PetDto>> GetPetProfile(int petId)
+   {
+      return await _petService.GetPetProfile(petId);
+   }
 
     // @TODO editar um pet
     // [HttpPut]
