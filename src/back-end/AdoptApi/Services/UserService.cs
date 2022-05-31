@@ -81,12 +81,12 @@ public class UserService
     
     private async Task<bool> ValidateCurrentUser(User user, UpdateProfileRequest request)
     {
-        if (request.Email == user.Email)
+        if (request.User.Email == user.Email)
         {
             return true;
         }
         
-        var userExists = await _userRepository.UserEmailExists(request.Email);
+        var userExists = await _userRepository.UserEmailExists(request.User.Email);
         if (userExists)
         {
             _modelState.AddModelError("User.Email", "Já existe um usuário cadastrado com este e-mail.");
@@ -94,6 +94,22 @@ public class UserService
         
         return _modelState.IsValid;
     }
+    
+    private bool ValidateUserPassword(User user, UpdatePassword request)
+    {
+        if (EncryptPassword(request.CurrentPassword) != user.Password)
+        {
+            _modelState.AddModelError(nameof(request.CurrentPassword), "A senha não corresponde à senha atual.");
+        }
+        
+        if (EncryptPassword(request.NewPassword) == user.Password)
+        {
+            _modelState.AddModelError(nameof(request.NewPassword), "Sua nova senha não pode ser igual à senha atual.");
+        }
+        
+        return _modelState.IsValid;
+    }
+    
     private static UserDto GetUserDto(User user)
     {
         return new UserDto
@@ -174,8 +190,8 @@ public class UserService
             {
                 return null;
             }
-            user.Name = request.Name;
-            user.Email = request.Email;
+            user.Name = request.User.Name;
+            user.Email = request.User.Email;
             user = await _userRepository.UpdateUser(user);
             return GetUserDto(user);
         }
@@ -190,12 +206,13 @@ public class UserService
         try
         {
             var user = await _userRepository.GetUserById(userId);
+            var validatedPassword = ValidateUserPassword(user, request);
             
-            if (EncryptPassword(request.CurrentPassword) != user.Password)
+            if (!validatedPassword)
             {
-                _modelState.AddModelError("User.Password", "A senha não corresponde a senha atual.");
                 return null;
             }
+            
             user.Password = EncryptPassword(request.NewPassword);
             await _userRepository.UpdateUser(user);
             return GetUserDto(user);
