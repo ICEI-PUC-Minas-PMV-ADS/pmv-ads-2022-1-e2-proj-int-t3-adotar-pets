@@ -1,5 +1,6 @@
 using System.Security.Cryptography;
 using System.Text;
+using AdoptApi.Enums;
 using AdoptApi.Models;
 using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
@@ -202,8 +203,16 @@ public class UserService
             }
             user.Name = ChangeIfEmptyField(userEditDto.Name,user.Name);
             user.Email = ChangeIfEmptyField(userEditDto.Email,user.Email);
+            if (user.Document.Type == DocumentType.Cnpj)
+            {
+                user.Address.Name = ChangeIfEmptyField(userEditDto.Address,user.Address.Name);
+                user.Address.Number = Int32.Parse(ChangeIfEmptyField(userEditDto.Number.ToString(),user.Address.Name.ToString()));
+                user.Address.Complement = ChangeIfEmptyField(userEditDto.Complement,user.Address.Complement);
+                user.Address.ZipCode = ChangeIfEmptyField(userEditDto.ZipCode,user.Address.ZipCode);
+            }
             user = await _userRepository.UpdateUser(user);
             return GetUserDto(user);
+
         }
         catch (InvalidOperationException)
         {
