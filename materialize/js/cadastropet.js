@@ -1,7 +1,49 @@
 import { setFieldError, Validate } from '../../assets/js/forms/validation.js';
 
+const registerPetForm = document.querySelector('[data-register]');
 
+var file = document.getElementById("image-input");
+var imgPet = "";
+var pet;
 
+//validações //
+
+const birthDateMask = IMask(registerPetForm.querySelector('input[name="pet.birthdate"]'), {
+  mask: Date,
+  pattern: 'd/m/Y',
+  blocks: {
+      d: {
+          mask: IMask.MaskedRange,
+          from: 1,
+          to: 31,
+          maxLength: 2,
+      },
+      m: {
+          mask: IMask.MaskedRange,
+          from: 1,
+          to: 12,
+          maxLength: 2,
+      },
+      Y: {
+          mask: IMask.MaskedRange,
+          from: 1900,
+          to: (new Date()).getFullYear(),
+      }
+  },
+  format: function (date) {
+      let day = date.getDate();
+      let month = date.getMonth() + 1;
+      let year = date.getFullYear();
+      if (day < 10) day = "0" + day;
+      if (month < 10) month = "0" + month;
+      return [day, month, year].join('/');
+  },
+  parse: function (str) {
+      const dayMonthYear = str.split('/');
+      return new Date(dayMonthYear[2], dayMonthYear[1] - 1, dayMonthYear[0]);
+  },
+  autofix: true,
+});
 
 
 const registerForm = document.querySelector('[data-register]');
@@ -33,34 +75,57 @@ function init(){
 
 }
 
-// var pet = {
-//   Nome: document.getElementById("nome-pet"),
-//   Idade: document.getElementById("idade-pet"),
-//   Tipo: document.getElementById("tipo-pet"),
-//   Genero: document.getElementById("genero-pet"),
-//   Porte: document.getElementById("porte-pet"),
-//   Condicao: document.getElementById("condicoes-pet"),
-//   Descricao: document.getElementById("descricao-pet"),
-// }
 
-registerForm.addEventListener("submit", async (e) => {
+
+registerPetForm.addEventListener("submit", async (e) => {
   e.preventDefault();
+
+  var erros = false;
 
   var inputNome = document.getElementById("nome-pet");
   var inputIdade = document.getElementById("idade-pet");
   var inputTipo = document.getElementById("tipo-pet");
   var inputGenero = document.getElementById("genero-pet");
   var inputPorte = document.getElementById("porte-pet");
-  var inputCondicoes = document.getElementById("condicoes-pet");
+  var inputPontuacao = document.getElementById("pontuacao-pet")
   var inputDescricao = document.getElementById("descricao-pet");
+  var inputCondicoes = document.getElementById("condicoes-pet");
 
-  var erros = false;
+  let inputs = registerPetForm.querySelectorAll('input[name], select[name], textarea[name]');
 
-  let inputs = registerForm.querySelectorAll('input[name], select[name], textarea[name]');
+  // var opcoes =  Array.from(inputCondicoes.options);
+  // var opcoesSelecionadas = [];
+
+  // opcoes.forEach((opcao)=>{
+
+  //   if(opcao.selected && opcao.value != "0")
+  //      opcoesSelecionadas.push(opcao.value);
+
+  // });
+
+  // if(opcoesSelecionadas.length == 0)
+  // {
+  //   inputCondicoes.parentElement.parentElement.classList.add('error');
+  //   inputCondicoes.parentElement.parentElement.querySelector('small').innerText = "Preencha este campo.";
+  // }
 
   inputs.forEach((input)=>{
+  
     try {
-      let validatedInputNome = new Validate(input).required();  
+      
+      if(input.id == "tipo-pet" || input.id == "genero-pet" || input.id == "porte-pet" || input.id == "pontuacao-pet")
+      {
+        let selects = new Validate(input).requiredSelect(); 
+      }
+      // else if(input.id == "condicoes-pet")
+      // {
+      //   let multiSelect = new Validate(input).requiredMultiSelect(); 
+      // }
+      else
+      {
+        let inputsSimples = new Validate(input).required();
+      }
+
     } catch (e) {
       erros = true;
     }
@@ -68,24 +133,52 @@ registerForm.addEventListener("submit", async (e) => {
 
   
   if (!erros){
-    alert("chegou aqui")
 
-    var body = {
-      user: {
-          name: document.getElementById("nome-pet"),
-          email: document.getElementById("idade-pet"),
-          birthDate: document.getElementById("genero-pet"),
-          phone: document.getElementById("porte-pet"),
-          condicoes: document.getElementById("condicoes-pet"),
-          descricao: document.getElementById("descricao-pet"),
-          imagem1: document.getElementById("image-input1"),
-          imagem2: document.getElementById("image-input2"),
-          imagem3: document.getElementById("image-input3"),
+    var opcoesSelecionadas = [];
+
+    opcoes.forEach((opcao)=>{
+
+        if(opcao.selected && opcao.value != "0")
+           opcoesSelecionadas.push(opcao.value);
+
+    });
+
+   var body = {
+      pet: {
+          Name: inputNome.value,
+          Type: inputTipo.value,
+          Gender: inputGenero.value,
+          BirthDate: inputIdade.value,
+          Size: inputPorte.value,
+          MinScore: inputPontuacao.value,
+          Needs: opcoesSelecionadas,
+          Description: inputDescricao.value
       },    
      }
+     salvar(body);
   };
-
 });
+
+async function salvar(){
+
+  const apiUrl = 'pet/create';
+  
+  try { 
+    
+    const response = await api.post('pet/create', body, true);
+        
+        if (!response) {
+            throw response;
+        }
+
+        alert("Seus dados foram alterados com sucesso!")
+
+  } catch (err) {
+    //caso falhe, execute isso
+    const error = err;
+    alert("Ocorreu um erro ao salvar.");
+  }
+};
 
 
 function inserirImagem(){      

@@ -1,6 +1,12 @@
 const setFieldError = (field, message) => {
-    field.parentElement.classList.add('error');
-    field.parentElement.querySelector('small').innerText = message;
+
+    if(field.localName == "select"){
+        field.parentElement.parentElement.classList.add('error');
+        field.parentElement.parentElement.querySelector('small').innerText = message;
+    }else{
+       field.parentElement.classList.add('error');
+       field.parentElement.querySelector('small').innerText = message; 
+    }
 }
 
 const convertDotPathToNestedObject = (path, value) => {
@@ -19,8 +25,15 @@ const Validate = (function () {
     }
 
     function Validate(fieldToValidate) {
-        fieldToValidate.parentElement.classList.remove('error');
-        fieldToValidate.parentElement.querySelector('small').innerText = '';
+
+        if(fieldToValidate.localName == "select"){          
+            fieldToValidate.parentElement.parentElement.classList.remove('error');
+            fieldToValidate.parentElement.parentElement.querySelector('small').innerText = '';
+        }else{      
+            fieldToValidate.parentElement.classList.remove('error');
+            fieldToValidate.parentElement.querySelector('small').innerText = '';
+        }
+        
         field = fieldToValidate;
         fieldValue = field.value;
     }
@@ -29,6 +42,34 @@ const Validate = (function () {
         if (fieldValue.trim() === '') {
             error(message ?? 'Preencha este campo.');
         }
+        return this;
+    }
+
+    Validate.prototype.requiredSelect = function (message = null) {
+        if (fieldValue.trim() === 'null') {
+            error(message ?? 'Selecione uma opção');
+        }
+        return this;
+    }
+
+    Validate.prototype.requiredMultiSelect = function (message = null) {
+
+        var opcoes =  Array.from(field.options);
+
+        var opcoesSelecionadas = [];
+
+        opcoes.forEach((opcao)=>{
+
+            if(opcao.selected && opcao.value != "0")
+            opcoesSelecionadas.push(opcao.value);
+
+        });
+
+        if(opcoesSelecionadas.length == 0)
+        {
+            error(message ?? 'Preencha este campo.');
+        }
+
         return this;
     }
 

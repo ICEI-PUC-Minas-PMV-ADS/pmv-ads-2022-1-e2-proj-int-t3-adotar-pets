@@ -184,6 +184,7 @@ ul {
 .label-form small {
   visibility: hidden;
 }
+
 .logologin {
   margin-bottom: 48px;
 }
@@ -201,9 +202,13 @@ ul {
   box-shadow: 0 1px 0 var(--alert) !important;
 }
 .label-form.error small {
+  
   font-weight: bold;
   color: var(--alert);
   visibility: visible;
+}
+.label-form.error small select{
+  font-size: 54px;
 }
 .label-form.sucesso input {
   border-bottom: 2px solid var(--tertiary);
