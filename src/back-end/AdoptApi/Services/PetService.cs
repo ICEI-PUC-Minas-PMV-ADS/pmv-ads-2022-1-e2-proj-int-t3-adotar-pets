@@ -3,8 +3,6 @@ using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using AdoptApi.Repositories;
-using AdoptApi.Requests.Dtos;
 using AdoptApi.Requests;
 using AutoMapper;
 

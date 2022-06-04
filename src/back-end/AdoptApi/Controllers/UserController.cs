@@ -1,6 +1,5 @@
 using AdoptApi.Attributes;
 using AdoptApi.Attributes.Extensions;
-using AdoptApi.Models;
 using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
 using AdoptApi.Requests;
