@@ -207,7 +207,7 @@ ul {
   color: var(--alert);
   visibility: visible;
 }
-.label-form.error small select{
+.label-form.error small {
   font-size: 54px;
 }
 .label-form.sucesso input {
