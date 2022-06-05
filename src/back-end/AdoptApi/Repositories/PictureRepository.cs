@@ -18,4 +18,11 @@ public class PictureRepository
         await _context.SaveChangesAsync();
         return picture;
     }
+
+    public async Task<Picture> DeletePicture(Picture picture)
+    {
+        _context.Pictures.Remove(picture);
+        await _context.SaveChangesAsync();
+        return picture;
+    }
 }

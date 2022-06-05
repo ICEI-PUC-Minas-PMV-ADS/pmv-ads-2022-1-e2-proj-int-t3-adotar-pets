@@ -88,13 +88,32 @@ public class ImageUploadService
             return null;
         }
     }
-
-    private string GetFullUrl(string fileName)
+    
+    private async Task<Response?> DeleteBlob(string fileName)
     {
-        return $"{_configuration["BlobStorage:BaseUrl"]}/{_configuration["BlobStorage:Container"]}/{fileName}";
+        try
+        {
+            var containerClient = GetAzureClient();
+            var blobClient = containerClient.GetBlobClient(fileName);
+
+            try
+            {
+                return await blobClient.DeleteAsync();
+            }
+            catch (RequestFailedException)
+            {
+                _modelState.AddModelError("Picture", "Um erro ocorreu ao remover a imagem.");
+                return null;
+            }
+        }
+        catch (Exception e)
+        {
+            _modelState.AddModelError("Picture", e.Message);
+            return null;
+        }
     }
 
-    public async Task<PictureDto?> UploadOne(IFormFile file, PictureType type)
+    public async Task<Picture?> UploadOne(IFormFile file, PictureType type)
     {
         var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName).ToLower();
         var uploadedFile = await UploadBlob(fileName, file);
@@ -104,15 +123,23 @@ public class ImageUploadService
             return null;
         }
 
-        var picture = new Picture
+        return await _pictureRepository.AddPicture(new Picture
         {
             Type = type,
             Url = fileName,
             IsActive = true
-        };
+        });
+    }
 
-        await _pictureRepository.AddPicture(picture);
+    public async Task<Picture?> Delete(Picture picture)
+    {
+        var deletedFile = await DeleteBlob(picture.Url);
 
-        return new PictureDto(_configuration){Url = picture.Url};
+        if (deletedFile == null)
+        {
+            return null;
+        }
+
+        return await _pictureRepository.DeletePicture(picture);
     }
 }

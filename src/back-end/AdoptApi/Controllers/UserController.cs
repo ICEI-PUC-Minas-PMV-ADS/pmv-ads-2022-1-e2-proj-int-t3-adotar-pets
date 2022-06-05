@@ -1,7 +1,5 @@
 using AdoptApi.Attributes;
 using AdoptApi.Attributes.Extensions;
-using AdoptApi.Enums;
-using AdoptApi.Models;
 using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
 using AdoptApi.Requests;
@@ -45,9 +43,16 @@ public class UserController : ControllerBase
 
     [HttpPut]
     [Route("picture")]
-    public async Task<ActionResult<PictureDto>> UpdateProfilePicture([FromForm] UpdateProfilePictureRequest request)
+    public async Task<ActionResult<UserDto>> UpdateProfilePicture([FromForm] UpdateProfilePictureRequest request)
     {
-        return await _imageUploadService.UploadOne(request.Picture, PictureType.User);
+        return await _userService.UpdateProfilePicture(User.Identity.GetUserId(), request, _imageUploadService);
+    }
+    
+    [HttpDelete]
+    [Route("picture")]
+    public async Task<ActionResult<UserDto>> DeleteProfilePicture()
+    {
+        return await _userService.DeleteProfilePicture(User.Identity.GetUserId(), _imageUploadService);
     }
 
 
