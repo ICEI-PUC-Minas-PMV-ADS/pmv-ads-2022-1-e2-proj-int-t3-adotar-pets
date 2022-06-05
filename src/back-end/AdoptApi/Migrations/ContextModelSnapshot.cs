@@ -280,6 +280,9 @@ namespace AdoptApi.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<int?>("PictureId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
@@ -294,6 +297,8 @@ namespace AdoptApi.Migrations
 
                     b.HasIndex("DocumentId")
                         .IsUnique();
+
+                    b.HasIndex("PictureId");
 
                     b.ToTable("Users");
                 });
@@ -353,9 +358,15 @@ namespace AdoptApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("AdoptApi.Models.Picture", "Picture")
+                        .WithMany()
+                        .HasForeignKey("PictureId");
+
                     b.Navigation("Address");
 
                     b.Navigation("Document");
+
+                    b.Navigation("Picture");
                 });
 
             modelBuilder.Entity("NeedPet", b =>

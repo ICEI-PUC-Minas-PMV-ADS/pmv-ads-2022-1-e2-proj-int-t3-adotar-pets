@@ -25,4 +25,7 @@ public class User : ITrackable, ISoftDeletable
     public int AddressId { get; set; }
     public Address Address { get; set; }
     public List<Pet> Pets { get; set; }
+    
+    public int? PictureId { get; set; }
+    public Picture? Picture { get; set; }
 }
