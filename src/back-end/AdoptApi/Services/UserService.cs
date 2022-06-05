@@ -20,7 +20,8 @@ public class UserService
     private readonly ModelStateDictionary _modelState;
     private UserRepository _userRepository;
 
-    public UserService(IConfiguration configuration, IActionContextAccessor actionContextAccessor, UserRepository repository)
+    public UserService(IConfiguration configuration, IActionContextAccessor actionContextAccessor,
+        UserRepository repository)
     {
         _configuration = configuration;
         _modelState = actionContextAccessor.ActionContext.ModelState;
@@ -43,9 +44,11 @@ public class UserService
             {
                 throw new Exception("Não foi possível comunicar com o gateway de CEP.");
             }
+
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", $"Token token={apiToken}");
-            HttpResponseMessage response = await client.GetAsync($"https://www.cepaberto.com/api/v3/cep?cep={address.ZipCode}");
+            HttpResponseMessage response =
+                await client.GetAsync($"https://www.cepaberto.com/api/v3/cep?cep={address.ZipCode}");
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             CepAbertoDto cepAbertoDto = JsonConvert.DeserializeObject<CepAbertoDto>(responseBody);
@@ -62,6 +65,7 @@ public class UserService
         {
             _modelState.AddModelError("Address.ZipCode", e.Message);
         }
+
         return _modelState.IsValid;
     }
 
@@ -78,48 +82,41 @@ public class UserService
         {
             _modelState.AddModelError("Document.Number", "Já existe um usuário cadastrado com este documento.");
         }
+
         return _modelState.IsValid;
     }
-    
+
     private async Task<bool> ValidateCurrentUser(User user, UserEditRequestDto request)
     {
         if (request.Email == user.Email)
         {
             return true;
         }
-        
+
         var userExists = await _userRepository.UserEmailExists(request.Email);
         if (userExists)
         {
             _modelState.AddModelError("User.Email", "Já existe um usuário cadastrado com este e-mail.");
         }
-        
+
         return _modelState.IsValid;
     }
-
-    private string ChangeIfEmptyField(string selectedField, string dbField)
-    {
-        if (String.IsNullOrEmpty(selectedField))
-        {
-            return dbField;
-        }
-
-        return selectedField;
-    }
+    
     private bool ValidateUserPassword(User user, UpdatePassword request)
     {
         if (EncryptPassword(request.CurrentPassword) != user.Password)
         {
             _modelState.AddModelError(nameof(request.CurrentPassword), "A senha não corresponde à senha atual.");
         }
-        
+
         if (EncryptPassword(request.NewPassword) == user.Password)
         {
             _modelState.AddModelError(nameof(request.NewPassword), "Sua nova senha não pode ser igual à senha atual.");
         }
-        
+
         return _modelState.IsValid;
     }
+
     private static UserDto GetUserDto(User user)
     {
         return new UserDto
@@ -128,24 +125,27 @@ public class UserService
             Name = user.Name,
             Email = user.Email,
             BirthDate = user.BirthDate,
-            Address = new AddressDto {
+            Address = new AddressDto
+            {
                 City = user.Address.City,
                 Name = user.Address.Name,
                 ZipCode = user.Address.ZipCode
             },
-            Document = new DocumentDto {
+            Document = new DocumentDto
+            {
                 Number = user.Document.Number,
                 Type = user.Document.Type
             }
         };
     }
-
+    
     public async Task<TokenDto?> Login(UserLoginRequest request, TokenService tokenService)
     {
         try
         {
-            var user = await _userRepository.GetUserEmailAndByPassword(request.User.Email, EncryptPassword(request.User.Password));
-            return new TokenDto {User = GetUserDto(user), Token = tokenService.GenerateToken(user)};
+            var user = await _userRepository.GetUserEmailAndByPassword(request.User.Email,
+                EncryptPassword(request.User.Password));
+            return new TokenDto { User = GetUserDto(user), Token = tokenService.GenerateToken(user) };
         }
         catch (InvalidOperationException)
         {
@@ -153,25 +153,31 @@ public class UserService
             return null;
         }
     }
-
+    
     public async Task<UserDto?> Register(CreateUserRequest request)
     {
         var documentDto = request.Document;
-        var document = new Document {Type = documentDto.Type, Number = documentDto.Number};
+        var document = new Document { Type = documentDto.Type, Number = documentDto.Number };
         var addressDto = request.Address;
-        var address = new Address {ZipCode = addressDto.ZipCode};
+        var address = new Address { ZipCode = addressDto.ZipCode };
         var addressValidation = await ValidateAddress(address);
         if (!addressValidation)
         {
             return null;
         }
         var userDto = request.User;
-        var user = new User {Email = userDto.Email.ToLower(), Name = userDto.Name, Type = userDto.Type, BirthDate = DateOnly.ParseExact(userDto.BirthDate, "yyyy-MM-dd"), Password = EncryptPassword(userDto.Password), Document = document, Address = address};
+        var user = new User
+        {
+            Email = userDto.Email.ToLower(), Name = userDto.Name, Type = userDto.Type,
+            BirthDate = DateOnly.ParseExact(userDto.BirthDate, "yyyy-MM-dd"),
+            Password = EncryptPassword(userDto.Password), Document = document, Address = address
+        };
         var userValidation = await ValidateNewUser(user);
         if (!userValidation)
         {
             return null;
         }
+
         var createdUser = await _userRepository.CreateUser(user);
         return GetUserDto(createdUser);
     }
@@ -188,7 +194,6 @@ public class UserService
             return null;
         }
     }
-
     
     public async Task<UserDto?> UpdateInfo(int userId, UpdateProfileRequest request)
     {
@@ -196,42 +201,43 @@ public class UserService
         {
             var user = await _userRepository.GetUserById(userId);
             var userEditDto = request.User;
+            var protectorDocument = DocumentType.Cnpj;
             var userValidated = await ValidateCurrentUser(user, userEditDto);
             if (!userValidated)
             {
                 return null;
             }
-            user.Name = ChangeIfEmptyField(userEditDto.Name,user.Name);
-            user.Email = ChangeIfEmptyField(userEditDto.Email,user.Email);
-            if (user.Document.Type == DocumentType.Cnpj)
+            user.Name = Utils.FieldUtils.ChangeIfEmptyField(userEditDto.Name, user.Name);
+            user.Email = Utils.FieldUtils.ChangeIfEmptyField(userEditDto.Email, user.Email);
+            if (user.Document.Type == protectorDocument)
             {
-                user.Address.Name = ChangeIfEmptyField(userEditDto.Address,user.Address.Name);
-                user.Address.Number = Int32.Parse(ChangeIfEmptyField(userEditDto.Number.ToString(),user.Address.Name.ToString()));
-                user.Address.Complement = ChangeIfEmptyField(userEditDto.Complement,user.Address.Complement);
-                user.Address.ZipCode = ChangeIfEmptyField(userEditDto.ZipCode,user.Address.ZipCode);
+                user.Address.Name = Utils.FieldUtils.ChangeIfEmptyField(userEditDto.Address, user.Address.Name);
+                user.Address.Number =
+                    Int32.Parse(Utils.FieldUtils.ChangeIfEmptyField(userEditDto.Number.ToString(), user.Address.Number.ToString()));
+                user.Address.Complement = Utils.FieldUtils.ChangeIfEmptyField(userEditDto.Complement, user.Address.Complement);
+                user.Address.ZipCode = Utils.FieldUtils.ChangeIfEmptyField(userEditDto.ZipCode, user.Address.ZipCode);
             }
             user = await _userRepository.UpdateUser(user);
             return GetUserDto(user);
-
         }
         catch (InvalidOperationException)
         {
             return null;
         }
     }
-
+    
     public async Task<UserDto?> UpdatePassword(int userId, UpdatePassword request)
     {
         try
         {
             var user = await _userRepository.GetUserById(userId);
             var validatedPassword = ValidateUserPassword(user, request);
-            
+
             if (!validatedPassword)
             {
                 return null;
             }
-            
+
             user.Password = EncryptPassword(request.NewPassword);
             await _userRepository.UpdateUser(user);
             return GetUserDto(user);
@@ -241,4 +247,4 @@ public class UserService
             return null;
         }
     }
-}//CreateUserRequest verificar essa classe para fazer as verificações de ong;
+}    
