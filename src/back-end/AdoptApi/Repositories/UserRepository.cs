@@ -25,12 +25,12 @@ public class UserRepository
     
     public async Task<User> GetUserEmailAndByPassword(string email, string password)
     {
-        return await _context.Users.Include(nameof(Address)).Include(nameof(Document)).SingleAsync(u => u.Email == email && u.Password == password);
+        return await _context.Users.Include(nameof(Address)).Include(nameof(Document)).Include(nameof(Picture)).SingleAsync(u => u.Email == email && u.Password == password);
     }
     
     public async Task<User> GetUserById(int id)
     {
-        return await _context.Users.Include(nameof(Address)).Include(nameof(Document)).SingleAsync(u => u.Id == id);
+        return await _context.Users.Include(nameof(Address)).Include(nameof(Document)).Include(nameof(Picture)).SingleAsync(u => u.Id == id);
     }
 
     public async Task<User> CreateUser(User user)

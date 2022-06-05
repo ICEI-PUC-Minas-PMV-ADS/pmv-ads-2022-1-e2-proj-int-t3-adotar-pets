@@ -8,4 +8,6 @@ public class UserDto
     public DateOnly BirthDate { get; set; }
     public DocumentDto Document { get; set; }
     public AddressDto Address { get; set; }
+    
+    public PictureDto? Picture { get; set; }
 }
