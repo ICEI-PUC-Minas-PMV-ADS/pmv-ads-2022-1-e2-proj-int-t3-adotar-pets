@@ -207,15 +207,17 @@ ul {
   color: var(--alert);
   visibility: visible;
 }
-.label-form.error small {
-  font-size: 54px;
-}
+
 .label-form.sucesso input {
   border-bottom: 2px solid var(--tertiary);
   box-shadow: 0 1px 0 var(--tertiary);
 }
 .label-form.sucesso small {
   visibility: hidden;
+}
+
+.label-form.error small {
+  font-size: 12px;
 }
 /* Botões */
 

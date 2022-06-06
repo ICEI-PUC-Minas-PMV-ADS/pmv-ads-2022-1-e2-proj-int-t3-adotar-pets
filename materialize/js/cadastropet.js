@@ -1,4 +1,5 @@
 import { setFieldError, Validate } from '../../assets/js/forms/validation.js';
+import {api} from '../../assets/js/api/client.js';
 
 const registerPetForm = document.querySelector('[data-register]');
 
@@ -93,22 +94,7 @@ registerPetForm.addEventListener("submit", async (e) => {
 
   let inputs = registerPetForm.querySelectorAll('input[name], select[name], textarea[name]');
 
-  // var opcoes =  Array.from(inputCondicoes.options);
-  // var opcoesSelecionadas = [];
-
-  // opcoes.forEach((opcao)=>{
-
-  //   if(opcao.selected && opcao.value != "0")
-  //      opcoesSelecionadas.push(opcao.value);
-
-  // });
-
-  // if(opcoesSelecionadas.length == 0)
-  // {
-  //   inputCondicoes.parentElement.parentElement.classList.add('error');
-  //   inputCondicoes.parentElement.parentElement.querySelector('small').innerText = "Preencha este campo.";
-  // }
-
+  
   inputs.forEach((input)=>{
   
     try {
@@ -117,10 +103,7 @@ registerPetForm.addEventListener("submit", async (e) => {
       {
         let selects = new Validate(input).requiredSelect(); 
       }
-      // else if(input.id == "condicoes-pet")
-      // {
-      //   let multiSelect = new Validate(input).requiredMultiSelect(); 
-      // }
+     
       else
       {
         let inputsSimples = new Validate(input).required();
@@ -134,6 +117,8 @@ registerPetForm.addEventListener("submit", async (e) => {
   
   if (!erros){
 
+    var opcoes =  Array.from(inputCondicoes.options);
+
     var opcoesSelecionadas = [];
 
     opcoes.forEach((opcao)=>{
@@ -144,13 +129,14 @@ registerPetForm.addEventListener("submit", async (e) => {
     });
 
    var body = {
+
       pet: {
           Name: inputNome.value,
-          Type: inputTipo.value,
-          Gender: inputGenero.value,
+          Type: parseInt(inputTipo.value),
+          Gender: parseInt(inputGenero.value),
           BirthDate: inputIdade.value,
-          Size: inputPorte.value,
-          MinScore: inputPontuacao.value,
+          Size: parseInt(inputPorte.value),
+          MinScore: parseInt(inputPontuacao.value),
           Needs: opcoesSelecionadas,
           Description: inputDescricao.value
       },    
@@ -159,24 +145,24 @@ registerPetForm.addEventListener("submit", async (e) => {
   };
 });
 
-async function salvar(){
+async function salvar(body){
 
   const apiUrl = 'pet/create';
   
   try { 
-    
-    const response = await api.post('pet/create', body, true);
+    console.log(body);  
+    const response = await api.cadastrarPet('pet/create', body, true);
         
         if (!response) {
             throw response;
         }
 
-        alert("Seus dados foram alterados com sucesso!")
+        alert("Pet cadastrado com sucesso!")
 
   } catch (err) {
     //caso falhe, execute isso
     const error = err;
-    alert("Ocorreu um erro ao salvar.");
+    alert("Ocorreu um erro no cadastro");
   }
 };
 

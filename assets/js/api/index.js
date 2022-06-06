@@ -59,6 +59,10 @@ export class Api {
         return await Api.#getJsonResponse(request);
     }
 
+    async cadastrarPet(endpoint, data = {}, withToken = false) {
+        return this.#post(endpoint, data, withToken);
+    }
+
     async put(endpoint, data = {}, withToken = true) {
         const request = Api.#buildRequest(this.#getEndpoint(endpoint), 'PUT', withToken, data);
         return await Api.#getJsonResponse(request);
