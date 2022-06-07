@@ -59,7 +59,7 @@ public class PetService
             UserId = userId,
             Name = petDto.Name, Description = petDto.Description, Type = petDto.Type, Gender = petDto.Gender,
             BirthDate = DateOnly.ParseExact(petDto.BirthDate, "yyyy-MM-dd"), Size = petDto.Size,
-            MinScore = petDto.MinScore, IsActive = true
+            MinScore = petDto.MinScore, Needs = petDto.Needs, IsActive = true
         };
 
         var createdPet = await _petRepository.CreatePet(pet);
