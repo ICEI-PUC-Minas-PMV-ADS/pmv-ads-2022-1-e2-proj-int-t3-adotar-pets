@@ -43,7 +43,10 @@ export class Api {
             Api.#withBearer(headers, Auth.getToken());
         }
         const options = {method, headers};
-        if (data) {
+        if (data instanceof FormData) {
+            headers.delete('Content-Type');
+            options.body = data;
+        } else if (data) {
             options.body = JSON.stringify(data);
         }
         return new Request(endpoint, options);
@@ -59,15 +62,10 @@ export class Api {
         return await Api.#getJsonResponse(request);
     }
 
-    async cadastrarPet(endpoint, data = {}, withToken = false) {
-        return this.#post(endpoint, data, withToken);
-    }
-
-    async put(endpoint, data = {}, withToken = true) {
+    async #put(endpoint, data = {}, withToken = false) {
         const request = Api.#buildRequest(this.#getEndpoint(endpoint), 'PUT', withToken, data);
         return await Api.#getJsonResponse(request);
     }
-    
     
     async register(userInfo) {
         return this.#post('auth/register', userInfo);
@@ -91,6 +89,18 @@ export class Api {
         } catch (e) {
             throw e;
         }
+    }
+    
+    async addProfileImage(data) {
+        try {
+            return await this.#put('user/profile/picture', data, true);
+        } catch (e) {
+            throw e;
+        }
+    }
+
+    async cadastrarPet(endpoint, data = {}, withToken = false) {
+        return this.#post(endpoint, data, withToken);
     }
     
 }
