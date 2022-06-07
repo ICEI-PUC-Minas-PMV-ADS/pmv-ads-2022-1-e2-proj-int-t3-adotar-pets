@@ -100,9 +100,9 @@ public class ImageUploadService
             {
                 return await blobClient.DeleteAsync();
             }
-            catch (RequestFailedException)
+            catch (RequestFailedException e)
             {
-                _modelState.AddModelError("Picture", "Um erro ocorreu ao remover a imagem.");
+                _modelState.AddModelError("Picture", $"Um erro ocorreu ao remover a imagem. {e.ErrorCode}");
                 return null;
             }
         }
