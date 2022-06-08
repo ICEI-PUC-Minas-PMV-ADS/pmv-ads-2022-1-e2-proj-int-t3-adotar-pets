@@ -4,7 +4,6 @@ using AdoptApi.Enums;
 using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
 using AdoptApi.Requests;
-using AdoptApi.Requests.Dtos;
 using AdoptApi.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -50,12 +49,11 @@ public class PetController : ControllerBase
         return await _petService.GetPetProfile(petId);
     }
 
-    // @TODO editar um pet
-    // [HttpPut]
-    // [Route("edit/{petId}")]
-    // [Authorize(Roles = nameof(UserType.Protector))]
-    // public async Task<ActionResult<PetDto>> EditPet(int petId)
-    // {
-    //     
-    // }
+    [HttpGet]
+    [Route("")]
+    [Authorize(Roles = nameof(UserType.Protector))]
+    public async Task<ActionResult<List<PetDto>>> ListPets()
+    {
+        return await _petService.ListPets(User.Identity.GetUserId());
+    }
 }

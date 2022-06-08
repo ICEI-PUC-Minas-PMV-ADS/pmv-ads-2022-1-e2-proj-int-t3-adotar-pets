@@ -24,7 +24,8 @@ public class PetService
     private static PetDto GetPetDto(Pet pet)
     {
         return new PetDto
-        {            
+        {
+            Id = pet.Id,
             Name = pet.Name,
             Type = pet.Type,
             Gender = pet.Gender,
@@ -32,7 +33,8 @@ public class PetService
             Size = pet.Size,
             MinScore = pet.MinScore,
             Needs = pet.Needs,
-            Description = pet.Description
+            Description = pet.Description,
+            IsActive = pet.IsActive
         };
     }
 
@@ -82,4 +84,11 @@ public class PetService
             return null;
         }
     }
+    
+    public async Task<List<PetDto>> ListPets(int userId)
+    {
+        var pets = await _petRepository.GetRegisteredPets(userId);
+        return _mapper.Map<List<Pet>, List<PetDto>>(pets);
+    }
+    
 }
