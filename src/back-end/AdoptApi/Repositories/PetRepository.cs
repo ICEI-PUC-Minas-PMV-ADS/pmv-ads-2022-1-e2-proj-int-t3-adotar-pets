@@ -35,4 +35,9 @@ public class PetRepository
     {
         return await _context.Pets.Where(p => p.IsActive == true && p.Id == petId).SingleAsync();
     }
+
+    public async Task<List<Pet>> GetRegisteredPets(int userId)
+    {
+        return await _context.Pets.Where(u => u.Id == userId).ToListAsync();
+    }
 }

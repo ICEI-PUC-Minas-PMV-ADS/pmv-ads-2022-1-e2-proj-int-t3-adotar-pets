@@ -3,8 +3,6 @@ using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using AdoptApi.Repositories;
-using AdoptApi.Requests.Dtos;
 using AdoptApi.Requests;
 using AutoMapper;
 
@@ -59,7 +57,7 @@ public class PetService
             UserId = userId,
             Name = petDto.Name, Description = petDto.Description, Type = petDto.Type, Gender = petDto.Gender,
             BirthDate = DateOnly.ParseExact(petDto.BirthDate, "yyyy-MM-dd"), Size = petDto.Size,
-            MinScore = petDto.MinScore, Needs = petDto.Needs, IsActive = true
+            MinScore = petDto.MinScore, IsActive = true
         };
 
         var createdPet = await _petRepository.CreatePet(pet);
@@ -80,8 +78,15 @@ public class PetService
             return GetPetDto(petProfile);
         } catch (InvalidOperationException)
         {
-            _modelState.AddModelError("Pet", "Pet não existe ou não esá ativo.");
+            _modelState.AddModelError("Pet", "Pet não existe ou não está ativo.");
             return null;
         }
     }
+    public async Task<List<PetDto>> ListPets(int userId)
+    {
+        var pets = await _petRepository.GetRegisteredPets(userId);  
+        
+        return _mapper.Map<List<Pet>, List<PetDto>>(pets);
+    }
+    
 }
