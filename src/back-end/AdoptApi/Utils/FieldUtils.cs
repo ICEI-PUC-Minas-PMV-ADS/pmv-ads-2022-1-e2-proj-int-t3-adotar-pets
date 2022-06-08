@@ -2,12 +2,8 @@ namespace AdoptApi.Utils;
 
 public static class FieldUtils
 {
-    public static string ChangeIfEmptyField(string selectedField, string dbField)
+    public static T? UpdateFieldOrUseDefault<T>(T value, T? defaultValue)
     {
-        if (String.IsNullOrEmpty(selectedField))
-        {
-            return dbField;
-        }
-        return selectedField;
+        return EqualityComparer<T>.Default.Equals(value, default) ? defaultValue : value;
     }
 }

@@ -123,7 +123,9 @@ public class UserService
             Address = new AddressDto {
                 City = user.Address.City,
                 Name = user.Address.Name,
-                ZipCode = user.Address.ZipCode
+                ZipCode = user.Address.ZipCode,
+                Number = user.Address.Number,
+                Complement = user.Address.Complement
             },
             Document = new DocumentDto {
                 Number = user.Document.Number,
@@ -196,14 +198,20 @@ public class UserService
             {
                 return null;
             }
-            user.Name = Utils.FieldUtils.ChangeIfEmptyField(userEditDto.Name, user.Name);
-            user.Email = Utils.FieldUtils.ChangeIfEmptyField(userEditDto.Email, user.Email);
+            user.Name = Utils.FieldUtils.UpdateFieldOrUseDefault(userEditDto.Name, user.Name)!;
+            user.Email = Utils.FieldUtils.UpdateFieldOrUseDefault(userEditDto.Email, user.Email)!;
             if (user.Type == UserType.Protector)
             {
-                user.Address.Name = Utils.FieldUtils.ChangeIfEmptyField(userEditDto.Address, user.Address.Name);
-                user.Address.Number = Int32.Parse(Utils.FieldUtils.ChangeIfEmptyField(userEditDto.Number.ToString(), user.Address.Number.ToString()));
-                user.Address.Complement = Utils.FieldUtils.ChangeIfEmptyField(userEditDto.Complement, user.Address.Complement);
-                user.Address.ZipCode = Utils.FieldUtils.ChangeIfEmptyField(userEditDto.ZipCode, user.Address.ZipCode);
+                var addressEditDto = request.Address;
+                user.Address.ZipCode = Utils.FieldUtils.UpdateFieldOrUseDefault(addressEditDto.ZipCode, user.Address.ZipCode)!;
+                var addressValidation = await ValidateAddress(user.Address);
+                if (!addressValidation)
+                {
+                    return null;
+                }
+                user.Address.Name = Utils.FieldUtils.UpdateFieldOrUseDefault(addressEditDto.Name, user.Address.Name);
+                user.Address.Number = Utils.FieldUtils.UpdateFieldOrUseDefault(addressEditDto.Number, user.Address.Number);
+                user.Address.Complement = Utils.FieldUtils.UpdateFieldOrUseDefault(addressEditDto.Complement, user.Address.Complement);
             }
             user = await _userRepository.UpdateUser(user);
             return GetUserDto(user);
