@@ -38,6 +38,6 @@ public class PetRepository
 
     public async Task<List<Pet>> GetRegisteredPets(int userId)
     {
-        return await _context.Pets.Where(p => p.UserId == userId).ToListAsync();
+        return await _context.Pets.Where(p => p.UserId == userId).OrderByDescending(p => p.Id).ToListAsync();
     }
 }

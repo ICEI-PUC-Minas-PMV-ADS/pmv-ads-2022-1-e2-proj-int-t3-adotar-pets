@@ -16,7 +16,7 @@ public class PetRequestDto : IValidatableObject
     public string BirthDate { get; set; }
     [Required(ErrorMessage = "O porte do animal é obrigatório.")]
     public PetSize Size { get; set; }
-    [Required(ErrorMessage = "A pontuação para adoção do animal é obrigatória.")]
+    [Required(ErrorMessage = "A pontuação para adoção do animal é obrigatória."), Range(10, 100, ErrorMessage = "A pontuação mínima deve ser de 10 a 100 pontos.")]
     public int MinScore { get; set; }
     [Required(ErrorMessage = "A descrição do animal é obrigatória. Conte um pouco sobre o pet para que o adotante saiba um pouco mais sobre ele.")]
     public string Description { get; set; }
