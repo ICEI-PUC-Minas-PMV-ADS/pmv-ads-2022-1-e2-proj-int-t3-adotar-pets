@@ -195,6 +195,12 @@ ul {
 .mg-8 {
   margin-top: 8px;
 }
+.mb-24{
+  margin-bottom: 24px;
+}
+.pd-none{
+  padding: 0px !important;
+}
 
 /* modificações de labels no formulário de cadastro */
 .label-form.error input {

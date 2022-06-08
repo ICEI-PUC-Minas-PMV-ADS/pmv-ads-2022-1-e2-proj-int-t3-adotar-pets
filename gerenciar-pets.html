@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="/materialize/css/main.css">
-    <link rel="stylesheet" href="/materialize/css/busca.css">
+    <link rel="stylesheet" href="materialize/css/main.css">
+    <link rel="stylesheet" href="materialize/css/busca.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -17,12 +17,12 @@
 <body>
 
     <!-- Navbar -->
-    <div data-partial="navbar"></div>
+    <div data-partial="navbarLogOng"></div>
     <!-- //Navbar -->
     <!-- Breadcrumbs-->
     <div class="row breadcrumbz">
         <div class="col s12">
-            <a href="landingpage.html" class="fs-16 textcolor-secondary">Página inicial</a>
+            <a href="index.html" class="fs-16 textcolor-secondary">Página inicial</a>
             <a href="#!" class="fs-16 black-text">/ Gerenciar pets</a>
         </div>
         <div class="col s12">
@@ -38,7 +38,7 @@
             <div class=" col s12 m6 l4">
                 <div class="card-pet  ">
                     <div class="col s6 flex-col center-start info"> 
-                        <div>
+                        <div id="iconePet">
                             <img src="/materialize/img/dog-2.svg" id="foto-dog" alt="">
                             <img src="/materialize/img/cat-1.svg" id="foto-cat" alt="">
                         </div>
@@ -266,7 +266,7 @@
 
 
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-    <script type="text/javascript" src="materialize/js/layout.js"></script>
+    <script type="module" src="assets/js/layout.js"></script>
     <script type="text/javascript" src="materialize/js/busca.js"></script>
 
 </body>
