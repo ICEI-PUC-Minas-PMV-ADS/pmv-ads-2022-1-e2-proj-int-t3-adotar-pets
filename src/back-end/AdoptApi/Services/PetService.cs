@@ -82,10 +82,10 @@ public class PetService
             return null;
         }
     }
+    
     public async Task<List<PetDto>> ListPets(int userId)
     {
-        var pets = await _petRepository.GetRegisteredPets(userId);  
-        
+        var pets = await _petRepository.GetRegisteredPets(userId);
         return _mapper.Map<List<Pet>, List<PetDto>>(pets);
     }
     

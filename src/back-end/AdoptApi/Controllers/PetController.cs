@@ -51,8 +51,9 @@ public class PetController : ControllerBase
 
     [HttpGet]
     [Route("")]
-    public async Task<ActionResult<List<PetDto>>> ListPets(int userId)
+    [Authorize(Roles = nameof(UserType.Protector))]
+    public async Task<ActionResult<List<PetDto>>> ListPets()
     {
-        return await _petService.ListPets(userId);
+        return await _petService.ListPets(User.Identity.GetUserId());
     }
 }
