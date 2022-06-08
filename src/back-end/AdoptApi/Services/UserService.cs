@@ -1,5 +1,6 @@
 using System.Security.Cryptography;
 using System.Text;
+using AdoptApi.Enums;
 using AdoptApi.Models;
 using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
@@ -95,7 +96,23 @@ public class UserService
         
         return _modelState.IsValid;
     }
-    private static UserDto GetUserDto(User user)
+    
+    private bool ValidateUserPassword(User user, UpdatePassword request)
+    {
+        if (EncryptPassword(request.CurrentPassword) != user.Password)
+        {
+            _modelState.AddModelError(nameof(request.CurrentPassword), "A senha não corresponde à senha atual.");
+        }
+        
+        if (EncryptPassword(request.NewPassword) == user.Password)
+        {
+            _modelState.AddModelError(nameof(request.NewPassword), "Sua nova senha não pode ser igual à senha atual.");
+        }
+        
+        return _modelState.IsValid;
+    }
+    
+    private UserDto GetUserDto(User user)
     {
         return new UserDto
         {
@@ -106,12 +123,17 @@ public class UserService
             Address = new AddressDto {
                 City = user.Address.City,
                 Name = user.Address.Name,
-                ZipCode = user.Address.ZipCode
+                ZipCode = user.Address.ZipCode,
+                Number = user.Address.Number,
+                Complement = user.Address.Complement
             },
             Document = new DocumentDto {
                 Number = user.Document.Number,
                 Type = user.Document.Type
-            }
+            },
+            Picture = user.Picture != null ? new PictureDto (_configuration) {
+                Url = user.Picture.Url
+            } : null
         };
     }
 
@@ -176,8 +198,21 @@ public class UserService
             {
                 return null;
             }
-            user.Name = userEditDto.Name;
-            user.Email = userEditDto.Email;
+            user.Name = Utils.FieldUtils.UpdateFieldOrUseDefault(userEditDto.Name, user.Name)!;
+            user.Email = Utils.FieldUtils.UpdateFieldOrUseDefault(userEditDto.Email, user.Email)!;
+            if (user.Type == UserType.Protector)
+            {
+                var addressEditDto = request.Address;
+                user.Address.ZipCode = Utils.FieldUtils.UpdateFieldOrUseDefault(addressEditDto.ZipCode, user.Address.ZipCode)!;
+                var addressValidation = await ValidateAddress(user.Address);
+                if (!addressValidation)
+                {
+                    return null;
+                }
+                user.Address.Name = Utils.FieldUtils.UpdateFieldOrUseDefault(addressEditDto.Name, user.Address.Name);
+                user.Address.Number = Utils.FieldUtils.UpdateFieldOrUseDefault(addressEditDto.Number, user.Address.Number);
+                user.Address.Complement = Utils.FieldUtils.UpdateFieldOrUseDefault(addressEditDto.Complement, user.Address.Complement);
+            }
             user = await _userRepository.UpdateUser(user);
             return GetUserDto(user);
         }
@@ -185,7 +220,71 @@ public class UserService
         {
             return null;
         }
-
     }
 
+    public async Task<UserDto?> UpdateProfilePicture(int userId, UpdateProfilePictureRequest request, ImageUploadService service)
+    {
+        try
+        {
+            var user = await _userRepository.GetUserById(userId);
+            var picture = await service.UploadOne(request.Picture, PictureType.User);
+            if (picture == null)
+            {
+                return null;
+            }
+
+            if (user.Picture != null)
+            {
+                await service.Delete(user.Picture);
+            }
+            user.Picture = picture;
+            user = await _userRepository.UpdateUser(user);
+            return GetUserDto(user);
+        }
+        catch (InvalidOperationException)
+        {
+            return null;
+        }
+    }
+    
+    public async Task<UserDto?> DeleteProfilePicture(int userId, ImageUploadService service)
+    {
+        try
+        {
+            var user = await _userRepository.GetUserById(userId);
+
+            if (user.Picture == null) return GetUserDto(user);
+            await service.Delete(user.Picture);
+            user.Picture = null;
+            user = await _userRepository.UpdateUser(user);
+
+            return GetUserDto(user);
+        }
+        catch (InvalidOperationException)
+        {
+            return null;
+        }
+    }
+
+    public async Task<UserDto?> UpdatePassword(int userId, UpdatePassword request)
+    {
+        try
+        {
+            var user = await _userRepository.GetUserById(userId);
+            var validatedPassword = ValidateUserPassword(user, request);
+            
+            if (!validatedPassword)
+            {
+                return null;
+            }
+            
+            user.Password = EncryptPassword(request.NewPassword);
+            await _userRepository.UpdateUser(user);
+            return GetUserDto(user);
+        }
+        catch (InvalidOperationException)
+        {
+            return null;
+        }
+    }
 }

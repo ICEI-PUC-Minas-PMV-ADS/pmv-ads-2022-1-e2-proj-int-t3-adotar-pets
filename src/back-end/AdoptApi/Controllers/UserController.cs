@@ -13,36 +13,53 @@ namespace AdoptApi.Controllers;
 
 [ApiController]
 [EnableCors]
-[ValidateRequest]
-[Route("api/user")]
-[Authorize]
+[Route("api/user/profile")]
+[Authorize][ValidateRequest]
+
 public class UserController : ControllerBase
 {
     private UserService _userService;
+    private ImageUploadService _imageUploadService;
 
-    public UserController(UserRepository userRepository, IConfiguration configuration, IActionContextAccessor actionContextAccessor)
+    public UserController(UserRepository userRepository, PictureRepository pictureRepository, IConfiguration configuration, IActionContextAccessor actionContextAccessor)
     {
         _userService = new UserService(configuration, actionContextAccessor, userRepository);
+        _imageUploadService = new ImageUploadService(configuration, actionContextAccessor, pictureRepository);
     }
 
     [HttpGet]
-    [Route("profile")]
+    [Route("")]
     public async Task<ActionResult<UserDto>> GetInfo()
     {
         return await _userService.GetInfo(User.Identity.GetUserId());
     }
     
     [HttpPut]
-    [Route("profile")]
+    [Route("")]
     public async Task<ActionResult<UserDto>> UpdateProfile([FromBody] UpdateProfileRequest request)
     {
         return await _userService.UpdateInfo(User.Identity.GetUserId(), request);
     }
+
+    [HttpPut]
+    [Route("picture")]
+    public async Task<ActionResult<UserDto>> UpdateProfilePicture([FromForm] UpdateProfilePictureRequest request)
+    {
+        return await _userService.UpdateProfilePicture(User.Identity.GetUserId(), request, _imageUploadService);
+    }
     
-    // @TODO criar request e chamar service
-    // [HttpPut]
-    // [Route("password")]
-    // public async Task<ActionResult<UserDto>> UpdatePassword([FromBody] UpdateProfileRequest request)
-    // {
-    // }
+    [HttpDelete]
+    [Route("picture")]
+    public async Task<ActionResult<UserDto>> DeleteProfilePicture()
+    {
+        return await _userService.DeleteProfilePicture(User.Identity.GetUserId(), _imageUploadService);
+    }
+
+
+    [HttpPut]
+    [Route("password")]
+    public async Task<ActionResult<UserDto>> UpdatePassword([FromBody] UpdatePassword request)
+    {
+        return await _userService.UpdatePassword(User.Identity.GetUserId(), request);
+    }
 }
