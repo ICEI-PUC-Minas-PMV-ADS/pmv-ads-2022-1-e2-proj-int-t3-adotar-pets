@@ -22,7 +22,7 @@
 <body>
 
     <!-- Navbar -->
-    <div data-partial="navbarLogOng"></div>
+    <div data-partial="navbar" data-protector="navbarLogOng"></div>
     <!-- //Navbar -->
 
     <!-- Breadcrumbs-->
@@ -89,20 +89,21 @@
 
 
 
-            <form data-register class="col s12" >
+            <form data-register-pet class="col s12" >
 
                 <div class="row">
 
                     <div class="row ajuste">
                         <div class=" input-field col s12 m6 l6 label-form input-edit-left">
                             <input value="" id="nome-pet" name="pet.name" type="text" class="validate">
-                            <label class="active" for="nome">Nome</label>
+                            <label class="active" for="nome-pet">Nome</label>
                             <small>Error message</small>
                         </div>
 
                         <div class=" input-field col s12 m6 l6 label-form input-edit-right">
-                            <input id="idade-pet" type="text" name="pet.birthdate" class="validate" inputmode="numeric">
-                            <label class="active" for="idade-pet">Idade</label>
+                            <select id="idade-pet" name="pet.birthdate" class="validate">
+                                <option value="" disabled selected>Idade Aproximada</option>
+                            </select>
                             <small>Error message</small>
                         </div>
                     </div>
@@ -112,7 +113,7 @@
 
                     <div class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-left left label-form">
                         <select id="tipo-pet" name="pet.type" class="validate">
-                            <option value="null" disabled selected>Tipo</option>
+                            <option value="" disabled selected>Tipo</option>
                             <option value="0">Cachorro</option>
                             <option value="1">Gato</option>
                         </select>
@@ -120,7 +121,7 @@
                     </div>
                     <div class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-right label-form">
                         <select id="genero-pet" name="pet.gender" class="validate">
-                            <option value="null" disabled selected>Gênero</option>
+                            <option value="" disabled selected>Gênero</option>
                             <option value="0">Macho</option>
                             <option value="1">Fêmea</option>
                         </select>
@@ -131,7 +132,7 @@
 
                     <div class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-left left label-form">
                         <select id="porte-pet" name="pet.size" class="validate">
-                            <option value="null" disabled selected>Porte</option>
+                            <option value="" disabled selected>Porte</option>
                             <option value="0">Pequeno</option>
                             <option value="1">Médio</option>
                             <option value="2">Grande</option>
@@ -158,7 +159,7 @@
                         <select id="pontuacao-pet" name="pet.score" class="validate">
                         
                              
-                            <option value="null" disabled selected>Pontuação</option>
+                            <option value="" disabled selected>Pontuação</option>
                             <option value="0">20%</option>
                             <option value="1">40%</option>
                             <option value="2">60%</option>
@@ -200,13 +201,11 @@
 
 
 
-
-
-    <script type="module" src="materialize/js/cadastropet.js"></script>
+    
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-    <!-- <script type="module" src="assets/js/layout.js"></script> -->
+    <script type="module" src="assets/js/layout.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.2/imask.min.js" integrity="sha512-l0grYOI8XZga5TajPOiqLrQVCKrdh+k0QSEtS+cpJlNeI8Nu9GOhsVaFyFQuPQfYp02GnhsyHqkPR7P7BTKYAQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- <script type="module" src="assets/js/forms/validation.js"></script>  -->
+    <script type="module" src="assets/js/forms/petRegister.js"></script>
 
 
 </body>
