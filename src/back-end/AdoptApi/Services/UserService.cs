@@ -111,8 +111,8 @@ public class UserService
         
         return _modelState.IsValid;
     }
-
-    private static UserDto GetUserDto(User user)
+    
+    private UserDto GetUserDto(User user)
     {
         return new UserDto
         {
@@ -120,17 +120,18 @@ public class UserService
             Name = user.Name,
             Email = user.Email,
             BirthDate = user.BirthDate,
-            Address = new AddressDto
-            {
+            Address = new AddressDto {
                 City = user.Address.City,
                 Name = user.Address.Name,
                 ZipCode = user.Address.ZipCode
             },
-            Document = new DocumentDto
-            {
+            Document = new DocumentDto {
                 Number = user.Document.Number,
                 Type = user.Document.Type
-            }
+            },
+            Picture = user.Picture != null ? new PictureDto (_configuration) {
+                Url = user.Picture.Url
+            } : null
         };
     }
 
@@ -205,6 +206,50 @@ public class UserService
                 user.Address.ZipCode = Utils.FieldUtils.ChangeIfEmptyField(userEditDto.ZipCode, user.Address.ZipCode);
             }
             user = await _userRepository.UpdateUser(user);
+            return GetUserDto(user);
+        }
+        catch (InvalidOperationException)
+        {
+            return null;
+        }
+    }
+
+    public async Task<UserDto?> UpdateProfilePicture(int userId, UpdateProfilePictureRequest request, ImageUploadService service)
+    {
+        try
+        {
+            var user = await _userRepository.GetUserById(userId);
+            var picture = await service.UploadOne(request.Picture, PictureType.User);
+            if (picture == null)
+            {
+                return null;
+            }
+
+            if (user.Picture != null)
+            {
+                await service.Delete(user.Picture);
+            }
+            user.Picture = picture;
+            user = await _userRepository.UpdateUser(user);
+            return GetUserDto(user);
+        }
+        catch (InvalidOperationException)
+        {
+            return null;
+        }
+    }
+    
+    public async Task<UserDto?> DeleteProfilePicture(int userId, ImageUploadService service)
+    {
+        try
+        {
+            var user = await _userRepository.GetUserById(userId);
+
+            if (user.Picture == null) return GetUserDto(user);
+            await service.Delete(user.Picture);
+            user.Picture = null;
+            user = await _userRepository.UpdateUser(user);
+
             return GetUserDto(user);
         }
         catch (InvalidOperationException)
