@@ -177,6 +177,10 @@ ul {
   color: white;
 }
 
+.white-color-font {
+  color: white;
+}
+
 .label-form {
   margin-bottom: 2rem;
 }
@@ -195,10 +199,10 @@ ul {
 .mg-8 {
   margin-top: 8px;
 }
-.mb-24{
+.mb-24 {
   margin-bottom: 24px;
 }
-.pd-none{
+.pd-none {
   padding: 0px !important;
 }
 
@@ -208,7 +212,6 @@ ul {
   box-shadow: 0 1px 0 var(--alert) !important;
 }
 .label-form.error small {
-  
   font-weight: bold;
   color: var(--alert);
   visibility: visible;
@@ -225,6 +228,7 @@ ul {
 .label-form.error small {
   font-size: 12px;
 }
+
 /* Botões */
 
 .btn-cadastro {
@@ -323,6 +327,45 @@ ul {
   width: 100% !important;
 }
 
+.bg-sobre {
+  /*padding: 72px 72px 96px ;*/
+  margin-top: -10px;
+  align-items: center;
+  height: 420px;
+  width: 100%;
+  background-image: url(../img/padraoPatas.svg);
+  background-color: var(--secondary);
+}
+
+.bg-contato {
+  /*padding: 72px 72px 96px ;*/
+  margin-top: -10px;
+  align-items: center;
+  height: 420px;
+  width: 100%;
+  background-image: url(../img/padraoPatas.svg);
+  background-color: var(--secondary);
+}
+
+.bg-termos {
+  /*padding: 72px 72px 96px ;*/
+  margin-top: -10px;
+  align-items: center;
+  height: 420px;
+  width: 100%;
+  background-image: url(../img/padraoPatas.svg);
+  background-color: var(--secondary);
+}
+
+.bg-politica {
+  /*padding: 72px 72px 96px ;*/
+  margin-top: -10px;
+  align-items: center;
+  height: 420px;
+  width: 100%;
+  background-image: url(../img/padraoPatas.svg);
+  background-color: var(--secondary);
+}
 /* Responsividade */
 
 @media (max-width: 1280px) {
