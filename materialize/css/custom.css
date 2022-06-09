@@ -327,46 +327,28 @@ ul {
   width: 100% !important;
 }
 
-.bg-sobre {
-  /*padding: 72px 72px 96px ;*/
-  margin-top: -10px;
-  align-items: center;
-  height: 420px;
+
+
+.bg-patas {
+  height: 528px;
   width: 100%;
   background-image: url(../img/padraoPatas.svg);
   background-color: var(--secondary);
 }
 
-.bg-contato {
-  /*padding: 72px 72px 96px ;*/
-  margin-top: -10px;
-  align-items: center;
-  height: 420px;
+.bg-patas-sobre{
+  height: 528px ;
   width: 100%;
   background-image: url(../img/padraoPatas.svg);
   background-color: var(--secondary);
 }
 
-.bg-termos {
-  /*padding: 72px 72px 96px ;*/
-  margin-top: -10px;
-  align-items: center;
-  height: 420px;
+.bg-patas-redefinir {
+  height: 528px;
   width: 100%;
   background-image: url(../img/padraoPatas.svg);
   background-color: var(--secondary);
 }
-
-.bg-politica {
-  /*padding: 72px 72px 96px ;*/
-  margin-top: -10px;
-  align-items: center;
-  height: 420px;
-  width: 100%;
-  background-image: url(../img/padraoPatas.svg);
-  background-color: var(--secondary);
-}
-/* Responsividade */
 
 @media (max-width: 1280px) {
   #logoFooter {
@@ -381,4 +363,15 @@ ul {
   .cadastro {
     margin-left: 25% !important;
   }
+}
+
+@media(max-width: 600px){
+    
+  .bg-patas{
+      height: 1112px;
+  }
+  .bg-patas-redefinir{
+    height: 400px;
+}
+  
 }
