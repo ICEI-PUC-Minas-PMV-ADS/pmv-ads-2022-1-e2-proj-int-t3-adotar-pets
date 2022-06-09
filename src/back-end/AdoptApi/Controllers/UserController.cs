@@ -13,7 +13,7 @@ namespace AdoptApi.Controllers;
 
 [ApiController]
 [EnableCors]
-[Route("api/user/profile")]
+[Route("api/user")]
 [Authorize][ValidateRequest]
 
 public class UserController : ControllerBase
@@ -28,35 +28,35 @@ public class UserController : ControllerBase
     }
 
     [HttpGet]
-    [Route("")]
+    [Route("profile")]
     public async Task<ActionResult<UserDto>> GetInfo()
     {
         return await _userService.GetInfo(User.Identity.GetUserId());
     }
     
     [HttpPut]
-    [Route("")]
+    [Route("profile")]
     public async Task<ActionResult<UserDto>> UpdateProfile([FromBody] UpdateProfileRequest request)
     {
         return await _userService.UpdateInfo(User.Identity.GetUserId(), request);
     }
 
     [HttpGet]
-    [Route("/{userId}")]
+    [Route("profile/{userId}")]
     public async Task<ActionResult<UserDto>> GetPetProfile(int userId)
     {
         return await _userService.GetProtectorProfile(userId);
     }
     
     [HttpPut]
-    [Route("picture")]
+    [Route("profile/picture")]
     public async Task<ActionResult<UserDto>> UpdateProfilePicture([FromForm] UpdateProfilePictureRequest request)
     {
         return await _userService.UpdateProfilePicture(User.Identity.GetUserId(), request, _imageUploadService);
     }
     
     [HttpDelete]
-    [Route("picture")]
+    [Route("profile/picture")]
     public async Task<ActionResult<UserDto>> DeleteProfilePicture()
     {
         return await _userService.DeleteProfilePicture(User.Identity.GetUserId(), _imageUploadService);

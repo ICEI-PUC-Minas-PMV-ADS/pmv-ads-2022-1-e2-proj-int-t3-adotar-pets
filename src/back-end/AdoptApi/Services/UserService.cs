@@ -163,7 +163,7 @@ public class UserService
             return null;
         }
         var userDto = request.User;
-        var user = new User {Email = userDto.Email.ToLower(), Name = userDto.Name, Type = userDto.Type, BirthDate = DateOnly.ParseExact(userDto.BirthDate, "yyyy-MM-dd"), Password = EncryptPassword(userDto.Password), Document = document, Address = address};
+        var user = new User {Email = userDto.Email.ToLower(), Name = userDto.Name, Type = userDto.Type, BirthDate = DateOnly.ParseExact(userDto.BirthDate, "yyyy-MM-dd"), Password = EncryptPassword(userDto.Password), IsActive = true, Document = document, Address = address};
         var userValidation = await ValidateNewUser(user);
         if (!userValidation)
         {
@@ -222,15 +222,15 @@ public class UserService
         }
     }
 
-    public async Task<UserDto> GetProtectorProfile(int userId)
+    public async Task<UserDto?> GetProtectorProfile(int userId)
     {
         try
         {
-            var protectProfile = await _userRepository.GetAvailableProtector(userId);
-            return (GetUserDto(protectProfile));
-        }catch(InvalidOperationException)
+            var protector = await _userRepository.GetAvailableProtector(userId);
+            return GetUserDto(protector);
+        } catch(InvalidOperationException)
         {
-            _modelState.AddModelError("Protector","O usuário selecionado não é uma ONG ou Protetor");
+            _modelState.AddModelError("Protector","O usuário não existe ou não é uma ONG/Protetor.");
             return null;
         }
     }

@@ -36,7 +36,7 @@ public class UserRepository
     
     public async Task<User> GetAvailableProtector(int userId)
     {
-        return await _context.Users.Where(u => u.IsActive == true && u.Id == userId && u.Type == UserType.Protector).SingleAsync();
+        return await _context.Users.Include(nameof(Address)).Include(nameof(Document)).Include(nameof(Picture)).Where(u => u.IsActive == true && u.Id == userId && u.Type == UserType.Protector).SingleAsync();
     }
     
     public async Task<User> CreateUser(User user)
