@@ -7,5 +7,7 @@ public class DatabaseSeeder : ISeeder
     public static void Seed(ModelBuilder modelBuilder)
     {
         NeedSeeder.Seed(modelBuilder);
+        QuestionSeeder.Seed(modelBuilder);
+        AlternativeSeeder.Seed(modelBuilder);
     }
 }
