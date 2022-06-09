@@ -1,4 +1,5 @@
 using AdoptApi.Database;
+using AdoptApi.Enums;
 using AdoptApi.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -32,7 +33,12 @@ public class UserRepository
     {
         return await _context.Users.Include(nameof(Address)).Include(nameof(Document)).Include(nameof(Picture)).SingleAsync(u => u.Id == id);
     }
-
+    
+    public async Task<User> GetAvailableProtector(int userId)
+    {
+        return await _context.Users.Where(u => u.IsActive == true && u.Id == userId && u.Type == UserType.Protector).SingleAsync();
+    }
+    
     public async Task<User> CreateUser(User user)
     {
         await _context.Users.AddAsync(user);

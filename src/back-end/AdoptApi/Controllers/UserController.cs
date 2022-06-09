@@ -41,6 +41,13 @@ public class UserController : ControllerBase
         return await _userService.UpdateInfo(User.Identity.GetUserId(), request);
     }
 
+    [HttpGet]
+    [Route("/{userId}")]
+    public async Task<ActionResult<UserDto>> GetPetProfile(int userId)
+    {
+        return await _userService.GetProtectorProfile(userId);
+    }
+    
     [HttpPut]
     [Route("picture")]
     public async Task<ActionResult<UserDto>> UpdateProfilePicture([FromForm] UpdateProfilePictureRequest request)
@@ -54,7 +61,7 @@ public class UserController : ControllerBase
     {
         return await _userService.DeleteProfilePicture(User.Identity.GetUserId(), _imageUploadService);
     }
-
+    
 
     [HttpPut]
     [Route("password")]

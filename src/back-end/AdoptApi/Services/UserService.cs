@@ -222,6 +222,18 @@ public class UserService
         }
     }
 
+    public async Task<UserDto> GetProtectorProfile(int userId)
+    {
+        try
+        {
+            var protectProfile = await _userRepository.GetAvailableProtector(userId);
+            return (GetUserDto(protectProfile));
+        }catch(InvalidOperationException)
+        {
+            _modelState.AddModelError("Protector","O usuário selecionado não é uma ONG ou Protetor");
+            return null;
+        }
+    }
     public async Task<UserDto?> UpdateProfilePicture(int userId, UpdateProfilePictureRequest request, ImageUploadService service)
     {
         try
