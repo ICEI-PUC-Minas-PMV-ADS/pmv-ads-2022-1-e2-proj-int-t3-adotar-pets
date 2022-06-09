@@ -1,0 +1,32 @@
+.carousel .indicators {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+  }
+  
+  .carousel .indicators .indicator-item {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    height: 8px;
+    width: 8px;
+    margin: 24px 4px;
+    background-color: rgba(91, 39, 78, 0.5)!important;
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+    border-radius: 50%;
+  }
+  
+  .carousel .indicators .indicator-item.active {
+    background-color: #5B274E !important;
+  }
+
+
+  .bg-questionario {
+    height: 528px;
+    width: 100%;
+    background-color: white;
+  }

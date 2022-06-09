@@ -2,15 +2,20 @@ document.addEventListener('DOMContentLoaded', function () {
   var cars = document.querySelectorAll('.carousel');
   var instances = M.Carousel.init(cars, {
     dist: 0,
-    duration: 100
+    duration: 100,
+    indicators: true
   })
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.modal');
+  var instances = M.Modal.init(elems,);
+});
 // Or with jQuery
 
-$(document).ready(function () {
-  $('.carousel').carousel();
-});
+// $(document).ready(function () {
+//   $('.carousel').carousel();
+// });
 
 
 
@@ -39,10 +44,10 @@ var instance = M.Carousel.init({
 
 // Or with jQuery
 
-$('.carousel.carousel-slider').carousel({
-  fullWidth: true,
-  indicators: true
-});
+// $('.carousel.carousel-slider').carousel({
+//   fullWidth: true,
+//   indicators: true
+// });
 
 
 
