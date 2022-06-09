@@ -21,21 +21,9 @@ public class PetService
         _mapper = mapper;
     }
 
-    private static PetDto GetPetDto(Pet pet)
+    private PetDto GetPetDto(Pet pet)
     {
-        return new PetDto
-        {
-            Id = pet.Id,
-            Name = pet.Name,
-            Type = pet.Type,
-            Gender = pet.Gender,
-            BirthDate = pet.BirthDate,
-            Size = pet.Size,
-            MinScore = pet.MinScore,
-            Needs = pet.Needs,
-            Description = pet.Description,
-            IsActive = pet.IsActive
-        };
+        return _mapper.Map<Pet, PetDto>(pet);
     }
 
     public async Task<PetDto?> GetPetInfo(int petId)
@@ -51,6 +39,21 @@ public class PetService
         }
     }
 
+    public async Task<bool> ValidatePet(Pet pet, int[]? needIds)
+    {
+        if (needIds == null) return _modelState.IsValid;
+        
+        var needs = await _petRepository.GetAvailableNeedsByIds(needIds);
+        if (needs.Count != needIds.Length)
+        {
+            _modelState.AddModelError("Pet.Needs", "Uma ou mais necessidades informadas não existem.");
+        }
+
+        pet.Needs = needs;
+
+        return _modelState.IsValid;
+    }
+
     public async Task<PetDto?> PetRegister(int userId, CreatePetRequest request)
     {
         var petDto = request.Pet;
@@ -62,6 +65,13 @@ public class PetService
             MinScore = petDto.MinScore, IsActive = true
         };
 
+        var validatedPet = await ValidatePet(pet, petDto.Needs);
+
+        if (!validatedPet)
+        {
+            return null;
+        }
+        
         var createdPet = await _petRepository.CreatePet(pet);
         return GetPetDto(createdPet);
     }

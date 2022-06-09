@@ -31,6 +31,11 @@ public class PetRepository
         return await _context.Needs.Where(n => n.IsActive == true).ToListAsync();
     }
 
+    public async Task<List<Need>> GetAvailableNeedsByIds(int[] ids)
+    {
+        return await _context.Needs.Where(n => ids.Contains(n.Id) && n.IsActive).ToListAsync();
+    }
+
     public async Task<Pet> GetAvailablePet(int petId)
     {
         return await _context.Pets.Where(p => p.IsActive == true && p.Id == petId).SingleAsync();
