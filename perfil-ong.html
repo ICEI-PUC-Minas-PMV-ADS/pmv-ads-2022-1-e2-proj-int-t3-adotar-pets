@@ -38,7 +38,8 @@
             <div class="col s12 m3 l2 resizeImg ">
                 <img id="output_image" width="128" height="128">
                 <div class="imghover flex-row center-center">
-                    <a class="right btn-floating btn-large waves-effect waves amber darken-0" onclick="inserirImagem()"><i class="large material-icons">add</i></a>
+                    <a class="right btn-floating btn-large waves-effect waves amber darken-0"
+                        onclick="inserirImagem()"><i class="large material-icons">add</i></a>
                 </div>
             </div>
             <div>
@@ -61,70 +62,57 @@
                 <span class="fs-32 textcolor-secondary">Dados pessoais</span>
             </div>
 
-            <form class="col s12">
+            <form data-ong class="col s12">
 
                 <div class="row">
 
                     <div class="row">
                         <div class=" input-field col s12 m6 l6">
-                            <input value="" id="nome" type="text" class="validate">
-                            <label class="active" for="nome">Nome</label>
-                        </div>
-                        <div class=" input-field col s12 m6 l6">
-                            <input value="" id="documento" type="text" data-js="documento" class="validate">
-                            <label class="active" for="documento">CPF</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s12 m6 l6">
-                            <input value="" id="telefone" type="text" data-js="celular" class="validate">
-                            <label class="active" for="telefone">Telefone</label>
+                            <input name="user.name" id="nome" type="text" class="validate">
+                            <label for="nome">Nome</label>
                         </div>
                         <div class="input-field col s12 m6 l6">
-                            <input value="" id="email" type="text" class="validate">
-                            <label class="active" for="email">E-mail</label>
+                            <input name="user.email" id="email" type="text" class="validate">
+                            <label for="email">E-mail</label>
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input value="" id="endereco" type="text" class="validate">
-                            <label class="active" for="endereco">Endereço</label>
-                        </div>
-                    </div>
-
-                </div>
-
-            </form>
-            <a class="waves-effect amber darken-0 0 btn fs-btn right">salvar</a>
-        </div>
-
-        <div class="row">
-            <div>
-                <span class="fs-32 textcolor-secondary">Alterar senha</span>
-            </div>
-            <form class="col s12">
-                <div class="row">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input value="" id="senha" type="password" class="validate" size="8" maxlength="8">
-                            <label class="active" for="senha">Senha atual</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <input value="" id="nova-senha" type="password" class="validate" size="8" maxlength="8">
-                            <label class="active" for="nova-senha">Nova senha</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <input value="" id="confirmar-senha" type="password" class="validate" size="8"
-                                maxlength="8">
-                            <label class="active" for="confirmar-senha">Confirmar nova senha</label>
-                        </div>
+                    <div class=" input-field col s6 offset-s6">
+                        <input name="address.zipcode" id="zipcode" type="text"  class="validate">
+                        <label for="zipcode">CEP</label>
                     </div>
                 </div>
-                <a class="waves-effect amber darken-0 0 btn fs-btn right">alterar</a>
+
         </div>
+
         </form>
+        <a class="waves-effect amber darken-0 0 btn fs-btn right">salvar</a>
+    </div>
+
+    <div class="container">
+        <div>
+            <span class="fs-32 textcolor-secondary">Alterar senha</span>
+        </div>
+        <form class="col s12">
+            <div class="row">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input value="" id="senha" type="password" class="validate" size="8" maxlength="8">
+                        <label class="active" for="senha">Senha atual</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input value="" id="nova-senha" type="password" class="validate" size="8" maxlength="8">
+                        <label class="active" for="nova-senha">Nova senha</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input value="" id="confirmar-senha" type="password" class="validate" size="8" maxlength="8">
+                        <label class="active" for="confirmar-senha">Confirmar nova senha</label>
+                    </div>
+                </div>
+            </div>
+            <a class="waves-effect amber darken-0 0 btn fs-btn right">alterar</a>
+    </div>
+    </form>
 
     </div>
 
@@ -134,11 +122,11 @@
     <!-- Footer -->
     <div data-partial="footer"></div>
     <!-- //Footer -->
+
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-    <script type="text/javascript" src="materialize/js/layout.js"></script>
-    <script type="text/javascript" src="materialize/js/perfil-adotante.js"></script>
-    <script type="text/javascript" src="materialize/js/mask.js"></script>
-    <script type="text/javascript" src="materialize/js/validate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.2/imask.min.js"integrity="sha512-l0grYOI8XZga5TajPOiqLrQVCKrdh+k0QSEtS+cpJlNeI8Nu9GOhsVaFyFQuPQfYp02GnhsyHqkPR7P7BTKYAQ=="crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="assets/js/layout.js"></script>
+    <script type="module" src="assets/js/pages/ong.js"></script>
 </body>
 
 </html>
