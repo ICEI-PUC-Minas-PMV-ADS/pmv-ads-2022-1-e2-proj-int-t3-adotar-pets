@@ -7,6 +7,7 @@ using AdoptApi.Repositories;
 using AdoptApi.Requests;
 using AdoptApi.Requests.Dtos;
 using AdoptApi.Services.Dtos;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Newtonsoft.Json;
@@ -19,12 +20,14 @@ public class UserService
     private readonly IConfiguration _configuration;
     private readonly ModelStateDictionary _modelState;
     private UserRepository _userRepository;
+    private readonly IMapper _mapper;
 
-    public UserService(IConfiguration configuration, IActionContextAccessor actionContextAccessor, UserRepository repository)
+    public UserService(IConfiguration configuration, IActionContextAccessor actionContextAccessor, UserRepository repository, IMapper mapper)
     {
         _configuration = configuration;
         _modelState = actionContextAccessor.ActionContext.ModelState;
         _userRepository = repository;
+        _mapper = mapper;
     }
 
     private static string EncryptPassword(string password)
@@ -114,27 +117,7 @@ public class UserService
     
     private UserDto GetUserDto(User user)
     {
-        return new UserDto
-        {
-            Id = user.Id,
-            Name = user.Name,
-            Email = user.Email,
-            BirthDate = user.BirthDate,
-            Address = new AddressDto {
-                City = user.Address.City,
-                Name = user.Address.Name,
-                ZipCode = user.Address.ZipCode,
-                Number = user.Address.Number,
-                Complement = user.Address.Complement
-            },
-            Document = new DocumentDto {
-                Number = user.Document.Number,
-                Type = user.Document.Type
-            },
-            Picture = user.Picture != null ? new PictureDto (_configuration) {
-                Url = user.Picture.Url
-            } : null
-        };
+        return _mapper.Map<User, UserDto>(user);
     }
 
     public async Task<TokenDto?> Login(UserLoginRequest request, TokenService tokenService)

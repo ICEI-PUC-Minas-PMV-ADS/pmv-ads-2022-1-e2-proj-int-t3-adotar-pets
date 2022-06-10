@@ -16,7 +16,7 @@ public class PetRepository
 
     public async Task<Pet> GetPetById(int id)
     {
-        return await _context.Pets.Include(nameof(User.Id)).SingleAsync(u => u.Id == id);
+        return await _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).Include(nameof(User.Id)).SingleAsync(u => u.Id == id);
     }
 
     public async Task<Pet> CreatePet(Pet pet)
@@ -31,13 +31,18 @@ public class PetRepository
         return await _context.Needs.Where(n => n.IsActive == true).ToListAsync();
     }
 
+    public async Task<List<Need>> GetAvailableNeedsByIds(int[] ids)
+    {
+        return await _context.Needs.Where(n => ids.Contains(n.Id) && n.IsActive).ToListAsync();
+    }
+
     public async Task<Pet> GetAvailablePet(int petId)
     {
-        return await _context.Pets.Where(p => p.IsActive == true && p.Id == petId).SingleAsync();
+        return await _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).Where(p => p.IsActive == true && p.Id == petId).SingleAsync();
     }
 
     public async Task<List<Pet>> GetRegisteredPets(int userId)
     {
-        return await _context.Pets.Where(p => p.UserId == userId).OrderByDescending(p => p.Id).ToListAsync();
+        return await _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).Where(p => p.UserId == userId).OrderByDescending(p => p.Id).ToListAsync();
     }
 }

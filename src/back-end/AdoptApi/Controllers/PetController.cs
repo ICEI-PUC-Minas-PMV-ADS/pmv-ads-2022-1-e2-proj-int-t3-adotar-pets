@@ -20,19 +20,21 @@ namespace AdoptApi.Controllers;
 [Authorize]
 public class PetController : ControllerBase
 {
-    private PetService _petService;   
+    private PetService _petService;
+    private ImageUploadService _imageUploadService;
 
-    public PetController(PetRepository petRepository, IActionContextAccessor actionContextAccessor, IMapper mapper)
+    public PetController(PetRepository petRepository, PictureRepository pictureRepository, IConfiguration configuration, IActionContextAccessor actionContextAccessor, IMapper mapper)
     {
         _petService = new PetService(actionContextAccessor, petRepository, mapper);
+        _imageUploadService = new ImageUploadService(configuration, actionContextAccessor, pictureRepository);
     }
     
     [HttpPost]
     [Route("create")]
     [Authorize(Roles = nameof(UserType.Protector))]
-    public async Task<ActionResult<PetDto>> AddPet([FromBody] CreatePetRequest request)
+    public async Task<ActionResult<PetDto>> AddPet([FromForm] CreatePetRequest request)
     {
-        return await _petService.PetRegister(User.Identity.GetUserId(), request);
+        return await _petService.PetRegister(User.Identity.GetUserId(), request, _imageUploadService);
     }
     
     [HttpGet]

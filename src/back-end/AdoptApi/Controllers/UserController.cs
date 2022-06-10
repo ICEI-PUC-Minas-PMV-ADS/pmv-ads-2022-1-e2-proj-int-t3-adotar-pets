@@ -4,6 +4,7 @@ using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
 using AdoptApi.Requests;
 using AdoptApi.Services;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -21,9 +22,9 @@ public class UserController : ControllerBase
     private UserService _userService;
     private ImageUploadService _imageUploadService;
 
-    public UserController(UserRepository userRepository, PictureRepository pictureRepository, IConfiguration configuration, IActionContextAccessor actionContextAccessor)
+    public UserController(UserRepository userRepository, PictureRepository pictureRepository, IConfiguration configuration, IActionContextAccessor actionContextAccessor, IMapper mapper)
     {
-        _userService = new UserService(configuration, actionContextAccessor, userRepository);
+        _userService = new UserService(configuration, actionContextAccessor, userRepository, mapper);
         _imageUploadService = new ImageUploadService(configuration, actionContextAccessor, pictureRepository);
     }
 
