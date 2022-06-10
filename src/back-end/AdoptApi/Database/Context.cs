@@ -15,6 +15,12 @@ public class Context : DbContext
     public DbSet<Picture> Pictures { get; set; }
     public DbSet<User> Users { get; set; }
 
+    public DbSet<Question> Questions { get; set; }
+    public DbSet<Alternative> Alternatives { get; set; }
+    public DbSet<AlternativeNeedPenalty> AlternativeNeedPenalties { get; set; }
+    public DbSet<Answer> Answers { get; set; }
+    public DbSet<Form> Forms { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Seed();
