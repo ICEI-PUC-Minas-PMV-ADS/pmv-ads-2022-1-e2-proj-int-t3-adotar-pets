@@ -92,9 +92,9 @@ public class PetService
         return _mapper.Map<List<Pet>, List<PetDto>>(pets);
     }
 
-    public async Task<List<PetDto?>> SearchPets(PetType type)
+    public async Task<List<PetDto?>> SearchPets(SearchPetRequest search)
     {
-        var pets = await _petRepository.GetSearchPets(type);
+        var pets = await _petRepository.GetSearchPets(search);
         return _mapper.Map<List<Pet>, List<PetDto?>>(pets);
     }
 }

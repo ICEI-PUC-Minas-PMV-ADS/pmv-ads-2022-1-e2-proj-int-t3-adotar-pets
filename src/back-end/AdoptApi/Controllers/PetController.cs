@@ -58,11 +58,9 @@ public class PetController : ControllerBase
     }
 
     [HttpGet]
-    [Route("/search/{type}")]
-    public async Task<ActionResult<List<PetDto?>>> SearchPets(PetType type)
+    [Route("/search")]
+    public async Task<ActionResult<List<PetDto?>>> SearchPets([FromQuery]SearchPetRequest search)
     {
-        return await _petService.SearchPets(type);
+        return await _petService.SearchPets(search);
     }
-
-
 }
