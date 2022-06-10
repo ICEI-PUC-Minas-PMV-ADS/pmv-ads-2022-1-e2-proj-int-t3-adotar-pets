@@ -1,3 +1,4 @@
+using AdoptApi.Enums;
 using AdoptApi.Models;
 using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
@@ -90,5 +91,10 @@ public class PetService
         var pets = await _petRepository.GetRegisteredPets(userId);
         return _mapper.Map<List<Pet>, List<PetDto>>(pets);
     }
-    
+
+    public async Task<List<PetDto?>> SearchPets(PetType type)
+    {
+        var pets = await _petRepository.GetSearchPets(type);
+        return _mapper.Map<List<Pet>, List<PetDto?>>(pets);
+    }
 }

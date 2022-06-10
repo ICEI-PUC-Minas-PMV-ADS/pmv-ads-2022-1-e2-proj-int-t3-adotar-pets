@@ -1,4 +1,5 @@
 using AdoptApi.Database;
+using AdoptApi.Enums;
 using AdoptApi.Models;
 using AdoptApi.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
@@ -39,5 +40,10 @@ public class PetRepository
     public async Task<List<Pet>> GetRegisteredPets(int userId)
     {
         return await _context.Pets.Where(p => p.UserId == userId).OrderByDescending(p => p.Id).ToListAsync();
+    }
+
+    public async Task<List<Pet>> GetSearchPets(PetType type)
+    {
+        return await _context.Pets.Where(p => p.Type == type && p.IsActive == true).ToListAsync();
     }
 }
