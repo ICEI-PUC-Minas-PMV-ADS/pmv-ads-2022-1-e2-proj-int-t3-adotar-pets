@@ -13,7 +13,7 @@ export const redirectIfLogged = async (path = './index.html') => {
 
 export const redirectIfNotLogged = async (path = './index.html') => {
     try {
-        return await api.info();
+        return await api.info();rt
     } catch (e) {
         redirectTo(path);
     }

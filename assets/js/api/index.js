@@ -90,6 +90,15 @@ export class Api {
             throw e;
         }
     }
+
+    async petInfo(id) {
+        try {
+            var pet = await this.#get(`pet/profile/${id}`, true);
+            return pet;
+        } catch (e) {
+            throw e;
+        }
+    }
     
     async addProfileImage(data) {
         try {

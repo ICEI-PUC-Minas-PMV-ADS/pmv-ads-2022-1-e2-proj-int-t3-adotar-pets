@@ -43,6 +43,7 @@ redirectIfNotLogged().then((user) => {
    }
    profileForm.querySelector('[name="user.name"]').value = user.name;
    profileForm.querySelector('[name="user.email"]').value = user.email;
+   
    M.updateTextFields();
    
    // @TODO: profileSchema
