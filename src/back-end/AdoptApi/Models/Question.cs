@@ -15,4 +15,6 @@ public class Question : ITrackable, ISoftDeletable
     [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
     public DateTime UpdatedOn { get; set; }
     public DateTime? DeletedOn { get; set; }
+
+    public List<Alternative> Alternatives { get; set; }
 }

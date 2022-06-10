@@ -14,8 +14,9 @@ namespace AdoptApi.Controllers;
 
 [ApiController]
 [EnableCors]
+[ValidateRequest]
 [Route("api/user")]
-[Authorize][ValidateRequest]
+[Authorize]
 
 public class UserController : ControllerBase
 {
