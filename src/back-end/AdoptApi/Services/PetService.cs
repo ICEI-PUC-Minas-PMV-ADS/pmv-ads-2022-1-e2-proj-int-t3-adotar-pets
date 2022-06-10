@@ -1,3 +1,4 @@
+using AdoptApi.Enums;
 using AdoptApi.Models;
 using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
@@ -54,22 +55,31 @@ public class PetService
         return _modelState.IsValid;
     }
 
-    public async Task<PetDto?> PetRegister(int userId, CreatePetRequest request)
+    public async Task<PetDto?> PetRegister(int userId, CreatePetRequest request, ImageUploadService imageUploadService)
     {
-        var petDto = request.Pet;
         var pet = new Pet
         {
             UserId = userId,
-            Name = petDto.Name, Description = petDto.Description, Type = petDto.Type, Gender = petDto.Gender,
-            BirthDate = DateOnly.ParseExact(petDto.BirthDate, "yyyy-MM-dd"), Size = petDto.Size,
-            MinScore = petDto.MinScore, IsActive = true
+            Name = request.Name, Description = request.Description, Type = request.Type, Gender = request.Gender,
+            BirthDate = DateOnly.ParseExact(request.BirthDate, "yyyy-MM-dd"), Size = request.Size,
+            MinScore = request.MinScore, Pictures = new List<Picture>()
         };
 
-        var validatedPet = await ValidatePet(pet, petDto.Needs);
+        var validatedPet = await ValidatePet(pet, request.Needs);
 
         if (!validatedPet)
         {
             return null;
+        }
+
+        foreach (var picture in request.Pictures)
+        {
+            var petPicture = await imageUploadService.UploadOne(picture, PictureType.Pet);
+            if (petPicture == null)
+            {
+                return null;
+            }
+            pet.Pictures.Add(petPicture);
         }
         
         var createdPet = await _petRepository.CreatePet(pet);

@@ -14,5 +14,6 @@ public class PetDto
     public int MinScore { get; set; }
     public ICollection<NeedDto> Needs { get; set; }
     public string Description { get; set; }
+    public ICollection<PictureDto> Pictures { get; set; }
     public bool IsActive { get; set; }
 }
