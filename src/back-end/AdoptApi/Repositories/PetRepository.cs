@@ -58,6 +58,18 @@ public class PetRepository
         {
             filter = filter.Where(p => p.Size == search.Size);
         }
+        if (search.Age is PetAge.Baby)
+        {
+            filter = filter.Where(p => DateTime.Now.Year - p.BirthDate.Year < 1);
+        }
+        if (search.Age is PetAge.Adult)
+        {
+            filter = filter.Where(p => DateTime.Now.Year - p.BirthDate.Year >= 1 && DateTime.Now.Year - p.BirthDate.Year < 7);
+        }
+        if (search.Age is PetAge.Senior)
+        {
+            filter = filter.Where(p => DateTime.Now.Year - p.BirthDate.Year >= 7);
+        }
         return await filter.ToListAsync();
     }
 }

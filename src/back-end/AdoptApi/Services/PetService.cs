@@ -97,4 +97,5 @@ public class PetService
         var pets = await _petRepository.GetSearchPets(search);
         return _mapper.Map<List<Pet>, List<PetDto?>>(pets);
     }
+    
 }
