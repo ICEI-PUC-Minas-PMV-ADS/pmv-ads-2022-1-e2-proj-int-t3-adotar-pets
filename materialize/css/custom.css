@@ -337,7 +337,7 @@ ul {
 }
 
 .bg-patas-sobre{
-  height: 528px ;
+  height: 1000px ;
   width: 100%;
   background-image: url(../img/padraoPatas.svg);
   background-color: var(--secondary);
