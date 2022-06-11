@@ -21,7 +21,7 @@
 
 <body>
     <!-- Navbar -->
-    <div data-partial="navbar"></div>
+    <div data-partial="navbar" data-adopter="navbarLog" data-protector="navbarLogOng"></div>
     <!-- //Navbar -->
 
     <!-- Breadcrumbs-->
@@ -57,21 +57,23 @@
             
                 </div>
                 <div class="col s8">
-                    <span class="fs-52 textcolor-secondary">Nome do pet</span>
+                    <span id="name-pet" class="fs-52 textcolor-secondary">Nome do pet</span>
                 </div>
                 <div class="col s8 textcolor-secondary">
                     <div>
-                        <span class="fs-20-b">Idade</span>
+                        <span id="birthDate-pet" class="fs-20-b">Idade</span>
                         <span class="fs-20-b">|</span>
-                        <span class="fs-20-b">Gênero</span>
+                        <span id="gender-pet" class="fs-20-b">Gênero</span>
                         <span class="fs-20-b">|</span>
-                        <span class="fs-20-b">Porte</span>
+                        <span id="size-pet" class="fs-20-b">Porte</span>
+                        <span class="fs-20-b">|</span>
+                        <span id="needs-pet" class="fs-20-b">Condições</span>
                     </div>
                         
                 </div>
 
                 <div class="col s8 mb-24">
-                    <span class="fs-16 ">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla earum excepturi repudiandae ea similique natus maiores. Qui, saepe sit. Id voluptates culpa ab aspernatur mollitia non eaque reiciendis, illo quod?</span>
+                    <span id="description-pet" class="fs-16 ">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla earum excepturi repudiandae ea similique natus maiores. Qui, saepe sit. Id voluptates culpa ab aspernatur mollitia non eaque reiciendis, illo quod?</span>
                 </div>
                  <div class="col s8 pd-none">
                     <div class="col s6">
@@ -103,6 +105,7 @@
     </script>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <script type="module" src="assets/js/layout.js"></script>
+    <script type="module" src="assets/js/pages/petProfile.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.2/imask.min.js"
         integrity="sha512-l0grYOI8XZga5TajPOiqLrQVCKrdh+k0QSEtS+cpJlNeI8Nu9GOhsVaFyFQuPQfYp02GnhsyHqkPR7P7BTKYAQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
