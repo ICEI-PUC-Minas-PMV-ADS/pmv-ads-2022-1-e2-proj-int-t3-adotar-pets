@@ -350,6 +350,24 @@ ul {
   background-color: var(--secondary);
 }
 
+.card-pet{
+  background-color: #e7e7e7 ;
+  border-radius: 16px;
+  height: 148px;
+  margin-bottom: 16px;
+  box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.foto-card {
+  border-radius: 0px 16px 16px 0px !important;
+  background-color: #f40b0b ;
+  height: 100%;
+  padding: 0px;
+}
+
+
 @media (max-width: 1280px) {
   #logoFooter {
     display: none;

@@ -13,13 +13,13 @@
     margin-top: 16px;
 }
 
-.card-pet{
+/* .card-pet{
     background-color: #e7e7e7 ;
     border-radius: 16px;
     height: 148px;
     margin-bottom: 16px;
     box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.1);
-}
+} */
 .bg-busca{
     /*padding: 72px 72px 96px ;*/
     height: 350px;
@@ -38,11 +38,11 @@
     height: 100px;
     left: 100%;
 }
-.foto-card{
+/* .foto-card{
     border-radius: 0px 16px 16px 0px;
     background-color: #c5c5c5;
     height: 100%;
-}
+} */
 
 
 
