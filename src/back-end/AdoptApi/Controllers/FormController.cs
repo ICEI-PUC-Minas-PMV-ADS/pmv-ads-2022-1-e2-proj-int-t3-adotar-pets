@@ -35,12 +35,20 @@ public class FormController : ControllerBase
     {
         return await _formService.GetAdoptionProgress(User.Identity.GetUserId(), petId);
     }
-    
+
     [HttpPost]
     [Route("adopt/{petId:int}")]
     [Authorize(Roles = nameof(UserType.Adopter))]
     public async Task<ActionResult<FormDto?>> GetFormQuestion([FromBody] AnswerFormRequest request, int petId)
     {
         return await _formService.AnswerQuestion(User.Identity.GetUserId(), petId, request.AlternativeId!);
+    }
+
+    [HttpPost]
+    [Route("adopt/{petId:int}")]
+    [Authorize(Roles = nameof(UserType.Protector))]
+    public async Task<ActionResult<List<FormDto?>>> ListFormsByPetId(int petId)
+    {
+        return await _formService.ListFormsByPetId(User.Identity.GetUserId(), petId);
     }
 }

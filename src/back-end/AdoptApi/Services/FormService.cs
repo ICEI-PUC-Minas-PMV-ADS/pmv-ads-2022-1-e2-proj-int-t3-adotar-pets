@@ -35,7 +35,7 @@ public class FormService
             Id = form.Id,
             CurrentQuestion = question != null ? GetQuestionDto(question) : null,
             IsFinished = form.IsFinished,
-            Percentage = (double) form.Answers.Count * 100 / totalQuestions,
+            Percentage = (double)form.Answers.Count * 100 / totalQuestions,
             TotalQuestions = totalQuestions,
             QuestionsLeft = totalQuestions - form.Answers.Count
         };
@@ -44,7 +44,8 @@ public class FormService
     public async Task<FormDto?> GetAdoptionProgress(int userId, int petId)
     {
         Console.WriteLine(petId);
-        try {
+        try
+        {
             var pet = await _petRepository.GetAvailablePet(petId);
             var form = await _formRepository.GetOrCreateFormByUserAndPet(userId, pet);
             var currentQuestion = await _formRepository.GetUnansweredQuestion(form.Answers.LastOrDefault()?.Alternative.QuestionId ?? 0, form.Pet.Type);
@@ -106,7 +107,7 @@ public class FormService
             _ => 0
         };
     }
-    
+
     private static int GetPetAgePenalty(Alternative alternative, Pet pet)
     {
         var years = DateOnly.FromDateTime(DateTime.Now).Year - pet.BirthDate.Year;
@@ -134,6 +135,11 @@ public class FormService
         penalty += GetPetAgePenalty(alternative, pet);
         penalty += GetPetGenderPenalty(alternative, pet);
         return penalty;
+    }
+    public async Task<List<FormDto>> ListFormsByPetId(int userId, int petId)
+    {
+        var forms = await _formRepository.GetFormByUserAndPet(userId, petId);
+        return _mapper.Map<List<Form>, List<FormDto>>(forms);
     }
 
 }

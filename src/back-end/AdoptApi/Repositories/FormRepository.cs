@@ -49,7 +49,7 @@ public class FormRepository
         }
         catch (InvalidOperationException)
         {
-            var form = new Form {Pet = pet, UserId = userId, Answers = new List<Answer>()};
+            var form = new Form { Pet = pet, UserId = userId, Answers = new List<Answer>() };
             await _context.AddAsync(form);
             await _context.SaveChangesAsync();
             return form;
@@ -69,4 +69,13 @@ public class FormRepository
         await _context.SaveChangesAsync();
         return form;
     }
+
+
+    public async Task<Form> GetFormByUserAndPet(int userId, int petId)
+    {        
+            return await _context.Forms.Include("Answers.Alternative").Where(f => f.UserId == userId && f.PetId == petId).SingleAsync();
+        }
+
+    
+
 }
