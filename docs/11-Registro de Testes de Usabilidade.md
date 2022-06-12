@@ -1,8 +1,9 @@
 # Registro de Testes de Usabilidade
 
-O primeiro teste de usabilidade aplicado foi o teste das 10 Heurísticas de Nielsen. Foram analisadas as telas de cadastro e login (RF-002, RF-003). A seguir os resultados:
+O primeiro teste de usabilidade aplicado foi o teste das 10 Heurísticas de Nielsen. Foram analisadas as telas de cadastro e login (RF-002, RF-003). O único problema encontrado foi o de Controle e liberdade para o usuário. Para corrigir o grupo optou por adicionar um botão de retorno em ambas as páginas.
+Em seguida, após a produção de todas as telas foi reaplicado o teste das 10 Heurísticas de Nielsen em todas as páginas do projeto. A seguir os resultados:
 
-1-Visibilidade do Status do Sistema: O sistema informa a partir dos títulos “entre para continuar” e “cadastre-se em nosso site”, em tempo real, onde o usuário se encontra e o que deve fazer na página. 
+1-Visibilidade do Status do Sistema: O sistema informa a partir dos títulos, como por exemplo: “entre para continuar” e “cadastre-se em nosso site”, e através dos subtítulos na navbar, em tempo real, onde o usuário se encontra e o que deve fazer na página.
 
 ![TesteDeUsabilidade-Heuristica01-RF002-003](/docs/img/TesteRF002-003-Heuristica01.png)
 
@@ -30,6 +31,6 @@ O primeiro teste de usabilidade aplicado foi o teste das 10 Heurísticas de Niel
 
 ![TesteDeUsabilidade-Heuristica07-RF002-003](/docs/img/TesteRF002-003-Heuristica07.png)
 
-10-Ajuda e documentação: No footer da página há links para perguntas frequentes, contato com a administração da página, políticas de uso e informações sobre a plataforma.  
+10-Ajuda e documentação: No footer de todas as página há links para perguntas frequentes, contato com a administração da página, políticas de uso e informações sobre a plataforma.  
 
 ![TesteDeUsabilidade-Heuristica10-RF002-003](/docs/img/TesteRF002-003-Heuristica10.png)
