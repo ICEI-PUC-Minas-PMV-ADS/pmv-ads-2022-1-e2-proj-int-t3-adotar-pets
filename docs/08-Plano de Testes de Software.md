@@ -62,11 +62,11 @@ Os testes de controle de acesso serão realizados com o objetivo de avaliar o co
 
 O acesso a pagina de cadastro de novos usuários pode ser realizada acessando a página de login, pelo botão superior da landing page da plataforma, conforme a imagem:
 
-IMAGEM 1
+![IMAGEM 1](img/CT-Imagem-1.png)
 
 Ao acessar a pagina de login o usuário estará na sessão de login, podendo se cadastrar no botão “Clique aqui” abaixo do botão de entrar, conforme a imagem:
 
-IMAGEM 2
+![IMAGEM 2](img/CT-Imagem-2.png)
 
 Na pagina de cadastro os usuários se diferenciam entre adotante e protetor pelo tipo de documento que é inserido, nesse caso, o usuário adotante será uma pessoa física utilizando um CPF e no caso de uma ONG será utilizado um CNPJ.
 
@@ -100,35 +100,41 @@ Os usuários testados serão:
 Para os casos de teste temos:
 ### a.	Algum campo faltante:
 
-Imagem 3
+![IMAGEM 3](img/CT-Imagem-3.png)
 
 ### b.	CNPJ ou CPF errado:
 
-Imagem 4
+![IMAGEM 4](img/CT-Imagem-4.png)
 
 A validação de documentação segue uma lógica própria cuja plataforma verifica antes de poder enviar a requisição de cadastro do usuário, nesse caso, o valor 5, do CPF do usuário, foi substituído por um 2, transformando em um documento inválido, sendo assim, bloqueado para dar prosseguimento.
 
 ### c. Data de nascimento de usuário menor que 18 anos;
 
-Imagem 5
+![IMAGEM 5](img/CT-Imagem-5.png)
 
 Uma validação para o usuário é que ele seja maior de idade, assim, quando a plataforma identifica um usuário com uma idade menor que 18, ela não permite a sequência da requisição.
 
 ### d.	CEP errado
 
-Imagem 6
+![IMAGEM 6](img/CT-Imagem-6.png)
 
 ### e.	Email errado
 
-Imagem 7
+![IMAGEM 7](img/CT-Imagem-7.png)
 
-### f.	Senhas com menos de 8 caracteres e não combinantes;
+### f.	Senhas com menos de 8 caracteres e não combinantes
+
+![IMAGEM 8](img/CT-Imagem-8.png)
+
+![IMAGEM 9](img/CT-Imagem-9.png)
 
 ### g.	Usuários testes: Adotante e ONG;
 
 Após o cadastro de um novo usuário, o recém cadastrado é redirecionado para a tela de login para fazer o seu primeiro login na plataforma, utilizando os campos de email e a senha cadastrados.
 
-Imagem 8 e 9
+![IMAGEM 10](img/CT-Imagem-10.png)
+
+![IMAGEM 11](img/CT-Imagem-11.png)
 
 Podemos verificar que os casos de teste foram realizados com sucesso, não gerando erros, assim podemos gerar um score 3 para esse teste.
 
@@ -140,17 +146,19 @@ Utilizando os usuários cadastrados do CT-01, pode-se realizar o login desses us
 ### c.	Login protetor
 Para o primeiro caso, acessamos a página de login, e foram realizados os testes:
 
-Imagem 10
+![IMAGEM 12](img/CT-Imagem-12.png)
 
 Para o teste de acesso do usuário temos:
 
+![IMAGEM 13](img/CT-Imagem-13.png)
+
 Foi possível o acesso do usuário a uma área do usuário adotante, podendo editar os campos de imagem, nome e email. Ao ser alterado um desses campos, é enviado um alerta da plataforma confirmando a alteração:
 
-Imagem 11
+![IMAGEM 14](img/CT-Imagem-14.png)
 
 O Logout é feito por meio do botão na tela superior clicando em sair:
 
-Imagem 12
+![IMAGEM 15](img/CT-Imagem-15.png)
 
 Ao clicar em sair o usuário é reenviado para a landing page, o teste foi realizado com a ong teste cadastrada, obtendo os mesmos resultados, assim podemos classificar esse teste com um score 3.
 
