@@ -17,7 +17,7 @@ Os testes de seguirão os planos de acordo com suas classificações:
 
 Os testes de funcionalidades serão realizados com o objetivo de verificar as funcionalidades propostas para a plataforma e como elas se comportam.
 
-|Caso de Teste        |CT-01 - Cadastro de novos usuários na plataforma, login e logout|
+|Caso de Teste        |CT-01 - Cadastro de novos usuários na plataforma|
 |---------------------|----------------------------------------------------------------|
 |Requesitos atendidos |RF - 002: O site deverá fornecer um formulário de cadastro para Pessoa Física (adotantes) Pessoa Jurídica (ONGs / protetores).<br>RF - 004: O site deverá fornecer um link de logout para todos os usuários autenticados.
 |Objetivos do Teste   |Verificar o fluxo de cadastro de novos usuários na plataforma por meio de novos cadastros, login de usuários já cadastrados e o seu logout.|
@@ -55,6 +55,104 @@ Os testes de controle de acesso serão realizados com o objetivo de avaliar o co
 |Objetivos do Teste   |Permitir a alteração de senha por parte dos usuários.|
 |Passos               |1: Na página de login, acessar o campo de esqueci a senha;<br>2:	Preencher os campos pedidos para o envio do formulário de recuperação de senha;<br>3:	No email cadastrado do usuário, acessar o link de recuperação de senha;<br>4:	Preencher os campos de alteração;<br>5:	Verificar se houve alteração da senha ao realizar o login com a nova senha;|
 |Critérios de êxito   |1:	Acesso a página de formulário de recuperação de senha;<br>2:	Envio de email com link para página de recuperação de senha do usuário que fez a requisição;<br>3:	Validação do usuário com a nova senha.|
+
+## Testes Realizados
+
+### CT-01: Cadastro de novos usuários na plataforma
+
+O acesso a pagina de cadastro de novos usuários pode ser realizada acessando a página de login, pelo botão superior da landing page da plataforma, conforme a imagem:
+
+IMAGEM 1
+
+Ao acessar a pagina de login o usuário estará na sessão de login, podendo se cadastrar no botão “Clique aqui” abaixo do botão de entrar, conforme a imagem:
+
+IMAGEM 2
+
+Na pagina de cadastro os usuários se diferenciam entre adotante e protetor pelo tipo de documento que é inserido, nesse caso, o usuário adotante será uma pessoa física utilizando um CPF e no caso de uma ONG será utilizado um CNPJ.
+
+Para esse caso de teste será utilizado os seguintes passos:
+### 1-	Tentar cadastrar com:
+#### a.	Algum campo faltante;
+#### b.	CNPJ ou CPF errado;
+#### c.	Data de nascimento de usuário menor que 18 anos;
+#### d.	CEP errado
+#### e.	Email errado
+#### f.	Senhas com menos de 8 caracteres e não combinantes;
+#### g.	Usuários testes: Adotante e ONG;
+
+Os usuários testados serão:
+
+### a.	Adotante:
+#### a.	Nome: Usuário Teste;
+#### b.	CPF: 530.634.160-88;
+#### c.	CEP: 41218-155;
+#### d.	Data de Nascimento: 01/01/1990;
+#### e.	Email: usuarioTeste@testando.com;
+#### f.	Senha: teste123;
+### b.	ONG:
+#### a.	Nome: ONG Teste;
+#### b.	CNPJ: 41.426.959/0001-70;
+#### c.	CEP: 92440-592;
+#### d.	Data de Nascimento: 01/01/1990;
+#### e.	Email: ONGTeste@testando.com;
+#### f.	Senha: teste123;
+
+Para os casos de teste temos:
+### a.	Algum campo faltante:
+
+Imagem 3
+
+### b.	CNPJ ou CPF errado:
+
+Imagem 4
+
+A validação de documentação segue uma lógica própria cuja plataforma verifica antes de poder enviar a requisição de cadastro do usuário, nesse caso, o valor 5, do CPF do usuário, foi substituído por um 2, transformando em um documento inválido, sendo assim, bloqueado para dar prosseguimento.
+
+### c. Data de nascimento de usuário menor que 18 anos;
+
+Imagem 5
+
+Uma validação para o usuário é que ele seja maior de idade, assim, quando a plataforma identifica um usuário com uma idade menor que 18, ela não permite a sequência da requisição.
+
+### d.	CEP errado
+
+Imagem 6
+
+### e.	Email errado
+
+Imagem 7
+
+### f.	Senhas com menos de 8 caracteres e não combinantes;
+
+### g.	Usuários testes: Adotante e ONG;
+
+Após o cadastro de um novo usuário, o recém cadastrado é redirecionado para a tela de login para fazer o seu primeiro login na plataforma, utilizando os campos de email e a senha cadastrados.
+
+Imagem 8 e 9
+
+Podemos verificar que os casos de teste foram realizados com sucesso, não gerando erros, assim podemos gerar um score 3 para esse teste.
+
+### CT-04 - Login de usuários
+
+Utilizando os usuários cadastrados do CT-01, pode-se realizar o login desses usuários na plataforma, neste teste será testado os seguintes casos:
+### a.	Campos errados
+### b.	Login adotante
+### c.	Login protetor
+Para o primeiro caso, acessamos a página de login, e foram realizados os testes:
+
+Imagem 10
+
+Para o teste de acesso do usuário temos:
+
+Foi possível o acesso do usuário a uma área do usuário adotante, podendo editar os campos de imagem, nome e email. Ao ser alterado um desses campos, é enviado um alerta da plataforma confirmando a alteração:
+
+Imagem 11
+
+O Logout é feito por meio do botão na tela superior clicando em sair:
+
+Imagem 12
+
+Ao clicar em sair o usuário é reenviado para a landing page, o teste foi realizado com a ong teste cadastrada, obtendo os mesmos resultados, assim podemos classificar esse teste com um score 3.
 
 
 
