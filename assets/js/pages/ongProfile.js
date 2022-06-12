@@ -62,7 +62,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             return new Validate(field).required();
          case 'user.email':
             return new Validate(field).required().email();
+<<<<<<< HEAD
          case 'user.zipcode':
+=======
+         case 'user.address.zipcode':
+>>>>>>> d1f4c52ed396b37b8d511ce8c9015b3d1f11a771
             return new Validate(field).required();   
          case 'user.address.number':
             return new Validate(field).required();  
@@ -89,14 +93,15 @@ document.addEventListener('DOMContentLoaded', async () => {
          try {
             let validatedInput = registerOngSchema(input).getField();
             mergeDeep(validatedInputs, validatedInput);
+            console.log(input);
          } catch (e) {
             errors = true;
+            
             
          }
          });
          if (!errors){
             alert("receba!")
-            console.log(validatedInputs);
          };  
          
       

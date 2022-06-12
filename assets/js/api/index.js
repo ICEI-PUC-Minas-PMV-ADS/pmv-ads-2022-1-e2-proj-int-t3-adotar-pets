@@ -113,10 +113,5 @@ export class Api {
         return this.#post(endpoint, data, withToken);
     }
     
-    async atualizar(endpoint, data = {}, withToken = false) {
-        return this.#put(endpoint, data, withToken);
-    }
-
-    
     
 }
