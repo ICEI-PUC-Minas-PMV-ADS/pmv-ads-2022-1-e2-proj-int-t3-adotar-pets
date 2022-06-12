@@ -62,7 +62,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             return new Validate(field).required();
          case 'user.email':
             return new Validate(field).required().email();
+<<<<<<< HEAD
+         case 'user.zipcode':
+=======
          case 'user.address.zipcode':
+>>>>>>> d1f4c52ed396b37b8d511ce8c9015b3d1f11a771
             return new Validate(field).required();   
          case 'user.address.number':
             return new Validate(field).required();  
@@ -105,13 +109,13 @@ document.addEventListener('DOMContentLoaded', async () => {
    });
 
    
-      async function salvar(body){
+      async function salvar(validatedInputs){
       
             const apiUrl = 'user/profile';
       
             try {
       
-               const response = await api.atualizar('user/profile', body, true);
+               const response = await api.atualizar('user/profile', validatedInputs, true);
                
                if (!response) {
                   throw response;

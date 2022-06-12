@@ -1,6 +1,7 @@
 import {redirectIfNotLogged} from '../helpers/redirect.js';
 import {api} from '../api/client.js';
 import { setFieldError, Validate } from '../forms/validation.js';
+
 const file = document.getElementById("image-input");
 
 function addImage() {
@@ -59,6 +60,9 @@ buttonSalvarPerfil.addEventListener('click', async event => {
 
     var inputNome = document.getElementById("nome");
     var inputEmail = document.getElementById("email");
+    var inputCidade ="Teste cidade";
+    var inputRua = "Teste rua";
+    var inputCep = "32050080" 
 
     let inputs = profileForm.querySelectorAll('input[name]');
  
@@ -83,7 +87,12 @@ buttonSalvarPerfil.addEventListener('click', async event => {
         var body = {
             User: {
                 Name: inputNome.value,
-                Email: inputEmail.value      
+                Email: inputEmail.value,  
+               //  Address:{
+               //    city: inputCidade.value,
+               //    name: inputRua.value,
+               //    zipCode: inputCep.value
+               //  }   
             }
          };
 
@@ -100,7 +109,7 @@ async function salvar(body){
 
     try {
 
-        const response = await api.atualizar('user/profile', body, true);
+        const response = await api.atualizarPerfil('user/profile', body, true);
         
         if (!response) {
             throw response;
