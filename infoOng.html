@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="materialize/img/favIcon.svg" type="image/x-icon" />
     <link rel="stylesheet" href="materialize/css/perfil-adotante.css">
     <link rel="stylesheet" href="materialize/css/config.css">
-    <link rel="stylesheet" href="materialize/css/perfilpet.css">
+    <link rel="stylesheet" href="materialize/css/infoOng.css">
 
     <title>Informações</title>
 </head>
@@ -37,53 +37,30 @@
     <!-- //Breadcrumbs-->
 
     <div class="container">
-       
-        <div class="row flex-col ">
-            <div class="col s12 cardPerfil  center-center ">
-                <div class="slider col s4">
-                    <ul class="slides">
-                        <li>
-                            <img id="output_image1" > <!-- random image -->
-                        </li>
-                        <li>
-                            <img id="output_image2" > <!-- random image -->
-                        </li>
-                        <li>
-                            <img id="output_image3"> <!-- random image -->
 
-                        </li>
-                          
-                    </ul>
-            
+        <div class="row">
+            <div class="col s8 cardinfoOng center-center ">
+
+                <div class="slider col s4">
+                    <div><img src="../materialize/ImagemTeste.svg"> <!-- random image --></div>
                 </div>
+
                 <div class="col s8">
-                    <span id="name-pet" class="fs-40 textcolor-secondary">Nome do pet</span>
+                    <span id="name-ong" class="fs-52 textcolor-secondary">Nome da Ong</span>
                 </div>
                 <div class="col s8 textcolor-secondary">
                     <div>
-                        <span id="birthDate-pet" class="fs-20-b">Idade</span>
-                       
+                        <span id="document" class="fs-20 ">CNPJ:</span>
+                        <p>
                     </div>
-                        
+                </div>
+                <div class="col s8 mb-24 flex-col center-start">
+                    <span id="zipcode" class="fs-16">CEP</span>
+                    <span id="street" class="fs-16">Rua</span>
+                    <span id="number" class="fs-16">Número</span>
+                    <span id="city" class="fs-16">Cidade</span>
                 </div>
 
-                <div class="col s8 mb-24">
-                    <span id="birthDate-pet" class="fs-20-b">Idade</span>
-                    <span id="birthDate-pet" class="fs-20-b">Idade</span>
-                    <span id="birthDate-pet" class="fs-20-b">Idade</span>
-                </div>
-                 <div class="col s8 pd-none">
-                    <div class="col s6">
-                        <a class="col s12 waves-effect amber darken-0 0 btn-perfil btn-large fs-btn" type="button" name="btn-salvar" href="questionario.html">Quero adotar</a>
-                    </div>
-                    
-                    <div class="col s6">
-                        <a class="col s12 waves-effect white btn-perfilpet btn-large  fs-btn  " type="button" name="btn-salvar" href="dadosong.html">Quero ajudar</a>
-                    </div>
-                 </div>   
-                
-              
-                
             </div>
         </div>
 
@@ -94,15 +71,15 @@
     <!-- //Footer -->
 
     <script>
-         document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.slider');
-    var instances = M.Slider.init(elems,);
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.slider');
+            var instances = M.Slider.init(elems,);
 
-  });
+        });
     </script>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <script type="module" src="assets/js/layout.js"></script>
-    <script type="module" src="assets/js/pages/petProfile.js"></script>
+    <script type="module" src="assets/js/pages/infoOng.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.2/imask.min.js"
         integrity="sha512-l0grYOI8XZga5TajPOiqLrQVCKrdh+k0QSEtS+cpJlNeI8Nu9GOhsVaFyFQuPQfYp02GnhsyHqkPR7P7BTKYAQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
