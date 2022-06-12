@@ -66,6 +66,7 @@ export class Api {
         const request = Api.#buildRequest(this.#getEndpoint(endpoint), 'PUT', withToken, data);
         return await Api.#getJsonResponse(request);
     }
+
     
     async register(userInfo) {
         return this.#post('auth/register', userInfo);
@@ -111,5 +112,11 @@ export class Api {
     async cadastrarPet(endpoint, data = {}, withToken = false) {
         return this.#post(endpoint, data, withToken);
     }
+    
+    async atualizar(endpoint, data = {}, withToken = false) {
+        return this.#put(endpoint, data, withToken);
+    }
+
+    
     
 }

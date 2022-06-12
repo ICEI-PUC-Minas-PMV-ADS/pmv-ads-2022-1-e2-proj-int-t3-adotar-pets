@@ -1,6 +1,6 @@
 import {redirectIfNotLogged} from '../helpers/redirect.js';
 import {api} from '../api/client.js';
-
+import { setFieldError, Validate } from '../forms/validation.js';
 const file = document.getElementById("image-input");
 
 function addImage() {
@@ -45,6 +45,77 @@ redirectIfNotLogged().then((user) => {
    profileForm.querySelector('[name="user.email"]').value = user.email;
    
    M.updateTextFields();
+
+
+   //teste
+
+   const buttonSalvarPerfil = document.getElementById('btn-salvar-perfil');
+buttonSalvarPerfil.addEventListener('click', async event => {
+  
+    event.preventDefault();
+   
+    alert("chegou");
+    var erros = false;
+
+    var inputNome = document.getElementById("nome");
+    var inputEmail = document.getElementById("email");
+
+    let inputs = profileForm.querySelectorAll('input[name]');
+ 
+    inputs.forEach((input)=>{
+        try {
+
+          if(input.id == "nome"){
+                let inputNome = new Validate(input).required(); 
+          }
+
+          if(input.id == "email"){
+              let inputEmail = new Validate(input).required().email();
+          }
+          
+        } catch (e) {
+          erros = true;
+          
+        }
+      });
+
+      if (!erros){
+        var body = {
+            User: {
+                Name: inputNome.value,
+                Email: inputEmail.value      
+            }
+         };
+
+         salvar(body);
+
+      };
+    
+
+});
+
+async function salvar(body){
+
+    const apiUrl = 'user/profile';
+
+    try {
+
+        const response = await api.atualizar('user/profile', body, true);
+        
+        if (!response) {
+            throw response;
+        }
+
+        alert("Seus dados foram alterados com sucesso!")
+
+    } catch (err) {
+        //caso falhe, execute isso
+        const error = err;
+        alert("Ocorreu um erro ao salvar.");
+    }
+
+};
+
    
    // @TODO: profileSchema
 });
