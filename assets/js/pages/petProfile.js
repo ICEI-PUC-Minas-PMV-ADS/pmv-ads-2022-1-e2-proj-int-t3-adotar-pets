@@ -1,10 +1,10 @@
-import { redirectIfRoleIsNot } from '../helpers/redirect.js';
+import {redirectIfNotLogged} from '../helpers/redirect.js';
 import { petAges } from '../helpers/petAge.js';
 import { mergeDeep } from '../utils.js';
 import { api } from '../api/client.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
-    
+    const user = await redirectIfNotLogged('index.html');
 
     const urlParams = new URLSearchParams(window.location.search);
     const petId = urlParams.get('id');
@@ -13,14 +13,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     M.FormSelect.init(document.querySelectorAll('select'));
     console.log(pet);
 
-    // const petEditForm = document.querySelector('[data-profilePet]');
-    // petEditForm.querySelector('[name="pet.name"]').value = pet.name;
-    // petEditForm.querySelector('[name="pet.description"]').value = pet.description;
-    // petEditForm.querySelector('[name="pet.birthdate"]').value = pet.birthDate;
-    // petEditForm.querySelector('[name="pet.gender"]').value = pet.gender;
-    // petEditForm.querySelector('[name="pet.size"]').value = pet.size;
-    // petEditForm.querySelector('[name="pet.needs"]').value = pet.needs;
-    // M.updateTextFields();
 
     if (pet.gender = 0) {
         pet.gender = "Macho"
@@ -85,9 +77,3 @@ document.addEventListener('DOMContentLoaded', async () => {
 })
 
 
-// const buttonSalvarPet = document.getElementById('btn-salvar-pet');
-
-//     buttonSalvarPet.onclick = function(){
-//          alert("Salvo");
-
-//     };  

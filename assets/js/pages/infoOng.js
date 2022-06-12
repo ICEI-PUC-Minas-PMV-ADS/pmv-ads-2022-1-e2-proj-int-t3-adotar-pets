@@ -4,12 +4,12 @@ import { mergeDeep } from '../utils.js';
 import { api } from '../api/client.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
-    
+    const user = await redirectIfNotLogged('index.html');
 
     const urlParams = new URLSearchParams(window.location.search);
     const ongId = urlParams.get('id');
 
-    const ong = await api.info(ongId);
+    const ong = await api.ongInfo(ongId);
     M.FormSelect.init(document.querySelectorAll('select'));
     console.log(ong);
 

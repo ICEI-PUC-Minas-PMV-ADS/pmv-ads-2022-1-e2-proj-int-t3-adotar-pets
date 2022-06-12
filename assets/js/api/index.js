@@ -116,5 +116,13 @@ export class Api {
         return this.#put(endpoint, data, withToken);
     }
     
+    async ongInfo(id) {
+        try {
+            var ong = await this.#get(`user/profile/${id}`, true);
+            return ong;
+        } catch (e) {
+            throw e;
+        }
+    }
     
 }

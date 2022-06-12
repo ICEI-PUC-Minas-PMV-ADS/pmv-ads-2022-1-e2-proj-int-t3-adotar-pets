@@ -47,9 +47,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       profileForm.querySelector('[name="user.name"]').value = user.name;
       profileForm.querySelector('[name="user.email"]').value = user.email;
-      profileForm.querySelector('[name="user.address.zipcode"]').value = user.address.zipCode;
-      profileForm.querySelector('[name="user.address.number"]').value = user.address.number;
-      profileForm.querySelector('[name="user.address.complement"]').value = user.address.complement;
+      profileForm.querySelector('[name="address.zipcode"]').value = user.address.zipCode;
+      profileForm.querySelector('[name="address.number"]').value = user.address.number;
+      profileForm.querySelector('[name="address.complement"]').value = user.address.complement;
 
 
       M.updateTextFields();
@@ -62,15 +62,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             return new Validate(field).required();
          case 'user.email':
             return new Validate(field).required().email();
-<<<<<<< HEAD
-         case 'user.zipcode':
-=======
-         case 'user.address.zipcode':
->>>>>>> d1f4c52ed396b37b8d511ce8c9015b3d1f11a771
+         case 'address.zipcode':
             return new Validate(field).required();   
-         case 'user.address.number':
+         case 'address.number':
             return new Validate(field).required();  
-         case 'user.address.complement':
+         case 'address.complement':
             return new Validate(field).required();
          default:
             return;
@@ -87,13 +83,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       let inputs = profileForm.querySelectorAll('input[name]');
       var errors = false;
-      var validatedInputs ={};
+      var body ={};
    
       inputs.forEach((input)=>{
          try {
             let validatedInput = registerOngSchema(input).getField();
-            mergeDeep(validatedInputs, validatedInput);
-            console.log(input);
+            mergeDeep(body, validatedInput);
+          
          } catch (e) {
             errors = true;
             
@@ -101,7 +97,7 @@ document.addEventListener('DOMContentLoaded', async () => {
          }
          });
          if (!errors){
-            alert("receba!")
+            salvar(body)
          };  
          
       
@@ -109,13 +105,13 @@ document.addEventListener('DOMContentLoaded', async () => {
    });
 
    
-      async function salvar(validatedInputs){
+      async function salvar(body){
       
             const apiUrl = 'user/profile';
       
             try {
       
-               const response = await api.atualizar('user/profile', validatedInputs, true);
+               const response = await api.atualizarPerfil('user/profile', body, true);
                
                if (!response) {
                   throw response;
