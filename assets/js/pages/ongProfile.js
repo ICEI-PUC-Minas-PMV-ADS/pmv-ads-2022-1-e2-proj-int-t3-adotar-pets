@@ -5,6 +5,9 @@ import {mergeDeep} from '../utils.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
    const user = await redirectIfNotLogged('index.html');
+   
+   const file = document.getElementById("image-input");
+
    function addImage() {
 
       file.click();
@@ -73,7 +76,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
    }
 
-
+  
 
    const buttonSalvarPerfil = document.getElementById('btn-salvar-perfil');
    buttonSalvarPerfil.addEventListener('click', async event => {
@@ -99,10 +102,9 @@ document.addEventListener('DOMContentLoaded', async () => {
          if (!errors){
             salvar(body)
          };  
-         
-      
 
    });
+
 
    
       async function salvar(body){
@@ -128,4 +130,55 @@ document.addEventListener('DOMContentLoaded', async () => {
       };
 
    });
+   const passwordForm = document.querySelector('[data-senha]');
+
+   const buttonSalvarSenha = document.getElementById('btn-salvar-senha');
+buttonSalvarSenha.addEventListener('click', async event => {
+  
+    event.preventDefault();
+    
+    var errorsPasswords = false;
+
+    var currentPassword = document.getElementById("current-password");
+    var newPassword = document.getElementById("new-password");
+    var confirmPassword = document.getElementById("confirm-password");
+
+    let inputs = passwordForm.querySelectorAll('input[name]');
+ 
+    inputs.forEach((input)=>{
+        try {
+
+          if(input.id == "current-password"){
+                let currentPassword = new Validate(input).required().min(8); 
+          }
+
+          if(input.id == "new-password"){
+              let newPassword = new Validate(input).required().min(8);
+          }
+          
+           if(input.id == "confirm-password"){
+              let confirmPassword = new Validate(input).required().min(8).equals(newPassword.value);
+          }
+          
+        } catch (e) {
+          errorsPasswords = true;
+        }
+      });
+
+      if (!errorsPasswords){
+     
+         var bodySenha = {
+            currentPassword: currentPassword.value,
+            newPassword: newPassword.value,
+            confirmPassword:  confirmPassword.value     
+         };
+
+         console.log(bodySenha);
+         // salvar(bodySenha);
+
+      };
+    
+
+});
+
 });

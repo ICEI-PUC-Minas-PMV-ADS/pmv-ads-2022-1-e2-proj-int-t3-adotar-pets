@@ -49,8 +49,8 @@
                         <div class="input-field col s12 input-select input-busca">
                             <select>
                                 <option value="" disabled selected>Tipo</option>
-                                <option value="cachorro">Cachorro</option>
-                                <option value="gato">Gato</option>
+                                <option value="0">Cachorro</option>
+                                <option value="1">Gato</option>
                             </select>
                         </div>
                     </form>
@@ -59,9 +59,9 @@
                         <div class="input-field col s12 input-select input-busca">
                             <select>
                                 <option value="" disabled selected>Porte</option>
-                                <option value="1">Pequeno</option>
-                                <option value="2">Médio</option>  
-                                <option value="3">Grande</option>
+                                <option value="0">Pequeno</option>
+                                <option value="1">Médio</option>  
+                                <option value="2">Grande</option>
                                 
                                 
                             </select>
@@ -72,8 +72,10 @@
                         <div class="input-field col s12 input-select input-busca">
                             <select>
                                 <option value="" disabled selected>Idade</option>
-                                <option value="1">Estado 1</option>
-                                <option value="2">Estado 2</option>
+                                <option value="1">0 a 1 ano</option>
+                                <option value="2">1 a 2 anos</option>
+                                <option value="2">2 a 7 anos</option>
+                                <option value="2">+ de 7 anos</option>
                               
 
                             </select>
@@ -85,7 +87,7 @@
                             <select>
                                 <option value="" disabled selected>Gênero</option>
                                 <option value="1">Macho</option>
-                                <option value="2">Fêmea</option>
+                                <option value="0">Fêmea</option>
                                
                             </select>
                         </div>
@@ -157,11 +159,15 @@
     <!-- Footer -->
     <div data-partial="footer"></div>
     <!-- //Footer -->
-
-
+    <script>
+         document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems,);
+      });
+    </script>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <script type="module" src="assets/js/layout.js"></script>
-    <script type="text/javascript" src="materialize/js/busca.js"></script>
+    <script type="module" src="assets/js/pages/busca.js"></script>
 
 </body>
 

@@ -350,6 +350,13 @@ ul {
   background-color: var(--secondary);
 }
 
+.bg-patas-contato {
+  min-height: 620px;
+  width: 100%;
+  background-image: url(../img/padraoPatas.svg);
+  background-color: var(--secondary);
+}
+
 .card-pet{
   background-color: #e7e7e7 ;
   border-radius: 16px;
@@ -365,6 +372,10 @@ ul {
   background-color: #f40b0b ;
   height: 100%;
   padding: 0px;
+}
+
+.input-branco{
+  color: #fff !important;
 }
 
 
