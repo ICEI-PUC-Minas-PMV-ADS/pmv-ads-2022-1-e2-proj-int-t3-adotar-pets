@@ -4,7 +4,7 @@ import { mergeDeep } from '../utils.js';
 import { api } from '../api/client.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const user = await redirectIfRoleIsNot('protector');
+    
 
     const urlParams = new URLSearchParams(window.location.search);
     const petId = urlParams.get('id');
