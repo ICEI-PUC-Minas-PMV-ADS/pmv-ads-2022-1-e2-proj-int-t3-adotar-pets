@@ -1,3 +1,8 @@
+import {redirectIfRoleIsNot} from '../helpers/redirect.js';
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const user = await redirectIfNotLogged('index.html');
+
 document.addEventListener('DOMContentLoaded', function () {
   var cars = document.querySelectorAll('.carousel');
   var instances = M.Carousel.init(cars, {
@@ -29,4 +34,5 @@ instance.prev(3);
 var instance = M.Carousel.init({
   fullWidth: true,
   indicators: true
+});
 });

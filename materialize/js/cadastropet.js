@@ -1,5 +1,9 @@
+import {redirectIfRoleIsNot} from '../helpers/redirect.js';
 import { setFieldError, Validate } from '../../assets/js/forms/validation.js';
 import {api} from '../../assets/js/api/client.js';
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const user = await redirectIfNotLogged('index.html');
 
 const registerPetForm = document.querySelector('[data-register]');
 
@@ -226,4 +230,5 @@ function inserirImagem3() {
 document.addEventListener("DOMContentLoaded", function () {
   var elems = document.querySelectorAll("select");
   var instances = M.FormSelect.init(elems);
+});
 });
