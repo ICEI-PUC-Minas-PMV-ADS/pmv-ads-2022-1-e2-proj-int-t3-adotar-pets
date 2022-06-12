@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       profileForm.querySelector('[name="user.name"]').value = user.name;
       profileForm.querySelector('[name="user.email"]').value = user.email;
-      profileForm.querySelector('[name="user.address.zipCode"]').value = user.address.zipCode;
+      profileForm.querySelector('[name="user.address.zipcode"]').value = user.address.zipCode;
       profileForm.querySelector('[name="user.address.number"]').value = user.address.number;
       profileForm.querySelector('[name="user.address.complement"]').value = user.address.complement;
 
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             return new Validate(field).required();
          case 'user.email':
             return new Validate(field).required().email();
-         case 'user.zipCode':
+         case 'user.zipcode':
             return new Validate(field).required();   
          case 'user.address.number':
             return new Validate(field).required();  
@@ -104,13 +104,13 @@ document.addEventListener('DOMContentLoaded', async () => {
    });
 
    
-      async function salvar(body){
+      async function salvar(validatedInputs){
       
             const apiUrl = 'user/profile';
       
             try {
       
-               const response = await api.atualizar('user/profile', body, true);
+               const response = await api.atualizar('user/profile', validatedInputs, true);
                
                if (!response) {
                   throw response;
