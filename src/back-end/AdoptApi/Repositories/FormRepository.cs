@@ -71,9 +71,9 @@ public class FormRepository
     }
 
 
-    public async Task<Form> GetFormByUserAndPet(int userId, int petId)
+    public async Task<List<Form>> GetFormByUserAndPet(int userId, int petId)
     {        
-            return await _context.Forms.Include("Answers.Alternative").Where(f => f.UserId == userId && f.PetId == petId).SingleAsync();
+            return await _context.Forms.Include("Answers.Alternative").Where(f => f.UserId == userId && f.PetId == petId).ToListAsync();
         }
 
     

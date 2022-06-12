@@ -45,7 +45,7 @@ public class FormController : ControllerBase
     }
 
     [HttpPost]
-    [Route("adopt/{petId:int}")]
+    [Route("adopt/pet/formlist")]
     [Authorize(Roles = nameof(UserType.Protector))]
     public async Task<ActionResult<List<FormDto?>>> ListFormsByPetId(int petId)
     {

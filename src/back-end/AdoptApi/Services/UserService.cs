@@ -282,4 +282,11 @@ public class UserService
             return null;
         }
     }
+    public async Task<List<UserDto>> protectorList()
+    {
+        var protectors = await _userRepository.GetRegisteredProtector();
+        return _mapper.Map<List<User>, List<UserDto>>(protectors);
+    }
+
+
 }

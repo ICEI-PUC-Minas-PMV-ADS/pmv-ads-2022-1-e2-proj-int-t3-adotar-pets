@@ -43,6 +43,15 @@ public class UserController : ControllerBase
         return await _userService.UpdateInfo(User.Identity.GetUserId(), request);
     }
 
+    [HttpPut]
+    [Route("profile/OngList")]
+    public async Task<ActionResult<List<UserDto>>> protectorList()
+    {
+        return await _userService.protectorList();
+    }
+
+
+
     [HttpGet]
     [Route("profile/{userId}")]
     public async Task<ActionResult<UserDto>> GetPetProfile(int userId)
