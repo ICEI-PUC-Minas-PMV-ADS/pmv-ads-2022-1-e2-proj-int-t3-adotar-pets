@@ -3,6 +3,9 @@ import {petAges} from '../helpers/petAge.js';
 import {Validate} from './validation.js';
 import {mergeDeep} from '../utils.js';
 
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems,)
 document.addEventListener('DOMContentLoaded', async () => {
     const user = await redirectIfNotLogged('index.html');
     const ageSelect = document.getElementById('idade-pet');
@@ -51,4 +54,5 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.log(validatedInputs);
         }
     });
+});
 });
