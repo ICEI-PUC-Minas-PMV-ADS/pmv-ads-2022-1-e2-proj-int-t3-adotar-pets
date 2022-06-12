@@ -115,6 +115,9 @@ export class Api {
     async atualizarPerfil(endpoint, data = {}, withToken = false) {
         return this.#put(endpoint, data, withToken);
     }
+    async atualizarSenha(endpoint, data = {}, withToken = false) {
+        return this.#put(endpoint, data, withToken);
+    }
     
     async ongInfo(id) {
         try {

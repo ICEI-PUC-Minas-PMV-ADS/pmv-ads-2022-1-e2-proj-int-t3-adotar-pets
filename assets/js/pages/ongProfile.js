@@ -174,10 +174,30 @@ buttonSalvarSenha.addEventListener('click', async event => {
          };
 
          console.log(bodySenha);
-         // salvar(bodySenha);
-
+         salvar(bodySenha);
       };
-    
+
+      async function salvar(bodySenha){
+      
+         const apiUrl = 'user/profile/password';
+   
+         try {
+   
+            const response = await api.atualizarSenha('user/profile/password', bodySenha, true);
+            
+            if (!response) {
+               throw response;
+            }
+   
+            alert("Sua senha foi alterada com sucesso!")
+   
+         } catch (err) {
+            //caso falhe, execute isso
+            const error = err;
+            alert("Ocorreu um erro ao alterar sua senha!");
+         }
+   
+   };
 
 });
 
