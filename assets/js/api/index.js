@@ -112,6 +112,9 @@ export class Api {
     async cadastrarPet(endpoint, data = {}, withToken = false) {
         return this.#post(endpoint, data, withToken);
     }
+    async atualizarPerfil(endpoint, data = {}, withToken = false) {
+        return this.#put(endpoint, data, withToken);
+    }
     
     
 }

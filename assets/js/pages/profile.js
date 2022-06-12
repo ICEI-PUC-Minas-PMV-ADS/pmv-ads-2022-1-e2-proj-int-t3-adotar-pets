@@ -88,11 +88,11 @@ buttonSalvarPerfil.addEventListener('click', async event => {
             User: {
                 Name: inputNome.value,
                 Email: inputEmail.value,  
-                Address:{
-                  city: inputCidade.value,
-                  name: inputRua.value,
-                  zipCode: inputCep.value
-                }   
+               //  Address:{
+               //    city: inputCidade.value,
+               //    name: inputRua.value,
+               //    zipCode: inputCep.value
+               //  }   
             }
          };
 
@@ -109,7 +109,7 @@ async function salvar(body){
 
     try {
 
-        const response = await api.atualizarE('user/profile', body, true);
+        const response = await api.atualizarPerfil('user/profile', body, true);
         
         if (!response) {
             throw response;
