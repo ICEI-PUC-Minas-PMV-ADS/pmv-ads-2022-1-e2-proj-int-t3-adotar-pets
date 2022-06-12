@@ -4,7 +4,7 @@ import {Validate} from './validation.js';
 import {mergeDeep} from '../utils.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const user = await redirectIfRoleIsNot('protector');
+    const user = await redirectIfNotLogged('index.html');
     const ageSelect = document.getElementById('idade-pet');
     petAges.forEach(petAge => {
         const option = document.createElement('option');

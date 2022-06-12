@@ -1,5 +1,9 @@
+import {redirectIfRoleIsNot} from '../helpers/redirect.js';
 import { setFieldError, Validate } from '../../assets/js/forms/validation.js';
 import {api} from '../../assets/js/api/client.js';
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const user = await redirectIfNotLogged('index.html');
 
 const profileForm = document.querySelector('[data-profile]');
 
@@ -137,3 +141,4 @@ async function salvar(body){
     }
 
 };
+});
