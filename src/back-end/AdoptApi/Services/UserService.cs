@@ -10,6 +10,7 @@ using AdoptApi.Services.Dtos;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Newtonsoft.Json;
+using AutoMapper;
 
 namespace AdoptApi.Services;
 
@@ -19,6 +20,7 @@ public class UserService
     private readonly IConfiguration _configuration;
     private readonly ModelStateDictionary _modelState;
     private UserRepository _userRepository;
+    private readonly IMapper _mapper;
 
     public UserService(IConfiguration configuration, IActionContextAccessor actionContextAccessor, UserRepository repository)
     {
@@ -234,6 +236,14 @@ public class UserService
             return null;
         }
     }
+
+    public async Task<List<UserDto>?> GetProtectorProfileList()
+    {
+        var protector = await _userRepository.GetAvailableProtectorList();
+        return _mapper.Map<List<User>, List<UserDto>>(protector);
+        
+    }
+    
     public async Task<UserDto?> UpdateProfilePicture(int userId, UpdateProfilePictureRequest request, ImageUploadService service)
     {
         try

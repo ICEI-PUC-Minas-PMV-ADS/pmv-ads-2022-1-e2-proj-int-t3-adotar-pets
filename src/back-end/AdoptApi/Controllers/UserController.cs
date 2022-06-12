@@ -1,5 +1,6 @@
 using AdoptApi.Attributes;
 using AdoptApi.Attributes.Extensions;
+using AdoptApi.Models;
 using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
 using AdoptApi.Requests;
@@ -40,10 +41,17 @@ public class UserController : ControllerBase
     {
         return await _userService.UpdateInfo(User.Identity.GetUserId(), request);
     }
-
+    
+    [HttpGet]
+    [Route("search/protectors")]
+    public async Task<List<UserDto>?> GetProtectorProfileList()
+    {
+        return await _userService.GetProtectorProfileList();
+    }
+    
     [HttpGet]
     [Route("profile/{userId}")]
-    public async Task<ActionResult<UserDto>> GetPetProfile(int userId)
+    public async Task<ActionResult<UserDto>> GetProtectorProfile(int userId)
     {
         return await _userService.GetProtectorProfile(userId);
     }
