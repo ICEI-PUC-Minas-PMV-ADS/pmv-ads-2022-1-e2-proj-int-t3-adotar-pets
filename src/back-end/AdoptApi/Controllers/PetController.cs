@@ -60,7 +60,7 @@ public class PetController : ControllerBase
     }
 
     [HttpGet]
-    [Route("/search")]
+    [Route("search")]
     public async Task<ActionResult<List<PetDto?>>> SearchPets([FromQuery]SearchPetRequest search)
     {
         return await _petService.SearchPets(search);
