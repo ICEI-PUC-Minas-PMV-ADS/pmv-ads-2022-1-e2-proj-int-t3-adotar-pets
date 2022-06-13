@@ -1,0 +1,63 @@
+.carousel .indicators {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+  }
+  
+  .carousel .indicators .indicator-item {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    height: 8px;
+    width: 8px;
+    margin: 24px 4px;
+    background-color: rgba(91, 39, 78, 0.5)!important;
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+    border-radius: 50%;
+  }
+  
+  .carousel .indicators .indicator-item.active {
+    background-color: #5B274E !important;
+  }
+
+
+  .bg-questionario {
+    height: 528px;
+    width: 100%;
+    background-color: white;
+  }
+
+  .btn-quest{
+    position: relative !important;
+  }
+
+  .horizontal{
+    height: 540px !important;
+  }
+  .step-content{
+    position: absolute;
+    height: calc(100% - 84px);
+    top: 80px;
+    display: block;
+    left: -100%;
+    width: 100%;
+    overflow-y: hidden !important;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 20px 20px 76px 20px;
+    /* transition: left .4s cubic-bezier(.4,0,.2,1);
+  )*/
+  }
+
+  .step.done .step-title::before{
+    background-color:#5B274E !important;
+  }
+  .step.active .step-title::before   {
+    background-color:#5B274E !important;
+  }
+  
+

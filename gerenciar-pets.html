@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="materialize/css/main.css">
+    <link rel="stylesheet" href="materialize/css/busca.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="materialize/img/favIcon.svg" type="image/x-icon" />
+    <title>Gerenciar pets</title>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div data-partial="navbarLogOng"></div>
+    <!-- //Navbar -->
+    <!-- Breadcrumbs-->
+    <div class="row breadcrumbz">
+        <div class="col s12">
+            <a href="index.html" class="fs-16 textcolor-secondary">Página inicial</a>
+            <a href="#!" class="fs-16 black-text">/ Gerenciar pets</a>
+        </div>
+        <div class="col s12">
+            <span class="fs-32 textcolor-secondary">Gerenciar pets</span>
+        </div>
+    </div>
+    <!-- //Breadcrumbs-->
+
+    <div class="container">
+
+        <div class="row mt-16">
+
+            <div class=" col s12 m6 l4">
+                <div class="card-pet  ">
+                    <div class="col s6 flex-col center-start info"> 
+                        <div id="iconePet">
+                            <img src="/materialize/img/dog-2.svg" id="foto-dog" alt="">
+                            <img src="/materialize/img/cat-1.svg" id="foto-cat" alt="">
+                        </div>
+                        <div>
+                            <span class="fs-20-b textcolor-secondary" id="nome-pet">Nome do pet</span>
+                        </div>
+                        <div class="textcolor-secondary mb-8">
+                           <span class="fs-14" id="idade-pet">Idade</span> |
+                           <span class="fs-14" id="porte-pet">Porte</span>
+                        </div>
+                        <div>
+                            <button href="" onclick="redirectpet()" id="btn-gerenciar" class="waves-effect amber darken-0 0 btn-small fs-btn btn-borda fs-14 ">Gerenciar</button>
+                        </div>
+                    </div>
+                    <div class="col s6 foto-card">
+                        <img src="output_image" alt="imagemPet">
+                    </div>
+                </div>
+            </div>
+     
+        </div>
+           
+            
+    </div>
+        
+
+
+
+    </div>
+
+
+
+    <!-- Footer -->
+    <div data-partial="footer"></div>
+    <!-- //Footer -->
+
+
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <script type="module" src="assets/js/layout.js"></script>
+    <script type="text/javascript" src="materialize/js/busca.js"></script>
+    <script type="module" src="assets/js/pages/gerenciar-pets.js"></script>
+
+</body>
+
+</html>
