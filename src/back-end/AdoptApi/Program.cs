@@ -43,7 +43,6 @@ builder.Services.AddDbContext<Context>(optionsBuilder =>
     optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
     optionsBuilder.AddInterceptors(new SoftDeletableEntityInterceptor());
 });
-
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var key = Encoding.ASCII.GetBytes(builder.Configuration["Auth:Key"]);
@@ -69,6 +68,7 @@ builder.Services.AddTransient<TokenService>();
 builder.Services.AddTransient<UserRepository>();
 builder.Services.AddTransient<PetRepository>();
 builder.Services.AddTransient<PictureRepository>();
+builder.Services.AddTransient<FormRepository>();
 builder.Services.AddControllers().ConfigureApiBehaviorOptions(options =>
 {
     options.InvalidModelStateResponseFactory = context =>

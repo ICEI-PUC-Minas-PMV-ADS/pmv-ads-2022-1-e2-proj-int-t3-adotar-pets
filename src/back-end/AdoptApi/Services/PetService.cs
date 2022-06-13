@@ -22,21 +22,9 @@ public class PetService
         _mapper = mapper;
     }
 
-    private static PetDto GetPetDto(Pet pet)
+    private PetDto GetPetDto(Pet pet)
     {
-        return new PetDto
-        {
-            Id = pet.Id,
-            Name = pet.Name,
-            Type = pet.Type,
-            Gender = pet.Gender,
-            BirthDate = pet.BirthDate,
-            Size = pet.Size,
-            MinScore = pet.MinScore,
-            Needs = pet.Needs,
-            Description = pet.Description,
-            IsActive = pet.IsActive
-        };
+        return _mapper.Map<Pet, PetDto>(pet);
     }
 
     public async Task<PetDto?> GetPetInfo(int petId)
@@ -52,17 +40,48 @@ public class PetService
         }
     }
 
-    public async Task<PetDto?> PetRegister(int userId, CreatePetRequest request)
+    public async Task<bool> ValidatePet(Pet pet, int[]? needIds)
     {
-        var petDto = request.Pet;
+        if (needIds == null) return _modelState.IsValid;
+        
+        var needs = await _petRepository.GetAvailableNeedsByIds(needIds);
+        if (needs.Count != needIds.Length)
+        {
+            _modelState.AddModelError("Pet.Needs", "Uma ou mais necessidades informadas não existem.");
+        }
+
+        pet.Needs = needs;
+
+        return _modelState.IsValid;
+    }
+
+    public async Task<PetDto?> PetRegister(int userId, CreatePetRequest request, ImageUploadService imageUploadService)
+    {
         var pet = new Pet
         {
             UserId = userId,
-            Name = petDto.Name, Description = petDto.Description, Type = petDto.Type, Gender = petDto.Gender,
-            BirthDate = DateOnly.ParseExact(petDto.BirthDate, "yyyy-MM-dd"), Size = petDto.Size,
-            MinScore = petDto.MinScore, IsActive = true
+            Name = request.Name, Description = request.Description, Type = request.Type, Gender = request.Gender,
+            BirthDate = DateOnly.ParseExact(request.BirthDate, "yyyy-MM-dd"), Size = request.Size,
+            MinScore = request.MinScore, Pictures = new List<Picture>()
         };
 
+        var validatedPet = await ValidatePet(pet, request.Needs);
+
+        if (!validatedPet)
+        {
+            return null;
+        }
+
+        foreach (var picture in request.Pictures)
+        {
+            var petPicture = await imageUploadService.UploadOne(picture, PictureType.Pet);
+            if (petPicture == null)
+            {
+                return null;
+            }
+            pet.Pictures.Add(petPicture);
+        }
+        
         var createdPet = await _petRepository.CreatePet(pet);
         return GetPetDto(createdPet);
     }

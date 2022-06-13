@@ -16,7 +16,7 @@ public class Pet : ITrackable, ISoftDeletable
     [Column(TypeName = "text")]
     public string Description { get; set; }
     public DateOnly BirthDate { get; set; }
-    public bool IsActive { get; set; }
+    public bool IsActive { get; set; } = true;
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public DateTime CreatedOn { get; set; }
     [DatabaseGenerated(DatabaseGeneratedOption.Computed)]

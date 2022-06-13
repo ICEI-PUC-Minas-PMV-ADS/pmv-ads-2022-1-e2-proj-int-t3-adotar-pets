@@ -26,21 +26,4 @@
         <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.2" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Compile Remove="Controllers\Filters\**" />
-      <Compile Remove="Requests\Dtos\OngsEditRequestDto.cs" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <EmbeddedResource Remove="Controllers\Filters\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Remove="Controllers\Filters\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Content Remove="Controllers\Filters\**" />
-    </ItemGroup>
-
 </Project>
