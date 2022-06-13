@@ -128,4 +128,8 @@ export class Api {
         }
     }
     
+    async getFormProgress(petId) {
+        return this.#get(`form/adopt/${petId}`, true);
+    }
+    
 }
