@@ -103,7 +103,7 @@ export class Api {
     
     async searchPet(){
         try {
-            var pets = await this.#get(`pet/search`,true);
+            var pets = await this.#get(`pet/search?Type=&Gender=&Size=&Age=`,true);
             return pets;
         } catch (e) {
             throw e;
