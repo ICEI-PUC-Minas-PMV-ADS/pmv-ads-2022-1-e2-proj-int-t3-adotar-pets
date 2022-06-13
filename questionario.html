@@ -12,7 +12,6 @@
         rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="materialize/img/favIcon.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="https://unpkg.com/materialize-stepper@3.1.0/dist/css/mstepper.min.css">
     <title>Questionário</title>
 </head>
 
@@ -76,534 +75,45 @@
             <div class="col s12">
                 <div class="card-content">
                     <form method="GET" action="?">
-                        <ul class="stepper horizontal demos" id="horizontal">
-                            <li class="step active">
-                                <div class="step-title waves-effect waves-dark"></div>
-                                <div class="step-content">
-                                    <div class="row">
-
-                                        <div class="col s12 center"><img src="materialize/img/casa.svg "
-                                                alt="imagem casa"></div>
-                                        <div class="fs-26 center textcolor-secondary">1- Qual é o tipo da sua
-                                            residência?</div>
-
-
-                                        <div class="flex-col center-start col s12">
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group1" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Casa</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group1" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group1" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento cobertura/área privativa</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group1" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Sítio</span>
-                                                </label>
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                    <div class="col s12 step-actions btn-quest">
-                                        <button
-                                            class="waves-effect amber darken-0 btn blue next-step">CONTINUAR</button>
-
-                                    </div>
+                        <div class="col s12">
+                            <div class="row">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0"></div>
                                 </div>
-                            </li>
-
-                            <li class="step">
-                                <div class="step-title waves-effect waves-dark"></div>
-                                <div class="step-content">
-                                    <div class="row">
-
-                                        <div class="col s12 center"><img src="materialize/img/casa.svg "
-                                                alt="imagem casa"></div>
-                                        <div class="fs-26 center textcolor-secondary">2- Pergunta</div>
+                            </div>
+                        </div>
+                        <div id="question" class="col s12 hide">
+                            <div class="row">
+                                <div class="fs-26 center textcolor-secondary" data-title>1- Qual é o tipo da sua
+                                    residência?</div>
 
 
-                                        <div class="flex-col center-start col s12">
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group2" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Opçao 1</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group2" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group2" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento cobertura/área privativa</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group2" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Sítio</span>
-                                                </label>
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                    <div class="col s12 step-actions btn-quest">
-                                        <button
-                                            class="waves-effect amber darken-0 btn blue next-step">CONTINUAR</button>
-                                        <button class="waves-effect waves-dark btn-flat previous-step">VOLTAR</button>
-                                    </div>
+                                <div class="flex-col center-start col s12" id="alternatives">
                                 </div>
-                            </li>
 
-                            <li class="step">
-                                <div class="step-title waves-effect waves-dark"></div>
-                                <div class="step-content">
-                                    <div class="row">
+                            </div>
+                            <div class="col s12 right-align btn-quest">
+                                <button
+                                        class="waves-effect amber darken-0 btn blue next-step">CONTINUAR</button>
 
-                                        <div class="col s12 center"><img src="materialize/img/casa.svg "
-                                                alt="imagem casa"></div>
-                                        <div class="fs-26 center textcolor-secondary">3- Pergunta</div>
+                            </div>
+                        </div>
+                        <div class="col s12 hide">
+                            <div class="row flex-col center-center ">
 
-
-                                        <div class="flex-col center-start col s12">
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group3" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Opçao 1</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group3" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group3" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento cobertura/área privativa</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group3" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Sítio</span>
-                                                </label>
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                    <div class="col s12 step-actions btn-quest">
-                                        <button
-                                            class="waves-effect amber darken-0 btn blue next-step">CONTINUAR</button>
-                                        <button class="waves-effect waves-dark btn-flat previous-step">VOLTAR</button>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="step">
-                                <div class="step-title waves-effect waves-dark"></div>
-                                <div class="step-content">
-                                    <div class="row">
-
-                                        <div class="col s12 center"><img src="materialize/img/casa.svg "
-                                                alt="imagem casa"></div>
-                                        <div class="fs-26 center textcolor-secondary">4- Pergunta</div>
-
-
-                                        <div class="flex-col center-start col s12">
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group4" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Opçao 1</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group4" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group4" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento cobertura/área privativa</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group4" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Sítio</span>
-                                                </label>
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                    <div class="col s12 step-actions btn-quest">
-                                        <button
-                                            class="waves-effect amber darken-0 btn blue next-step">CONTINUAR</button>
-                                        <button class="waves-effect waves-dark btn-flat previous-step">VOLTAR</button>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="step">
-                                <div class="step-title waves-effect waves-dark"></div>
-                                <div class="step-content">
-                                    <div class="row">
-
-                                        <div class="col s12 center"><img src="materialize/img/casa.svg "
-                                                alt="imagem casa"></div>
-                                        <div class="fs-26 center textcolor-secondary">6- Pergunta</div>
-
-
-                                        <div class="flex-col center-start col s12">
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group5" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Opçao 1</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group5" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group5" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento cobertura/área privativa</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group5" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Sítio</span>
-                                                </label>
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                    <div class="col s12 step-actions btn-quest">
-                                        <button
-                                            class="waves-effect amber darken-0 btn blue next-step">CONTINUAR</button>
-                                        <button class="waves-effect waves-dark btn-flat previous-step">VOLTAR</button>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="step">
-                                <div class="step-title waves-effect waves-dark"></div>
-                                <div class="step-content">
-                                    <div class="row">
-
-                                        <div class="col s12 center"><img src="materialize/img/casa.svg "
-                                                alt="imagem casa"></div>
-                                        <div class="fs-26 center textcolor-secondary">6- Pergunta </div>
-
-
-                                        <div class="flex-col center-start col s12">
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group6" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Opçao 1</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group6" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group6" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento cobertura/área privativa</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group6" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Sítio</span>
-                                                </label>
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                    <div class="col s12 step-actions btn-quest">
-                                        <button
-                                            class="waves-effect amber darken-0 btn blue next-step">CONTINUAR</button>
-                                        <button class="waves-effect waves-dark btn-flat previous-step">VOLTAR</button>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="step">
-                                <div class="step-title waves-effect waves-dark"></div>
-                                <div class="step-content">
-                                    <div class="row">
-
-                                        <div class="col s12 center"><img src="materialize/img/casa.svg "
-                                                alt="imagem casa"></div>
-                                        <div class="fs-26 center textcolor-secondary">7- Pergunta</div>
-
-
-                                        <div class="flex-col center-start col s12">
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group7" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Opçao 1</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group7" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group7" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento cobertura/área privativa</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group7" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Sítio</span>
-                                                </label>
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                    <div class="col s12 step-actions btn-quest">
-                                        <button
-                                            class="waves-effect amber darken-0 btn blue next-step">CONTINUAR</button>
-                                        <button class="waves-effect waves-dark btn-flat previous-step">VOLTAR</button>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="step">
-                                <div class="step-title waves-effect waves-dark"></div>
-                                <div class="step-content">
-                                    <div class="row">
-
-                                        <div class="col s12 center"><img src="materialize/img/casa.svg "
-                                                alt="imagem casa"></div>
-                                        <div class="fs-26 center textcolor-secondary">8- Pergunta </div>
-
-
-                                        <div class="flex-col center-start col s12">
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group8" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Opçao 1</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group8" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group8" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento cobertura/área privativa</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group8" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Sítio</span>
-                                                </label>
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                    <div class="col s12 step-actions btn-quest">
-                                        <button
-                                            class="waves-effect amber darken-0 btn blue next-step">CONTINUAR</button>
-                                        <button class="waves-effect waves-dark btn-flat previous-step">VOLTAR</button>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="step">
-                                <div class="step-title waves-effect waves-dark"></div>
-                                <div class="step-content">
-                                    <div class="row">
-
-                                        <div class="col s12 center"><img src="materialize/img/casa.svg "
-                                                alt="imagem casa"></div>
-                                        <div class="fs-26 center textcolor-secondary">9- Pergunta</div>
-
-
-                                        <div class="flex-col center-start col s12">
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group9" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Opçao 1</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group9" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group9" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento cobertura/área privativa</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group9" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Sítio</span>
-                                                </label>
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                    <div class="col s12 step-actions btn-quest">
-                                        <button
-                                            class="waves-effect amber darken-0 btn blue next-step">CONTINUAR</button>
-                                        <button class="waves-effect waves-dark btn-flat previous-step">VOLTAR</button>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="step">
-                                <div class="step-title waves-effect waves-dark"></div>
-                                <div class="step-content">
-                                    <div class="row">
-
-                                        <div class="col s12 center"><img src="materialize/img/casa.svg "
-                                                alt="imagem casa"></div>
-                                        <div class="fs-26 center textcolor-secondary">10- Pergunta </div>
-
-
-                                        <div class="flex-col center-start col s12">
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group10" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Opçao 1</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group10" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group10" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Apartamento cobertura/área privativa</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input class="with-gap" name="group10" type="radio" class="validate"
-                                                        required="" />
-                                                    <span>Sítio</span>
-                                                </label>
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                    <div class="col s12 step-actions btn-quest">
-                                        <button
-                                            class="waves-effect amber darken-0 btn blue next-step">ENVIAR</button>
-                                        <button class="waves-effect waves-dark btn-flat previous-step">VOLTAR</button>
-                                    </div>
-                                </div>
-                            </li>
-
-
-
-
-                            <li class="step">
-                                <div class="step-title waves-effect waves-dark"></div>
-
-                                <div class="step-content">
-                                    <div class="row flex-col center-center ">
-       
-                                        <div class="col s12 center">
-                                            <div class=" flex-col center-center center">
-                                                <div><span class="fs-40 textcolor-secondary">Questionário enviado com sucesso</span></div><br>
-                                                <div><span class="fs-20 black-text">A partir de agora, a ONG irá analisar o seu perfil, se compatível,
+                                <div class="col s12 center">
+                                    <div class=" flex-col center-center center">
+                                        <div><span class="fs-40 textcolor-secondary">Questionário enviado com sucesso</span></div><br>
+                                        <div><span class="fs-20 black-text">A partir de agora, a ONG irá analisar o seu perfil, se compatível,
                                                     ela proseguirá com o processo de adoção</span></div><br>
-                                                <div class="col s12">
-                                                    <a href="index.html" class="col s12 waves-effect amber darken-0 btn fs-btn">Entendi</a>
-                                                </div>
-                                            </div>
+                                        <div class="col s12">
+                                            <a href="index.html" class="col s12 waves-effect amber darken-0 btn fs-btn">Entendi</a>
                                         </div>
-                                
                                     </div>
-
-                                   
                                 </div>
-                            </li>
-                        </ul>
+
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -621,16 +131,8 @@
 
 
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-    <script src="https://unpkg.com/materialize-stepper@3.1.0/dist/js/mstepper.min.js"></script>
-    <script>
-        var stepper = document.querySelector('.stepper');
-        var stepperInstace = new MStepper(stepper, {
-            // options
-            firstActive: 0 // this is the default
-        })
-    </script>
     <script type="module" src="assets/js/layout.js"></script>
-    <script type="module" src="assets/js/forms/questionario.js"></script>
+    <script type="module" src="assets/js/pages/adopt.js"></script>
     
 
 

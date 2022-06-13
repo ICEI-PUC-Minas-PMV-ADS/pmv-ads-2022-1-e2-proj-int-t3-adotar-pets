@@ -397,6 +397,17 @@ ul {
   background-size: cover; 
 }
 
+.progress-bar {
+  margin-bottom: 1rem;
+  width: 100%;
+  border: 1px solid var(--primary);
+}
+
+.progress-fill {
+  transition: width ease-in-out 1s;
+  height: 1rem;
+  background-color: var(--primary);
+}
 
 @media (max-width: 1280px) {
   #logoFooter {
