@@ -62,7 +62,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         
     });
-    
+
+    const buttonGerenciarPet = document.getElementById('btn-ajudar');
+
+    buttonGerenciarPet.onclick = function(){
+        window.location.href = `infoOng.html?id=${pet.userId}`
+    };
+
 
 
     document.getElementById('name-pet').textContent = pet.name;
@@ -75,6 +81,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('output_image2').style.backgroundImage =  `url(${pet.pictures[1].url})`;
     document.getElementById('output_image3').style.backgroundImage =  `url(${pet.pictures[2].url})`;
 })
+
+
+
+// document.addEventListener('DOMContentLoaded', async () => {
+   
+    
+//     const buttonGerenciarPet = document.getElementById('btn-ajudar');
+
+//     buttonGerenciarPet.onclick = function(){
+//         window.location.href = "infoOng.html?id=1"
+//     };
+
+
+// });
 
 
 document.addEventListener('DOMContentLoaded', function() {
