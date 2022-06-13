@@ -1,6 +1,5 @@
 using AdoptApi.Database;
 using AdoptApi.Models;
-using AdoptApi.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
 
 namespace AdoptApi.Repositories;
@@ -16,7 +15,7 @@ public class PetRepository
 
     public async Task<Pet> GetPetById(int id)
     {
-        return await _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).Include(nameof(User.Id)).SingleAsync(u => u.Id == id);
+        return await _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).SingleAsync(p => p.Id == id);
     }
 
     public async Task<Pet> CreatePet(Pet pet)
