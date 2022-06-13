@@ -113,7 +113,7 @@ public class PetService
 
     public async Task<List<PetDto?>> SearchPets(SearchPetRequest search)
     {
-        var pets = await _petRepository.GetSearchPets(search);
+        var pets = await _petRepository.GetFilteredPets(search);
         return _mapper.Map<List<Pet>, List<PetDto?>>(pets);
     }
     

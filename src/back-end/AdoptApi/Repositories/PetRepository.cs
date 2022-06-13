@@ -1,6 +1,7 @@
 using AdoptApi.Database;
 using AdoptApi.Enums;
 using AdoptApi.Models;
+using AdoptApi.Requests;
 using Microsoft.EntityFrameworkCore;
 
 namespace AdoptApi.Repositories;
@@ -46,7 +47,7 @@ public class PetRepository
         return await _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).Where(p => p.UserId == userId).OrderByDescending(p => p.Id).ToListAsync();
     }
 
-    public async Task<List<Pet>?> GetSearchPets(SearchPetRequest search)
+    public async Task<List<Pet>> GetFilteredPets(SearchPetRequest search)
     {
         var filter = _context.Pets.Where(p => p.IsActive == true);
         if (search.Type != null)

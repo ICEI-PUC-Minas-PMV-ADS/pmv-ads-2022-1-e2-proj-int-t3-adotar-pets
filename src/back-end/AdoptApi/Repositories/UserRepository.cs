@@ -39,11 +39,6 @@ public class UserRepository
         return await _context.Users.Include(nameof(Address)).Include(nameof(Document)).Include(nameof(Picture)).Where(u => u.IsActive == true && u.Id == userId && u.Type == UserType.Protector).SingleAsync();
     }
     
-    public async Task<List<User>?> GetAvailableProtectorList()
-    {
-        return await _context.Users.Where(u => u.IsActive == true && u.Type == UserType.Protector).ToListAsync();
-    }
-    
     public async Task<User> CreateUser(User user)
     {
         await _context.Users.AddAsync(user);

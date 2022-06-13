@@ -11,7 +11,6 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Newtonsoft.Json;
-using AutoMapper;
 
 namespace AdoptApi.Services;
 
@@ -217,13 +216,6 @@ public class UserService
             _modelState.AddModelError("Protector","O usuário não existe ou não é uma ONG/Protetor.");
             return null;
         }
-    }
-
-    public async Task<List<UserDto>?> GetProtectorProfileList()
-    {
-        var protector = await _userRepository.GetAvailableProtectorList();
-        return _mapper.Map<List<User>, List<UserDto>>(protector);
-        
     }
     
     public async Task<UserDto?> UpdateProfilePicture(int userId, UpdateProfilePictureRequest request, ImageUploadService service)
