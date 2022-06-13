@@ -84,32 +84,40 @@
             <a class="waves-effect amber darken-0 0 btn fs-btn right" id="btn-salvar-perfil">salvar</a>
         </div>
        
-        <div class="row">
+        
             <div>
                 <span class="fs-32 textcolor-secondary">Alterar senha</span>
             </div>
-            <form class="col s12">
+            <form data-senha class="col s12">
                 <div class="row">
                     <div class="row">
-                        <div class="input-field col s12">
-                            <input value="" id="senha" type="password" class="validate" size="8" maxlength="8"> 
-                            <label  for="senha">Senha atual</label>
-                      </div>
-                        <div class="input-field col s12">
-                          <input value="" id="nova-senha" type="password" class="validate" size="8" maxlength="8">
-                          <label for="nova-senha">Nova senha</label>
+                        <div class="input-field col s12 label-form">
+                            <input name="password.current" id="current-password" type="password" class="validate"
+                                minlength="8">
+                            <label class="active" for="senha">Senha atual</label>
+                            </br>
+                            <small>error message</small>
+    
                         </div>
-                        <div class="input-field col s12">
-                            <input value="" id="confirmar-senha" type="password" class="validate" size="8" maxlength="8">
-                            <label for="confirmar-senha">Confirmar nova senha</label>
-                      </div>
+                        <div class="input-field col s12 label-form">
+                            <input name="password.new" id="new-password" type="password" class="validate" minlength="8">
+                            <label class="active" for="nova-senha">Nova senha</label>
+                            </br>
+                            <small>error message</small>
+                        </div>
+                        <div class="input-field col s12 label-form">
+                            <input name="password.confirm" id="confirm-password" type="password" class="validate"
+                                minlength="8">
+                            <label class="active" for="confirmar-senha">Confirmar nova senha</label>
+                            </br>
+                            <small>error message</small>
+                        </div>
                     </div>
-                    <a class="waves-effect amber darken-0 0 btn fs-btn right">alterar</a>
                 </div>
-                
+                <button class="waves-effect amber darken-0 0 btn fs-btn right" id="btn-salvar-senha">alterar</button>
             </form>
-            
-        </div>
+     
+
         <!-- Footer -->
         <div data-partial="footer"></div>
         <!-- //Footer -->

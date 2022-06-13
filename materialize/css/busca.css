@@ -38,11 +38,18 @@
     height: 100px;
     left: 100%;
 }
-/* .foto-card{
+
+.foto-card{
     border-radius: 0px 16px 16px 0px;
-    background-color: #c5c5c5;
+    background-image: url(../img/baixados.jpg);
     height: 100%;
-} */
+    width: 100%; 
+    background-color: #c5c5c5;
+   
+}
+#output_image1{
+    background-image: url(../img/baixados.jpg);
+}
 
 
 

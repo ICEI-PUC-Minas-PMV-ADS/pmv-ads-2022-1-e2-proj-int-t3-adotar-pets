@@ -365,7 +365,7 @@ ul {
 .card-pet{
   background-color: #e7e7e7 ;
   border-radius: 16px;
-  height: 148px;
+  height:200px;
   margin-bottom: 16px;
   box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.1);
 }
@@ -381,6 +381,20 @@ ul {
 
 .input-branco{
   color: #fff !important;
+}
+
+.resizeImg{
+  padding: 0% !important;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  
+}
+.resizeImg img{
+  height: 128px;
+  width: 128px;
+  background-position: center;
+  background-size: cover; 
 }
 
 

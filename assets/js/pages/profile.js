@@ -133,4 +133,79 @@ document.addEventListener('DOMContentLoaded', async () => {
 
    };
 
+   const passwordForm = document.querySelector('[data-senha]');
+
+   const buttonSalvarSenha = document.getElementById('btn-salvar-senha');
+
+   buttonSalvarSenha.addEventListener('click', async event => {
+
+      event.preventDefault();
+
+      var errorsPasswords = false;
+
+      var currentPassword = document.getElementById("current-password");
+      var newPassword = document.getElementById("new-password");
+      var confirmPassword = document.getElementById("confirm-password");
+
+      let inputs = passwordForm.querySelectorAll('input[name]');
+
+      inputs.forEach((input) => {
+         try {
+
+            if (input.id == "current-password") {
+               let currentPassword = new Validate(input).required().min(8);
+            }
+
+            if (input.id == "new-password") {
+               let newPassword = new Validate(input).required().min(8);
+            }
+
+            if (input.id == "confirm-password") {
+               let confirmPassword = new Validate(input).required().min(8).equals(newPassword.value);
+            }
+
+         } catch (e) {
+            errorsPasswords = true;
+         }
+      });
+
+      if (!errorsPasswords) {
+
+         var bodySenha = {
+            currentPassword: currentPassword.value,
+            newPassword: newPassword.value,
+            confirmPassword: confirmPassword.value
+         };
+
+         console.log(bodySenha);
+         salvar(bodySenha);
+      };
+
+      async function salvar(bodySenha) {
+
+         const apiUrl = 'user/password';
+
+         try {
+
+            const response = await api.atualizarSenha('user/password', bodySenha, true);
+
+            if (!response) {
+               throw response;
+            }
+
+            alert("Sua senha foi alterada com sucesso!")
+
+         } catch (err) {
+            //caso falhe, execute isso
+            const error = err;
+            alert("Ocorreu um erro ao alterar sua senha!");
+         }
+
+      };
+
+   });
+
+
+
+
 });

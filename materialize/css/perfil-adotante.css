@@ -12,7 +12,7 @@
     cursor: pointer;
 }
 
-.resizeImg{
+/* .resizeImg{
     padding: 0% !important;
     display: flex;
     flex-wrap: wrap;
@@ -24,7 +24,7 @@
     width: 128px;
     background-position: center;
     background-size: cover; 
-}
+} */
 
 .label-cadastro.error input {
     border-bottom: 2px solid var(--alert) !important;

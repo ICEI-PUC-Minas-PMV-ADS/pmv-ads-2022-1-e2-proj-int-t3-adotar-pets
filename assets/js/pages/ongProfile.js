@@ -179,11 +179,11 @@ buttonSalvarSenha.addEventListener('click', async event => {
 
       async function salvar(bodySenha){
       
-         const apiUrl = 'user/profile/password';
+         const apiUrl = 'user/password';
    
          try {
    
-            const response = await api.atualizarSenha('user/profile/password', bodySenha, true);
+            const response = await api.atualizarSenha('user/password', bodySenha, true);
             
             if (!response) {
                throw response;
