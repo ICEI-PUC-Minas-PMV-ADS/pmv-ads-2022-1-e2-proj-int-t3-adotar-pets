@@ -101,6 +101,15 @@ export class Api {
         }
     }
     
+    async searchPet(){
+        try {
+            var pets = await this.#get(`pet/search`,true);
+            return pets;
+        } catch (e) {
+            throw e;
+        }
+
+    }
     async addProfileImage(data) {
         try {
             return await this.#put('user/profile/picture', data, true);
