@@ -1,10 +1,10 @@
 using AdoptApi.Attributes;
-using AdoptApi.Models;
 using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
 using AdoptApi.Requests;
 using AdoptApi.Services;
 using AdoptApi.Services.Dtos;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -20,9 +20,9 @@ public class AuthController : ControllerBase
 {
     private UserService _userService;
 
-    public AuthController(UserRepository userRepository, IConfiguration configuration, IActionContextAccessor actionContextAccessor)
+    public AuthController(UserRepository userRepository, IConfiguration configuration, IActionContextAccessor actionContextAccessor, IMapper mapper)
     {
-        _userService = new UserService(configuration, actionContextAccessor, userRepository);
+        _userService = new UserService(configuration, actionContextAccessor, userRepository, mapper);
     }
 
     [HttpPost]

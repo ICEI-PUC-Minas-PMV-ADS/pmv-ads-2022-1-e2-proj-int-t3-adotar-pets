@@ -1,10 +1,13 @@
 using System.Security.Cryptography;
 using System.Text;
+using AdoptApi.Enums;
 using AdoptApi.Models;
 using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
 using AdoptApi.Requests;
+using AdoptApi.Requests.Dtos;
 using AdoptApi.Services.Dtos;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Newtonsoft.Json;
@@ -17,12 +20,14 @@ public class UserService
     private readonly IConfiguration _configuration;
     private readonly ModelStateDictionary _modelState;
     private UserRepository _userRepository;
+    private readonly IMapper _mapper;
 
-    public UserService(IConfiguration configuration, IActionContextAccessor actionContextAccessor, UserRepository repository)
+    public UserService(IConfiguration configuration, IActionContextAccessor actionContextAccessor, UserRepository repository, IMapper mapper)
     {
         _configuration = configuration;
         _modelState = actionContextAccessor.ActionContext.ModelState;
         _userRepository = repository;
+        _mapper = mapper;
     }
 
     private static string EncryptPassword(string password)
@@ -78,25 +83,41 @@ public class UserService
         }
         return _modelState.IsValid;
     }
-
-    private static UserDto GetUserDto(User user)
+    
+    private async Task<bool> ValidateCurrentUser(User user, UserEditRequestDto request)
     {
-        return new UserDto
+        if (request.Email == user.Email)
         {
-            Id = user.Id,
-            Name = user.Name,
-            Email = user.Email,
-            BirthDate = user.BirthDate,
-            Address = new AddressDto {
-                City = user.Address.City,
-                Name = user.Address.Name,
-                ZipCode = user.Address.ZipCode
-            },
-            Document = new DocumentDto {
-                Number = user.Document.Number,
-                Type = user.Document.Type
-            }
-        };
+            return true;
+        }
+        
+        var userExists = await _userRepository.UserEmailExists(request.Email);
+        if (userExists)
+        {
+            _modelState.AddModelError("User.Email", "Já existe um usuário cadastrado com este e-mail.");
+        }
+        
+        return _modelState.IsValid;
+    }
+    
+    private bool ValidateUserPassword(User user, UpdatePassword request)
+    {
+        if (EncryptPassword(request.CurrentPassword) != user.Password)
+        {
+            _modelState.AddModelError(nameof(request.CurrentPassword), "A senha não corresponde à senha atual.");
+        }
+        
+        if (EncryptPassword(request.NewPassword) == user.Password)
+        {
+            _modelState.AddModelError(nameof(request.NewPassword), "Sua nova senha não pode ser igual à senha atual.");
+        }
+        
+        return _modelState.IsValid;
+    }
+    
+    private UserDto GetUserDto(User user)
+    {
+        return _mapper.Map<User, UserDto>(user);
     }
 
     public async Task<TokenDto?> Login(UserLoginRequest request, TokenService tokenService)
@@ -125,7 +146,7 @@ public class UserService
             return null;
         }
         var userDto = request.User;
-        var user = new User {Email = userDto.Email.ToLower(), Name = userDto.Name, Type = userDto.Type, BirthDate = DateOnly.ParseExact(userDto.BirthDate, "yyyy-MM-dd"), Password = EncryptPassword(userDto.Password), Document = document, Address = address};
+        var user = new User {Email = userDto.Email.ToLower(), Name = userDto.Name, Type = userDto.Type, BirthDate = DateOnly.ParseExact(userDto.BirthDate, "yyyy-MM-dd"), Password = EncryptPassword(userDto.Password), IsActive = true, Document = document, Address = address};
         var userValidation = await ValidateNewUser(user);
         if (!userValidation)
         {
@@ -148,4 +169,118 @@ public class UserService
         }
     }
 
+    
+    public async Task<UserDto?> UpdateInfo(int userId, UpdateProfileRequest request)
+    {
+        try
+        {
+            var user = await _userRepository.GetUserById(userId);
+            var userEditDto = request.User;
+            var userValidated = await ValidateCurrentUser(user, userEditDto);
+            if (!userValidated)
+            {
+                return null;
+            }
+            user.Name = Utils.FieldUtils.UpdateFieldOrUseDefault(userEditDto.Name, user.Name)!;
+            user.Email = Utils.FieldUtils.UpdateFieldOrUseDefault(userEditDto.Email, user.Email)!;
+            if (user.Type == UserType.Protector)
+            {
+                var addressEditDto = request.Address;
+                user.Address.ZipCode = Utils.FieldUtils.UpdateFieldOrUseDefault(addressEditDto.ZipCode, user.Address.ZipCode)!;
+                var addressValidation = await ValidateAddress(user.Address);
+                if (!addressValidation)
+                {
+                    return null;
+                }
+                user.Address.Name = Utils.FieldUtils.UpdateFieldOrUseDefault(addressEditDto.Name, user.Address.Name);
+                user.Address.Number = Utils.FieldUtils.UpdateFieldOrUseDefault(addressEditDto.Number, user.Address.Number);
+                user.Address.Complement = Utils.FieldUtils.UpdateFieldOrUseDefault(addressEditDto.Complement, user.Address.Complement);
+            }
+            user = await _userRepository.UpdateUser(user);
+            return GetUserDto(user);
+        }
+        catch (InvalidOperationException)
+        {
+            return null;
+        }
+    }
+
+    public async Task<UserDto?> GetProtectorProfile(int userId)
+    {
+        try
+        {
+            var protector = await _userRepository.GetAvailableProtector(userId);
+            return GetUserDto(protector);
+        } catch(InvalidOperationException)
+        {
+            _modelState.AddModelError("Protector","O usuário não existe ou não é uma ONG/Protetor.");
+            return null;
+        }
+    }
+    
+    public async Task<UserDto?> UpdateProfilePicture(int userId, UpdateProfilePictureRequest request, ImageUploadService service)
+    {
+        try
+        {
+            var user = await _userRepository.GetUserById(userId);
+            var picture = await service.UploadOne(request.Picture, PictureType.User);
+            if (picture == null)
+            {
+                return null;
+            }
+
+            if (user.Picture != null)
+            {
+                await service.Delete(user.Picture);
+            }
+            user.Picture = picture;
+            user = await _userRepository.UpdateUser(user);
+            return GetUserDto(user);
+        }
+        catch (InvalidOperationException)
+        {
+            return null;
+        }
+    }
+    
+    public async Task<UserDto?> DeleteProfilePicture(int userId, ImageUploadService service)
+    {
+        try
+        {
+            var user = await _userRepository.GetUserById(userId);
+
+            if (user.Picture == null) return GetUserDto(user);
+            await service.Delete(user.Picture);
+            user.Picture = null;
+            user = await _userRepository.UpdateUser(user);
+
+            return GetUserDto(user);
+        }
+        catch (InvalidOperationException)
+        {
+            return null;
+        }
+    }
+
+    public async Task<UserDto?> UpdatePassword(int userId, UpdatePassword request)
+    {
+        try
+        {
+            var user = await _userRepository.GetUserById(userId);
+            var validatedPassword = ValidateUserPassword(user, request);
+            
+            if (!validatedPassword)
+            {
+                return null;
+            }
+            
+            user.Password = EncryptPassword(request.NewPassword);
+            await _userRepository.UpdateUser(user);
+            return GetUserDto(user);
+        }
+        catch (InvalidOperationException)
+        {
+            return null;
+        }
+    }
 }

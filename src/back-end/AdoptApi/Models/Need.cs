@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using AdoptApi.Models.Interfaces;
 
 namespace AdoptApi.Models;
@@ -13,6 +14,5 @@ public class Need : ITrackable, ISoftDeletable
     [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
     public DateTime UpdatedOn { get; set; }
     public DateTime? DeletedOn { get; set; }
-
     public ICollection<Pet> Pets { get; set; }
 }

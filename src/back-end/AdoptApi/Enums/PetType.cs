@@ -1,6 +1,6 @@
 namespace AdoptApi.Enums;
 
-public enum BreedType
+public enum PetType
 {
     Dog,
     Cat
