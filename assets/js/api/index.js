@@ -132,4 +132,8 @@ export class Api {
         return this.#get(`form/adopt/${petId}`, true);
     }
     
+    async answerForm(petId, alternativeId) {
+        return this.#post(`form/adopt/${petId}`, {alternativeId}, true);
+    }
+    
 }
