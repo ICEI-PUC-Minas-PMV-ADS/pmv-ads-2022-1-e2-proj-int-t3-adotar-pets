@@ -46,7 +46,7 @@ const Validate = (function () {
     }
 
     Validate.prototype.requiredSelect = function (message = null) {
-        if (fieldValue.trim() === 'null') {
+        if (fieldValue.trim() === '') {
             error(message ?? 'Selecione uma opção');
         }
         return this;

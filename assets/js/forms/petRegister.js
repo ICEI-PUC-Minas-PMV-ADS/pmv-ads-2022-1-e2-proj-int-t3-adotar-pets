@@ -3,11 +3,8 @@ import {petAges} from '../helpers/petAge.js';
 import {Validate} from './validation.js';
 import {mergeDeep} from '../utils.js';
 
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems,)
 document.addEventListener('DOMContentLoaded', async () => {
-    const user = await redirectIfNotLogged('index.html');
+    const user = await redirectIfRoleIsNot('protector', 'index.html');
     const ageSelect = document.getElementById('idade-pet');
     petAges.forEach(petAge => {
         const option = document.createElement('option');
@@ -21,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             case 'pet.name':
                 return new Validate(field).required().min(2).max(50);
             case 'pet.birthdate':
-                return new Validate(field).requiredSelect();
+                return new Validate(field).requiredSelect().transform((value) => new Date(Date.now() - (value * 1000)).toISOString().split('T')[0]);
             case 'pet.type':
                 return new Validate(field).requiredSelect();
             case 'pet.gender':
@@ -50,9 +47,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 errors = true;
             }
         });
+        console.log(errors, validatedInputs);
         if (!errors) {
             console.log(validatedInputs);
         }
     });
-});
 });
