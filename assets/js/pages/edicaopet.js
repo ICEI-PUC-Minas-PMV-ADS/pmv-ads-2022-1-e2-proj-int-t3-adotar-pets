@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     const pet = await api.petInfo(petId);
     M.FormSelect.init(document.querySelectorAll('select'));
-    console.log(pet);
 
     const petEditForm = document.querySelector('[data-edit-pet]');
     petEditForm.querySelector('[name="pet.name"]').value = pet.name;
