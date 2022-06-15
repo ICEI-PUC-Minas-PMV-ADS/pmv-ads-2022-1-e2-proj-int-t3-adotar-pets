@@ -36,60 +36,57 @@
 
         <div class="container flex-col center-center">
 
-            <div >
+            <div>
                 <div class="col 12 center mb-24">
                     <span class="fs-52 white-text">Encontre um amiguinho</span>
                 </div>
-
-                <div class="row">
-                    <form class="col s12 m12 l3 fs-12 mb-16 textcolor-primary">
+                
+                <form class="row" data-search method="get" action="busca.html">
+                    <div class="col s12 m12 l3 fs-12 mb-16 textcolor-primary">
                         <div class="input-field col s12 input-select input-busca">
-                            <select>
-                                <option value="" disabled selected>Tipo</option>
+                            <select name="type">
+                                <option value="">Tipo</option>
                                 <option value="0">Cachorro</option>
                                 <option value="1">Gato</option>
                             </select>
                         </div>
-                    </form>
-                    <form class="col s12 m12 l3 fs-12 mb-16">
+                    </div>
+                    <div class="col s12 m12 l3 fs-12 mb-16">
                         <div class="input-field col s12 input-select input-busca">
-                            <select>
-                                <option value="" disabled selected>Porte</option>
+                            <select name="size">
+                                <option value="">Porte</option>
                                 <option value="0">Pequeno</option>
                                 <option value="1">Médio</option>  
                                 <option value="2">Grande</option>
                             </select>
                         </div>
-                    </form>
+                    </div>
 
-                    <form class="col s12 m12 l2 fs-12 mb-16">
+                    <div class="col s12 m12 l2 fs-12 mb-16">
                         <div class="input-field col s12 input-select input-busca">
-                            <select>
-                                <option value="" disabled selected>Idade</option>
+                            <select name="age">
+                                <option value="">Idade</option>
                                 <option value="1">0 a 1 ano</option>
                                 <option value="2">1 a 7 anos</option>
                                 <option value="3">+ de 7 anos</option>
                             </select>
                         </div>
-                    </form>
-
-                    <form class="col s12 m12 l2 fs-12 mb-16">
+                    </div>
+                    <div class="col s12 m12 l2 fs-12 mb-16">
                         <div class="input-field col s12 input-select input-busca">
-                            <select>
-                                <option value="" disabled selected>Gênero</option>
+                            <select name="gender">
+                                <option value="">Gênero</option>
                                 <option value="1">Macho</option>
                                 <option value="0">Fêmea</option>
-                               
                             </select>
                         </div>
-                    </form>
-
-                    <div class="col s12 m12 l2">
-                        <a class="col s12 m12 l12 waves-effect amber darken-0 btn-large fs-btn">Buscar</a>
                     </div>
 
-
-                </div>
+                    <div class="col s12 m12 l2">
+                        <button class="col s12 m12 l12 waves-effect amber darken-0 btn-large fs-btn" id="seachButton" type="submit">Buscar</button>
+                    </div>
+                </form>
+                
             </div>
         </div>
 
