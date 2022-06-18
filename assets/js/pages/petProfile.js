@@ -11,24 +11,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const pet = await api.petInfo(petId);
     M.FormSelect.init(document.querySelectorAll('select'));
-    console.log(pet);
+    let petGender = "Fêmia";
+    let petSize;
 
-
-    if (pet.gender = 0) {
-        pet.gender = "Macho"
-    } else {
-        pet.gender = "Fêmea"
-    };
-
-    if (pet.size = 0) {
-        pet.size = "Pequeno"
-    } else if (pet.size = 1) {
-        pet.size = "Médio"
-    } else {
-        pet.size = "Grande"
-    };
-
-    var condicoes = "";
+    let ageStatus = ((new Date()-new Date(pet.birthDate))/(1000*60*60*24*365)) <= 1 ? "Filhote" : ((new Date()-new Date(pet['birthDate']))/(1000*60*60*24*365)) > 7 ? "Idoso" : "Adulto";
+    pet.gender === 0 ? petGender : petGender = "Macho";
+    pet.size === 0 ? petSize = "Pequeno" : pet.size === 1 ? petSize = "Médio" : petSize = "Grande";
+    
+    let condicoes = "";
     pet.needs.forEach(need => {
         switch (need.id) {
             case 1:
@@ -72,9 +62,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
     document.getElementById('name-pet').textContent = pet.name;
-    document.getElementById('birthDate-pet').textContent = pet.birthDate;
-    document.getElementById('gender-pet').textContent = pet.gender;
-    document.getElementById('size-pet').textContent = pet.size;
+    document.getElementById('birthDate-pet').textContent = ageStatus;
+    document.getElementById('gender-pet').textContent = petGender;
+    document.getElementById('size-pet').textContent = petSize;
     document.getElementById('description-pet').textContent = pet.description;
     document.getElementById('needs-pet').textContent = condicoes;
     document.getElementById('output_image1').style.backgroundImage =  `url(${pet.pictures[0].url})`;
