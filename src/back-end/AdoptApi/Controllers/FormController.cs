@@ -43,4 +43,12 @@ public class FormController : ControllerBase
     {
         return await _formService.AnswerQuestion(User.Identity.GetUserId(), petId, request.AlternativeId!);
     }
+
+    [HttpGet]
+    [Route("adopt/pet/formlist")]
+    [Authorize(Roles = nameof(UserType.Protector))]
+    public async Task<ActionResult<List<FormOngDto?>>> ListFormsByPetId(int petId)
+    {
+        return await _formService.ListFormsByPetId(User.Identity.GetUserId(), petId);
+    }
 }

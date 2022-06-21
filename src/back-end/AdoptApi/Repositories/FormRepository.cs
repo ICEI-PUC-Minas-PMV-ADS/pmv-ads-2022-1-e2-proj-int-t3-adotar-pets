@@ -69,4 +69,10 @@ public class FormRepository
         await _context.SaveChangesAsync();
         return form;
     }
+
+    public async Task<List<Form>> GetFormByUserAndPet(int userId, int petId)
+    {
+        return await _context.Forms.Include("Answers.Alternative").Where(f => f.UserId == userId && f.PetId == petId).ToListAsync();
+    }
+
 }

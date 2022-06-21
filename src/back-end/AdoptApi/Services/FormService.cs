@@ -135,5 +135,9 @@ public class FormService
         penalty += GetPetGenderPenalty(alternative, pet);
         return penalty;
     }
-
+    public async Task<List<FormOngDto>> ListFormsByPetId(int userId, int petId)
+    {
+        var forms = await _formRepository.GetFormByUserAndPet(userId, petId);
+        return _mapper.Map<List<Form>, List<FormOngDto>>(forms);
+    }
 }
