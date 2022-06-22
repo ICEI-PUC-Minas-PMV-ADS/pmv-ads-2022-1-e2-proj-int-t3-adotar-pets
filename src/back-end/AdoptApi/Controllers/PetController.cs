@@ -22,11 +22,13 @@ public class PetController : ControllerBase
 {
     private PetService _petService;
     private ImageUploadService _imageUploadService;
+    private FormService _formService;
 
-    public PetController(PetRepository petRepository, PictureRepository pictureRepository, IConfiguration configuration, IActionContextAccessor actionContextAccessor, IMapper mapper)
+    public PetController(PetRepository petRepository, PictureRepository pictureRepository, FormRepository formRepository, IConfiguration configuration, IActionContextAccessor actionContextAccessor, IMapper mapper)
     {
         _petService = new PetService(actionContextAccessor, petRepository, mapper);
         _imageUploadService = new ImageUploadService(configuration, actionContextAccessor, pictureRepository);
+        _formService = new FormService(actionContextAccessor, formRepository, petRepository, mapper);
     }
     
     [HttpPost]
@@ -57,5 +59,13 @@ public class PetController : ControllerBase
     public async Task<ActionResult<List<PetDto>>> ListPets()
     {
         return await _petService.ListPets(User.Identity.GetUserId());
+    }
+    
+    [HttpGet]
+    [Route("forms/{petId}")]
+    [Authorize(Roles = nameof(UserType.Protector))]
+    public async Task<ActionResult<List<FormProtectorDto?>>> ListFormsByPetId(int petId)
+    {
+        return await _formService.ListFormsByPetId(User.Identity.GetUserId(), petId);
     }
 }

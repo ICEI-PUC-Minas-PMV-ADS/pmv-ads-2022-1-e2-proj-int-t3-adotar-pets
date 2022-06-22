@@ -70,9 +70,14 @@ public class FormRepository
         return form;
     }
 
-    public async Task<List<Form>> GetFormByUserAndPet(int userId, int petId)
+    public async Task<List<Form>> ListFormsByPet(int petId, int protectorId)
     {
-        return await _context.Forms.Include("Answers.Alternative").Where(f => f.UserId == userId && f.PetId == petId).ToListAsync();
+        return await _context.Forms.Include(nameof(User)).Include(nameof(Pet)).Where(f => f.Pet.UserId == protectorId && f.PetId == petId && f.IsFinished == true).ToListAsync();
+    }
+    
+    public async Task<Form> GetFormByIdAndProtector(int id, int protectorId)
+    {
+        return await _context.Forms.Include(nameof(User)).Include("User.Document").Include("User.Address").Include("User.Picture").Include(nameof(Pet)).Include("Answers.Alternative").Where(f => f.Id == id && f.Pet.UserId == protectorId && f.IsFinished == true).SingleAsync();
     }
 
 }

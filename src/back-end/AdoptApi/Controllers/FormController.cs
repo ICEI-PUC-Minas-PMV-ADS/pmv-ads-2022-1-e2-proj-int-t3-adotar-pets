@@ -3,7 +3,6 @@ using AdoptApi.Attributes.Extensions;
 using AdoptApi.Enums;
 using AdoptApi.Models.Dtos;
 using AdoptApi.Repositories;
-using AdoptApi.Requests;
 using AdoptApi.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -36,19 +35,11 @@ public class FormController : ControllerBase
         return await _formService.GetAdoptionProgress(User.Identity.GetUserId(), petId);
     }
     
-    [HttpPost]
-    [Route("adopt/{petId:int}")]
-    [Authorize(Roles = nameof(UserType.Adopter))]
-    public async Task<ActionResult<FormDto?>> GetFormQuestion([FromBody] AnswerFormRequest request, int petId)
-    {
-        return await _formService.AnswerQuestion(User.Identity.GetUserId(), petId, request.AlternativeId!);
-    }
-
     [HttpGet]
-    [Route("adopt/pet/formlist")]
+    [Route("{formId:int}")]
     [Authorize(Roles = nameof(UserType.Protector))]
-    public async Task<ActionResult<List<FormOngDto?>>> ListFormsByPetId(int petId)
+    public async Task<ActionResult<FormProtectorDto?>> GetForm(int formId)
     {
-        return await _formService.ListFormsByPetId(User.Identity.GetUserId(), petId);
+        return await _formService.ViewFormApplication(User.Identity.GetUserId(), formId);
     }
 }
