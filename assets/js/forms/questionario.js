@@ -1,4 +1,4 @@
-import {redirectIfRoleIsNot} from '../helpers/redirect.js';
+import {redirectIfNotLogged} from '../helpers/redirect.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const user = await redirectIfNotLogged('index.html');

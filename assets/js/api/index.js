@@ -101,6 +101,16 @@ export class Api {
         }
     }
     
+    async searchPet(type,gender,size,age){
+        try {
+            var pets = await this.#get(`pet/search?type=${type}&gender=${gender}&size=${size}&age=${age}`,true);
+            return pets;
+        } catch (e) {
+            throw e;
+        }
+    }
+
+
     async addProfileImage(data) {
         try {
             return await this.#put('user/profile/picture', data, true);
@@ -109,9 +119,14 @@ export class Api {
         }
     }
 
-    async cadastrarPet(endpoint, data = {}, withToken = false) {
-        return this.#post(endpoint, data, withToken);
+    async registerPet(data = {}) {
+        return this.#post('pet/create', data, true);
     }
+    
+    async listPets() {
+        return this.#get('pet', true);
+    }
+    
     async atualizarPerfil(endpoint, data = {}, withToken = false) {
         return this.#put(endpoint, data, withToken);
     }
@@ -130,6 +145,14 @@ export class Api {
     
     async getFormProgress(petId) {
         return this.#get(`form/adopt/${petId}`, true);
+    }
+    
+    async answerForm(petId, alternativeId) {
+        return this.#post(`form/adopt/${petId}`, {alternativeId}, true);
+    }
+    
+    async listNeeds() {
+        return this.#get('pet/needs', true);
     }
     
 }

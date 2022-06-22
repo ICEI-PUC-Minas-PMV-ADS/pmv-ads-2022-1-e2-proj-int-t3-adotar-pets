@@ -43,38 +43,33 @@
         <div class="row" style="height: 128px;">
 
             <div class="col s12 m3 l2 resizeImg ">
-                <img id="output_image" width="128" height="128">
+                <div data-output></div>
                 <div class="imghover flex-row center-center">
-                    <a class="right btn-floating btn-large waves-effect waves amber darken-0"
-                        onclick="inserirImagem()"><i class="large material-icons">add</i></a>
+                    <a class="right btn-floating btn-large waves-effect waves amber darken-0"><i class="large material-icons">add</i></a>
                 </div>
-            </div>
-            <div>
-                <input class="hide" id="image-input" type="file" accept="image/png , image/jpeg">
+                <div>
+                    <input class="hide" name="pictures[]" type="file" accept="image/*">
+                </div>
             </div>
 
             <div class="col s12 m3 l2 resizeImg ">
-                <img id="output_image2" width="128" height="128">
+                <div data-output></div>
                 <div class="imghover flex-row center-center">
-                    <a class="right btn-floating btn-large waves-effect waves amber darken-0"
-                        onclick="inserirImagem2()"><i class="large material-icons">add</i></a>
+                    <a class="right btn-floating btn-large waves-effect waves amber darken-0"><i class="large material-icons">add</i></a>
                 </div>
-            </div>
-
-            <div>
-                <input class="hide" id="image-input2" type="file" accept="image/png , image/jpeg">
+                <div>
+                    <input class="hide" name="pictures[]" type="file" accept="image/*">
+                </div>
             </div>
 
             <div class="col s12 m3 l2 resizeImg ">
-                <img id="output_image3" width="128" height="128">
+                <div data-output></div>
                 <div class="imghover flex-row center-center">
-                    <a class="right btn-floating btn-large waves-effect waves amber darken-0"
-                        onclick="inserirImagem3()"><i class="large material-icons">add</i></a>
+                    <a class="right btn-floating btn-large waves-effect waves amber darken-0"><i class="large material-icons">add</i></a>
                 </div>
-            </div>
-
-            <div>
-                <input class="hide" id="image-input3" type="file" accept="image/png , image/jpeg">
+                <div>
+                    <input class="hide" name="pictures[]" type="file" accept="image/*">
+                </div>
             </div>
 
             <div class="col s12 m4 l3 flex-col center-start">
@@ -95,13 +90,13 @@
 
                     <div class="row ajuste">
                         <div class=" input-field col s12 m6 l6 label-form input-edit-left">
-                            <input value="" id="nome-pet" name="pet.name" type="text" class="validate">
+                            <input value="" id="nome-pet" name="name" type="text" class="validate">
                             <label class="active" for="nome-pet">Nome</label>
                             <small>Error message</small>
                         </div>
 
                         <div class=" input-field col s12 m6 l6 label-form input-edit-right">
-                            <select id="idade-pet" name="pet.birthdate" class="validate">
+                            <select id="idade-pet" name="birthdate" class="validate">
                                 <option value="" disabled selected>Idade Aproximada</option>
                             </select>
                             <small>Error message</small>
@@ -113,7 +108,7 @@
 
                     <div
                         class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-left left label-form">
-                        <select id="tipo-pet" name="pet.type" class="validate">
+                        <select id="tipo-pet" name="type" class="validate">
                             <option value="" disabled selected>Tipo</option>
                             <option value="0">Cachorro</option>
                             <option value="1">Gato</option>
@@ -122,7 +117,7 @@
                     </div>
                     <div
                         class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-right label-form">
-                        <select id="genero-pet" name="pet.gender" class="validate">
+                        <select id="genero-pet" name="gender" class="validate">
                             <option value="" disabled selected>Gênero</option>
                             <option value="0">Fêmea</option>
                             <option value="1">Macho</option>
@@ -134,7 +129,7 @@
 
                     <div
                         class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-left left label-form">
-                        <select id="porte-pet" name="pet.size" class="validate">
+                        <select id="porte-pet" name="size" class="validate">
                             <option value="" disabled selected>Porte</option>
                             <option value="0">Pequeno</option>
                             <option value="1">Médio</option>
@@ -146,30 +141,21 @@
                     <div
                         class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-right label-form">
 
-                        <select multiple id="condicoes-pet" name="pet.conditions" class="validate">
-
-
-                            <option value="0" disabled selected>Condições Especiais</option>
-                            <option value="1">Deficiência visual</option>
-                            <option value="2">Deficiência auditiva</option>
-                            <option value="3">Deficiência motora</option>
-                            <option value="4">Doenças transmissíveis</option>
-
+                        <select multiple id="condicoes-pet" name="needs" class="validate">
+                            <option value="" disabled>Necessidades especiais</option>
                         </select>
                         <small>Error message</small>
                     </div>
 
                     <div
                         class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-left  label-form ">
-                        <select id="pontuacao-pet" name="pet.score" class="validate">
-
-
-                            <option value="" disabled selected>Pontuação</option>
-                            <option value="0">20%</option>
-                            <option value="1">40%</option>
-                            <option value="2">60%</option>
-                            <option value="3">80%</option>
-
+                        <select id="pontuacao-pet" name="minScore" class="validate">
+                            <option value="" disabled selected>Pontuação mínima para receber e-mails</option>
+                            <option value="20">20%</option>
+                            <option value="40">40%</option>
+                            <option value="60">60%</option>
+                            <option value="80">80%</option>
+                            <option value="100">100%</option>
                         </select>
                         <small>Error message</small>
                     </div>
@@ -178,7 +164,7 @@
 
 
                     <div class="input-field col s12 m6 l6 input-edit-right label-form">
-                        <textarea id="descricao-pet" class="materialize-textarea" name="pet.description"></textarea>
+                        <textarea id="descricao-pet" class="materialize-textarea" name="description"></textarea>
                         <label for="descricao-pet">Descrição</label>
                         <small>Error message</small>
                     </div>
