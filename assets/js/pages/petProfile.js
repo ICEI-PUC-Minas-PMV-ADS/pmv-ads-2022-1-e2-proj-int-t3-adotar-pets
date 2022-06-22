@@ -1,5 +1,5 @@
 import {redirectIfNotLogged} from '../helpers/redirect.js';
-import { petAges } from '../helpers/petAge.js';
+import { petAges } from '../helpers/pet.js';
 import { mergeDeep } from '../utils.js';
 import { api } from '../api/client.js';
 

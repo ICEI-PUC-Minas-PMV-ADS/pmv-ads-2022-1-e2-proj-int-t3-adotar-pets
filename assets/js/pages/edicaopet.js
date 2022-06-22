@@ -1,5 +1,5 @@
 import {redirectIfRoleIsNot} from '../helpers/redirect.js';
-import {petAges} from '../helpers/petAge.js';
+import {petAges} from '../helpers/pet.js';
 import {mergeDeep} from '../utils.js';
 import {api} from '../api/client.js';
 import {Validate} from '../forms/validation.js';
@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     console.log(pet);
 
-
+    
     const petEditForm = document.querySelector('[data-edit-pet]');
-
-   document.getElementById("quarenta").setAttribute("selected", "selected");
+    
+//    document.getElementById("quarenta").setAttribute("selected", "selected");
 
     petEditForm.querySelector('[name="pet.name"]').value = pet.name;
     petEditForm.querySelector('[name="pet.birthdate"]').value = pet.birthDate;
