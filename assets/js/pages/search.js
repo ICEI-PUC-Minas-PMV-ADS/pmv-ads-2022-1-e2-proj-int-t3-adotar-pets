@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             <div class="col s6 foto-card" style="background-image: url(${pet.pictures?.[0]?.url ?? ''})"></div>
         </div>
         `;
-        cardContainer.insertAdjacentElement('beforeend', card);
+        cardContainer.insertAdjacentElement('afterbegin', card);
     });
 });
 

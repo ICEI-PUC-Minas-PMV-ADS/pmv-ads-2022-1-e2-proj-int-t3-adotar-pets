@@ -491,3 +491,27 @@ padding-right: 0rem !important;
 }
   
 }
+
+#loading {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgb(255,255,255);
+  align-items: center;
+  justify-content: center;
+  z-index: 9999999999;
+  display: flex;
+}
+
+.spinner {
+  width: 200px;
+  height: 200px;
+}
+
+.spinner.cat {
+  background-image: url(../img/loading_cat.svg);
+}
+
+.spinner.dog {
+  background-image: url(../img/loading_dog.svg);
+}

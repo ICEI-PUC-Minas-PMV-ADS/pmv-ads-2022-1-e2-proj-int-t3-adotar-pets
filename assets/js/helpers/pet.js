@@ -19,6 +19,10 @@ export const getPetAge = (birthDate) => {
     return petAges.reverse().find(age => age.value <= seconds).label;
 };
 
+export const getPetGender = (gender) => {
+    return gender === 0 ? 'Fêmea' : 'Macho';
+};
+
 export const getPetSize = (size) => {
     switch (size) {
         case 0:
