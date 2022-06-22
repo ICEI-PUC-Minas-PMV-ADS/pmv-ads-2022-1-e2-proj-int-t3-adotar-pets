@@ -1,6 +1,13 @@
 import {redirectIfNotLogged, redirectTo} from '../helpers/redirect.js';
 import {api} from '../api/client.js';
 
+function selectItem(elem,value)
+{
+    for(let i = 0; i < elem.options.length; i++)
+    {
+        elem.options[i].selected = elem.options[i].value === value;
+    }
+}
 document.addEventListener('DOMContentLoaded', async () => {
     
     const user = await redirectIfNotLogged('index.html');
@@ -8,25 +15,37 @@ document.addEventListener('DOMContentLoaded', async () => {
     let elems = document.querySelectorAll('select');
     const searchForm = document.querySelector("form[data-search]");
 
-
-
     const urlParams = new URLSearchParams(window.location.search);
-    const petType = urlParams.get('type') === null ? '' : urlParams.get('type');
-    const petSize = urlParams.get('size') === null ? '' : urlParams.get('size');
-    const petAge = urlParams.get('age') === null ? '' : urlParams.get('age');
-    const petGender = urlParams.get('gender') === null ? '' : urlParams.get('gender');
+    const petType = urlParams.get('type') === -1 ? '' : urlParams.get('type');
+    const petSize = urlParams.get('size') === -1 ? '' : urlParams.get('size');
+    const petAge = urlParams.get('age') === -1 ? '' : urlParams.get('age');
+    const petGender = urlParams.get('gender') === -1 ? '' : urlParams.get('gender');
     let pets = await api.searchPet(petType,petGender,petSize,petAge); 
 
-    //falta mudar a porra dos combobox, quem teve essa idéia?
+    elems.forEach(elem => {
+        
+        switch (elem.name)
+        {
+            case "type":  
+                selectItem(elem,petType); 
+                console.log(elem)              
+                break
+            case "size":
+                selectItem(elem,petSize); 
+                break
+            case "age":
+                selectItem(elem,petAge); 
+                break
+            case "gender":
+                selectItem(elem,petGender); 
+                break
+            default:
+                break
+        }
+    })
     
     searchForm.addEventListener('submit', () => {
-        //event.preventDefault();
-        elems.forEach(elem => {
-           //elem.selectedIndex = petType
-           //elem.querySelector('size') = petSize;
-           //elem.querySelector('age') = petAge;
-           //elem.querySelector('gender') = petGender;
-        })
+
     }); 
 
     pets.forEach(pet => {

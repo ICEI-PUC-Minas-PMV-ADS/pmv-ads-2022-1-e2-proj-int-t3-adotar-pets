@@ -377,6 +377,7 @@ ul {
   background-color: #f40b0b ;
   height: 100%;
   padding: 0px;
+  background-size: cover;
 }
 
 .input-branco{
@@ -384,7 +385,7 @@ ul {
 }
 
 .resizeImg{
-  padding: 0% !important;
+  padding: 0 !important;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
