@@ -36,6 +36,21 @@ public class PetController : ControllerBase
     {
         return await _petService.PetRegister(User.Identity.GetUserId(), request, _imageUploadService);
     }
+
+    [HttpPut]
+    [Route("update/{petId}")]
+    [Authorize(Roles = nameof(UserType.Protector))]
+    public async Task<PetDto?> PetUpdate(int petId, [FromBody] PetUpdateProfile request)
+    {
+        return await _petService.petUpdate(petId, request);
+    }
+    [HttpPut]
+    [Route("update/isActive/{petId}")]
+    [Authorize(Roles = nameof(UserType.Protector))]
+    public async Task<PetDto?> PetUpdateIsActive(int petId, [FromBody] PetUpdateProfile request)
+    {
+        return await _petService.PetUpdateIsActive(petId, request);
+    }
     
     [HttpGet]
     [Route("needs")]
