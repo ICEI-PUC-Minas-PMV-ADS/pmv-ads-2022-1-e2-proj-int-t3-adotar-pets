@@ -1,5 +1,6 @@
 import {redirectIfNotLogged, redirectTo} from "../helpers/redirect.js";
 import {api} from "../api/client.js";
+import {setLoading} from '../layout.js';
 
 const buildForm = (progress) => {
     if (progress instanceof Error) {
@@ -31,10 +32,12 @@ const buildForm = (progress) => {
         alternatives.insertAdjacentElement('beforeend', alternativeDiv);
     });
     question.classList.remove('hide');
+    setLoading(false);
 };
 
 const sendForm = async (petId, alternativeId) => {
     try {
+        setLoading(true);
         const formProgress = await api.answerForm(petId, alternativeId);
         buildForm(formProgress);
     } catch (e) {
