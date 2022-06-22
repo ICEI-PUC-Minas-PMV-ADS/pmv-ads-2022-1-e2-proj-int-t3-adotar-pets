@@ -43,7 +43,7 @@ const sendForm = async (petId, alternativeId) => {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const user = await redirectIfNotLogged();
+    await redirectIfNotLogged();
     const urlParams = new URLSearchParams(window.location.search);
     const petId = urlParams.get('id');
     
