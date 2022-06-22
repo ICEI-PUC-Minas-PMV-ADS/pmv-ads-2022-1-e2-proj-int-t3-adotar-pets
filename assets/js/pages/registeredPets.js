@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                    <span class="fs-14">${getPetSize(pet.size)}</span>
                 </div>
                 <div>
-                    <button id="btn-gerenciar" class="waves-effect amber darken-0 0 btn-small fs-btn btn-borda fs-14 ">Gerenciar </button>
+                    <a href="edicaopet.html?id=${pet.id}" id="btn-gerenciar" class="waves-effect amber darken-0 0 btn-small fs-btn btn-borda fs-14 ">Gerenciar</a>
                 </div>
             </div>
             <div class="col s6 foto-card" style="background-image: url(${pet.pictures?.[0]?.url ?? ''})"></div>
@@ -30,19 +30,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         `;
         cardContainer.insertAdjacentElement('beforeend', card);
         
-        
-
-        const buttonGerenciarPet = document.getElementById('btn-gerenciar');
-        buttonGerenciarPet.onclick = function() {
-            window.location.href = `edicaopet.html?id=${pet["id"]}`
-        }
-        
-    });
-
-  
-    // const buttonGerenciarPet = document.getElementById('btn-gerenciar');
-
-   
-
-   
+    
+    }); 
 });
