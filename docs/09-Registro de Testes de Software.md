@@ -14,6 +14,31 @@ O score dos testes seguem a tabela mostrada no item anterior, assim foram realiz
 
 ## Testes de Funcionalidade:
 
+### CT - 01:
+
+O acesso a plataforma é realizado pela página de login, e será feita com o usuário, de Protetor de teste:
+
+imagem
+
+Na aba de navegação, após o login de usuário protetor, ficará disponível os botões de cadastrar novo pet e gerenciar pets, essas serão responsáveis pelo fluxo de pets da plataforma:
+
+Imagem
+
+Ao acessar a funcionalidade de cadastro o usuário entra na tela de cadastro, preenchendo os campos:
+
+Imagem 1
+Imagem 2
+
+Ao salvar, o usuário é redirecionado para a tela de gerenciamento dos Pets cadastrados em sua ONG:
+
+Imagem
+
+...
+
+### CT - 02
+
+
+
 ## Testes de controle de acesso:
 
 ### CT - 03:
@@ -117,3 +142,6 @@ O Logout é feito por meio do botão na tela superior clicando em sair:
 ![IMAGEM 15](img/CT-Imagem-15.png)
 
 Ao clicar em sair o usuário é reenviado para a landing page, o teste foi realizado com a ong teste cadastrada, obtendo os mesmos resultados, assim podemos classificar esse teste com um score 3.
+
+### CT - 05:
+
