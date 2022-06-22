@@ -1,352 +1,436 @@
 /* Modificações diferentes das obtidas pelo materialize */
 
-.flex-col{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.flex-row{
-    display: flex;
-    flex-direction: row;
-    height: 100%;
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
 }
 
-
-.start-center{
-    justify-content: start;  
-    align-items: center;
+.start-center {
+  justify-content: start;
+  align-items: center;
 }
 
-.center-start{
-    justify-content: center;  
-    align-items: start;
+.center-start {
+  justify-content: center;
+  align-items: start;
 }
 
-.center-center{
-    justify-content: center;  
-    align-items: center;
+.center-center {
+  justify-content: center;
+  align-items: center;
 }
 
-.end-center{
-    justify-content: end;  
-    align-items: center;
+.end-center {
+  justify-content: end;
+  align-items: center;
 }
 
-.center-end{
-    justify-content: center;  
-    align-items: end;
+.center-end {
+  justify-content: center;
+  align-items: end;
 }
-
-
-
 
 /* Fontes */
-html{
-    font-family: Quicksand, sans-serif;
-    font-variant: normal, medium, bold,;
+html {
+  font-family: Quicksand, sans-serif;
+  font-variant: normal, medium, bold;
 }
 
-.fs-52{
-    font-size:52px ;
-    font-weight: 400;
+.fs-52 {
+  font-size: 52px;
+  font-weight: 400;
 }
-.fs-40{
-    font-size:40px ;
-    font-weight: 500;
+.fs-40 {
+  font-size: 40px;
+  font-weight: 500;
 }
-.fs-32{
-    font-size:32px ;
-    font-weight: 600;
+.fs-32 {
+  font-size: 32px;
+  font-weight: 600;
 }
-.fs-26{
-    font-size:26px ;
-    font-weight: 600;
+.fs-26 {
+  font-size: 26px;
+  font-weight: 600;
 }
-.fs-btn{
-    font-size:24px ;
-    font-weight: bold;
+.fs-btn {
+  font-size: 24px;
+  font-weight: bold;
 }
-.fs-20-b{
-    font-size:20px ;
-    font-weight: bold;
+.fs-20-b {
+  font-size: 20px;
+  font-weight: bold;
 }
-.fs-20{
-    font-size:20px ;
-    font-weight: 400;
+.fs-20 {
+  font-size: 20px;
+  font-weight: 400;
 }
-.fs-16{
-    font-size: 16px;
-    font-weight: 400;
+.fs-16 {
+  font-size: 16px;
+  font-weight: 400;
 }
-.fs-16-b{
-    font-size: 16px;
-    font-weight: bold;
+.fs-16-b {
+  font-size: 16px;
+  font-weight: bold;
 }
-.fs-14{
-    font-size: 14px;
-    font-weight: 400;
+.fs-14 {
+  font-size: 14px;
+  font-weight: 400;
 }
-.fs-14-b{
-    font-size: 14px;
-    font-weight: bold;
+.fs-14-b {
+  font-size: 14px;
+  font-weight: bold;
 }
-.fs-12{
-    font-size: 12px;
-    font-weight: 400;
+.fs-12 {
+  font-size: 12px;
+  font-weight: 400;
 }
-ul{
-    text-align: right;
+ul {
+  text-align: right;
 }
 /* Aplicação de cores bg */
-.color-primary{
-    background-color: var(--primary);
+.color-primary {
+  background-color: var(--primary);
 }
-.color-secondary{
-    background-color: var(--secondary);
+.color-secondary {
+  background-color: var(--secondary);
 }
-.color-tertiary{
-    background-color: var(--tertiary);
+.color-tertiary {
+  background-color: var(--tertiary);
 }
-.navbar-color{
-    background-color: var(--primary);
+.navbar-color {
+  background-color: var(--primary);
 }
 
 /* Aplicação de cores text */
-.textcolor-primary{
-    color: var(--primary);
+.textcolor-primary {
+  color: var(--primary);
 }
-.textcolor-secondary{
-    color: var(--secondary);
+.textcolor-secondary {
+  color: var(--secondary);
 }
-.textcolor-tertiary{
-    color: var(--tertiary);
+.textcolor-tertiary {
+  color: var(--tertiary);
 }
 
 /* Modificação de elementos */
 .btnLogin {
-    background-color: #fff;
-    color: var(--secondary) !important; 
-    box-shadow: none !important;
-    background-repeat: no-repeat;
-    background-position: center center;
-  }
+  background-color: #fff;
+  color: var(--secondary) !important;
+  box-shadow: none !important;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
 .btnLogin:hover {
-    background-color: var(--primary);
+  background-color: var(--primary);
 }
 
 .btnVoltar {
-    background-color: #fff;
-    color: var(--secondary) !important; 
-    box-shadow: none !important;
-    background-repeat: no-repeat;
-    background-position: center center;
-  }
+  background-color: #fff;
+  color: var(--secondary) !important;
+  box-shadow: none !important;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
 .btnVoltar:hover {
-    background-color: #ffffff;
-   
+  background-color: #ffffff;
 }
 
-.border-top{
-    border-top: 1px solid rgb(206, 206, 206);
-    
+.border-top {
+  border-top: 1px solid rgb(206, 206, 206);
 }
-.logo-navbar{
-    margin: 8px 12px;
-    max-width: 168px;   
+.logo-navbar {
+  margin: 8px 12px;
+  max-width: 168px;
 }
-.copyright-footer{
-    padding: 5px 0px;
-}
-.card-pet{
-    background-color: #efeaee ;
-    border-radius: 16px;
-    width: 448.47px;
-    height: 208px;
-    left: 499px;
-    top: 598px;
+.copyright-footer {
+  padding: 5px 0px;
 }
 
-.card-petlogin{
-    max-width: 100%;
-    height: 100px;
-    right: 100%;
-}
-.card-petlogin2{
-    max-width: 100%;
-    height: 100px;
-    left: 100%;
+.barra {
+  margin-bottom: 0px !important;
 }
 
-.barra{
-    margin-bottom: 0px !important;
+.icone-card {
+  max-width: 24px;
 }
 
-
-.icone-card{
-    max-width: 24px;
+.titulo-cadastro {
+  font-weight: 600;
+  color: var(--secondary);
+  margin-bottom: 3rem;
 }
 
-.titulo-cadastro{
-    font-weight: 600;
-    color: var(--secondary);
-    margin-bottom: 3rem;
+.entre-para-continuar {
+  text-align: center;
+  font-weight: 600;
+  color: var(--secondary);
+  margin-bottom: 3.4rem;
+}
+.redefirnir-senha {
+  color: white;
 }
 
-.entre-para-continuar{
-    text-align: center;
-    font-weight: 600;
-    color: var(--secondary);
-    margin-bottom: 3.4rem;
+.white-color-font {
+  color: white;
 }
 
-.label-cadastro{
-    margin-bottom: 2rem;
+.label-form {
+  margin-bottom: 2rem;
 }
 
-.label-cadastro small{
-    visibility:hidden;
-}
-.logologin{
-    margin-bottom: 48px;
-}
-.breadcrumbz{
-    padding: 8px;
-}
-.mg-8{
-    margin-top: 8px;
+.label-form small {
+  visibility: hidden;
 }
 
+.logologin {
+  margin-bottom: 48px;
+}
+.breadcrumbz {
+  padding: 8px;
+  margin: 0px !important;
+}
+.mg-8 {
+  margin-top: 8px;
+}
+.mb-24 {
+  margin-bottom: 24px;
+}
+.pd-none {
+  padding: 0px !important;
+}
 
 /* modificações de labels no formulário de cadastro */
-.label-cadastro.error input{
-    border-bottom: 2px solid var(--alert)!important;
-    box-shadow: 0 1px 0 var(--alert)!important;
+.label-form.error input {
+  border-bottom: 2px solid var(--alert) !important;
+  box-shadow: 0 1px 0 var(--alert) !important;
 }
-.label-cadastro.error small{
-    font-weight: bold;
-    color: var(--alert);
-    visibility: visible;
+.label-form.error small {
+  font-weight: bold;
+  color: var(--alert);
+  visibility: visible;
 }
-.label-cadastro.sucesso input{
-    border-bottom: 2px solid var(--tertiary);
-    box-shadow: 0 1px 0 var(--tertiary);
+
+.label-form.sucesso input {
+  border-bottom: 2px solid var(--tertiary);
+  box-shadow: 0 1px 0 var(--tertiary);
 }
-.label-cadastro.sucesso small{
-    visibility: hidden;
+.label-form.sucesso small {
+  visibility: hidden;
 }
+
+.label-form.error small {
+  font-size: 12px;
+}
+
 /* Botões */
 
-.btn-cadastro{
-    margin-top: 2rem;
-    margin-bottom: 7rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 4px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
-    border-radius: 8px;
-    width: 100%;
-    background-color: var(--primary);
+.btn-cadastro {
+  margin-top: 2rem;
+  margin-bottom: 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
+  border-radius: 8px;
+  width: 100%;
+  background-color: var(--primary);
 }
-.btn-cadastro:hover{
-    width: 100%;
-    background-color: var(--secondary);
-}
-
-.btn-entrar{
-    margin-top: 2.9rem;
-    margin-bottom: 7rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 4px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
-    border-radius: 8px;
-    width: 100%;
-    background-color: var(--primary);
-}
-.btn-entrar:hover{
-    width: 100%;
-    background-color: var(--secondary);
+.btn-cadastro:hover {
+  width: 100%;
+  background-color: var(--secondary);
 }
 
-.bg-busca{
-    /*padding: 72px 72px 96px ;*/
-    height: 350px;
-    background-image: url(../img/padraoPatas.svg);
-    background-color: var(--secondary);
+.btn-entrar {
+  margin-top: 2.9rem;
+  margin-bottom: 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
+  border-radius: 8px;
+  width: 100%;
+  background-color: var(--primary);
+}
+.btn-entrar:hover {
+  width: 100%;
+  background-color: var(--secondary);
 }
 
-.input-select{
-    height: 54px;
-    border-radius: 4px;
-    background-color: white; 
+.btn-borda {
+  border-radius: 8px;
 }
 
-.botao-busca{
-    border-radius: 8px;
+.bg-busca {
+  /*padding: 72px 72px 96px ;*/
+  height: 350px;
+  background-image: url(../img/padraoPatas.svg);
+  background-color: var(--secondary);
 }
 
-.margin{
-    height: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.bg-redefinir {
+  /*padding: 72px 72px 96px ;*/
+  margin-top: -10px;
+  align-items: center;
+  height: 420px;
+  width: 100%;
+  background-image: url(../img/padraoPatas.svg);
+  background-color: var(--secondary);
+}
+
+.input-select {
+  height: 54px;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.botao-busca {
+  border-radius: 8px;
+}
+
+.margin {
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bg-cadastro {
+  background: url(../img/cadastro_imagem.png) no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.bg-login {
+  background: url(../img/imgLogin.png) no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.hiddendiv {
+  width: 100% !important;
+}
+
+
+.bg-perfilPet {
+  height: 528px;
+  width: 100%;
+}
+
+
+.bg-patas {
+  height: 528px;
+  width: 100%;
+  background-image: url(../img/padraoPatas.svg);
+  background-color: var(--secondary);
+}
+
+.bg-patas-sobre{
+  height: 1000px ;
+  width: 100%;
+  background-image: url(../img/padraoPatas.svg);
+  background-color: var(--secondary);
+}
+
+.bg-patas-redefinir {
+  height: 528px;
+  width: 100%;
+  background-image: url(../img/padraoPatas.svg);
+  background-color: var(--secondary);
+}
+
+.bg-patas-contato {
+  min-height: 620px;
+  width: 100%;
+  background-image: url(../img/padraoPatas.svg);
+  background-color: var(--secondary);
+}
+
+.card-pet{
+  background-color: #e7e7e7 ;
+  border-radius: 16px;
+  height:200px;
+  margin-bottom: 16px;
+  box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.foto-card {
+  border-radius: 0px 16px 16px 0px !important;
+  background-color: #f40b0b ;
+  height: 100%;
+  padding: 0px;
+}
+
+.input-branco{
+  color: #fff !important;
+}
+
+.resizeImg{
+  padding: 0% !important;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  
+}
+.resizeImg img{
+  height: 128px;
+  width: 128px;
+  background-position: center;
+  background-size: cover; 
+}
+
+.progress-bar {
+  margin-bottom: 1rem;
+  width: 100%;
+  border: 1px solid var(--primary);
+}
+
+.progress-fill {
+  transition: width ease-in-out 1s;
+  height: 1rem;
+  background-color: var(--primary);
+}
+
+@media (max-width: 1280px) {
+  #logoFooter {
+    display: none;
+  }
+}
+
+@media (max-width: 1440px) {
+  .banner-cadastro {
+    display: none;
+  }
+  .cadastro {
+    margin-left: 25% !important;
+  }
+}
+
+@media(max-width: 600px){
     
-
+  .bg-patas{
+      height: 1112px;
+  }
+  .bg-patas-redefinir{
+    height: 400px;
 }
-.bg-cadastro{
-    background: url(../img/cadastro_imagem.png) no-repeat;
-    background-size: cover;
-    height: 100vh;
+  
 }
-.bg-login{
-    background: url(../img/imgLogin.png) no-repeat;
-    background-size: cover;
-    height: 100vh;
-}
-
-.w-full{
-    width: 100%;
-}
-
-.h-full{
-    height: 100%;
-}
-
-
-/* Responsividade */
-
-@media(max-width: 1280px){
-    
-        #logoFooter{
-            display: none;
-        }
-}
-
-@media (max-width: 1440px){
-    .banner-cadastro{
-        display: none;
-    }
-    .cadastro{
-        margin-left: 25%!important;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

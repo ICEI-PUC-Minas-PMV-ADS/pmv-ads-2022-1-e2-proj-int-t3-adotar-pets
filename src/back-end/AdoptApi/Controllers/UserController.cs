@@ -42,10 +42,10 @@ public class UserController : ControllerBase
     {
         return await _userService.UpdateInfo(User.Identity.GetUserId(), request);
     }
-
+    
     [HttpGet]
     [Route("profile/{userId}")]
-    public async Task<ActionResult<UserDto>> GetPetProfile(int userId)
+    public async Task<ActionResult<UserDto>> GetProtectorProfile(int userId)
     {
         return await _userService.GetProtectorProfile(userId);
     }

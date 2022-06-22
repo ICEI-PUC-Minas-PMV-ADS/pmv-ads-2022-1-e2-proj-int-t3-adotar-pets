@@ -43,7 +43,10 @@ export class Api {
             Api.#withBearer(headers, Auth.getToken());
         }
         const options = {method, headers};
-        if (data) {
+        if (data instanceof FormData) {
+            headers.delete('Content-Type');
+            options.body = data;
+        } else if (data) {
             options.body = JSON.stringify(data);
         }
         return new Request(endpoint, options);
@@ -58,17 +61,88 @@ export class Api {
         const request = Api.#buildRequest(this.#getEndpoint(endpoint), 'POST', withToken, data);
         return await Api.#getJsonResponse(request);
     }
+
+    async #put(endpoint, data = {}, withToken = false) {
+        const request = Api.#buildRequest(this.#getEndpoint(endpoint), 'PUT', withToken, data);
+        return await Api.#getJsonResponse(request);
+    }
+
     
     async register(userInfo) {
         return this.#post('auth/register', userInfo);
     }
     
     async login(credentials) {
-        return this.#post('auth/login', credentials);
+        try {
+            const user = await this.#post('auth/login', credentials);
+            Auth.setToken(user.token);
+            return user;
+        } catch (e) {
+            throw e;
+        }
     }
     
     async info() {
-        return this.#get('user', true);
+        try {
+            const user = await this.#get('user/profile', true);
+            user.role = user.document.type === 0 ? 'adopter' : 'protector';
+            return user;
+        } catch (e) {
+            throw e;
+        }
+    }
+
+    async petInfo(id) {
+        try {
+            var pet = await this.#get(`pet/profile/${id}`, true);
+            return pet;
+        } catch (e) {
+            throw e;
+        }
+    }
+    
+    async searchPet(){
+        try {
+            var pets = await this.#get(`pet/search`,true);
+            return pets;
+        } catch (e) {
+            throw e;
+        }
+
+    }
+    async addProfileImage(data) {
+        try {
+            return await this.#put('user/profile/picture', data, true);
+        } catch (e) {
+            throw e;
+        }
+    }
+
+    async cadastrarPet(endpoint, data = {}, withToken = false) {
+        return this.#post(endpoint, data, withToken);
+    }
+    async atualizarPerfil(endpoint, data = {}, withToken = false) {
+        return this.#put(endpoint, data, withToken);
+    }
+    async atualizarSenha(endpoint, data = {}, withToken = false) {
+        return this.#put(endpoint, data, withToken);
+    }
+    
+    async ongInfo(id) {
+        try {
+            var ong = await this.#get(`user/profile/${id}`, true);
+            return ong;
+        } catch (e) {
+            throw e;
+        }
+    }
+    
+    async getFormProgress(petId) {
+        return this.#get(`form/adopt/${petId}`, true);
+    }
+    
+    async answerForm(petId, alternativeId) {
+        return this.#post(`form/adopt/${petId}`, {alternativeId}, true);
     }
     
 }

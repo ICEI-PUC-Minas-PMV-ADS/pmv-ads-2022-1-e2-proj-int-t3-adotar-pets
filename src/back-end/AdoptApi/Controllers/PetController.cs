@@ -60,6 +60,13 @@ public class PetController : ControllerBase
     {
         return await _petService.ListPets(User.Identity.GetUserId());
     }
+
+    [HttpGet]
+    [Route("search")]
+    public async Task<ActionResult<List<PetDto?>>> SearchPets([FromQuery]SearchPetRequest search)
+    {
+        return await _petService.SearchPets(search);
+    }
     
     [HttpGet]
     [Route("forms/{petId}")]

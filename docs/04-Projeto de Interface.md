@@ -108,37 +108,25 @@ A tela de perfil do adotante só estará disponível se o usuário estiver logad
 
 ![RF-011-Tela-perfil-adotante](img/RF-011%20-Perfil%20usuario.png)
 
-### RF-012- Tela de Recuperação de Senha
-
-A tela de recuperação de senha é acionada quando o usuário clica no botão "esqueci minha senha" na tela de login. Nessa tela o usuário deverá fornecer um e-mail válido, para que seja disparado para esse um link de configuração de nova senha, além de um código de verificação de usuário.
-
-![RF-012-Tela-Recuperacao-Senha](img/RF-012%20-Recupera%C3%A7%C3%A3o%20de%20Senha.png)
-
-### RF-013- Tela de informações do Protetor
+### RF-012- Tela de informações do Protetor
 
 A tela de informações do protetor contém as principais informações sobre a entidade que está com animal, assim como as informações ou links necessários para que o usuário adotante possa entrar em contato ou fazer doações. 
 
-![RF-013-Tela-informacoes-protetor](img/RF-013%20-Informa%C3%A7%C3%B5es%20ONG.png)
+![RF-012-Tela-informacoes-protetor](img/RF-013%20-Informa%C3%A7%C3%B5es%20ONG.png)
 
-### RF-014- Tela FAQ
-
-A tela de perguntas frequentes possibilitará que o usuário tire dúvidas sobre a plataforma. O acesso a página será feito através do botão localizado no rodapé de todas as páginas do sistema. 
-
-![RF-013-Tela-FAQ](img/RF-014%20-Tela%20FAQ.png)
-
-### RF-015- Sobre Nós
+### RF-013- Sobre Nós
 
 A tela "sobre nós" possibilitará que o usuário saiba as principais informações sobre o projeto que motivou a criação da plataforma e quem a idealizou. 
 
-![RF-015-Sobre-Nos](img/RF-015%20-Sobre%20n%C3%B3s.png)
+![RF-013-Sobre-Nos](img/RF-015%20-Sobre%20n%C3%B3s.png)
 
-### RF-016- Contatos
+### RF-014- Contatos
 
 Na tela de contatos o usuário poderá enviar uma mensagem para o suporte do sistema. Ele deve inserir um e-mail válido por onde receberá a confirmação do envio e a resposta para a mensagem enviada. 
 
-![RF-016-Contatos](img/RF-016-Contots.png)
+![RF-014-Contatos](img/RF-016-Contots.png)
 
-### RF-017-018- Termos de Uso e Políticas da Empresa
+### RF-015-016- Termos de Uso e Políticas da Empresa
 A tela de Termos de uso e Política da Empresa será acessada pelo botão no rodapé presente em todas as páginas do sistema e nela conterá os termos de contrato da plataforma bem como os termos de uso e política da empresa.
 
-![RF-017-018-Termos-Politica](img/RF-017-018-Termos%20e%20pol%C3%ADtica.png)
+![RF-015-016-Termos-Politica](img/RF-017-018-Termos%20e%20pol%C3%ADtica.png)

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="materialize/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="materialize/img/favIcon.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="materialize/css/perfil-adotante.css">
+    <link rel="stylesheet" href="materialize/css/config.css">
+    <link rel="stylesheet" href="materialize/css/cadastropet.css">
+
+    <title>Cadastro Animais</title>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div data-partial="navbar" data-protector="navbarLogOng"></div>
+    <!-- //Navbar -->
+
+    <!-- Breadcrumbs-->
+    <div class="row breadcrumbz">
+        <div class="col s12">
+            <a href="index.html" class="fs-16 textcolor-secondary">Página inicial</a>
+            <a href="#!" class="fs-16 black-text">/ Cadastro de Animais</a>
+        </div>
+        <div class="col s12">
+            <span class="fs-32 textcolor-secondary">Cadastro de Animais</span>
+        </div>
+    </div>
+    <!-- //Breadcrumbs-->
+
+
+    <div class="container">
+
+        <div class="row" style="height: 128px;">
+
+            <div class="col s12 m3 l2 resizeImg ">
+                <img id="output_image" width="128" height="128">
+                <div class="imghover flex-row center-center">
+                    <a class="right btn-floating btn-large waves-effect waves amber darken-0"
+                        onclick="inserirImagem()"><i class="large material-icons">add</i></a>
+                </div>
+            </div>
+            <div>
+                <input class="hide" id="image-input" type="file" accept="image/png , image/jpeg">
+            </div>
+
+            <div class="col s12 m3 l2 resizeImg ">
+                <img id="output_image2" width="128" height="128">
+                <div class="imghover flex-row center-center">
+                    <a class="right btn-floating btn-large waves-effect waves amber darken-0"
+                        onclick="inserirImagem2()"><i class="large material-icons">add</i></a>
+                </div>
+            </div>
+
+            <div>
+                <input class="hide" id="image-input2" type="file" accept="image/png , image/jpeg">
+            </div>
+
+            <div class="col s12 m3 l2 resizeImg ">
+                <img id="output_image3" width="128" height="128">
+                <div class="imghover flex-row center-center">
+                    <a class="right btn-floating btn-large waves-effect waves amber darken-0"
+                        onclick="inserirImagem3()"><i class="large material-icons">add</i></a>
+                </div>
+            </div>
+
+            <div>
+                <input class="hide" id="image-input3" type="file" accept="image/png , image/jpeg">
+            </div>
+
+            <div class="col s12 m4 l3 flex-col center-start">
+                <span class="fs-20-b textcolor-secondary">Adicionar até 3 Fotos</span>
+                <span class="fs-14">JPG e PNG somente</span>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+
+
+
+            <form data-register-pet class="col s12">
+
+                <div class="row">
+
+                    <div class="row ajuste">
+                        <div class=" input-field col s12 m6 l6 label-form input-edit-left">
+                            <input value="" id="nome-pet" name="name" type="text" class="validate">
+                            <label class="active" for="nome-pet">Nome</label>
+                            <small>Error message</small>
+                        </div>
+
+                        <div class=" input-field col s12 m6 l6 label-form input-edit-right">
+                            <select id="idade-pet" name="birthdate" class="validate">
+                                <option value="" disabled selected>Idade Aproximada</option>
+                            </select>
+                            <small>Error message</small>
+                        </div>
+                    </div>
+
+
+
+
+                    <div
+                        class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-left left label-form">
+                        <select id="tipo-pet" name="type" class="validate">
+                            <option value="" disabled selected>Tipo</option>
+                            <option value="0">Cachorro</option>
+                            <option value="1">Gato</option>
+                        </select>
+                        <small>Error message</small>
+                    </div>
+                    <div
+                        class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-right label-form">
+                        <select id="genero-pet" name="gender" class="validate">
+                            <option value="" disabled selected>Gênero</option>
+                            <option value="0">Fêmea</option>
+                            <option value="1">Macho</option>
+                        </select>
+                        <small>Error message</small>
+                    </div>
+
+
+
+                    <div
+                        class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-left left label-form">
+                        <select id="porte-pet" name="size" class="validate">
+                            <option value="" disabled selected>Porte</option>
+                            <option value="0">Pequeno</option>
+                            <option value="1">Médio</option>
+                            <option value="2">Grande</option>
+                        </select>
+                        <small>Error message</small>
+                    </div>
+
+                    <div
+                        class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-right label-form">
+
+                        <select multiple id="condicoes-pet" name="conditions" class="validate">
+
+
+                            <option value="0" disabled selected>Condições Especiais</option>
+                            <option value="1">Deficiência visual</option>
+                            <option value="2">Deficiência auditiva</option>
+                            <option value="3">Deficiência motora</option>
+                            <option value="4">Doenças transmissíveis</option>
+
+                        </select>
+                        <small>Error message</small>
+                    </div>
+
+                    <div
+                        class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-left  label-form ">
+                        <select id="pontuacao-pet" name="score" class="validate">
+
+
+                            <option value="" disabled selected>Pontuação mínima para receber e-mails</option>
+                            <option value="20">20%</option>
+                            <option value="40">40%</option>
+                            <option value="60">60%</option>
+                            <option value="80">80%</option>
+                            <option value="100">100%</option>
+                        </select>
+                        <small>Error message</small>
+                    </div>
+
+
+
+
+                    <div class="input-field col s12 m6 l6 input-edit-right label-form">
+                        <textarea id="descricao-pet" class="materialize-textarea" name="pet.description"></textarea>
+                        <label for="descricao-pet">Descrição</label>
+                        <small>Error message</small>
+                    </div>
+
+
+
+                    <button class="waves-effect amber darken-0 0 btn fs-btn right" type="submit"
+                        name="btn-salvar">Salvar</button>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+
+
+        <!-- Footer -->
+        <div data-partial="footer"></div>
+        <!-- //Footer -->
+
+    </div>
+
+
+
+
+
+
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <script type="module" src="assets/js/layout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.2/imask.min.js"
+        integrity="sha512-l0grYOI8XZga5TajPOiqLrQVCKrdh+k0QSEtS+cpJlNeI8Nu9GOhsVaFyFQuPQfYp02GnhsyHqkPR7P7BTKYAQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="assets/js/forms/petRegister.js"></script>
+
+
+</body>
+
+</html>

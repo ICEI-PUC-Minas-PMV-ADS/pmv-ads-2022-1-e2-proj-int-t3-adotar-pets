@@ -110,5 +110,11 @@ public class PetService
         var pets = await _petRepository.GetRegisteredPets(userId);
         return _mapper.Map<List<Pet>, List<PetDto>>(pets);
     }
+
+    public async Task<List<PetDto?>> SearchPets(SearchPetRequest search)
+    {
+        var pets = await _petRepository.GetFilteredPets(search);
+        return _mapper.Map<List<Pet>, List<PetDto?>>(pets);
+    }
     
 }
