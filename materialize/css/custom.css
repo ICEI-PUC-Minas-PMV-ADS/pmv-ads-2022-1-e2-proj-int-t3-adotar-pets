@@ -377,6 +377,7 @@ ul {
   background-color: #f40b0b ;
   height: 100%;
   padding: 0px;
+  background-size: cover;
 }
 
 .input-branco{
