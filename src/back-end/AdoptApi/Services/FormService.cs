@@ -135,5 +135,22 @@ public class FormService
         penalty += GetPetGenderPenalty(alternative, pet);
         return penalty;
     }
+    public async Task<List<FormProtectorDto>> ListFormsByPetId(int protectorId, int petId)
+    {
+        var forms = await _formRepository.ListFormsByPet(petId, protectorId);
+        return _mapper.Map<List<Form>, List<FormProtectorDto>>(forms);
+    }
 
+    public async Task<FormProtectorDto?> ViewFormApplication(int protectorId, int formId)
+    {
+        try
+        {
+            var form = await _formRepository.GetFormByIdAndProtector(formId, protectorId);
+            return _mapper.Map<Form, FormProtectorDto>(form);
+        } catch (InvalidOperationException)
+        {
+            _modelState.AddModelError("Form", "Formulário não encontrado.");
+            return null;
+        }
+    }
 }
