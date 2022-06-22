@@ -93,21 +93,11 @@ export class Api {
     }
 
     async petInfo(id) {
-        try {
-            var pet = await this.#get(`pet/profile/${id}`, true);
-            return pet;
-        } catch (e) {
-            throw e;
-        }
+        return await this.#get(`pet/profile/${id}`, true);
     }
     
-    async searchPet(type,gender,size,age){
-        try {
-            var pets = await this.#get(`pet/search?type=${type}&gender=${gender}&size=${size}&age=${age}`,true);
-            return pets;
-        } catch (e) {
-            throw e;
-        }
+    async searchPet(qs = ''){
+        return await this.#get(`pet/search?${qs}`,true);
     }
 
 
