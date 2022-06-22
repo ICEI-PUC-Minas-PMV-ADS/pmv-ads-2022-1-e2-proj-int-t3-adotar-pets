@@ -32,7 +32,12 @@
     width: 100%;
   }
 
-  
+  div[data-output] {
+      width: 128px;
+      height: 128px;
+      background-size: cover;
+      border: 1px solid rgba(0,0,0,0.5);
+  }
 
 
   @media(max-width: 600px){
