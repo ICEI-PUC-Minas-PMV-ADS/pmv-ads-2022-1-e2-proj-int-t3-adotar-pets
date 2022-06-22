@@ -49,7 +49,7 @@ public class PetRepository
 
     public async Task<List<Pet>> GetFilteredPets(SearchPetRequest search)
     {
-        var filter = _context.Pets.Where(p => p.IsActive == true);
+        var filter = _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).Where(p => p.IsActive == true);
         if (search.Type != null)
         {
             filter = filter.Where(p => p.Type == search.Type);
