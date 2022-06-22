@@ -409,6 +409,46 @@ ul {
   background-color: var(--primary);
 }
 
+/* Modificações nos selects */
+
+.select-edit-right {
+  padding: 0rem !important;
+  padding-left: 0.75rem !important;
+  width: 100%;
+}
+
+.select-edit-left {
+  padding: 0rem !important;
+  padding-right: 0.75rem !important;
+  width: 100%;
+}
+
+.input-select {
+  height: 54px;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.ajuste{
+    margin: 0px 0px !important;
+}
+
+.input-edit-right {
+  padding: 0rem !important;
+  padding-left: 0.75rem !important;
+  width: 100%;
+}
+
+.input-edit-left {
+  padding: 0rem !important;
+  padding-right: 0.75rem !important;
+  width: 100%;
+}
+
+
+
+
+
 @media (max-width: 1280px) {
   #logoFooter {
     display: none;
@@ -431,6 +471,22 @@ ul {
   }
   .bg-patas-redefinir{
     height: 400px;
+}
+
+.select-edit-right{
+  padding-left: 0rem !important;
+}
+
+.select-edit-left{
+  padding-right: 0rem !important;
+}
+
+.input-edit-right{
+padding-left: 0rem !important;
+}
+
+.input-edit-left{
+padding-right: 0rem !important;
 }
   
 }
