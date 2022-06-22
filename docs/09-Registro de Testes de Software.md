@@ -1,19 +1,119 @@
 # Registro de Testes de Software
 
-Foi realizado o teste do primeiro caso definido pelo Plano de testes de software, que consiste em cadastrar novos usuários na plataforma e fazer login e logout dos mesmos.
-A seguir os resultados do teste:
+Foram realizados os testes de acordo com as tabelas mostradas no item 8, testes de funcionalidades e de controle de acesso, podendo ser resumidos na tabela abaixo:
 
-|Caso de Teste        |CT-01 - Cadastro de novos usuários na plataforma, login e logout|
-|---------------------|----------------------------------------------------------------|
-|Requesitos atendidos |RF - 002: O site deverá fornecer um formulário de cadastro para Pessoa Física (adotantes) Pessoa Jurídica (ONGs / protetores).<br>RF - 004: O site deverá fornecer um link de logout para todos os usuários autenticados.
-|Objetivos do Teste   |Verificar o fluxo de cadastro de novos usuários na plataforma por meio de novos cadastros, login de usuários já cadastrados e o seu logout.|
-|Passos               |1: Acesso da plataforma;<br>2: Realizar o cadastro das entidades (ONG/Protetor/Adotante);<br>3: Verificar se o acesso foi permitido desse usuário;<br>4: Realizar o logout;<br>5: Realizar login com os usuários cadastrados;<br>6:Verificar a validação e realizar o logout|
-|Critérios de êxito   |1: Acesso do usuário a plataforma via login<br>2: Comunicação com o banco de dados de forma estável;<br>3: Validação dos campos do formulário de cadastro<br>4: Retirada da permissão de acesso do usuário ao realizar o logout|
-Score	Ação	Exemplo
+| Código do Teste | Descrição | Score |
+|---------------------|-----------------------|-------------|
+| CT-01 | Fluxo de cadastro de animais | Status |
+| CT-02 | Fluxo de adoção do usuário adotante | Status |
+| CT-03 | Cadastro de novos usuários na plataforma | 3 |
+| CT-04 | Login de usuários | 3 |
+| CT-05 | Modificação da senha | Status |
 
-3	A ação testada não apresentou erros aparentes. 
+O score dos testes seguem a tabela mostrada no item anterior, assim foram realizado os testes da seguinte forma.
 
+## Testes de Funcionalidade:
 
+## Testes de controle de acesso:
 
+### CT - 03:
 
+O acesso a pagina de cadastro de novos usuários pode ser realizada acessando a página de login, pelo botão superior da landing page da plataforma, conforme a imagem:
 
+![IMAGEM 1](img/CT-Imagem-1.png)
+
+Ao acessar a pagina de login o usuário estará na sessão de login, podendo se cadastrar no botão “Clique aqui” abaixo do botão de entrar, conforme a imagem:
+
+![IMAGEM 2](img/CT-Imagem-2.png)
+
+Na pagina de cadastro os usuários se diferenciam entre adotante e protetor pelo tipo de documento que é inserido, nesse caso, o usuário adotante será uma pessoa física utilizando um CPF e no caso de uma ONG será utilizado um CNPJ. Para o teste foram realizadas 7 situações simuladas para verificar os controles de cadastro de novos usuários, bem como, observar as validações utilizadas.
+
+### 3 -	Casos de teste:
+#### a.	Algum campo faltante;
+##### Validação: Todos os campos devem está preenchidos.
+#### b.	CNPJ ou CPF errado;
+##### Validação: Validação lógica dos documentos CPF e CNPJ.
+#### c.	Data de nascimento de usuário menor que 18 anos;
+##### Validação: Idade atual do usuário.
+#### d.	CEP errado
+##### Validação: CEP válido.
+#### e.	Email errado
+##### Validação: Email válido.
+#### f.	Senhas com menos de 8 caracteres e não combinantes;
+##### Validação: Tamanho da senha e se combinam.
+#### g.	Usuários testes: Adotante e ONG;
+##### Validação:
+| Tipo do Usuário | Adotante | Protetor |
+|-----------------|----------|-----|
+| Nome            |Usuário Teste|OngTeste|
+|CPF/CNPJ         |530.634.160-88|41.426.959/0001-70|
+|CEP              |41218-155 |92440-592|
+|Data de Nascimento|01/01/1990|01/01/1990|
+|Email            |usuarioTeste@testando.com|ONGTeste@testando.com|
+|Senha            |teste123   |teste123|
+
+### a.	Algum campo faltante:
+
+![IMAGEM 3](img/CT-Imagem-3.png)
+
+### b.	CNPJ ou CPF errado:
+
+![IMAGEM 4](img/CT-Imagem-4.png)
+
+### c. Data de nascimento de usuário menor que 18 anos;
+
+![IMAGEM 5](img/CT-Imagem-5.png)
+
+### d.	CEP errado
+
+![IMAGEM 6](img/CT-Imagem-6.png)
+
+### e.	Email errado
+
+![IMAGEM 7](img/CT-Imagem-7.png)
+
+### f.	Senhas com menos de 8 caracteres e não combinantes
+
+![IMAGEM 8](img/CT-Imagem-8.png)
+
+![IMAGEM 9](img/CT-Imagem-9.png)
+
+### g.	Usuários testes: Adotante e Protetor;
+
+![IMAGEM 10](img/CT-Imagem-10.png)
+
+![IMAGEM 11](img/CT-Imagem-11.PNG)
+
+![IMAGEM 12](img/CT-Imagem-12.PNG)
+
+Nessas imagens podemos observar que os usuários foram cadastrados e podem ter acesso a área restrita de usuário (ONG ou Adotante). Podemos obeservar que as validações elaboradas funcionaram conforme o esperado, assim podemos atribuir o score 3 para esse teste.
+
+### CT - 04:
+
+Utilizando os usuários cadastrados do CT-04, pode-se realizar o login desses usuários na plataforma, neste teste será testado os seguintes casos:
+
+### 4 - Casos de Testes:
+#### a. Campos errados.
+##### Validação: Não permitir que o usuário tenha acesso a plataforma sem as credenciais cadastradas (email e senha)
+#### b. Login adotante.
+##### Validação: usuarioTeste@testando.com, teste123
+#### c. Login protetor.
+##### Validação: ONGTeste@testando.com, teste123
+
+Para o primeiro caso, acessamos a página de login, e foram realizados os testes:
+
+![IMAGEM 12](img/CT-Imagem-12.png)
+
+Para o teste de acesso do usuário temos:
+
+![IMAGEM 13](img/CT-Imagem-13.png)
+
+Foi possível o acesso do usuário a uma área do usuário adotante, podendo editar os campos de imagem, nome e email. Ao ser alterado um desses campos, é enviado um alerta da plataforma confirmando a alteração:
+
+![IMAGEM 14](img/CT-Imagem-14.png)
+
+O Logout é feito por meio do botão na tela superior clicando em sair:
+
+![IMAGEM 15](img/CT-Imagem-15.png)
+
+Ao clicar em sair o usuário é reenviado para a landing page, o teste foi realizado com a ong teste cadastrada, obtendo os mesmos resultados, assim podemos classificar esse teste com um score 3.

@@ -1,0 +1,16 @@
+.tableHead{
+    display: flex;
+    height: 40px !important;
+    justify-items: center;
+    align-items: center;
+    border-radius: 8px 8px 0px 0px;
+}
+
+.tableBody{
+    display: flex;
+    margin-bottom: 16px;
+    height: 40px !important;
+    justify-items: center;
+    align-items: center;
+}
+

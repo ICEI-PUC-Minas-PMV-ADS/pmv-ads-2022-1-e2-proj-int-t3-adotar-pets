@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="materialize/css/main.css">
+    <link rel="stylesheet" href="materialize/css/landingpage.css">
+    <link rel="stylesheet" href="materialize/css/questionario.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="materialize/img/favIcon.svg" type="image/x-icon" />
+    <title>Questionário</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div data-partial="navbarLog"></div>
+    <!-- //Navbar -->
+
+    <!-- Breadcrumbs-->
+    <div class="row breadcrumbz">
+        <div class="col s12">
+            <a href="index.html" class="fs-16 textcolor-secondary">Página inicial</a>
+            <a href="#!" class="fs-16 black-text">/ Questionário</a>
+        </div>
+        <div class="col s12">
+            <span class="fs-32 textcolor-secondary">Questionário</span>
+        </div>
+    </div>
+    <!-- //Breadcrumbs-->
+    
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="card-content">
+                    <form data-adopt>
+                        <div class="col s12">
+                            <div class="row">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="question" class="col s12 hide">
+                            <div class="row">
+                                <div class="fs-26 center textcolor-secondary" data-title></div>
+
+
+                                <div class="flex-col center-start col s12" id="alternatives">
+                                </div>
+
+                            </div>
+                            <div class="col s12 right-align btn-quest">
+                                <button type="submit" class="waves-effect amber darken-0 btn blue next-step">CONTINUAR</button>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div data-partial="footer"></div>
+    <!-- //Footer -->
+
+
+
+
+
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <script type="module" src="assets/js/layout.js"></script>
+    <script type="module" src="assets/js/pages/adopt.js"></script>
+    
+
+
+</body>
+
+</html>

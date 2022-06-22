@@ -12,7 +12,7 @@
     cursor: pointer;
 }
 
-.resizeImg{
+/* .resizeImg{
     padding: 0% !important;
     display: flex;
     flex-wrap: wrap;
@@ -24,5 +24,21 @@
     width: 128px;
     background-position: center;
     background-size: cover; 
-}
+} */
 
+.label-cadastro.error input {
+    border-bottom: 2px solid var(--alert) !important;
+    box-shadow: 0 1px 0 var(--alert) !important;
+  }
+  .label-cadastro.error small {
+    font-weight: bold;
+    color: var(--alert);
+    visibility: visible;
+  }
+  .label-cadastro.sucesso input {
+    border-bottom: 2px solid var(--tertiary);
+    box-shadow: 0 1px 0 var(--tertiary);
+  }
+  .label-cadastro.sucesso small {
+    visibility: hidden;
+  }
