@@ -398,7 +398,9 @@ ul {
   background-color: #f40b0b ;
   height: 100%;
   padding: 0px;
-  background-size: cover;
+  background-position: center;
+  background-size: cover; 
+
 }
 
 .input-branco{
@@ -482,7 +484,6 @@ ul {
   color:#ffffff
 }
 
-<<<<<<< HEAD
 .slider .indicators .indicator-item.active {
   background-color: #5b274e !important;
 }
@@ -492,11 +493,6 @@ ul {
 }
 
 
-=======
-.text-input-color {
-  color: white;
-}
->>>>>>> e8ae8f1fd40295294080fa33d58c4b836918489f
 
 
 @media (max-width: 1280px) {
@@ -563,4 +559,17 @@ padding-right: 0rem !important;
 
 .spinner.dog {
   background-image: url(../img/loading_dog.svg);
+}
+
+.slider .slides li img {
+  background-color: #fff !important;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.input-field > label {
+    color: black !important;
+    opacity: 100%;
 }
