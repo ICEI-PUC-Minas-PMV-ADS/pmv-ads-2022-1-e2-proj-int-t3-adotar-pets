@@ -420,9 +420,11 @@ ul {
 }
 
 .progress-bar {
+  margin-top: 5em;
   margin-bottom: 1rem;
   width: 100%;
   border: 1px solid var(--primary);
+  border-radius: 4px;
 }
 
 .progress-fill {
@@ -431,6 +433,14 @@ ul {
   background-color: var(--primary);
 }
 
+.question-title {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.next-step {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
+}
 /* Modificações nos selects */
 
 .select-edit-right {
