@@ -62,6 +62,9 @@ html {
 .fs-btn {
   font-size: 24px;
   font-weight: bold;
+  text-transform: none;
+  border-radius: 8px;
+  
 }
 .fs-20-b {
   font-size: 20px;
@@ -74,6 +77,8 @@ html {
 .fs-16 {
   font-size: 16px;
   font-weight: 400;
+  color:#212121;
+
 }
 .fs-16-b {
   font-size: 16px;
@@ -120,7 +125,7 @@ ul {
 }
 
 /* Modificação de elementos */
-.btnLogin {
+.btnLogin {  
   background-color: #fff;
   color: var(--secondary) !important;
   box-shadow: none !important;
@@ -149,7 +154,14 @@ ul {
   margin: 8px 12px;
   max-width: 168px;
 }
-.copyright-footer {
+
+.brand-logo{
+  margin-top:0.825em;
+  margin-left: 2em;
+  width: 266px;
+  height: 73px;
+}
+.copyright-footer {  
   padding: 5px 0px;
 }
 
