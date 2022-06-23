@@ -62,6 +62,9 @@ html {
 .fs-btn {
   font-size: 24px;
   font-weight: bold;
+  text-transform: none;
+  border-radius: 8px;
+  font-family: 'Quicksand', sans-serif;  
 }
 .fs-20-b {
   font-size: 20px;
@@ -74,6 +77,8 @@ html {
 .fs-16 {
   font-size: 16px;
   font-weight: 400;
+  color:#212121;
+
 }
 .fs-16-b {
   font-size: 16px;
@@ -120,7 +125,7 @@ ul {
 }
 
 /* Modificação de elementos */
-.btnLogin {
+.btnLogin {  
   background-color: #fff;
   color: var(--secondary) !important;
   box-shadow: none !important;
@@ -137,6 +142,7 @@ ul {
   box-shadow: none !important;
   background-repeat: no-repeat;
   background-position: center center;
+  margin-bottom: 5em;
 }
 .btnVoltar:hover {
   background-color: #ffffff;
@@ -149,7 +155,14 @@ ul {
   margin: 8px 12px;
   max-width: 168px;
 }
-.copyright-footer {
+
+.brand-logo{
+  margin-top:0.825em;
+  margin-left: 2em;
+  width: 266px;
+  height: 73px;
+}
+.copyright-footer {  
   padding: 5px 0px;
 }
 
@@ -171,7 +184,7 @@ ul {
   text-align: center;
   font-weight: 600;
   color: var(--secondary);
-  margin-bottom: 3.4rem;
+  margin-bottom: 3rem;
 }
 .redefirnir-senha {
   color: white;
@@ -227,6 +240,14 @@ ul {
 
 .label-form.error small {
   font-size: 12px;
+}
+
+.form-bottom {
+  padding: 0.825em;
+}
+
+.text-sign-up{
+  margin-top:1em;
 }
 
 /* Botões */
