@@ -30,7 +30,7 @@
     </div>
     <!-- //Breadcrumbs-->
 
-    <div class="container">
+    <div class="container profile-editor">
        
         <div class="row" style="height: 128px;">
 
@@ -54,7 +54,7 @@
 
        
 
-        <div class="row">
+        <div class="row personal-data">
 
             <div>
                 <span class="fs-32 textcolor-secondary">Dados pessoais</span>
@@ -81,24 +81,27 @@
                 </div>
                 
             </form>
-            <a class="waves-effect amber darken-0 0 btn fs-btn right" id="btn-salvar-perfil">salvar</a>
+            <a class="waves-effect amber darken-0 0 btn fs-btn right btn-edicao-perfil" id="btn-salvar-perfil">Salvar</a>
         </div>
        
-        
+        <div class="row change-password">
             <div>
                 <span class="fs-32 textcolor-secondary">Alterar senha</span>
             </div>
+
             <form data-senha class="col s12">
+
                 <div class="row">
+
                     <div class="row">
                         <div class="input-field col s12 label-form">
                             <input name="password.current" id="current-password" type="password" class="validate"
                                 minlength="8">
                             <label class="active" for="senha">Senha atual</label>
                             </br>
-                            <small>error message</small>
-    
+                            <small>error message</small>    
                         </div>
+
                         <div class="input-field col s12 label-form">
                             <input name="password.new" id="new-password" type="password" class="validate" minlength="8">
                             <label class="active" for="nova-senha">Nova senha</label>
@@ -113,11 +116,10 @@
                             <small>error message</small>
                         </div>
                     </div>
-                </div>
-                <button class="waves-effect amber darken-0 0 btn fs-btn right" id="btn-salvar-senha">alterar</button>
+                </div>               
             </form>
-     
-
+            <button class="waves-effect amber darken-0 0 btn fs-btn right btn-edicao-perfil" id="btn-salvar-senha">Alterar</button>
+        </div>
         <!-- Footer -->
         <div data-partial="footer"></div>
         <!-- //Footer -->
