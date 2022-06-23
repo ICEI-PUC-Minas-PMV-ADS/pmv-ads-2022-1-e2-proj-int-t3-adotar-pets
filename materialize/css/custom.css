@@ -468,6 +468,14 @@ ul {
 }
 
 
+.slider .indicators .indicator-item.active {
+  background-color: #5b274e !important;
+}
+
+.slider .indicators .indicator-item {
+  background-color: #9d7d95 !important;
+}
+
 
 
 
