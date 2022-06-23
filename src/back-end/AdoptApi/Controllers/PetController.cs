@@ -40,16 +40,17 @@ public class PetController : ControllerBase
     [HttpPut]
     [Route("update/{petId}")]
     [Authorize(Roles = nameof(UserType.Protector))]
-    public async Task<PetDto?> PetUpdate(int petId, [FromBody] PetUpdateProfile request)
+    public async Task<ActionResult<PetDto?>> UpdatePetProfile(int petId, [FromBody] UpdatePetProfile request)
     {
-        return await _petService.petUpdate(petId, request);
+        return await _petService.UpdatePetProfile(User.Identity.GetUserId(), petId, request);
     }
+    
     [HttpPut]
-    [Route("update/isActive/{petId}")]
+    [Route("status/{petId}")]
     [Authorize(Roles = nameof(UserType.Protector))]
-    public async Task<PetDto?> PetUpdateIsActive(int petId, [FromBody] PetUpdateProfile request)
+    public async Task<PetDto?> UpdatePetStatus(int petId, [FromBody] UpdatePetStatusRequest request)
     {
-        return await _petService.PetUpdateIsActive(petId, request);
+        return await _petService.UpdatePetStatus(User.Identity.GetUserId(), petId, request);
     }
     
     [HttpGet]

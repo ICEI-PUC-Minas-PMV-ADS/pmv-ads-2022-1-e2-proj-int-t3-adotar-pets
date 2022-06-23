@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using AdoptApi.Requests;
 using AutoMapper;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace AdoptApi.Services;
 
@@ -111,43 +112,42 @@ public class PetService
         return _mapper.Map<List<Pet>, List<PetDto>>(pets);
     }
 
-    public async Task<PetDto?> PetUpdateIsActive(int petId, PetUpdateProfile request)
+    public async Task<PetDto?> UpdatePetStatus(int userId, int petId, UpdatePetStatusRequest request)
     {
         try
         {
-            var pet = await _petRepository.GetPetById(petId);
+            var pet = await  _petRepository.GetPetByIdAndUserId(petId, userId);
             pet.IsActive = request.IsActive;
+            
             pet = await _petRepository.UpdatePet(pet);
             return GetPetDto(pet);
-        }
-        catch
-        {
-            _modelState.AddModelError("Pet", "Pet não encontrado.");
-            return null;
-        }
-    }
-    public async Task<PetDto?> petUpdate(int petId, PetUpdateProfile request)
-    {
-        try
-        {
-            var pet = await _petRepository.GetPetById(petId);
-            pet.Name = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Name,pet.Name);
-            pet.Description = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Descripition,pet.Description);
-            pet.Type = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Type,pet.Type);
-            //pet.BirthDate = Utils.FieldUtils.UpdateFieldOrUseDefault(request.BirthDate,pet.BirthDate);
-            pet.Gender = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Gender,pet.Gender);
-            pet.Size = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Size,pet.Size);
-
-            pet = await _petRepository.UpdatePet(pet);
-            return GetPetDto(pet);
-
         }
         catch (InvalidOperationException)
         {
             _modelState.AddModelError("Pet", "Pet não encontrado.");
             return null;
         }
+    }
+    
+    public async Task<PetDto?> UpdatePetProfile(int userId, int petId, UpdatePetProfile request)
+    {
+        try
+        {
+            var pet = await _petRepository.GetPetByIdAndUserId(petId, userId);
+            pet.Name = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Name,pet.Name);
+            pet.Description = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Descripition,pet.Description);
+            pet.Type = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Type,pet.Type);
+            //pet.BirthDate = Utils.FieldUtils.UpdateFieldOrUseDefault<>(request.BirthDate,pet.BirthDate);
+            pet.Gender = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Gender,pet.Gender);
+            pet.Size = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Size,pet.Size);
 
-        
+            pet = await _petRepository.UpdatePet(pet);
+            return GetPetDto(pet);
+        }
+        catch (InvalidOperationException)
+        {
+            _modelState.AddModelError("Pet", "Pet não encontrado.");
+            return null;
+        }
     }
 }
