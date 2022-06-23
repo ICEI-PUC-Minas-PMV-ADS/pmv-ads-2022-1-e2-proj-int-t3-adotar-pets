@@ -64,7 +64,7 @@ html {
   font-weight: bold;
   text-transform: none;
   border-radius: 8px;
-  
+  font-family: 'Quicksand', sans-serif;  
 }
 .fs-20-b {
   font-size: 20px;
@@ -142,6 +142,7 @@ ul {
   box-shadow: none !important;
   background-repeat: no-repeat;
   background-position: center center;
+  margin-bottom: 5em;
 }
 .btnVoltar:hover {
   background-color: #ffffff;
@@ -183,7 +184,7 @@ ul {
   text-align: center;
   font-weight: 600;
   color: var(--secondary);
-  margin-bottom: 3.4rem;
+  margin-bottom: 3rem;
 }
 .redefirnir-senha {
   color: white;
@@ -239,6 +240,14 @@ ul {
 
 .label-form.error small {
   font-size: 12px;
+}
+
+.form-bottom {
+  padding: 0.825em;
+}
+
+.text-sign-up{
+  margin-top:1em;
 }
 
 /* Botões */
