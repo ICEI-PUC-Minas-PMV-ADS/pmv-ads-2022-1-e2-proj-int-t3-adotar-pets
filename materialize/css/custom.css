@@ -479,10 +479,9 @@ ul {
 
 .form-contact {
   font-weight: bold;
-  color:#ffffff
+  color:#ffffff;
 }
 
-<<<<<<< HEAD
 .slider .indicators .indicator-item.active {
   background-color: #5b274e !important;
 }
@@ -492,11 +491,6 @@ ul {
 }
 
 
-=======
-.text-input-color {
-  color: white;
-}
->>>>>>> e8ae8f1fd40295294080fa33d58c4b836918489f
 
 
 @media (max-width: 1280px) {
