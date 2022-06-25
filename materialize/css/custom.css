@@ -377,6 +377,7 @@ ul {
   background-color: #f40b0b ;
   height: 100%;
   padding: 0px;
+  background-size: cover;
 }
 
 .input-branco{
@@ -384,7 +385,7 @@ ul {
 }
 
 .resizeImg{
-  padding: 0% !important;
+  padding: 0 !important;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -409,6 +410,46 @@ ul {
   background-color: var(--primary);
 }
 
+/* Modificações nos selects */
+
+.select-edit-right {
+  padding: 0rem !important;
+  padding-left: 0.75rem !important;
+  width: 100%;
+}
+
+.select-edit-left {
+  padding: 0rem !important;
+  padding-right: 0.75rem !important;
+  width: 100%;
+}
+
+.input-select {
+  height: 54px;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.ajuste{
+    margin: 0px 0px !important;
+}
+
+.input-edit-right {
+  padding: 0rem !important;
+  padding-left: 0.75rem !important;
+  width: 100%;
+}
+
+.input-edit-left {
+  padding: 0rem !important;
+  padding-right: 0.75rem !important;
+  width: 100%;
+}
+
+
+
+
+
 @media (max-width: 1280px) {
   #logoFooter {
     display: none;
@@ -432,5 +473,45 @@ ul {
   .bg-patas-redefinir{
     height: 400px;
 }
+
+.select-edit-right{
+  padding-left: 0rem !important;
+}
+
+.select-edit-left{
+  padding-right: 0rem !important;
+}
+
+.input-edit-right{
+padding-left: 0rem !important;
+}
+
+.input-edit-left{
+padding-right: 0rem !important;
+}
   
+}
+
+#loading {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgb(255,255,255);
+  align-items: center;
+  justify-content: center;
+  z-index: 9999999999;
+  display: flex;
+}
+
+.spinner {
+  width: 200px;
+  height: 200px;
+}
+
+.spinner.cat {
+  background-image: url(../img/loading_cat.svg);
+}
+
+.spinner.dog {
+  background-image: url(../img/loading_dog.svg);
 }

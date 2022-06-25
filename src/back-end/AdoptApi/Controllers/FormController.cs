@@ -43,4 +43,12 @@ public class FormController : ControllerBase
     {
         return await _formService.AnswerQuestion(User.Identity.GetUserId(), petId, request.AlternativeId!);
     }
+    
+    [HttpGet]
+    [Route("{formId:int}")]
+    [Authorize(Roles = nameof(UserType.Protector))]
+    public async Task<ActionResult<FormProtectorDto?>> GetForm(int formId)
+    {
+        return await _formService.ViewFormApplication(User.Identity.GetUserId(), formId);
+    }
 }

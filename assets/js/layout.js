@@ -1,5 +1,22 @@
 import {api} from './api/client.js';
 
+export const setLoading = (status) => {
+    if (!status) {
+        setTimeout(() => {
+            document.getElementById('loading')?.remove();
+            document.body.style.overflow = 'scroll';
+        }, 500);
+        return;
+    }
+    const loadingEl = document.createElement('div');
+    loadingEl.id = 'loading';
+    const spinner = document.createElement('div');
+    spinner.classList.add('spinner', Math.random() >= 0.5 ? 'dog' : 'cat');
+    loadingEl.insertAdjacentElement('beforeend', spinner);
+    document.body.insertAdjacentElement('beforebegin', loadingEl);
+    document.body.style.overflow = 'hidden';
+};
+
 const handleLayout = async () => {
     let loggedUser;
     try {
@@ -43,8 +60,9 @@ const handleLayout = async () => {
     }));
 }
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    handleLayout();
+document.addEventListener('DOMContentLoaded', async () => {
+    setLoading(true);
+    await handleLayout();
+    setLoading(false);
 });
 
