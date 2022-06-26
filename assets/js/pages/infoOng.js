@@ -20,5 +20,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('street').textContent = ong.address.name;
     document.getElementById('number').textContent = ong.address.number;
     document.getElementById('city').textContent = ong.address.city;
+    document.getElementById('complement').textContent = ong.address.complement;
     
 })
