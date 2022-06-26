@@ -56,7 +56,7 @@ public class PetRepository
 
     public async Task<List<Pet>> GetRegisteredPets(int userId)
     {
-        return await _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).Where(p => p.UserId == userId).OrderByDescending(p => p.Id).ToListAsync();
+        return await _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).Where(p => p.UserId == userId).OrderByDescending(p => p.CreatedOn).ToListAsync();
     }
 
     public async Task<List<Pet>> GetFilteredPets(SearchPetRequest search)
@@ -86,6 +86,6 @@ public class PetRepository
         {
             filter = filter.Where(p => DateTime.Now.Year - p.BirthDate.Year >= 7);
         }
-        return await filter.ToListAsync();
+        return await filter.OrderByDescending(p => p.CreatedOn).ToListAsync();
     }
 }
