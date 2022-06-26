@@ -64,6 +64,12 @@ Ao final do questionário o usuário recebe uma nota que o processo foi encaminh
 
 ![IMAGEM 11](img/fluxoAdocao5.PNG)
 
+Após o preenchimento do formulário de adoção, aparecerá na aba de gerenciamento da ONG o histórico do formulário preenchido pelo usuário e sua pontuação.
+
+![IMAGEM 12](img/fluxoAdocao6.PNG)
+
+Conforme visto o teste cumpre todos os requisitos de aceitação, sem apresentar problemas, assim tendo um status de 3.
+
 ## Testes de controle de acesso:
 
 ### CT - 03:
