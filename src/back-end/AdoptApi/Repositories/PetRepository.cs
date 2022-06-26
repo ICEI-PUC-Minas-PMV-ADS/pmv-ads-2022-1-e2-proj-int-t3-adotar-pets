@@ -10,6 +10,8 @@ public class PetRepository
 {
     private Context _context;
 
+    private static int DefaultDistanceInMeters = 20000;
+
     public PetRepository(Context context)
     {
         _context = context;
@@ -59,9 +61,9 @@ public class PetRepository
         return await _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).Where(p => p.UserId == userId).OrderByDescending(p => p.CreatedOn).ToListAsync();
     }
 
-    public async Task<List<Pet>> GetFilteredPets(SearchPetRequest search)
+    public async Task<List<Pet>> GetFilteredPets(User user, SearchPetRequest search)
     {
-        var filter = _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).Where(p => p.IsActive == true);
+        var filter = _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).Include("User.Address").Where(p => p.IsActive == true);
         if (search.Type != null)
         {
             filter = filter.Where(p => p.Type == search.Type);
@@ -86,6 +88,7 @@ public class PetRepository
         {
             filter = filter.Where(p => DateTime.Now.Year - p.BirthDate.Year >= 7);
         }
-        return await filter.OrderByDescending(p => p.CreatedOn).ToListAsync();
+        filter = filter.Where(p => p.User.Address.Location.IsWithinDistance(user.Address.Location, search.DistanceInKm != null ? (int) search.DistanceInKm * 1000 : DefaultDistanceInMeters));
+        return await filter.OrderBy(p => p.User.Address.Location.Distance(user.Address.Location)).ThenByDescending(p => p.CreatedOn).ToListAsync();
     }
 }

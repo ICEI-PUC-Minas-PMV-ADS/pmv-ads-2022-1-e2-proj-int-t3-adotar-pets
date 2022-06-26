@@ -111,9 +111,14 @@ public class PetService
         return _mapper.Map<List<Pet>, List<PetDto>>(pets);
     }
 
-    public async Task<List<PetDto?>> SearchPets(SearchPetRequest search)
+    public async Task<List<PetDto?>> SearchPets(int userId, SearchPetRequest search, UserService userService)
     {
-        var pets = await _petRepository.GetFilteredPets(search);
+        var user = await userService.GetUser(userId);
+        if (user == null)
+        {
+            return new List<PetDto?>();
+        }
+        var pets = await _petRepository.GetFilteredPets(user, search);
         return _mapper.Map<List<Pet>, List<PetDto?>>(pets);
     }
 
