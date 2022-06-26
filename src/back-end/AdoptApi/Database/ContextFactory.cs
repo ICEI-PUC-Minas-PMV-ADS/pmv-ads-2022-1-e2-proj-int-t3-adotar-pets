@@ -17,7 +17,7 @@ public class ContextFactory : IDesignTimeDbContextFactory<Context>
             .Build();
         var optionsBuilder = new DbContextOptionsBuilder<Context>(); 
         var connectionString = configurationBuilder.GetConnectionString("AdoptDatabase");
-        optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+        optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString), mySqlOptionsAction => mySqlOptionsAction.UseNetTopologySuite());
         optionsBuilder.AddInterceptors(new SoftDeletableEntityInterceptor());
 
         return new Context(optionsBuilder.Options);
