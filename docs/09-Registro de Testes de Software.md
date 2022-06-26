@@ -4,11 +4,10 @@ Foram realizados os testes de acordo com as tabelas mostradas no item 8, testes 
 
 | Código do Teste | Descrição | Score |
 |---------------------|-----------------------|-------------|
-| CT-01 | Fluxo de cadastro de animais | Status |
-| CT-02 | Fluxo de adoção do usuário adotante | Status |
+| CT-01 | Fluxo de cadastro de animais | 3 |
+| CT-02 | Fluxo de adoção do usuário adotante | 3 |
 | CT-03 | Cadastro de novos usuários na plataforma | 3 |
 | CT-04 | Login de usuários | 3 |
-| CT-05 | Modificação da senha | Status |
 
 O score dos testes seguem a tabela mostrada no item anterior, assim foram realizado os testes da seguinte forma.
 
@@ -35,8 +34,14 @@ Ao salvar, o usuário é redirecionado para a tela de gerenciamento dos Pets cad
 
 ![IMAGEM 6](img/fluxoCadastroPet6.PNG)
 
-...
+O perfil do pet é acessado por um usuário nas suas buscas, assim ele tem acesso ao seu perfil:
 
+![IMAGEM 7](img/fluxoCadastroPet7.PNG)
+
+Após podemos realizar alterações no pet cadastrado e verificarmos essas alterações no seu perfil
+
+![IMAGEM 8](img/fluxoCadastroPet8.PNG)
+Imagem 9
 ### CT - 02
 
 Com o acesso de usuário adotante, pode-se realizar uma busca por pets nos botões na barra de navegação ou na Landing page:
@@ -162,6 +167,3 @@ O Logout é feito por meio do botão na tela superior clicando em sair:
 ![IMAGEM 15](img/CT-Imagem-15.png)
 
 Ao clicar em sair o usuário é reenviado para a landing page, o teste foi realizado com a ong teste cadastrada, obtendo os mesmos resultados, assim podemos classificar esse teste com um score 3.
-
-### CT - 05:
-
