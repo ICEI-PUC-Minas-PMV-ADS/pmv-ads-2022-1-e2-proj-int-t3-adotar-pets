@@ -151,6 +151,7 @@ public class PetService
             pet.Size = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Size, pet.Size);
             pet.BirthDate = Utils.FieldUtils.UpdateFieldOrUseDefault(DateOnly.Parse(request.BirthDate), pet.BirthDate);
             pet.MinScore = Utils.FieldUtils.UpdateFieldOrUseDefault(request.MinScore, pet.MinScore);
+            pet.IsActive = Utils.FieldUtils.UpdateFieldOrUseDefault(request.IsActive, pet.IsActive);
             
             pet = await _petRepository.UpdatePet(pet);
             return GetPetDto(pet);
