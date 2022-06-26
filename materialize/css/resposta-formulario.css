@@ -1,0 +1,17 @@
+.borda{
+    padding-top: 30px;
+    background-color: #F7B801;
+    border-radius: 10px;
+    z-index: 0;
+}
+
+.card-resposta{
+    
+    padding: 40px;
+    height: 300px;
+    border: solid 1px #BDBDBD;
+    border-radius: 10px;
+    background-color: white;
+    z-index: 1;
+    
+}

@@ -48,10 +48,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             </div>
             
             <div class="col s6">
-                <a class="col s12 waves-effect white btn-perfilpet btn-large fs-btn" href="">Quero ajudar</a>
+                <a class="col s12 waves-effect white btn-perfilpet btn-large fs-btn" href="infoOng.html?id=${pet.userId}">Quero ajudar</a>
             </div>
          </div>
         `;
+
         cardContainer.insertAdjacentElement('beforeend', card);
         M.Slider.init(document.querySelectorAll('.slider'));
     } catch (e) {
