@@ -16,7 +16,13 @@ export const petAges = [
 export const getPetAge = (birthDate) => {
     birthDate = new Date(`${birthDate}T00:00:00`);
     const seconds = (Date.now() / 1000) - (birthDate.getTime() / 1000);
-    return petAges.reverse().find(age => age.value <= seconds).label;
+    return petAges.slice().reverse().find(age => age.value <= seconds).label;
+};
+
+export const getPetAgeInSeconds = (birthDate) => {
+    birthDate = new Date(`${birthDate}T00:00:00`);
+    const seconds = (Date.now() / 1000) - (birthDate.getTime() / 1000);
+    return petAges.slice().reverse().find(age => age.value <= seconds).value;
 };
 
 export const getPetGender = (gender) => {

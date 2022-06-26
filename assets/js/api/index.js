@@ -145,4 +145,8 @@ export class Api {
         return this.#get('pet/needs', true);
     }
     
+    async listAdoptionRequests(petId) {
+        return this.#get(`pet/forms/${petId}`, true);
+    }
+    
 }

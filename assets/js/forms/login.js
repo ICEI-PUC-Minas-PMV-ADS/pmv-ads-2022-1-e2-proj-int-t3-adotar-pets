@@ -1,7 +1,7 @@
 import { setFieldError, Validate } from "./validation.js";
 import {mergeDeep} from "../utils.js";
 import {api} from '../api/client.js';
-import {redirectIfLogged} from '../helpers/redirect.js';
+import {redirectIfLogged, redirectTo} from '../helpers/redirect.js';
 
 redirectIfLogged().then(() => {
     const loginForm = document.querySelector('[data-login]');
@@ -32,8 +32,8 @@ redirectIfLogged().then(() => {
         });
         if (!errors) {
             try {
-                await api.login(validatedInputs);
-                location.href = 'index.html';
+                const {user} = await api.login(validatedInputs);
+                redirectTo(user.document.type === 0 ? 'busca.html' : 'gerenciar-pets.html');
             } catch (e) {
                 try {
                     const error = JSON.parse(e.message);
