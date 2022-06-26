@@ -38,6 +38,22 @@ public class PetController : ControllerBase
     {
         return await _petService.PetRegister(User.Identity.GetUserId(), request, _imageUploadService);
     }
+
+    [HttpPut]
+    [Route("update/{petId}")]
+    [Authorize(Roles = nameof(UserType.Protector))]
+    public async Task<ActionResult<PetDto?>> UpdatePetProfile(int petId, [FromBody] UpdatePetProfile request)
+    {
+        return await _petService.UpdatePetProfile(User.Identity.GetUserId(), petId, request);
+    }
+    
+    [HttpPut]
+    [Route("status/{petId}")]
+    [Authorize(Roles = nameof(UserType.Protector))]
+    public async Task<PetDto?> UpdatePetStatus(int petId, [FromBody] UpdatePetStatusRequest request)
+    {
+        return await _petService.UpdatePetStatus(User.Identity.GetUserId(), petId, request);
+    }
     
     [HttpGet]
     [Route("needs")]

@@ -1,9 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
 using AdoptApi.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace AdoptApi.Requests;
 
-public class CreatePetRequest : IValidatableObject
+public class UpdatePetProfile : IValidatableObject
 {
     [Required(ErrorMessage = "O nome do animal é obrigatório."), MinLength(2, ErrorMessage = "O nome do pet deve possuir mais que 2 caracteres.")]
     public string Name { get; set; }
@@ -19,10 +19,7 @@ public class CreatePetRequest : IValidatableObject
     public int MinScore { get; set; }
     [Required(ErrorMessage = "A descrição do animal é obrigatória. Conte um pouco sobre o pet para que o adotante saiba um pouco mais sobre ele."), StringLength(400, MinimumLength = 20, ErrorMessage = "O campo de descrição deve possuir no mínimo 20 caracteres e no máximo 400 caracteres")]
     public string Description { get; set; }
-    [Required(ErrorMessage = "O pet deve ter de uma a três fotos."), MinLength(1, ErrorMessage = "Seu pet deve ter no mínimo uma foto."), MaxLength(3, ErrorMessage = "Seu pet deve ter no máximo 3 fotos.")]
-    public List<IFormFile> Pictures { get; set; }
-    public int[]? Needs { get; set; }
-
+    
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
     {
         DateOnly? birthDate;
