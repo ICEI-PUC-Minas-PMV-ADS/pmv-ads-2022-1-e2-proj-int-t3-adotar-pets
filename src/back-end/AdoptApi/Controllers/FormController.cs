@@ -35,7 +35,7 @@ public class FormController : ControllerBase
     {
         return await _formService.GetAdoptionProgress(User.Identity.GetUserId(), petId);
     }
-
+    
     [HttpPost]
     [Route("adopt/{petId:int}")]
     [Authorize(Roles = nameof(UserType.Adopter))]
@@ -43,12 +43,12 @@ public class FormController : ControllerBase
     {
         return await _formService.AnswerQuestion(User.Identity.GetUserId(), petId, request.AlternativeId!);
     }
-
-    [HttpPost]
-    [Route("adopt/pet/formlist")]
+    
+    [HttpGet]
+    [Route("{formId:int}")]
     [Authorize(Roles = nameof(UserType.Protector))]
-    public async Task<ActionResult<List<FormDto?>>> ListFormsByPetId(int petId)
+    public async Task<ActionResult<FormProtectorDto?>> GetForm(int formId)
     {
-        return await _formService.ListFormsByPetId(User.Identity.GetUserId(), petId);
+        return await _formService.ViewFormApplication(User.Identity.GetUserId(), formId);
     }
 }

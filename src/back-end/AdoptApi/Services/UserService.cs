@@ -217,6 +217,7 @@ public class UserService
             return null;
         }
     }
+    
     public async Task<UserDto?> UpdateProfilePicture(int userId, UpdateProfilePictureRequest request, ImageUploadService service)
     {
         try

@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using AdoptApi.Requests;
 using AutoMapper;
-using Microsoft.VisualBasic.CompilerServices;
 
 namespace AdoptApi.Services;
 
@@ -110,6 +109,12 @@ public class PetService
     {
         var pets = await _petRepository.GetRegisteredPets(userId);
         return _mapper.Map<List<Pet>, List<PetDto>>(pets);
+    }
+
+    public async Task<List<PetDto?>> SearchPets(SearchPetRequest search)
+    {
+        var pets = await _petRepository.GetFilteredPets(search);
+        return _mapper.Map<List<Pet>, List<PetDto?>>(pets);
     }
 
     public async Task<PetDto?> UpdatePetStatus(int userId, int petId, UpdatePetStatusRequest request)
