@@ -72,7 +72,7 @@ public class FormRepository
 
     public async Task<List<Form>> ListFormsByPet(int petId, int protectorId)
     {
-        return await _context.Forms.Include(nameof(User)).Include("User.Picture").Include(nameof(Pet)).Where(f => f.Pet.UserId == protectorId && f.PetId == petId && f.IsFinished == true).ToListAsync();
+        return await _context.Forms.Include(nameof(User)).Include("User.Picture").Include(nameof(Pet)).Where(f => f.Pet.UserId == protectorId && f.PetId == petId && f.IsFinished == true).OrderByDescending(f => f.TotalScore).ThenByDescending(f => f.CreatedOn).ToListAsync();
     }
     
     public async Task<Form> GetFormByIdAndProtector(int id, int protectorId)
