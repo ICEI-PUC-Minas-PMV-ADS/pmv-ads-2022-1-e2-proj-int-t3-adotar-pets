@@ -11,10 +11,10 @@ public class Pet : ITrackable, ISoftDeletable
     public PetType Type { get; set; }
     public PetGender Gender { get; set; }
     public PetSize Size { get; set; }
-    public string Name { get; set; }
+    public string? Name { get; set; }
     public int MinScore { get; set; }
     [Column(TypeName = "text")]
-    public string Description { get; set; }
+    public string? Description { get; set; }
     public DateOnly BirthDate { get; set; }
     public bool IsActive { get; set; } = true;
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
