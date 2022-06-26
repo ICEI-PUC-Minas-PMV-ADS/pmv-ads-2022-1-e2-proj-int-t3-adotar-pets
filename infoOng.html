@@ -38,28 +38,31 @@
 
     <div class="container">
 
-        <div class="row">
-            <div class="col s8 cardinfoOng center-center ">
+        <div class="row  bg-perfilOng flex-col center-center">
+            <div class="col s12 m12 l12 cardinfoOng center-center ">
 
-                <div class=" col s4 resizeImg ">
-                    <img id="output_image" width="128" height="128">
+                <div class="col s12 m12 l4 resizeImgCard ">
+                    <img id="output_image" width="240" height="240">
                 </div>
 
-                <div class="col s8">
-                    <span id="name-ong" class="fs-52 textcolor-secondary">Nome da Ong</span>
-                </div>
-                <div class="col s8 textcolor-secondary">
-                    <div>
-                        <span id="document" class="fs-20 ">CNPJ:</span>
-                        <p>
+                <div class="col s12 m12 l8 ">
+                    <div class="col s12">
+                        <span id="name-ong" class="fs-52 textcolor-secondary">Nome da Ong</span>
+                    </div>
+                    <div class="col s12 textcolor-secondary">
+                        <div>
+                            <span class="fs-20-b ">CNPJ:</span>
+                            <span id="document" class="fs-20 ">CNPJ:</span>
+                        </div>
+                    </div>
+                    <div class="col s12 mb-24 flex-col center-start"> 
+                        <span id="street" class="fs-16">Rua</span>
+                        <span id="number" class="fs-16">Número</span>
+                        <span id="zipcode" class="fs-16">CEP</span>
+                        <span id="city" class="fs-16">Cidade</span>
                     </div>
                 </div>
-                <div class="col s8 mb-24 flex-col center-start">
-                    <span id="zipcode" class="fs-16">CEP</span>
-                    <span id="street" class="fs-16">Rua</span>
-                    <span id="number" class="fs-16">Número</span>
-                    <span id="city" class="fs-16">Cidade</span>
-                </div>
+               
 
             </div>
         </div>
@@ -70,13 +73,13 @@
     <div data-partial="footer"></div>
     <!-- //Footer -->
 
-    <script>
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', function () {
             var elems = document.querySelectorAll('.slider');
             var instances = M.Slider.init(elems,);
 
         });
-    </script>
+    </script> -->
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <script type="module" src="assets/js/layout.js"></script>
     <script type="module" src="assets/js/pages/infoOng.js"></script>

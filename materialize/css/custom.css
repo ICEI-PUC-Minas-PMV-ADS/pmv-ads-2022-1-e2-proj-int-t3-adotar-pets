@@ -354,6 +354,10 @@ ul {
   width: 100%;
 }
 
+.bg-perfilOng{
+  height: 528px;
+  width: 100%;
+}
 
 .bg-patas {
   height: 528px;
@@ -382,6 +386,8 @@ ul {
   background-image: url(../img/padraoPatas.svg);
   background-color: var(--secondary);
 }
+
+
 
 .card-pet{
   background-color: #e7e7e7 ;
@@ -511,11 +517,16 @@ ul {
 }
 
 @media(max-width: 600px){
-    
-  .bg-patas{
-      height: 1112px;
-  }
-  .bg-patas-redefinir{
+
+.bg-perfilOng{
+    height: 640px;
+    width: 100%;
+}
+
+.bg-patas{
+    height: 1112px;
+}
+.bg-patas-redefinir{
     height: 400px;
 }
 
