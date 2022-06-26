@@ -139,15 +139,14 @@ public class PetService
         try
         {
             var pet = await _petRepository.GetPetByIdAndUserId(petId, userId);
-            pet.Name = Utils.FieldUtils.VariableIsNull(request.Name) ? pet.Name : request.Name;
-            pet.Description = Utils.FieldUtils.VariableIsNull(request.Descripition)
-                ? pet.Description
-                : request.Descripition;
-            pet.Type = (PetType)(Utils.FieldUtils.VariableIsNull(request.Type) ? pet.Type : request.Type);
-            pet.Gender = (PetGender)(Utils.FieldUtils.VariableIsNull(request.Gender) ? pet.Gender : request.Gender);
-            pet.Size = (PetSize)(Utils.FieldUtils.VariableIsNull(request.Size) ? pet.Size : request.Size);
-            pet.BirthDate = Utils.FieldUtils.VariableIsNull(request.BirthDate) ? pet.BirthDate : DateOnly.Parse(request.BirthDate);
-
+            pet.Name = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Name, pet.Name);
+            pet.Description = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Description, pet.Description);
+            pet.Type = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Type, pet.Type);
+            pet.Gender = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Gender, pet.Gender);
+            pet.Size = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Size, pet.Size);
+            pet.BirthDate = Utils.FieldUtils.UpdateFieldOrUseDefault(DateOnly.Parse(request.BirthDate), pet.BirthDate);
+            pet.MinScore = Utils.FieldUtils.UpdateFieldOrUseDefault(request.MinScore, pet.MinScore);
+            
             pet = await _petRepository.UpdatePet(pet);
             return GetPetDto(pet);
         }
