@@ -100,21 +100,65 @@ public class PetService
             return GetPetDto(petProfile);
         } catch (InvalidOperationException)
         {
-            _modelState.AddModelError("Pet", "Pet não existe ou não está ativo.");
+            _modelState.AddModelError("Pet", "Pet não encontrado ou não está ativo.");
             return null;
         }
     }
     
-    public async Task<List<PetDto>> ListPets(int userId)
+    public async Task<List<PetDto?>> ListPets(int userId)
     {
         var pets = await _petRepository.GetRegisteredPets(userId);
         return _mapper.Map<List<Pet>, List<PetDto>>(pets);
     }
 
-    public async Task<List<PetDto?>> SearchPets(SearchPetRequest search)
+    public async Task<List<PetDto?>> SearchPets(int userId, SearchPetRequest search, UserService userService)
     {
-        var pets = await _petRepository.GetFilteredPets(search);
+        var user = await userService.GetUser(userId);
+        if (user == null)
+        {
+            return new List<PetDto?>();
+        }
+        var pets = await _petRepository.GetFilteredPets(user, search);
         return _mapper.Map<List<Pet>, List<PetDto?>>(pets);
     }
+
+    public async Task<PetDto?> UpdatePetStatus(int userId, int petId, UpdatePetStatusRequest request)
+    {
+        try
+        {
+            var pet = await  _petRepository.GetPetByIdAndUserId(petId, userId);
+            pet.IsActive = request.IsActive;
+            
+            pet = await _petRepository.UpdatePet(pet);
+            return GetPetDto(pet);
+        }
+        catch (InvalidOperationException)
+        {
+            _modelState.AddModelError("Pet", "Pet não encontrado.");
+            return null;
+        }
+    }
     
+    public async Task<PetDto?> UpdatePetProfile(int userId, int petId, UpdatePetProfile request)
+    {
+        try
+        {
+            var pet = await _petRepository.GetPetByIdAndUserId(petId, userId);
+            pet.Name = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Name, pet.Name);
+            pet.Description = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Description, pet.Description);
+            pet.Type = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Type, pet.Type);
+            pet.Gender = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Gender, pet.Gender);
+            pet.Size = Utils.FieldUtils.UpdateFieldOrUseDefault(request.Size, pet.Size);
+            pet.BirthDate = Utils.FieldUtils.UpdateFieldOrUseDefault(DateOnly.Parse(request.BirthDate), pet.BirthDate);
+            pet.MinScore = Utils.FieldUtils.UpdateFieldOrUseDefault(request.MinScore, pet.MinScore);
+            
+            pet = await _petRepository.UpdatePet(pet);
+            return GetPetDto(pet);
+        }
+        catch (InvalidOperationException)
+        {
+            _modelState.AddModelError("Pet", "Pet não encontrado.");
+            return null;
+        }
+    }
 }

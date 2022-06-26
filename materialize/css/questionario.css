@@ -32,7 +32,10 @@
   }
 
   .btn-quest{
+    display: block;
+    align-items: flex-end;
     position: relative !important;
+   
   }
 
   .horizontal{

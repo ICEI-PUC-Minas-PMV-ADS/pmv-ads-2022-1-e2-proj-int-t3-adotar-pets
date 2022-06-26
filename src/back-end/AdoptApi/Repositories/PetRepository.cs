@@ -10,14 +10,21 @@ public class PetRepository
 {
     private Context _context;
 
+    private static int DefaultDistanceInMeters = 20000;
+
     public PetRepository(Context context)
     {
         _context = context;
     }
-
+    
+    public async Task<Pet> GetPetByIdAndUserId(int id, int userId)
+    {
+        return await _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).Include(nameof(Pet.User)).SingleAsync(p => p.Id == id && p.User.Id == userId);
+    }
+    
     public async Task<Pet> GetPetById(int id)
     {
-        return await _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).SingleAsync(p => p.Id == id);
+        return await _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).Include(nameof(Pet.User)).SingleAsync(p => p.Id == id);
     }
 
     public async Task<Pet> CreatePet(Pet pet)
@@ -27,6 +34,13 @@ public class PetRepository
         return pet;
     }
 
+    public async Task<Pet> UpdatePet(Pet pet)
+    {
+        _context.Pets.Update(pet);
+        await _context.SaveChangesAsync();
+        return pet;
+    }
+    
     public async Task<List<Need>> GetAvailableNeeds()
     {
         return await _context.Needs.Where(n => n.IsActive == true).ToListAsync();
@@ -44,12 +58,12 @@ public class PetRepository
 
     public async Task<List<Pet>> GetRegisteredPets(int userId)
     {
-        return await _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).Where(p => p.UserId == userId).OrderByDescending(p => p.Id).ToListAsync();
+        return await _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).Where(p => p.UserId == userId).OrderByDescending(p => p.CreatedOn).ToListAsync();
     }
 
-    public async Task<List<Pet>> GetFilteredPets(SearchPetRequest search)
+    public async Task<List<Pet>> GetFilteredPets(User user, SearchPetRequest search)
     {
-        var filter = _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).Where(p => p.IsActive == true);
+        var filter = _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).Include("User.Address").Where(p => p.IsActive == true);
         if (search.Type != null)
         {
             filter = filter.Where(p => p.Type == search.Type);
@@ -74,6 +88,7 @@ public class PetRepository
         {
             filter = filter.Where(p => DateTime.Now.Year - p.BirthDate.Year >= 7);
         }
-        return await filter.ToListAsync();
+        filter = filter.Where(p => p.User.Address.Location.IsWithinDistance(user.Address.Location, search.DistanceInKm != null ? (int) search.DistanceInKm * 1000 : DefaultDistanceInMeters));
+        return await filter.OrderBy(p => p.User.Address.Location.Distance(user.Address.Location)).ThenByDescending(p => p.CreatedOn).ToListAsync();
     }
 }

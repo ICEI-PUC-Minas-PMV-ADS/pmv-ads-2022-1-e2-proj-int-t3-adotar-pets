@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const petSize = urlParams.get('size') ?? null;
     const petAge = urlParams.get('age') ?? null;
     const petGender = urlParams.get('gender') ?? null;
+    const distanceInKm = urlParams.get('distanceinkm') ?? null;
     let pets = await api.searchPet(urlParams.toString());
 
     selectElems.forEach(elem => {
@@ -36,6 +37,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 break
             case "gender":
                 selectItem(elem, petGender); 
+                break
+            case "distanceinkm":
+                selectItem(elem, distanceInKm);
                 break
             default:
                 break
@@ -66,7 +70,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             <div class="col s6 foto-card" style="background-image: url(${pet.pictures?.[0]?.url ?? ''})"></div>
         </div>
         `;
-        cardContainer.insertAdjacentElement('afterbegin', card);
+        cardContainer.insertAdjacentElement('beforeend', card);
     });
 });
 

@@ -4,6 +4,6 @@ public static class FieldUtils
 {
     public static T? UpdateFieldOrUseDefault<T>(T value, T? defaultValue)
     {
-        return EqualityComparer<T>.Default.Equals(value, default) ? defaultValue : value;
+        return EqualityComparer<T>.Default.Equals(value, defaultValue) ? defaultValue : value;
     }
 }

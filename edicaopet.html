@@ -37,70 +37,23 @@
         </div>
     </div>
     <!-- //Breadcrumbs-->
-    <div class="container">
-
-        <div class="row" style="height: 128px;">
-
-            <div class="col s12 m3 l2 resizeImg ">
-                <img id="output_image" width="128" height="128">
-                <div class="imghover flex-row center-center">
-                    <a class="right btn-floating btn-large waves-effect waves amber darken-0"
-                        onclick="inserirImagem()"><i class="large material-icons">add</i></a>
-                </div>
-            </div>
-            <div>
-                <input class="hide" id="image-input" type="file" accept="image/png , image/jpeg">
-            </div>
-
-            <div class="col s12 m3 l2 resizeImg ">
-                <img id="output_image2" width="128" height="128">
-                <div class="imghover flex-row center-center">
-                    <a class="right btn-floating btn-large waves-effect waves amber darken-0"
-                        onclick="inserirImagem2()"><i class="large material-icons">add</i></a>
-                </div>
-            </div>
-
-            <div>
-                <input class="hide" id="image-input2" type="file" accept="image/png , image/jpeg">
-            </div>
-
-            <div class="col s12 m3 l2 resizeImg ">
-                <img id="output_image3" width="128" height="128">
-                <div class="imghover flex-row center-center">
-                    <a class="right btn-floating btn-large waves-effect waves amber darken-0"
-                        onclick="inserirImagem3()"><i class="large material-icons">add</i></a>
-                </div>
-            </div>
-
-            <div>
-                <input class="hide" id="image-input3" type="file" accept="image/png , image/jpeg">
-            </div>
-
-            <div class="col s12 m4 l3 flex-col center-start">
-                <span class="fs-20-b textcolor-secondary">Adicionar até 3 Fotos</span>
-                <span class="fs-14">JPG e PNG somente</span>
-            </div>
-
-
-        </div>
+    <div class="container edit-pet">
 
         <div class="row">
-
-
-
+            
             <form data-edit-pet class="col s12">
 
                 <div class="row">
 
                     <div class="row ajuste">
                         <div class=" input-field col s12 m6 l6 label-form input-edit-left">
-                            <input name="pet.name" id="nome-pet"type="text" class="validate">
-                            <label class="active" for="nome-pet">Nome</label>
+                            <input value="" id="nome-pet" name="name" type="text" class="validate">
+                            <label class="active label-color" for="nome-pet">Nome</label>
                             <small>Error message</small>
                         </div>
 
-                        <div class=" input-field col s12 m6 l6 label-form input-edit-right">
-                            <select name="pet.birthdate" id="idade-pet" class="validate">
+                        <div class=" input-field col s12 m6 l6 label-form input-edit-right ">
+                            <select id="idade-pet" name="birthdate" class="validate ">
                                 <option value="" disabled selected>Idade Aproximada</option>
                             </select>
                             <small>Error message</small>
@@ -108,30 +61,45 @@
                     </div>
 
 
+
                     <div
-                        class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-left label-form">
+                            class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-left left label-form">
+                        <select id="tipo-pet" name="type" class="validate">
+                            <option value="" disabled selected>Tipo</option>
+                            <option value="0">Cachorro</option>
+                            <option value="1">Gato</option>
+                        </select>
+                        <small>Error message</small>
+                    </div>
+                    <div
+                            class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-right label-form">
+                        <select id="genero-pet" name="gender" class="validate">
+                            <option value="" disabled selected>Gênero</option>
+                            <option value="0">Fêmea</option>
+                            <option value="1">Macho</option>
+                        </select>
+                        <small>Error message</small>
+                    </div>
 
-                        <select multiple  name="pet.needs" id="condicoes-pet" class="validate">
 
 
-                            <option value="0" disabled selected>Condições Especiais</option>
-                            <option value="1" >Deficiência visual</option>
-                            <option value="2">Deficiência auditiva</option>
-                            <option value="3">Deficiência motora</option>
-                            <option value="4">Doenças transmissíveis</option>
-
+                    <div
+                            class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-left left label-form">
+                        <select id="porte-pet" name="size" class="validate">
+                            <option value="" disabled selected>Porte</option>
+                            <option value="0">Pequeno</option>
+                            <option value="1">Médio</option>
+                            <option value="2">Grande</option>
                         </select>
                         <small>Error message</small>
                     </div>
 
                     <div
-                        class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-right  label-form ">
-                        <select  name="pet.score" id="pontuacao-pet"  class="validate">
-
-
+                            class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-left  label-form ">
+                        <select id="pontuacao-pet" name="minScore" class="validate">
                             <option value="" disabled selected>Pontuação mínima para receber e-mails</option>
                             <option value="20">20%</option>
-                            <option id="quarenta">40%</option>
+                            <option value="40">40%</option>
                             <option value="60">60%</option>
                             <option value="80">80%</option>
                             <option value="100">100%</option>
@@ -139,19 +107,26 @@
                         <small>Error message</small>
                     </div>
 
+                    <div
+                            class="input-field input-select col s12 m6 l6 fs-12 grey-text darken-1 select-edit-left left label-form">
+                        <select id="status-pet" name="isActive" class="validate">
+                            <option value="" disabled selected>Status</option>
+                            <option value="0">Adotado/Indisponível</option>
+                            <option value="1">Disponível</option>
+                        </select>
+                        <small>Error message</small>
+                    </div>
 
-
-
-                    <div class="input-field col s12 m12 l12 input-edit-right label-form">
-                        <textarea  name="pet.description" id="descricao-pet" class="materialize-textarea"></textarea>
-                        <label for="descricao-pet">Descrição</label>
+                    <div class="input-field col s12 m6 l6 input-edit-right label-form">
+                        <textarea id="descricao-pet" class="materialize-textarea" name="description"></textarea>
+                        <label class="text-area-color" for="descricao-pet">Descrição</label>
                         <small>Error message</small>
                     </div>
 
 
 
-                    <button class="waves-effect amber darken-0 0 btn fs-btn right" type="submit"
-                        name="btn-salvar">Salvar</button>
+                    <button class="waves-effect amber darken-0 0 btn fs-btn right btn-save" type="submit"
+                            name="btn-salvar">Salvar</button>
 
                 </div>
 
@@ -160,69 +135,20 @@
 
         </div>
 
-        
-        <div class="row">
-         
-            <div class="col s6">
-                <button class="col s12 waves-effect amber darken-0 0 btn-large fs-btn right " type="button" name="btn-salvar">Disponível</button>
-            </div>
-         
-            <div class="col s6">
-                <button class="col s12 waves-effect amber darken-0 0 btn-large disabled fs-btn right " type="button" name="btn-salvar">Adotado</button>
-            </div>
-        </div>
-
         <div class="col s12 mb-24 center textcolor-secondary center-center">
             <span class="fs-40">Solicitações de adoção</span>
         </div>
 
       
-        <div class="tableModel">
+        <div class="tableModel" id="requests">
             <div class="row color-secondary tableHead">
-                <div class="col s2"></div>
-                <div class="col s3 fs-14-b white-text">NOME</div>
-                <div class="col s2 fs-14-b white-text">IDADE</div>
-                <div class="col s2 fs-14-b white-text">DATA DA ADOÇÃO</div>
-                <div class="col s3 fs-14-b white-text">STATUS</div>
+                <div class="col s1"></div>
+                <div class="col s4 fs-14-b white-text">NOME</div>
+                <div class="col s3 fs-14-b white-text">DATA DA SOLICITAÇÃO</div>
+                <div class="col s2 fs-14-b white-text">PONTUAÇÃO</div>
+                <div class="col s2 fs-14-b white-text"></div>
             </div>
             
-            <div>
-                <div class="row tableBody  ">
-                    <div class="col s2 ">
-                        <img id="output_image2" width="40" height="40">
-                    </div>
-                    <div class="col s3">Nome sobrenome</div>
-                    <div class="col s2">00 anos</div>
-                    <div class="col s2">00/00/0000</div>
-                    <div class="col s3">Compatível</div>
-                    <div class="divider"></div>
-                </div>
-               
-            </div>
-            <div>
-                <div class="row tableBody  ">
-                    <div class="col s2 ">
-                        <img id="output_image2" width="40" height="40">
-                    </div>
-                    <div class="col s3">Nome sobrenome</div>
-                    <div class="col s2">00 anos</div>
-                    <div class="col s2">00/00/0000</div>
-                    <div class="col s3">Compatível</div>
-                    <div class="divider"></div>
-                </div>
-            </div>
-            <div>
-                <div class="row tableBody  ">
-                    <div class="col s2 ">
-                        <img id="output_image2" width="40" height="40">
-                    </div>
-                    <div class="col s3">Nome sobrenome</div>
-                    <div class="col s2">00 anos</div>
-                    <div class="col s2">00/00/0000</div>
-                    <div class="col s3">Compatível</div>
-                    <div class="divider"></div>
-                </div>
-            </div>
         </div>
         
         
@@ -240,15 +166,7 @@
     
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <script type="module" src="assets/js/layout.js"></script>
-    <script type="module" src="assets/js/pages/edicaopet.js"></script>
+    <script type="module" src="assets/js/pages/editpet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.2/imask.min.js" integrity="sha512-l0grYOI8XZga5TajPOiqLrQVCKrdh+k0QSEtS+cpJlNeI8Nu9GOhsVaFyFQuPQfYp02GnhsyHqkPR7P7BTKYAQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    
-
-
-
-
-
-
 
 </body>
