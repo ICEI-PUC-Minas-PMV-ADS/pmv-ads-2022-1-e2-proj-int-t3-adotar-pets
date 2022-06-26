@@ -14,13 +14,14 @@
     <link rel="shortcut icon" href="materialize/img/favIcon.svg" type="image/x-icon" />
     <link rel="stylesheet" href="materialize/css/perfil-adotante.css">
     <link rel="stylesheet" href="materialize/css/config.css">
+    <link rel="stylesheet" href="materialize/css/contato.css">
 
     <title>Contato</title>
 </head>
 
 <body>
     <!-- Navbar -->
-    <div data-partial="navbar"></div>
+    <div data-partial="navbar" data-adopter="navbarLog" data-protector="navbarLogOng"></div>
     <!-- //Navbar -->
 
     <!-- Breadcrumbs-->
@@ -36,7 +37,7 @@
     <!-- //Breadcrumbs-->
     <div class="bg-patas-contato flex-col center-center">
 
-        <form class="container "action="mailto:contatopetnow@gmail.com" method="get" enctype="text/plain">
+        <form data-contact class="container form-contact"action="mailto:contatopetnow@gmail.com" method="get" enctype="text/plain">
             <div class="row ">
                 <div class="col s12 white-color-font center-align">
                     <h4>Como podemos ajudar?</h4>
@@ -45,24 +46,24 @@
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s6 label-form input-edit-left label-form small center-align">
-                    <input value="" id="#" name="#" type="text" class="validate">
+                <div class="input-field col s6 label-form input-edit-left  small center-align">
+                    <input value="" id="name" name="user.name" type="text" class="validate text-input-color input-branco">
                     <label>Nome</label>
 
                 </div>
 
-                <div class="input-field col s6 label-form input-edit-left label-form small center-align">
-                    <input value="" id="" name="#" type="text" class="validate">
+                <div class="input-field col s6 label-form input-edit-left  small center-align ">
+                    <input value="" id="email" name="user.email" type="text" class="validate text-input-color input-branco">
                     <label>E-mail</label>
 
                 </div>
      
-                <div class="input-field col s12 input-edit-left label-form small center-align">
-                    <textarea id="" class="materialize-textarea" name=""></textarea>
+                <div class="input-field col s12 input-edit-left  small center-align">
+                    <textarea id="doubt" class="materialize-textarea input-branco"  name="user.doubt"></textarea>
                     <label for="duvida">Sua Dúvida</label>
                 </div>
 
-                <button class="col s12 m12 l3 waves-effect amber darken-0 0 btn fs-btn right" >Enviar</button>
+                <button class="col s12 m12 l3 waves-effect amber darken-0 0 btn-small fs-btn btn-borda fs-14-b right" >Enviar dúvida</button>
             </div>
 
         </form>
@@ -80,6 +81,7 @@
 
         <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
         <script type="module" src="assets/js/layout.js"></script>
+        <script type="module" src="assets/js/pages/contato.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.2/imask.min.js"
             integrity="sha512-l0grYOI8XZga5TajPOiqLrQVCKrdh+k0QSEtS+cpJlNeI8Nu9GOhsVaFyFQuPQfYp02GnhsyHqkPR7P7BTKYAQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>

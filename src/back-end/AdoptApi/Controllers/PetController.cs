@@ -21,12 +21,14 @@ namespace AdoptApi.Controllers;
 public class PetController : ControllerBase
 {
     private PetService _petService;
+    private UserService _userService;
     private ImageUploadService _imageUploadService;
     private FormService _formService;
 
-    public PetController(PetRepository petRepository, PictureRepository pictureRepository, FormRepository formRepository, IConfiguration configuration, IActionContextAccessor actionContextAccessor, IMapper mapper)
+    public PetController(PetRepository petRepository, UserRepository userRepository, PictureRepository pictureRepository, FormRepository formRepository, IConfiguration configuration, IActionContextAccessor actionContextAccessor, IMapper mapper)
     {
         _petService = new PetService(actionContextAccessor, petRepository, mapper);
+        _userService = new UserService(configuration, actionContextAccessor, userRepository, mapper);
         _imageUploadService = new ImageUploadService(configuration, actionContextAccessor, pictureRepository);
         _formService = new FormService(actionContextAccessor, formRepository, petRepository, mapper);
     }
@@ -37,6 +39,22 @@ public class PetController : ControllerBase
     public async Task<ActionResult<PetDto>> AddPet([FromForm] CreatePetRequest request)
     {
         return await _petService.PetRegister(User.Identity.GetUserId(), request, _imageUploadService);
+    }
+
+    [HttpPut]
+    [Route("update/{petId}")]
+    [Authorize(Roles = nameof(UserType.Protector))]
+    public async Task<ActionResult<PetDto?>> UpdatePetProfile(int petId, [FromBody] UpdatePetProfile request)
+    {
+        return await _petService.UpdatePetProfile(User.Identity.GetUserId(), petId, request);
+    }
+    
+    [HttpPut]
+    [Route("status/{petId}")]
+    [Authorize(Roles = nameof(UserType.Protector))]
+    public async Task<PetDto?> UpdatePetStatus(int petId, [FromBody] UpdatePetStatusRequest request)
+    {
+        return await _petService.UpdatePetStatus(User.Identity.GetUserId(), petId, request);
     }
     
     [HttpGet]
@@ -65,7 +83,7 @@ public class PetController : ControllerBase
     [Route("search")]
     public async Task<ActionResult<List<PetDto?>>> SearchPets([FromQuery]SearchPetRequest search)
     {
-        return await _petService.SearchPets(search);
+        return await _petService.SearchPets(User.Identity.GetUserId(), search, _userService);
     }
     
     [HttpGet]

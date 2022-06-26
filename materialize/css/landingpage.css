@@ -2,12 +2,22 @@
     height:616px;
 }
 
+.title-box {
+    margin-bottom: 4em;
+}
+
 .card-landing{
-    padding: 4px;
+    margin-top:4em;
+    margin-left: 3.25em;
+    margin-right: 3.25em;
+    padding: 1em;
+    max-width: 360px;    
     height: 260px;
     background-color: #e7e7e7;
-    border-radius: 16px;
-    cursor: pointer;
+    border-radius: 16px;    
+    align-items: center;
+    box-sizing: initial;
+    text-align: left;
 }
 .card-landing:hover{
     border: 1px solid rgb(196, 196, 196);

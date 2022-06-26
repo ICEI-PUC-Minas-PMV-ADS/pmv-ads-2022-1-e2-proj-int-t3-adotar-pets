@@ -40,7 +40,7 @@ builder.Services.AddDbContext<Context>(optionsBuilder =>
         .AddEnvironmentVariables()
         .Build();
     var connectionString = configurationBuilder.GetConnectionString("AdoptDatabase");
-    optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+    optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString), mysqlOptions => mysqlOptions.UseNetTopologySuite());
     optionsBuilder.AddInterceptors(new SoftDeletableEntityInterceptor());
 });
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

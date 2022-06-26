@@ -1,0 +1,10 @@
+.input-field > label {
+    color: #444 !important;
+    opacity: 100%;
+}
+
+.input-branco{
+    background-color: white !important;
+    color: #444 !important;
+}
+

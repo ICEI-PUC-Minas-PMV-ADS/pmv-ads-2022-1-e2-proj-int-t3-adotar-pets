@@ -52,5 +52,10 @@ public class UserRepository
         await _context.SaveChangesAsync();
         return user;
     }
+
+    public async Task<List<User>> GetRegisteredProtector()
+    {
+        return await _context.Users.Include(nameof(Address)).Include(nameof(Document)).Include(nameof(Picture)).Where(u => u.IsActive == true && u.Type == UserType.Protector).ToListAsync();
+    }
 }
 

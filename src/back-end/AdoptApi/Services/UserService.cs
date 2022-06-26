@@ -10,6 +10,7 @@ using AdoptApi.Services.Dtos;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using NetTopologySuite.Geometries;
 using Newtonsoft.Json;
 
 namespace AdoptApi.Services;
@@ -54,8 +55,9 @@ public class UserService
             CepAbertoDto cepAbertoDto = JsonConvert.DeserializeObject<CepAbertoDto>(responseBody);
             address.City = cepAbertoDto.cidade.nome;
             address.Name = cepAbertoDto.logradouro;
-            address.Latitude = float.Parse(cepAbertoDto.latitude);
-            address.Longitude = float.Parse(cepAbertoDto.longitude);
+            address.Latitude = double.Parse(cepAbertoDto.latitude);
+            address.Longitude = double.Parse(cepAbertoDto.longitude);
+            address.Location = new Point(address.Longitude, address.Latitude) {SRID = 4326};
         }
         catch (JsonSerializationException)
         {
@@ -154,6 +156,19 @@ public class UserService
         }
         var createdUser = await _userRepository.CreateUser(user);
         return GetUserDto(createdUser);
+    }
+
+    public async Task<User?> GetUser(int userId)
+    {
+        try
+        {
+            var user = await _userRepository.GetUserById(userId);
+            return user;
+        } catch(InvalidOperationException)
+        {
+            _modelState.AddModelError("User","Usuário não encontrado.");
+            return null;
+        }
     }
     
     public async Task<UserDto?> GetInfo(int userId)
@@ -283,4 +298,11 @@ public class UserService
             return null;
         }
     }
+    public async Task<List<UserDto>> protectorList()
+    {
+        var protectors = await _userRepository.GetRegisteredProtector();
+        return _mapper.Map<List<User>, List<UserDto>>(protectors);
+    }
+
+
 }

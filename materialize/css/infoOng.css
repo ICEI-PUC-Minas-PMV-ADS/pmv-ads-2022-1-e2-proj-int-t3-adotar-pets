@@ -1,6 +1,5 @@
 .cardinfoOng{
     padding: 15px ;
-    border: 1px solid #d4d4d4;
     border-radius: 8px;
     background-color: #f2f2f2;
 }
@@ -9,3 +8,11 @@
     width: 280px ;
     height:280px !important ;
 }
+
+.resizeImgCard img{
+    height:280px;
+    width: 280px;
+    background-position: center;
+    background-size: cover; 
+  }
+
