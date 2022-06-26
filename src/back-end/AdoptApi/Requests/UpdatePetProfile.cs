@@ -19,6 +19,7 @@ public class UpdatePetProfile : IValidatableObject
     public int MinScore { get; set; }
     [Required(ErrorMessage = "A descrição do animal é obrigatória. Conte um pouco sobre o pet para que o adotante saiba um pouco mais sobre ele."), StringLength(400, MinimumLength = 20, ErrorMessage = "O campo de descrição deve possuir no mínimo 20 caracteres e no máximo 400 caracteres")]
     public string Description { get; set; }
+    [Required(ErrorMessage = "O status de adoção do animal é obrigatório.")]
     public bool IsActive { get; set; }
     
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)

@@ -121,23 +121,6 @@ public class PetService
         var pets = await _petRepository.GetFilteredPets(user, search);
         return _mapper.Map<List<Pet>, List<PetDto?>>(pets);
     }
-
-    public async Task<PetDto?> UpdatePetStatus(int userId, int petId, UpdatePetStatusRequest request)
-    {
-        try
-        {
-            var pet = await  _petRepository.GetPetByIdAndUserId(petId, userId);
-            pet.IsActive = request.IsActive;
-            
-            pet = await _petRepository.UpdatePet(pet);
-            return GetPetDto(pet);
-        }
-        catch (InvalidOperationException)
-        {
-            _modelState.AddModelError("Pet", "Pet não encontrado.");
-            return null;
-        }
-    }
     
     public async Task<PetDto?> UpdatePetProfile(int userId, int petId, UpdatePetProfile request)
     {
