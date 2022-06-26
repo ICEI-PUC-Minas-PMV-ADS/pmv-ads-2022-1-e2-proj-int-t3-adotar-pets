@@ -48,11 +48,3 @@ Os testes de controle de acesso serão realizados com o objetivo de avaliar o co
 |Objetivos do Teste   |Verificar o fluxo de acesso dos usuários a plataforma.|
 |Passos               |1: Realizar login com usuário(adotante);<br>2:	Acessar a área de usuário adotante;<br>3: Realizar alterações nos dados;<br>4:	Verificar se as alterações foram validadas;<br>5:	Fazer logout;<br>6:	Verificar se o usuário não possui mais acesso a área restrita;<br>7:	Realizar login com usuário ONG;<br> 8:	Acessar a área de usuário adotante;<br>9: Realizar alterações nos dados<br>10: Verificar se as alterações foram validadas;<br>11: Fazer logout<br>12: Verificar se o usuário não possui mais acesso a área restrita;|
 |Critérios de êxito   |1: Realizar o login e ter acesso a área restrita de usuário;<br>2:	Permitir o acesso e alterações de campos dos usuários validados;<br>3:	Restringir o acesso a área restrita de usuários não permitidos (não logados)|
-
-|Caso de Teste        |CT-05 - Modificação da senha                     |
-|---------------------|----------------------------------------------------------------|
-|Requesitos atendidos |RF - 012: O site deverá fornecer um formulário de recuperação de senha.| 
-|Objetivos do Teste   |Permitir a alteração de senha por parte dos usuários.|
-|Passos               |1: Na página de login, acessar o campo de esqueci a senha;<br>2:	Preencher os campos pedidos para o envio do formulário de recuperação de senha;<br>3:	No email cadastrado do usuário, acessar o link de recuperação de senha;<br>4:	Preencher os campos de alteração;<br>5:	Verificar se houve alteração da senha ao realizar o login com a nova senha;|
-|Critérios de êxito   |1:	Acesso a página de formulário de recuperação de senha;<br>2:	Envio de email com link para página de recuperação de senha do usuário que fez a requisição;<br>3:	Validação do usuário com a nova senha.|
-

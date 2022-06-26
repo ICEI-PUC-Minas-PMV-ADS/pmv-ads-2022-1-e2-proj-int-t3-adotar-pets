@@ -14,6 +14,51 @@ O score dos testes seguem a tabela mostrada no item anterior, assim foram realiz
 
 ## Testes de Funcionalidade:
 
+### CT - 01:
+
+O acesso a plataforma é realizado pela página de login, e será feita com o usuário, de Protetor de teste:
+
+![IMAGEM 1](img/fluxoCadastroPet1.PNG)
+
+Na aba de navegação, após o login de usuário protetor, ficará disponível os botões de cadastrar novo pet e gerenciar pets, essas serão responsáveis pelo fluxo de pets da plataforma:
+
+![IMAGEM 2](img/fluxoCadastroPet2.PNG)
+
+Ao acessar a funcionalidade de cadastro o usuário entra na tela de cadastro, preenchendo os campos:
+
+![IMAGEM 3](img/fluxoCadastroPet3.PNG)
+![IMAGEM 4](img/fluxoCadastroPet4.PNG)
+Há uma aba onde a ONG poderá citar os casos especiais dos animais, caso tenham, conforme abaixo
+![IMAGEM 5](img/fluxoCadastroPet5.PNG)
+
+Ao salvar, o usuário é redirecionado para a tela de gerenciamento dos Pets cadastrados em sua ONG:
+
+![IMAGEM 6](img/fluxoCadastroPet6.PNG)
+
+...
+
+### CT - 02
+
+Com o acesso de usuário adotante, pode-se realizar uma busca por pets nos botões na barra de navegação ou na Landing page:
+
+![IMAGEM 7](img/fluxoAdocao1.PNG)
+
+O usuário pode acessar todos os pets cadastrados na plataforma ou realizar buscas por: Tipo (Gato ou Cachorro), Porte (Pequeno, Médio ou Grande), Idade (Filhote, Adulto ou Idoso) e Gênero (Macho ou Femia).
+
+![IMAGEM 8](img/fluxoAdocao2.PNG)
+
+Acessando o perfil do pet cadastrado no caso de teste anterior, o usuário pode realizar o procedimento de adoção, no botão de "Quero adotar".
+
+![IMAGEM 9](img/fluxoAdocao3.PNG)
+
+O usuário deve responder o questionário para dar prosseguimento ao processo de adoção do pet.
+
+![IMAGEM 10](img/fluxoAdocao4.PNG)
+
+Ao final do questionário o usuário recebe uma nota que o processo foi encaminhado a ONG.
+
+![IMAGEM 11](img/fluxoAdocao5.PNG)
+
 ## Testes de controle de acesso:
 
 ### CT - 03:
@@ -117,3 +162,6 @@ O Logout é feito por meio do botão na tela superior clicando em sair:
 ![IMAGEM 15](img/CT-Imagem-15.png)
 
 Ao clicar em sair o usuário é reenviado para a landing page, o teste foi realizado com a ong teste cadastrada, obtendo os mesmos resultados, assim podemos classificar esse teste com um score 3.
+
+### CT - 05:
+

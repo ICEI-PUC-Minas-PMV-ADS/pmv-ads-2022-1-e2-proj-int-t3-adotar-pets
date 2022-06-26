@@ -36,133 +36,75 @@
 
         <div class="container flex-col center-center">
 
-            <div >
+            <div>
                 <div class="col 12 center mb-24">
                     <span class="fs-52 white-text">Encontre um amiguinho</span>
                 </div>
-
-                <div class="row">
-
-
-
-                    <form class="col s12 m12 l3 fs-12 mb-16 textcolor-primary">
+                
+                <form class="row" data-search method="get" action="busca.html">
+                    <div class="col s12 m12 l3 fs-12 mb-16 textcolor-primary">
                         <div class="input-field col s12 input-select input-busca">
-                            <select>
-                                <option value="" disabled selected>Tipo</option>
+                            <select name="type">
+                                <option value="">Tipo</option>
                                 <option value="0">Cachorro</option>
                                 <option value="1">Gato</option>
                             </select>
                         </div>
-                    </form>
-
-                    <form class="col s12 m12 l3 fs-12 mb-16">
+                    </div>
+                    <div class="col s12 m12 l3 fs-12 mb-16">
                         <div class="input-field col s12 input-select input-busca">
-                            <select>
-                                <option value="" disabled selected>Porte</option>
+                            <select name="size">
+                                <option value="">Porte</option>
                                 <option value="0">Pequeno</option>
                                 <option value="1">Médio</option>  
                                 <option value="2">Grande</option>
-                                
-                                
                             </select>
                         </div>
-                    </form>
-
-                    <form class="col s12 m12 l2 fs-12 mb-16">
-                        <div class="input-field col s12 input-select input-busca">
-                            <select>
-                                <option value="" disabled selected>Idade</option>
-                                <option value="1">0 a 1 ano</option>
-                                <option value="2">1 a 7 anos</option>
-                                <option value="3">+ de 7 anos</option>
-                              
-
-                            </select>
-                        </div>
-                    </form>
-
-                    <form class="col s12 m12 l2 fs-12 mb-16">
-                        <div class="input-field col s12 input-select input-busca">
-                            <select>
-                                <option value="" disabled selected>Gênero</option>
-                                <option value="1">Macho</option>
-                                <option value="0">Fêmea</option>
-                               
-                            </select>
-                        </div>
-                    </form>
-
-                    <div class="col s12 m12 l2">
-                        <a class="col s12 m12 l12 waves-effect amber darken-0 btn-large fs-btn">Buscar</a>
                     </div>
 
+                    <div class="col s12 m12 l2 fs-12 mb-16">
+                        <div class="input-field col s12 input-select input-busca">
+                            <select name="age">
+                                <option value="">Idade</option>
+                                <option value="0">0 a 1 ano</option>
+                                <option value="1">1 a 7 anos</option>
+                                <option value="2">+ de 7 anos</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col s12 m12 l2 fs-12 mb-16">
+                        <div class="input-field col s12 input-select input-busca">
+                            <select name="gender">
+                                <option value="">Gênero</option>
+                                <option value="1">Macho</option>
+                                <option value="0">Fêmea</option>
+                            </select>
+                        </div>
+                    </div>
 
-                </div>
+                    <div class="col s12 m12 l2">
+                        <button class="col s12 m12 l12 waves-effect amber darken-0 btn-large fs-btn" id="seachButton" type="submit">Buscar</button>
+                    </div>
+                </form>
+                
             </div>
         </div>
 
     </div>
 
     <div class="container">
-
-        <div class="row mt-16">
-
-<<<<<<< HEAD
-            <div class="col s12 m6 l4" id="petCards">
-                
-=======
-            <div class=" col s12 m6 l4">
-                <div class="card-pet flex-row center-center">
-                    <div class="col s6 flex-col center-start info"> 
-                        <div id="iconePet">
-                            <img src="/materialize/img/dog-2.svg" id="foto-dog" alt="">
-                            <img src="/materialize/img/cat-1.svg" id="foto-cat" alt="">
-                        </div>
-                        <div>
-                            <span class="fs-20-b textcolor-secondary" id="nome-pet">Nome do pet</span>
-                        </div>
-                        <div class="textcolor-secondary mb-8">
-                            <span id="birthDate-pet" class="fs-14">Idade</span>
-                            <span class="fs-14">|</span>
-                            <span id="gender-pet" class="fs-14">Gênero</span>
-                   
-                            
-                        </div>
-                        <div>
-                            <button  id="btn-perfil" class="waves-effect amber darken-0 0 btn-small fs-btn btn-borda fs-14 ">Ver Perfil</button>
-                        </div>
-                    </div>
-                    <div class="col s6 m6 l6 resizeImg ">
-                        <img id="output_image1" width="100%" height="100%">
-                    </div>
-                </div>
->>>>>>> d92542889587f9589b82435850f6b64b3688795a
-            </div>
+        <div class="row mt-16" id="petCards">
 
         </div>
-           
-            
     </div>
-        
-
-
-
-    </div>
-
-
+</div>
 
     <!-- Footer -->
     <div data-partial="footer"></div>
     <!-- //Footer -->
-    <script>
-         document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems,);
-      });
-    </script>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <script type="module" src="assets/js/layout.js"></script>
-    <script type="module" src="assets/js/pages/busca.js"></script>
+    <script type="module" src="assets/js/pages/search.js"></script>
 
 </body>
 
