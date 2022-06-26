@@ -207,7 +207,6 @@ public class UserService
                 {
                     return null;
                 }
-                user.Address.Name = Utils.FieldUtils.UpdateFieldOrUseDefault(addressEditDto.Name, user.Address.Name);
                 user.Address.Number = Utils.FieldUtils.UpdateFieldOrUseDefault(addressEditDto.Number, user.Address.Number);
                 user.Address.Complement = Utils.FieldUtils.UpdateFieldOrUseDefault(addressEditDto.Complement, user.Address.Complement);
             }
