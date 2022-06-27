@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     await redirectIfRoleIsNot('adopter', 'index.html');
     const urlParams = new URLSearchParams(window.location.search);
     const petId = urlParams.get('id');
+    const cardContainer = document.getElementById('profile-pet');
     try {
         const pet = await api.petInfo(petId);
-        console.log(pet);
         const card = document.createElement('div');
         card.classList.add('col', 's12', 'cardPerfil');
         card.innerHTML = `
