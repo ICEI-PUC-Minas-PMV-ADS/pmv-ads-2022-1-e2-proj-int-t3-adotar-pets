@@ -55,6 +55,11 @@ public class PetRepository
     {
         return await _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).Where(p => p.IsActive == true && p.Id == petId).SingleAsync();
     }
+    
+    public async Task<Pet> GetAvailablePet(int userId, int petId)
+    {
+        return await _context.Pets.Include(nameof(Pet.Pictures)).Include(nameof(Pet.Needs)).Where(p => p.IsActive == true && p.Id == petId).SingleAsync();
+    }
 
     public async Task<List<Pet>> GetRegisteredPets(int userId)
     {

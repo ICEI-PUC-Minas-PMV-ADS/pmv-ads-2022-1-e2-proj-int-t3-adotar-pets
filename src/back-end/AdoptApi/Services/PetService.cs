@@ -27,11 +27,11 @@ public class PetService
         return _mapper.Map<Pet, PetDto>(pet);
     }
 
-    public async Task<PetDto?> GetPetInfo(int petId)
+    public async Task<PetDto?> GetPetInfo(int protectorId, int petId)
     {
         try
         {
-            var pet = await _petRepository.GetPetById(petId);
+            var pet = await _petRepository.GetPetByIdAndUserId(petId, protectorId);
             return GetPetDto(pet);
         }
         catch (InvalidOperationException)
