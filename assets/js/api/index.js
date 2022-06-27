@@ -153,6 +153,10 @@ export class Api {
         return await this.#get(`form/${id}`, true);
     }
 
+    async getPetEditInfo(petId) {
+        return this.#get(`pet/update/${petId}`, true);
+    }
+
     async editPet(petId, data = {}) {
         return this.#put(`pet/update/${petId}`, data, true);
     }
