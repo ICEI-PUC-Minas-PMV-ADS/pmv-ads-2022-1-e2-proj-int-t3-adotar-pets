@@ -41,28 +41,23 @@
 
     <div class="container">
         <span class="fs-14-b  textcolor-secondary">Pet:</span>
-        <span class="fs-14 pd-8">Nome exemplo</span>
+        <span class="fs-14 pd-8" id="pet">Nome exemplo</span>
 
         <span class="fs-14-b textcolor-secondary">Nome:</span>
-        <span class="fs-14 pd-8">Nome exemplo</span>
+        <span class="fs-14 pd-8" id="user">Nome exemplo</span>
 
         <span class="fs-14-b  textcolor-secondary">Email:</span>
-        <span class="fs-14 pd-8">email@email.com</span>
-
-        <span class="fs-14-b  textcolor-secondary">CPF:</span>
-        <span class="fs-14 pd-8">000.000.000-00</span>
+        <span class="fs-14 pd-8" id="email">email@email.com</span>
 
         <span class="fs-14-b  textcolor-secondary">Endereço:</span>
-        <span class="fs-14 pd-8">Rua do Fulano, 00, Bairro - Cidade</span>
+        <span class="fs-14 pd-8" id="address">Rua do Fulano, 00, Bairro - Cidade</span>
 
-
+        <span class="fs-14-b  textcolor-secondary">Pontuação:</span>
+        <span class="fs-14 pd-8" id="totalscore">100</span>
+        
         <div class="col s12">
             <div class="borda">
-                <div class="card-resposta">
-                    <span class="fs-20-b  textcolor-secondary">1 - Você mora em qual tipo de residência?</span><br>
-                    <span class="fs-14">R: Apartamento</span><br>
-                    <span class="fs-20-b  textcolor-secondary">2 - Você mora em qual tipo de residência?</span><br>
-                    <span class="fs-14">R: Apartamento</span><br>
+                <div class="card-resposta" id="answers">
                 </div>
             </div>
         </div>
@@ -77,7 +72,7 @@
 
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <script type="module" src="assets/js/layout.js"></script>
-
+    <script type="module" src="assets/js/pages/answers.js"></script>
 </body>
 
 </html>

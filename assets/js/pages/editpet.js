@@ -1,5 +1,5 @@
 import {redirectIfRoleIsNot, redirectTo} from '../helpers/redirect.js';
-import {getPetAge, getPetGender, getPetSize, petAges, getPetAgeInSeconds} from '../helpers/pet.js';
+import {petAges, getPetAgeInSeconds} from '../helpers/pet.js';
 import {selectItem} from '../helpers/input.js';
 import { api } from '../api/client.js';
 
