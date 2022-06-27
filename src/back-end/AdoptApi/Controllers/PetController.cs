@@ -40,6 +40,14 @@ public class PetController : ControllerBase
     {
         return await _petService.PetRegister(User.Identity.GetUserId(), request, _imageUploadService);
     }
+    
+    [HttpGet]
+    [Route("update/{petId}")]
+    [Authorize(Roles = nameof(UserType.Protector))]
+    public async Task<ActionResult<PetDto?>> GetPetInfo(int petId)
+    {
+        return await _petService.GetPetInfo(User.Identity.GetUserId(), petId);
+    }
 
     [HttpPut]
     [Route("update/{petId}")]
