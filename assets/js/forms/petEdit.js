@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         ageSelect.insertAdjacentElement('beforeend', option);
     });
     try {
-        const pet = await api.petInfo(petId);
+        const pet = await api.getPetEditInfo(petId);
         document.querySelector('input[name=name]').value = pet.name;
         selectItem(document.querySelector('select[name=birthdate]'), String(getPetAgeInSeconds(pet.birthDate)));
         selectItem(document.querySelector('select[name=type]'), String(pet.type));
