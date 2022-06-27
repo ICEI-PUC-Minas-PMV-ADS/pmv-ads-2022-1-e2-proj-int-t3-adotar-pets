@@ -41,7 +41,9 @@ O perfil do pet é acessado por um usuário nas suas buscas, assim ele tem acess
 Após podemos realizar alterações no pet cadastrado e verificarmos essas alterações no seu perfil
 
 ![IMAGEM 8](img/fluxoCadastroPet8.PNG)
-Imagem 9
+![IMAGEM 9](img/fluxoCadastroPet9.PNG)
+
+Dessa forma, podemos verificar que o cadastro e a edição dos pets estão cumprindo todas as etapas do teste sem problemas, assim adquirindo o status de teste 3. 
 ### CT - 02
 
 Com o acesso de usuário adotante, pode-se realizar uma busca por pets nos botões na barra de navegação ou na Landing page:
