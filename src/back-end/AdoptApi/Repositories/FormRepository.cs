@@ -77,7 +77,7 @@ public class FormRepository
     
     public async Task<Form> GetFormByIdAndProtector(int id, int protectorId)
     {
-        return await _context.Forms.Include(nameof(User)).Include("User.Document").Include("User.Address").Include("User.Picture").Include(nameof(Pet)).Include("Answers.Alternative").Where(f => f.Id == id && f.Pet.UserId == protectorId && f.IsFinished == true).SingleAsync();
+        return await _context.Forms.Include(nameof(User)).Include("User.Document").Include("User.Address").Include("User.Picture").Include(nameof(Pet)).Include("Answers.Alternative").Include("Answers.Alternative.Question").Where(f => f.Id == id && f.Pet.UserId == protectorId && f.IsFinished == true).SingleAsync();
     }
 
 }

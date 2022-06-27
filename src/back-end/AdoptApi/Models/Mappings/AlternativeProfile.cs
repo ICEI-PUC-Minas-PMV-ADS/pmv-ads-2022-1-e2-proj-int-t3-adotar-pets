@@ -8,5 +8,6 @@ public class AlternativeProfile : Profile
     public AlternativeProfile()
     {
         CreateMap<Alternative, AlternativeDto>();
+        CreateMap<Alternative, AlternativeProtectorDto>();
     }
 }
