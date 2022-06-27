@@ -27,7 +27,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 | ID     | Descrição do Requisito                                                                                                                                                                                                                | Prioridade |
 |--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
-| RF-001 | O site deverá possuir uma landing page, links para autenticação e busca, cartões informativos e outras ferramentas básicas para a navegação na plataforma.                                                               | ALTA       | 
+| RF-001 | O site deverá possuir uma landing page, com campoS de busca, links para autenticação, cartões informativos e outras ferramentas básicas para a navegação na plataforma.                                                               | ALTA       | 
 | RF-002 | O site deverá fornecer um formulário de cadastro para Pessoa Física (adotantes) Pessoa Jurídica (ONGs / protetores).                                                                                                                  | ALTA       |
 | RF-003 | O site deverá fornecer um formulário de login único para todas as entidades de usuário.                                                                                                                                               | ALTA       |
 | RF-004 | O site deverá fornecer um link de logout para todos os usuários autenticados.                                                                                                                                                         | ALTA       |
@@ -37,14 +37,12 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-008 | O site deverá fornecer um questionário de adoção dinâmico, com sistema interno de pontuação (score), que será respondido por adotantes e direcionados, por e-mail, ao responsável pelo animal se a pontuação mínima for satisfatória. | ALTA       |
 | RF-009 | O site deverá fornecer às ONGs e protetores a possibilidade de gerenciar os dados de um animal cadastrado, bem como seu status de disponibilidade para adoção.                                                                        | MÉDIA      |
 | RF-010 | O site deverá fornecer às ONGs e protetores uma listagem de todos os pedidos de adoção para um animal específico, mesmo aqueles que ficaram abaixo do score mínimo para notificação direta.                                           | MÉDIA      |
-| RF-011 | O site deverá fornecer um formulário de edição de perfil para todas as entidades de usuário.                                                                                                                                          | MÉDIA      |
-| RF-012 | O site deverá fornecer um formulário de recuperação de senha.                                                                                                                                                                         | MÉDIA      |
-| RF-013 | O site deverá possuir uma página padrão com informações de endereço para doação de produtos/mantimentos.                                                                          | BAIXA      |
-| RF-014 | O site deverá possuir uma página com uma base de conhecimentos (FAQs) para adotantes e ONGs.                                                                                                                                          | BAIXA      |
-| RF-015 | O site deverá possuir uma página, referenciada no rodapé, de informações sobre a plataforma e seus serviços prestados (Sobre Nós).                                                                                                    | BAIXA      |
-| RF-016 | O site deverá possuir uma página, referenciada no rodapé, de contato com o setor administrativo da plataforma.                                                                                                                        | BAIXA      |
-| RF-017 | O site deverá possuir uma página, referenciada no rodapé, de Termos de Uso da plataforma.                                                                                                                                             | BAIXA      |
-| RF-018 | O site deverá possuir uma página, referenciada no rodapé, de Política de Privacidade.                                                                                                                                                 | BAIXA      |
+| RF-011 | O site deverá fornecer um formulário de edição de perfil para todas as entidades de usuário.                                                                                                                                          | MÉDIA                                                                                                                                                                              |      |
+| RF-012 | O site deverá possuir uma página padrão com informações de endereço para doação de produtos/mantimentos.                                                                          | BAIXA      |
+| RF-013 | O site deverá possuir uma página, referenciada no rodapé, de informações sobre a plataforma e seus serviços prestados (Sobre Nós).                                                                                                    | BAIXA      |
+| RF-014 | O site deverá possuir uma página, referenciada no rodapé, de contato com o setor administrativo da plataforma.                                                                                                                        | BAIXA      |
+| RF-015 | O site deverá possuir uma página, referenciada no rodapé, de Termos de Uso da plataforma.                                                                                                                                             | BAIXA      |
+| RF-016 | O site deverá possuir uma página, referenciada no rodapé, de Política de Privacidade.                                                                                                                                                 | BAIXA      |
 
 
 ### Requisitos não Funcionais
@@ -54,7 +52,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RNF-01 | O site deverá atender os requisitos de compatibilidade com o navegador Google Chrome.                 | ALTA       | 
 | RNF-02 | O site deverá utilizar banco de dados relacional (MySQL).                                             | ALTA       | 
 | RNF-03 | Escolher um serviço de hospedagem de boa qualidade para otimizar e aumentar a performance do website. | ALTA       |
-| RNF-04 | Uso de Design Responsivo com suporte aos padrões sm, md e lg do Bootstrap.                            | MÉDIA      |
+
 
 ## Restrições
 

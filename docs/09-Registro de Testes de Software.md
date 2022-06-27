@@ -4,11 +4,10 @@ Foram realizados os testes de acordo com as tabelas mostradas no item 8, testes 
 
 | Código do Teste | Descrição | Score |
 |---------------------|-----------------------|-------------|
-| CT-01 | Fluxo de cadastro de animais | Status |
-| CT-02 | Fluxo de adoção do usuário adotante | Status |
+| CT-01 | Fluxo de cadastro de animais | 3 |
+| CT-02 | Fluxo de adoção do usuário adotante | 3 |
 | CT-03 | Cadastro de novos usuários na plataforma | 3 |
 | CT-04 | Login de usuários | 3 |
-| CT-05 | Modificação da senha | Status |
 
 O score dos testes seguem a tabela mostrada no item anterior, assim foram realizado os testes da seguinte forma.
 
@@ -35,8 +34,16 @@ Ao salvar, o usuário é redirecionado para a tela de gerenciamento dos Pets cad
 
 ![IMAGEM 6](img/fluxoCadastroPet6.PNG)
 
-...
+O perfil do pet é acessado por um usuário nas suas buscas, assim ele tem acesso ao seu perfil:
 
+![IMAGEM 7](img/fluxoCadastroPet7.PNG)
+
+Após podemos realizar alterações no pet cadastrado e verificarmos essas alterações no seu perfil
+
+![IMAGEM 8](img/fluxoCadastroPet8.PNG)
+![IMAGEM 9](img/fluxoCadastroPet9.PNG)
+
+Dessa forma, podemos verificar que o cadastro e a edição dos pets estão cumprindo todas as etapas do teste sem problemas, assim adquirindo o status de teste 3. 
 ### CT - 02
 
 Com o acesso de usuário adotante, pode-se realizar uma busca por pets nos botões na barra de navegação ou na Landing page:
@@ -58,6 +65,12 @@ O usuário deve responder o questionário para dar prosseguimento ao processo de
 Ao final do questionário o usuário recebe uma nota que o processo foi encaminhado a ONG.
 
 ![IMAGEM 11](img/fluxoAdocao5.PNG)
+
+Após o preenchimento do formulário de adoção, aparecerá na aba de gerenciamento da ONG o histórico do formulário preenchido pelo usuário e sua pontuação.
+
+![IMAGEM 12](img/fluxoAdocao6.PNG)
+
+Conforme visto o teste cumpre todos os requisitos de aceitação, sem apresentar problemas, assim tendo um status de 3.
 
 ## Testes de controle de acesso:
 
@@ -162,6 +175,3 @@ O Logout é feito por meio do botão na tela superior clicando em sair:
 ![IMAGEM 15](img/CT-Imagem-15.png)
 
 Ao clicar em sair o usuário é reenviado para a landing page, o teste foi realizado com a ong teste cadastrada, obtendo os mesmos resultados, assim podemos classificar esse teste com um score 3.
-
-### CT - 05:
-

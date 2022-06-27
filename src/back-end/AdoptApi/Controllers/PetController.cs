@@ -49,14 +49,6 @@ public class PetController : ControllerBase
         return await _petService.UpdatePetProfile(User.Identity.GetUserId(), petId, request);
     }
     
-    [HttpPut]
-    [Route("status/{petId}")]
-    [Authorize(Roles = nameof(UserType.Protector))]
-    public async Task<PetDto?> UpdatePetStatus(int petId, [FromBody] UpdatePetStatusRequest request)
-    {
-        return await _petService.UpdatePetStatus(User.Identity.GetUserId(), petId, request);
-    }
-    
     [HttpGet]
     [Route("needs")]
     public async Task<ActionResult<List<NeedDto>>> ListNeeds()
