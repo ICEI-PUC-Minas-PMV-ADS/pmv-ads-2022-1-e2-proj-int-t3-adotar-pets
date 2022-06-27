@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('totalscore').innerText = form.totalScore;
         form.answers.forEach((answer, i) => {
             answersContainer.insertAdjacentHTML('beforeend', `
-            <span class="fs-20-b  textcolor-secondary">${i + 1} - ${answer.question.title}</span><br>
-            <span class="fs-14">R: ${answer.alternative.title}</span><br>
+            <span class="fs-20-b  textcolor-secondary">${i + 1} - ${answer.alternative.question.title}</span><br>
+            <span class="fs-14">R: ${answer.alternative.title}${answer.penalties > 0 ? ` <i>(-${answer.penalties} pts)</i>` : ''}</span><br>
             `)
         })
     } catch (e) {
