@@ -148,5 +148,9 @@ export class Api {
     async listAdoptionRequests(petId) {
         return this.#get(`pet/forms/${petId}`, true);
     }
+
+    async formInfo(id) {
+        return await this.#get(`form/${id}`, true);
+    }
     
 }
